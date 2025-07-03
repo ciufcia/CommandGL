@@ -1,0 +1,74 @@
+\doxysection{framework.\+hpp}
+\hypertarget{framework_8hpp_source}{}\label{framework_8hpp_source}\index{CommandGL/include/framework.hpp@{CommandGL/include/framework.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGL\_FRAMEWORK\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGL\_FRAMEWORK\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}global\_memory.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}console.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}filters.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}drawable.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}timing.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }cgl}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1Framework}{Framework}}}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcgl_1_1Framework_a74f775a1367c5f0611b3e166c0166f00}{initialize}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcgl_1_1Framework_a1459d3f47302231d729d45125c12accc}{clearDisplay}}(\mbox{\hyperlink{classcgl_1_1Color}{Color}}\ color\ =\ \{0,\ 0,\ 0,\ 255\});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcgl_1_1Framework_a3a352845a3525e5b24772119a02792bb}{draw}}(std::shared\_ptr<Drawable>\ drawable);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcgl_1_1Framework_acdef5741356bd589fb2f146057357a7b}{update}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1EventManager}{EventManager}}\ \mbox{\hyperlink{classcgl_1_1Framework_a623d8d4ca4c8b159081841813146c075}{eventManager}}\ \{\ m\_console\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Clock}{Clock}}\ \mbox{\hyperlink{classcgl_1_1Framework_a30f9d254ad9b28af89003c015016b7f3}{clock}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcgl_1_1Framework_aedfa55a31d0300060413599723e85d1a}{scaleOnBaseSizeDeviation}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \mbox{\hyperlink{classcgl_1_1Framework_a4b851f5c3533d8d0dbfb7a54e621e00a}{baseConsoleSize}}\ \{\ 1u,\ 1u\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ populateGlobalMemory()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initializeBuffers();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initializeFilterPipelines();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeDrawableBuffer(BlendMode\ blendMode);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ runScreenFilterPipeline();}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ runCharacterFilterPipeline();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeCharacterBuffer();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleResizing(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \&newSize);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ scaleToScreen(\mbox{\hyperlink{classcgl_1_1Transform}{Transform}}\ \&transform);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1ScreenBuffer}{ScreenBuffer}}\ m\_screenBuffer\ \{\};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ CharacterBuffer\ m\_characterBuffer\ \{\};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ Console\ m\_console\ \{\};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ FilterPipeline\ m\_screenFilterPipeline\ \{\};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ FilterPipeline\ m\_characterFilterPipeline\ \{\};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ std::vector<filter\_pass\_data::PixelPass>\ m\_drawableBuffer\ \{\};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ std::vector<std::pair<std::shared\_ptr<Drawable>,\ Transform>>\ m\_drawQueue\ \{\};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ Vector2<f32>\ m\_screenScaleFactor\ \{\ 1.f,\ 1.f\ \};}
+\DoxyCodeLine{00125\ \ \ \ \ \};}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGL\_FRAMEWORK\_HPP}}
+
+\end{DoxyCode}

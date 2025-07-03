@@ -1,0 +1,52 @@
+\doxysection{console\+\_\+font.\+hpp}
+\hypertarget{console__font_8hpp_source}{}\label{console__font_8hpp_source}\index{CommandGL/include/console\_font.hpp@{CommandGL/include/console\_font.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGL\_CONSOLE\_FONT\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGL\_CONSOLE\_FONT\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}vector2.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}numeric\_types.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }cgl}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{enum\ class}\ ConsoleFontWeight\ :\ u32\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Thin\ =\ 100,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ ExtraLight\ =\ 200,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Light\ =\ 300,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Normal\ =\ 400,\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Medium\ =\ 500,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ SemiBold\ =\ 600,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Bold\ =\ 700,\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ExtraBold\ =\ 800,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Black\ =\ 900}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{enum\ class}\ ConsoleFontFamily\ :\ u32\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ DontCare\ =\ 0x00,\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Roman\ \ \ \ =\ 0x10,\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ Swiss\ \ \ \ =\ 0x20,\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ Modern\ \ \ =\ 0x30,\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ Script\ \ \ =\ 0x40,\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Decorative\ =\ 0x50\ }
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1ConsoleFont}{ConsoleFont}}}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1ConsoleFont_adb16a81441943c5bd17632400a81078b}{ConsoleFont}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a488a64dc89b19ee49f19d3737d1fb8a6}{ConsoleFont}}(std::string\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_ab599aa161002f554652999ce00c1e720}{name}},\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a19f994708b0bd44862f40723abd465a7}{size}},\ ConsoleFontWeight\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a420a7e7fe19ee9fb2bab0f421579a5d2}{weight}}\ =\ ConsoleFontWeight::Normal,\ ConsoleFontFamily\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a5a51a6f5950e9a80a29d9d5dc53bd132}{family}}\ =\ ConsoleFontFamily::DontCare)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_ab599aa161002f554652999ce00c1e720}{name}}(std::move(\mbox{\hyperlink{classcgl_1_1ConsoleFont_ab599aa161002f554652999ce00c1e720}{name}})),\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a19f994708b0bd44862f40723abd465a7}{size}}(\mbox{\hyperlink{classcgl_1_1ConsoleFont_a19f994708b0bd44862f40723abd465a7}{size}}),\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a420a7e7fe19ee9fb2bab0f421579a5d2}{weight}}(\mbox{\hyperlink{classcgl_1_1ConsoleFont_a420a7e7fe19ee9fb2bab0f421579a5d2}{weight}}),\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a5a51a6f5950e9a80a29d9d5dc53bd132}{family}}(\mbox{\hyperlink{classcgl_1_1ConsoleFont_a5a51a6f5950e9a80a29d9d5dc53bd132}{family}})\ \{\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_ab599aa161002f554652999ce00c1e720}{name}}\ =\ \textcolor{stringliteral}{"{}Consolas"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a19f994708b0bd44862f40723abd465a7}{size}}\ =\ \{8,\ 16\};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ ConsoleFontWeight\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a420a7e7fe19ee9fb2bab0f421579a5d2}{weight}}\ =\ ConsoleFontWeight::Normal;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ ConsoleFontFamily\ \mbox{\hyperlink{classcgl_1_1ConsoleFont_a5a51a6f5950e9a80a29d9d5dc53bd132}{family}}\ =\ ConsoleFontFamily::DontCare;}
+\DoxyCodeLine{00079\ \ \ \ \ \};}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGL\_CONSOLE\_FONT\_HPP}}
+
+\end{DoxyCode}

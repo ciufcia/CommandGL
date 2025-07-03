@@ -1,0 +1,38 @@
+\doxysection{character\+\_\+buffer.\+hpp}
+\hypertarget{character__buffer_8hpp_source}{}\label{character__buffer_8hpp_source}\index{CommandGL/include/character\_buffer.hpp@{CommandGL/include/character\_buffer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGL\_CHARACTER\_BUFFER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGL\_CHARACTER\_BUFFER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vector2.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}numeric\_types.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }cgl}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1CharacterBuffer}{CharacterBuffer}}}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1CharacterBuffer}{CharacterBuffer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \&\mbox{\hyperlink{classcgl_1_1CharacterBuffer_ab2831352f52099e7473b0c13f9fa6a44}{getSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcgl_1_1CharacterBuffer_a0a8555589ffeaaf2192b660668579680}{setSize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ \&size);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::wstring\ \&\mbox{\hyperlink{classcgl_1_1CharacterBuffer_a3d37f5567efc96566026545ade757609}{getCharacters}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::wstring\ \&\mbox{\hyperlink{classcgl_1_1CharacterBuffer_a3d37f5567efc96566026545ade757609}{getCharacters}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<u32>}}\ m\_size\ \{\ 0u,\ 0u\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::wstring\ m\_characters;}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGL\_CHARACTER\_BUFFER\_HPP}}
+
+\end{DoxyCode}

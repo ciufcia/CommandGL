@@ -1,0 +1,115 @@
+\doxysection{matrix3.\+hpp}
+\hypertarget{matrix3_8hpp_source}{}\label{matrix3_8hpp_source}\index{CommandGL/include/matrix3.hpp@{CommandGL/include/matrix3.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGL\_MATRIX3\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGL\_MATRIX3\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}vector2.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}numeric\_types.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }cgl}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3}}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3}}(T\ value);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3}}(\textcolor{keyword}{const}\ T\ values[9]);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<T>}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<T>}}\&\ vec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>}}\ Translate(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<T>}}\&\ v);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>}}\ Rotate(T\ radians);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>}}\ Scale(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<T>}}\&\ v);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ T*\ operator[](std::size\_t\ row)\ \{\ \textcolor{keywordflow}{return}\ m[row];\ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T*\ operator[](std::size\_t\ row)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m[row];\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ T\ m[3][3];}
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Matrix3}{Matrix3<T>::Matrix3}}(T\ value)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ ++i)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ ++j)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m[i][j]\ =\ value;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00042\ \ \ \ \ Matrix3<T>::Matrix3(\textcolor{keyword}{const}\ T\ values[9])}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 3;\ ++i)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 3;\ ++j)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m[i][j]\ =\ values[i\ *\ 3\ +\ j];}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00050\ \ \ \ \ Vector2<T>\ Matrix3<T>::operator*(\textcolor{keyword}{const}\ Vector2<T>\&\ vec)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{Vector2<T>}}(}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ m[0][0]\ *\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{vec}}.x\ +\ m[0][1]\ *\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{vec}}.y\ +\ m[0][2],}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ m[1][0]\ *\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{vec}}.x\ +\ m[1][1]\ *\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{vec}}.y\ +\ m[1][2]}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00059\ \ \ \ \ Matrix3<T>\ Matrix3<T>::Translate(\textcolor{keyword}{const}\ Vector2<T>\&\ v)}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{Matrix3<T>}}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}((T)0);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][0]\ =\ (T)1;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][1]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][2]\ =\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{v}}.x;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][0]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][1]\ =\ (T)1;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][2]\ =\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{v}}.y;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][0]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][1]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][2]\ =\ (T)1;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00069\ \ \ \ \ Matrix3<T>\ Matrix3<T>::Rotate(T\ radians)}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{Matrix3<T>}}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}((T)0);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{c}}\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(std::cos(\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{radians}}));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{s}}\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(std::sin(\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{radians}}));}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][0]\ =\ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{c}};\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][1]\ =\ -\/\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{s}};\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][2]\ =\ (T)0;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][0]\ =\ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{s}};\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][1]\ =\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{c}};\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][2]\ =\ (T)0;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][0]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][1]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][2]\ =\ (T)1;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00081\ \ \ \ \ Matrix3<T>\ Matrix3<T>::Scale(\textcolor{keyword}{const}\ Vector2<T>\&\ v)}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{Matrix3<T>}}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}((T)0);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][0]\ =\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{v}}.x;\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][1]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][2]\ =\ (T)0;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][0]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][1]\ =\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{v}}.y;\ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][2]\ =\ (T)0;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][0]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][1]\ =\ (T)0;\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][2]\ =\ (T)1;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}};}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00091\ \ \ \ \ Matrix3<T>\ Matrix3<T>::operator*(\textcolor{keyword}{const}\ Matrix3<T>\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{Matrix3<T>}}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][0]\ =\ m[0][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][0]\ +\ m[0][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][0]\ +\ m[0][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][0];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][1]\ =\ m[0][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][1]\ +\ m[0][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][1]\ +\ m[0][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][1];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[0][2]\ =\ m[0][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][2]\ +\ m[0][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][2]\ +\ m[0][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][2];}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][0]\ =\ m[1][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][0]\ +\ m[1][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][0]\ +\ m[1][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][0];}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][1]\ =\ m[1][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][1]\ +\ m[1][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][1]\ +\ m[1][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][1];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[1][2]\ =\ m[1][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][2]\ +\ m[1][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][2]\ +\ m[1][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][2];}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][0]\ =\ m[2][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][0]\ +\ m[2][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][0]\ +\ m[2][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][0];}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][1]\ =\ m[2][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][1]\ +\ m[2][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][1]\ +\ m[2][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][1];}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}}[2][2]\ =\ m[2][0]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[0][2]\ +\ m[2][1]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[1][2]\ +\ m[2][2]*\mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{other}}.m[2][2];}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}{result}};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGL\_MATRIX3\_HPP}}
+
+\end{DoxyCode}

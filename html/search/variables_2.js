@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['character_0',['character',['../structcgl_1_1filters_1_1RGBSingleCharacterData.html#a7bf46edb3f6da893e1c4009cc1fa7efa',1,'cgl::filters::RGBSingleCharacterData']]],
+  ['clock_1',['clock',['../classcgl_1_1Framework.html#a30f9d254ad9b28af89003c015016b7f3',1,'cgl::Framework']]],
+  ['color_2',['color',['../structcgl_1_1filters_1_1SingleColorData.html#a2f4a512a85084a43aceb2b6340b480b2',1,'cgl::filters::SingleColorData']]]
+];

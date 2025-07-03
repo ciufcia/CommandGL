@@ -1,0 +1,91 @@
+\doxysection{cgl\+::Screen\+Buffer Class Reference}
+\hypertarget{classcgl_1_1ScreenBuffer}{}\label{classcgl_1_1ScreenBuffer}\index{cgl::ScreenBuffer@{cgl::ScreenBuffer}}
+
+
+Represents a screen buffer for rendering operations.  
+
+
+
+
+{\ttfamily \#include $<$screen\+\_\+buffer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1ScreenBuffer_a3c35cb245fefd997ed16f4e78667747a}\label{classcgl_1_1ScreenBuffer_a3c35cb245fefd997ed16f4e78667747a} 
+{\bfseries Screen\+Buffer} ()=\mbox{\hyperlink{classcgl_1_1Vector2}{default}}
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ u32 $>$ \& \mbox{\hyperlink{classcgl_1_1ScreenBuffer_a38e946fe0b054b9d28a6e2882d42be56}{get\+Size}} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the size of the screen buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ f32 $>$ \& \mbox{\hyperlink{classcgl_1_1ScreenBuffer_a3f6aa5d0853b7b21502fe8c6dac5eb3e}{get\+Inverse\+Size}} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the inverse size of the screen buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1ScreenBuffer_a584b3603ec9cbdfb19e3551c39405988}{set\+Size}} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ u32 $>$ \&size)
+\begin{DoxyCompactList}\small\item\em Sets the size of the screen buffer. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcgl_1_1Color}{Color}} $>$ \& \mbox{\hyperlink{classcgl_1_1ScreenBuffer_a8c06a1df6e3979e506caa64a7800c07e}{get\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Gets the color buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a screen buffer for rendering operations. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcgl_1_1ScreenBuffer_a8c06a1df6e3979e506caa64a7800c07e}\label{classcgl_1_1ScreenBuffer_a8c06a1df6e3979e506caa64a7800c07e} 
+\index{cgl::ScreenBuffer@{cgl::ScreenBuffer}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!cgl::ScreenBuffer@{cgl::ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcgl_1_1Color}{Color}} $>$ \& cgl\+::\+Screen\+Buffer\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the color buffer. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the color buffer vector. 
+\end{DoxyReturn}
+\Hypertarget{classcgl_1_1ScreenBuffer_a3f6aa5d0853b7b21502fe8c6dac5eb3e}\label{classcgl_1_1ScreenBuffer_a3f6aa5d0853b7b21502fe8c6dac5eb3e} 
+\index{cgl::ScreenBuffer@{cgl::ScreenBuffer}!getInverseSize@{getInverseSize}}
+\index{getInverseSize@{getInverseSize}!cgl::ScreenBuffer@{cgl::ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{getInverseSize()}{getInverseSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ f32 $>$ \& cgl\+::\+Screen\+Buffer\+::get\+Inverse\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the inverse size of the screen buffer. 
+
+\begin{DoxyReturn}{Returns}
+The inverse size of the screen buffer as a \doxylink{classcgl_1_1Vector2}{Vector2$<$f32$>$} (1/width, 1/height). 
+\end{DoxyReturn}
+\Hypertarget{classcgl_1_1ScreenBuffer_a38e946fe0b054b9d28a6e2882d42be56}\label{classcgl_1_1ScreenBuffer_a38e946fe0b054b9d28a6e2882d42be56} 
+\index{cgl::ScreenBuffer@{cgl::ScreenBuffer}!getSize@{getSize}}
+\index{getSize@{getSize}!cgl::ScreenBuffer@{cgl::ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ u32 $>$ \& cgl\+::\+Screen\+Buffer\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the size of the screen buffer. 
+
+\begin{DoxyReturn}{Returns}
+The size of the screen buffer as a \doxylink{classcgl_1_1Vector2}{Vector2$<$u32$>$} (width, height). 
+\end{DoxyReturn}
+\Hypertarget{classcgl_1_1ScreenBuffer_a584b3603ec9cbdfb19e3551c39405988}\label{classcgl_1_1ScreenBuffer_a584b3603ec9cbdfb19e3551c39405988} 
+\index{cgl::ScreenBuffer@{cgl::ScreenBuffer}!setSize@{setSize}}
+\index{setSize@{setSize}!cgl::ScreenBuffer@{cgl::ScreenBuffer}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Screen\+Buffer\+::set\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ u32 $>$ \&}]{size }\end{DoxyParamCaption})}
+
+
+
+Sets the size of the screen buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new size of the screen buffer. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command\+GL/include/screen\+\_\+buffer.\+hpp\item 
+Command\+GL/src/screen\+\_\+buffer.\+cpp\end{DoxyCompactItemize}

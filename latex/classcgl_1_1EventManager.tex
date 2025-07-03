@@ -1,0 +1,165 @@
+\doxysection{cgl\+::Event\+Manager Class Reference}
+\hypertarget{classcgl_1_1EventManager}{}\label{classcgl_1_1EventManager}\index{cgl::EventManager@{cgl::EventManager}}
+
+
+Manages input events from the console and provides event handling capabilities.  
+
+
+
+
+{\ttfamily \#include $<$event\+\_\+manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcgl_1_1EventManager_a642a9d40e88246ebf2d63b4444083e90}{Event\+Manager}} (\mbox{\hyperlink{classcgl_1_1Console}{Console}} \&\mbox{\hyperlink{classcgl_1_1Vector2}{console}})
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classcgl_1_1EventManager}{Event\+Manager} with a reference to a \doxylink{classcgl_1_1Console}{Console}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{bool}} \mbox{\hyperlink{classcgl_1_1EventManager_acb0a9ed88000209a6bb9628f7ff0ec56}{is\+Key\+Pressed}} (Key\+Code key) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Checks if a specific key is currently pressed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{const}} std\+::array$<$ \mbox{\hyperlink{classcgl_1_1Vector2}{bool}}, \mbox{\hyperlink{classcgl_1_1Vector2}{static\+\_\+cast}}$<$ \mbox{\hyperlink{classcgl_1_1Vector2}{size\+\_\+t}} $>$(Key\+Code\+::\+Count)$>$ \& \mbox{\hyperlink{classcgl_1_1EventManager_a5fce46c255cf5006aa555de2ca5b604e}{get\+Key\+States}} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the current state of all keys. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classcgl_1_1Event}{Event}} $>$ \mbox{\hyperlink{classcgl_1_1EventManager_abf419ef0be0ea964e0e793e194c7b250}{poll\+Event}} ()
+\begin{DoxyCompactList}\small\item\em Polls for the next available event. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Callbacks$>$ }\\\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1EventManager_adff2d917c7c742130925ed681524ec64}{handle\+Events}} (\mbox{\hyperlink{classcgl_1_1Vector2}{Callbacks}} \&\&... \mbox{\hyperlink{classcgl_1_1Vector2}{callbacks}})
+\begin{DoxyCompactList}\small\item\em Processes events using multiple type-\/specific callbacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1EventManager_ad3defef37a1222bb2b2a65577a6c4816}\label{classcgl_1_1EventManager_ad3defef37a1222bb2b2a65577a6c4816} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{class}} {\bfseries Framework}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages input events from the console and provides event handling capabilities. 
+
+The \doxylink{classcgl_1_1EventManager}{Event\+Manager} class acts as an interface between the \doxylink{classcgl_1_1Console}{Console} and application code, polling for input events, maintaining an event queue, and providing flexible event handling through type-\/specific callbacks. It supports keyboard and mouse events, as well as console resize events. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcgl_1_1EventManager_a642a9d40e88246ebf2d63b4444083e90}\label{classcgl_1_1EventManager_a642a9d40e88246ebf2d63b4444083e90} 
+\index{cgl::EventManager@{cgl::EventManager}!EventManager@{EventManager}}
+\index{EventManager@{EventManager}!cgl::EventManager@{cgl::EventManager}}
+\doxysubsubsection{\texorpdfstring{EventManager()}{EventManager()}}
+{\footnotesize\ttfamily cgl\+::\+Event\+Manager\+::\+Event\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcgl_1_1Console}{Console}} \&}]{console }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs an \doxylink{classcgl_1_1EventManager}{Event\+Manager} with a reference to a \doxylink{classcgl_1_1Console}{Console}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em console} & Reference to the \doxylink{classcgl_1_1Console}{Console} object that will provide input events \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcgl_1_1EventManager_a5fce46c255cf5006aa555de2ca5b604e}\label{classcgl_1_1EventManager_a5fce46c255cf5006aa555de2ca5b604e} 
+\index{cgl::EventManager@{cgl::EventManager}!getKeyStates@{getKeyStates}}
+\index{getKeyStates@{getKeyStates}!cgl::EventManager@{cgl::EventManager}}
+\doxysubsubsection{\texorpdfstring{getKeyStates()}{getKeyStates()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{const}} std\+::array$<$ \mbox{\hyperlink{classcgl_1_1Vector2}{bool}}, \mbox{\hyperlink{classcgl_1_1Vector2}{static\+\_\+cast}}$<$ \mbox{\hyperlink{classcgl_1_1Vector2}{size\+\_\+t}} $>$(cgl\+::\+Key\+Code\+::\+Count)$>$ \& cgl\+::\+Event\+Manager\+::get\+Key\+States (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current state of all keys. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to an array of boolean values representing key states Index corresponds to Key\+Code enum values, true = pressed, false = released 
+\end{DoxyReturn}
+\Hypertarget{classcgl_1_1EventManager_adff2d917c7c742130925ed681524ec64}\label{classcgl_1_1EventManager_adff2d917c7c742130925ed681524ec64} 
+\index{cgl::EventManager@{cgl::EventManager}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!cgl::EventManager@{cgl::EventManager}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily template$<$typename... Callbacks$>$ \\
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Event\+Manager\+::handle\+Events (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcgl_1_1Vector2}{Callbacks}} \&\&...}]{callbacks }\end{DoxyParamCaption})}
+
+
+
+Processes events using multiple type-\/specific callbacks. 
+
+This is the main event processing method that allows you to register multiple callbacks for different event types. Each callback will only be called for events it can handle based on its signature.
+
+Supported callback signatures\+:
+\begin{DoxyItemize}
+\item (\doxylink{structcgl_1_1KeyPressEvent}{Key\+Press\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void
+\item (\doxylink{structcgl_1_1KeyReleaseEvent}{Key\+Release\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void ~\newline
+
+\item (\doxylink{structcgl_1_1MouseMoveEvent}{Mouse\+Move\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void
+\item (\doxylink{structcgl_1_1MouseScrollEvent}{Mouse\+Scroll\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void
+\item (\doxylink{structcgl_1_1ConsoleEvent}{Console\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void
+\item (\doxylink{structcgl_1_1InvalidEvent}{Invalid\+Event}, const \doxylink{classcgl_1_1Event}{Event}\&) -\/\texorpdfstring{$>$}{>} void
+\end{DoxyItemize}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callbacks} & Variadic template for multiple callback types \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em callbacks} & One or more callback functions/lambdas to process events\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Events are automatically removed from the queue after being processed 
+
+Each event can be handled by multiple callbacks if their signatures match
+\end{DoxyNote}
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{eventManager.handleEvents(}
+\DoxyCodeLine{\ \ \ \ [](KeyPressEvent,\ \textcolor{keyword}{const}\ Event\&\ e)\ \{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Key\ pressed:\ "{}}\ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(e.key)\ <<\ std::endl;\ }
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ [](MouseMoveEvent,\ \textcolor{keyword}{const}\ Event\&\ e)\ \{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Mouse\ moved\ to:\ "{}}\ <<\ e.mousePosition.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ e.mousePosition.y\ <<\ std::endl;\ }
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+ \Hypertarget{classcgl_1_1EventManager_acb0a9ed88000209a6bb9628f7ff0ec56}\label{classcgl_1_1EventManager_acb0a9ed88000209a6bb9628f7ff0ec56} 
+\index{cgl::EventManager@{cgl::EventManager}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!cgl::EventManager@{cgl::EventManager}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{bool}} cgl\+::\+Event\+Manager\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{Key\+Code}]{key }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a specific key is currently pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The Key\+Code to check for pressed state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the key is currently pressed, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This reflects the current state, not just events in the queue 
+\end{DoxyNote}
+\Hypertarget{classcgl_1_1EventManager_abf419ef0be0ea964e0e793e194c7b250}\label{classcgl_1_1EventManager_abf419ef0be0ea964e0e793e194c7b250} 
+\index{cgl::EventManager@{cgl::EventManager}!pollEvent@{pollEvent}}
+\index{pollEvent@{pollEvent}!cgl::EventManager@{cgl::EventManager}}
+\doxysubsubsection{\texorpdfstring{pollEvent()}{pollEvent()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classcgl_1_1Event}{cgl\+::\+Event}} $>$ cgl\+::\+Event\+Manager\+::poll\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls for the next available event. 
+
+Retrieves and removes the next event from the internal event queue. If no events are available, it will attempt to fetch new events from the console.
+
+\begin{DoxyReturn}{Returns}
+Optional containing the next \doxylink{classcgl_1_1Event}{Event} if available, std\+::nullopt if no events
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method consumes events from the queue 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command\+GL/include/event\+\_\+manager.\+hpp\item 
+Command\+GL/src/event\+\_\+manager.\+cpp\end{DoxyCompactItemize}

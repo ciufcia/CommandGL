@@ -1,0 +1,125 @@
+\doxysection{cgl\+::Vector2\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classcgl_1_1Vector2}{}\label{classcgl_1_1Vector2}\index{cgl::Vector2$<$ T $>$@{cgl::Vector2$<$ T $>$}}
+
+
+A simple 2D vector class template.  
+
+
+
+
+{\ttfamily \#include $<$vector2.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17}\label{classcgl_1_1Vector2_a2ff99151a774650ed6537125a2e08d17} 
+{\bfseries Vector2} ()
+\begin{DoxyCompactList}\small\item\em Default constructor initializes the vector to (0, 0). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2_a4b5e308c7790400a0ba3bf2eeb977933}{Vector2}} (T \mbox{\hyperlink{classcgl_1_1Vector2_a2cb397384e505fb638c44a946e77b84a}{x}}, T \mbox{\hyperlink{classcgl_1_1Vector2_a8a12525a47efe7736b592d626d7a9ff1}{y}})
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the vector with given x and y values. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a3178d264af79f75fea80c8da8790d5b1}\label{classcgl_1_1Vector2_a3178d264af79f75fea80c8da8790d5b1} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ {\bfseries operator+} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{other}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Adds two vectors. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a13d2e0632f788acc5aacec2b963b6354}\label{classcgl_1_1Vector2_a13d2e0632f788acc5aacec2b963b6354} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ {\bfseries operator-\/} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{other}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Subtracts two vectors. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a873487e864565ee8fd3d12c4bcaadd54}\label{classcgl_1_1Vector2_a873487e864565ee8fd3d12c4bcaadd54} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ {\bfseries operator\texorpdfstring{$\ast$}{*}} (T \mbox{\hyperlink{classcgl_1_1Vector2}{scalar}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Multiplies the vector by a scalar. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a495cc68d30325b7c53bdbde7bdb7ac07}\label{classcgl_1_1Vector2_a495cc68d30325b7c53bdbde7bdb7ac07} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ {\bfseries operator/} (T \mbox{\hyperlink{classcgl_1_1Vector2}{scalar}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Divides the vector by a scalar. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_af20e19392595536d93233c3ec3edffc0}\label{classcgl_1_1Vector2_af20e19392595536d93233c3ec3edffc0} 
+T {\bfseries dot} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{other}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Computes the dot product of two vectors. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a16c368f78a0e80d329dfda860aa31869}\label{classcgl_1_1Vector2_a16c368f78a0e80d329dfda860aa31869} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{bool}} {\bfseries operator==} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{other}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Checks if two vectors are equal. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a4813e61357e87f3e53bcec3cd926525b}\label{classcgl_1_1Vector2_a4813e61357e87f3e53bcec3cd926525b} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{bool}} {\bfseries operator!=} (\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{other}}) \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Checks if two vectors are not equal. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a22f48ac82793630d21bcd1562f003801}\label{classcgl_1_1Vector2_a22f48ac82793630d21bcd1562f003801} 
+T {\bfseries magnitude\+\_\+squared} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Returns the squared magnitude (length\texorpdfstring{$^\wedge$}{\string^}2) of the vector. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_ac803aaa15f023b7bc84780d7cad130b9}\label{classcgl_1_1Vector2_ac803aaa15f023b7bc84780d7cad130b9} 
+T {\bfseries magnitude} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Returns the magnitude (length) of the vector. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_afeeefa53a4f364b13f356db96917f380}\label{classcgl_1_1Vector2_afeeefa53a4f364b13f356db96917f380} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ {\bfseries normalized} () \mbox{\hyperlink{classcgl_1_1Vector2}{const}}
+\begin{DoxyCompactList}\small\item\em Returns a normalized (unit length) vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1Vector2_a2cb397384e505fb638c44a946e77b84a}\label{classcgl_1_1Vector2_a2cb397384e505fb638c44a946e77b84a} 
+T {\bfseries x}
+\begin{DoxyCompactList}\small\item\em The x-\/coordinate of the vector. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Vector2_a8a12525a47efe7736b592d626d7a9ff1}\label{classcgl_1_1Vector2_a8a12525a47efe7736b592d626d7a9ff1} 
+T {\bfseries y}
+\begin{DoxyCompactList}\small\item\em The y-\/coordinate of the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \mbox{\hyperlink{classcgl_1_1Vector2_a5b2377c60012e217e09f93bd2999e5d5}{operator\texorpdfstring{$\ast$}{*}}} (T \mbox{\hyperlink{classcgl_1_1Vector2}{scalar}}, \mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&\mbox{\hyperlink{classcgl_1_1Vector2}{vec}})
+\begin{DoxyCompactList}\small\item\em Multiplies the vector by a scalar (friend function). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$arithmetic T$>$\newline
+class cgl\+::\+Vector2$<$ T $>$}
+A simple 2D vector class template. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the vector components (e.\+g., float, int). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcgl_1_1Vector2_a4b5e308c7790400a0ba3bf2eeb977933}\label{classcgl_1_1Vector2_a4b5e308c7790400a0ba3bf2eeb977933} 
+\index{cgl::Vector2$<$ T $>$@{cgl::Vector2$<$ T $>$}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!cgl::Vector2$<$ T $>$@{cgl::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector2()}{Vector2()}}
+{\footnotesize\ttfamily template$<$arithmetic T$>$ \\
+\mbox{\hyperlink{classcgl_1_1Vector2}{cgl\+::\+Vector2}}$<$ T $>$\+::\+Vector2 (\begin{DoxyParamCaption}\item[{T}]{x,  }\item[{T}]{y }\end{DoxyParamCaption})}
+
+
+
+Constructor that initializes the vector with given x and y values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate. \\
+\hline
+{\em y} & The y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classcgl_1_1Vector2_a5b2377c60012e217e09f93bd2999e5d5}\label{classcgl_1_1Vector2_a5b2377c60012e217e09f93bd2999e5d5} 
+\index{cgl::Vector2$<$ T $>$@{cgl::Vector2$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!cgl::Vector2$<$ T $>$@{cgl::Vector2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily template$<$arithmetic T$>$ \\
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \mbox{\hyperlink{classcgl_1_1Vector2}{operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{T}]{scalar,  }\item[{\mbox{\hyperlink{classcgl_1_1Vector2}{const}} \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ T $>$ \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiplies the vector by a scalar (friend function). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & The scalar value. \\
+\hline
+{\em vec} & The vector to multiply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of scalar \texorpdfstring{$\ast$}{*} vector. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Command\+GL/include/vector2.\+hpp\end{DoxyCompactItemize}

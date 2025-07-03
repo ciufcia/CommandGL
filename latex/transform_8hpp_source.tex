@@ -1,0 +1,62 @@
+\doxysection{transform.\+hpp}
+\hypertarget{transform_8hpp_source}{}\label{transform_8hpp_source}\index{CommandGL/include/transform.hpp@{CommandGL/include/transform.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGL\_TRANSFORM\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CGL\_TRANSFORM\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}matrix3.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}vector2.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}numeric\_types.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <numbers>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }cgl}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1Transform}{Transform}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Transform}{Transform}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Transform}{Transform}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ position,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ \mbox{\hyperlink{classcgl_1_1Vector2}{scale}},\ f32\ \mbox{\hyperlink{classcgl_1_1Vector2}{rotation}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ \mbox{\hyperlink{classcgl_1_1Vector2}{origin}});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Matrix3<f32>}}\ getMatrix()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ getPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ getScale()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ f32\ \ \ \ \ \ \ \ \ \ getRotation()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ getOrigin()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ position);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setScale(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ \mbox{\hyperlink{classcgl_1_1Vector2}{scale}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setRotation(f32\ \mbox{\hyperlink{classcgl_1_1Vector2}{rotation}});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setOrigin(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ \mbox{\hyperlink{classcgl_1_1Vector2}{origin}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ rotate(f32\ \mbox{\hyperlink{classcgl_1_1Vector2}{degrees}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\&\ \mbox{\hyperlink{classcgl_1_1Vector2}{delta}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ degreesToRadians(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcgl_1_1Vector2}{degrees}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ radiansToDegrees(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{classcgl_1_1Vector2}{radians}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ m\_position;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ m\_scale;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ f32\ \ \ \ \ \ \ \ \ \ m\_rotation;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ m\_origin;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2<f32>}}\ m\_postScale\ \{\ 1.f,\ 1.f\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1Framework}{Framework}};}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcgl_1_1Transformable}{Transformable}}}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcgl_1_1Transform}{Transform}}\ transform;}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CGL\_TRANSFORM\_HPP}}
+
+\end{DoxyCode}

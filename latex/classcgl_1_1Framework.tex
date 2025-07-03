@@ -1,0 +1,140 @@
+\doxysection{cgl\+::Framework Class Reference}
+\hypertarget{classcgl_1_1Framework}{}\label{classcgl_1_1Framework}\index{cgl::Framework@{cgl::Framework}}
+
+
+Main framework class that manages the graphics rendering pipeline and application lifecycle.  
+
+
+
+
+{\ttfamily \#include $<$framework.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1Framework_a74f775a1367c5f0611b3e166c0166f00}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the framework and sets up all internal systems. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1Framework_a1459d3f47302231d729d45125c12accc}{clear\+Display}} (\mbox{\hyperlink{classcgl_1_1Color}{Color}} color=\{0, 0, 0, 255\})
+\begin{DoxyCompactList}\small\item\em Clears the display with the specified color. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1Framework_a3a352845a3525e5b24772119a02792bb}{draw}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcgl_1_1Drawable}{Drawable}} $>$ \mbox{\hyperlink{classcgl_1_1Vector2}{drawable}})
+\begin{DoxyCompactList}\small\item\em Adds a drawable object to the render queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{void}} \mbox{\hyperlink{classcgl_1_1Framework_acdef5741356bd589fb2f146057357a7b}{update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the framework and renders all queued drawables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcgl_1_1EventManager}{Event\+Manager}} \mbox{\hyperlink{classcgl_1_1Framework_a623d8d4ca4c8b159081841813146c075}{event\+Manager}} \{ m\+\_\+console \}
+\begin{DoxyCompactList}\small\item\em \doxylink{classcgl_1_1Event}{Event} manager for handling keyboard, mouse, and console events. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Clock}{Clock}} \mbox{\hyperlink{classcgl_1_1Framework_a30f9d254ad9b28af89003c015016b7f3}{clock}}
+\begin{DoxyCompactList}\small\item\em High-\/resolution timer for frame timing and elapsed time measurement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{bool}} \mbox{\hyperlink{classcgl_1_1Framework_aedfa55a31d0300060413599723e85d1a}{scale\+On\+Base\+Size\+Deviation}} = \mbox{\hyperlink{classcgl_1_1Vector2}{false}}
+\begin{DoxyCompactList}\small\item\em Whether to automatically scale drawables when console size differs from base size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$ u32 $>$ \mbox{\hyperlink{classcgl_1_1Framework_a4b851f5c3533d8d0dbfb7a54e621e00a}{base\+Console\+Size}} \{ 1\mbox{\hyperlink{classcgl_1_1Vector2}{u}}, 1\mbox{\hyperlink{classcgl_1_1Vector2}{u}} \}
+\begin{DoxyCompactList}\small\item\em The reference console size used for automatic scaling calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main framework class that manages the graphics rendering pipeline and application lifecycle. 
+
+The \doxylink{classcgl_1_1Framework}{Framework} class serves as the central coordinator for the Command\+GL graphics library, managing console output, event handling, timing, drawable objects, and the rendering pipeline. It provides a high-\/level interface for creating console-\/based graphics applications. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcgl_1_1Framework_a1459d3f47302231d729d45125c12accc}\label{classcgl_1_1Framework_a1459d3f47302231d729d45125c12accc} 
+\index{cgl::Framework@{cgl::Framework}!clearDisplay@{clearDisplay}}
+\index{clearDisplay@{clearDisplay}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{clearDisplay()}{clearDisplay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Framework\+::clear\+Display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcgl_1_1Color}{Color}}}]{color = {\ttfamily \{0,~0,~0,~255\}} }\end{DoxyParamCaption})}
+
+
+
+Clears the display with the specified color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & The color to clear the screen with (defaults to black).\\
+\hline
+\end{DoxyParams}
+This method fills the entire screen buffer with the specified color, effectively clearing any previously rendered content. \Hypertarget{classcgl_1_1Framework_a3a352845a3525e5b24772119a02792bb}\label{classcgl_1_1Framework_a3a352845a3525e5b24772119a02792bb} 
+\index{cgl::Framework@{cgl::Framework}!draw@{draw}}
+\index{draw@{draw}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Framework\+::draw (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcgl_1_1Drawable}{Drawable}} $>$}]{drawable }\end{DoxyParamCaption})}
+
+
+
+Adds a drawable object to the render queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drawable} & A shared pointer to the drawable object to render.\\
+\hline
+\end{DoxyParams}
+The drawable will be rendered in the next \doxylink{classcgl_1_1Framework_acdef5741356bd589fb2f146057357a7b}{update()} call. Drawables are sorted by their depth value before rendering, with higher depth values rendered earlier. \Hypertarget{classcgl_1_1Framework_a74f775a1367c5f0611b3e166c0166f00}\label{classcgl_1_1Framework_a74f775a1367c5f0611b3e166c0166f00} 
+\index{cgl::Framework@{cgl::Framework}!initialize@{initialize}}
+\index{initialize@{initialize}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Framework\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the framework and sets up all internal systems. 
+
+This method must be called before using any other framework functionality. It initializes buffers, filter pipelines, and prepares the console for rendering. \Hypertarget{classcgl_1_1Framework_acdef5741356bd589fb2f146057357a7b}\label{classcgl_1_1Framework_acdef5741356bd589fb2f146057357a7b} 
+\index{cgl::Framework@{cgl::Framework}!update@{update}}
+\index{update@{update}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{void}} cgl\+::\+Framework\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the framework and renders all queued drawables. 
+
+This method should be called once per frame. It processes events, renders all queued drawables, applies post-\/processing filters, and outputs the final result to the console. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classcgl_1_1Framework_a4b851f5c3533d8d0dbfb7a54e621e00a}\label{classcgl_1_1Framework_a4b851f5c3533d8d0dbfb7a54e621e00a} 
+\index{cgl::Framework@{cgl::Framework}!baseConsoleSize@{baseConsoleSize}}
+\index{baseConsoleSize@{baseConsoleSize}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{baseConsoleSize}{baseConsoleSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{Vector2}}$<$u32$>$ cgl\+::\+Framework\+::base\+Console\+Size \{ 1\mbox{\hyperlink{classcgl_1_1Vector2}{u}}, 1\mbox{\hyperlink{classcgl_1_1Vector2}{u}} \}}
+
+
+
+The reference console size used for automatic scaling calculations. 
+
+When scale\+On\+Base\+Size\+Deviation is true, this size is used as the reference to calculate scaling factors for maintaining consistent drawable sizes. \Hypertarget{classcgl_1_1Framework_a30f9d254ad9b28af89003c015016b7f3}\label{classcgl_1_1Framework_a30f9d254ad9b28af89003c015016b7f3} 
+\index{cgl::Framework@{cgl::Framework}!clock@{clock}}
+\index{clock@{clock}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{clock}{clock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Clock}{Clock}} cgl\+::\+Framework\+::clock}
+
+
+
+High-\/resolution timer for frame timing and elapsed time measurement. 
+
+Use this clock for frame delta calculations, animation timing, and performance measurement. \Hypertarget{classcgl_1_1Framework_a623d8d4ca4c8b159081841813146c075}\label{classcgl_1_1Framework_a623d8d4ca4c8b159081841813146c075} 
+\index{cgl::Framework@{cgl::Framework}!eventManager@{eventManager}}
+\index{eventManager@{eventManager}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{eventManager}{eventManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1EventManager}{Event\+Manager}} cgl\+::\+Framework\+::event\+Manager \{ m\+\_\+console \}}
+
+
+
+\doxylink{classcgl_1_1Event}{Event} manager for handling keyboard, mouse, and console events. 
+
+Provides access to input event handling and polling functionality. Use this to check key states, handle events, and respond to user input. \Hypertarget{classcgl_1_1Framework_aedfa55a31d0300060413599723e85d1a}\label{classcgl_1_1Framework_aedfa55a31d0300060413599723e85d1a} 
+\index{cgl::Framework@{cgl::Framework}!scaleOnBaseSizeDeviation@{scaleOnBaseSizeDeviation}}
+\index{scaleOnBaseSizeDeviation@{scaleOnBaseSizeDeviation}!cgl::Framework@{cgl::Framework}}
+\doxysubsubsection{\texorpdfstring{scaleOnBaseSizeDeviation}{scaleOnBaseSizeDeviation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcgl_1_1Vector2}{bool}} cgl\+::\+Framework\+::scale\+On\+Base\+Size\+Deviation = \mbox{\hyperlink{classcgl_1_1Vector2}{false}}}
+
+
+
+Whether to automatically scale drawables when console size differs from base size. 
+
+When true, drawables will be scaled to maintain consistent appearance across different console window sizes relative to the base\+Console\+Size. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command\+GL/include/framework.\+hpp\item 
+Command\+GL/src/framework.\+cpp\end{DoxyCompactItemize}

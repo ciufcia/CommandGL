@@ -1,0 +1,88 @@
+\doxysection{cgl\+::Drawable Class Reference}
+\hypertarget{classcgl_1_1Drawable}{}\label{classcgl_1_1Drawable}\index{cgl::Drawable@{cgl::Drawable}}
+
+
+Abstract base class for all drawable objects in the graphics framework.  
+
+
+
+
+{\ttfamily \#include $<$drawable.\+hpp$>$}
+
+Inheritance diagram for cgl\+::Drawable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classcgl_1_1Drawable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{classcgl_1_1Vector2}{typename}} T , typename... Args$>$ }\\\mbox{\hyperlink{classcgl_1_1Vector2}{static}} std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classcgl_1_1Drawable_a83006dc4369be6eb7061127f6825dcba}{create}} (\mbox{\hyperlink{classcgl_1_1Vector2}{Args}} \&\&... \mbox{\hyperlink{classcgl_1_1Vector2}{args}})
+\begin{DoxyCompactList}\small\item\em Factory method to create shared pointers to drawable objects. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Drawable_a83006dc4369be6eb7061127f6825dcba}\label{classcgl_1_1Drawable_a83006dc4369be6eb7061127f6825dcba} 
+{\footnotesize template$<$\mbox{\hyperlink{classcgl_1_1Vector2}{typename}} T , typename... Args$>$ }\\\mbox{\hyperlink{classcgl_1_1Vector2}{static}} std\+::shared\+\_\+ptr$<$ T $>$ {\bfseries create} (\mbox{\hyperlink{classcgl_1_1Vector2}{Args}} \&\&... \mbox{\hyperlink{classcgl_1_1Vector2}{args}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1Drawable_aa8c4f946583cb6378be8f9d9d7bfa862}\label{classcgl_1_1Drawable_aa8c4f946583cb6378be8f9d9d7bfa862} 
+Blend\+Mode {\bfseries blend\+Mode} = Blend\+Mode\+::\+Alpha
+\begin{DoxyCompactList}\small\item\em The blending mode to use when compositing this drawable. \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Drawable_ac0198a882310243c34d8968feb689997}\label{classcgl_1_1Drawable_ac0198a882310243c34d8968feb689997} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{float}} {\bfseries depth} = 0.\mbox{\hyperlink{classcgl_1_1Vector2}{f}}
+\begin{DoxyCompactList}\small\item\em Depth value for sorting (higher values are rendered earlier). \end{DoxyCompactList}\item 
+\Hypertarget{classcgl_1_1Drawable_ac3a969c19f44a2a008919000863b2bd2}\label{classcgl_1_1Drawable_ac3a969c19f44a2a008919000863b2bd2} 
+\mbox{\hyperlink{classcgl_1_1FilterPipeline}{Filter\+Pipeline}} {\bfseries fragment\+Pipeline}
+\begin{DoxyCompactList}\small\item\em Pipeline of fragment shaders (filters) to apply to pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classcgl_1_1Transformable}{cgl\+::\+Transformable}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcgl_1_1Transform}{Transform}} {\bfseries transform}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classcgl_1_1Drawable_ad3defef37a1222bb2b2a65577a6c4816}\label{classcgl_1_1Drawable_ad3defef37a1222bb2b2a65577a6c4816} 
+\mbox{\hyperlink{classcgl_1_1Vector2}{class}} {\bfseries Framework}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for all drawable objects in the graphics framework. 
+
+\doxylink{classcgl_1_1Drawable}{Drawable} objects can be rendered to the screen and support transformation, fragment shaders (filters), depth sorting, and blending modes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcgl_1_1Drawable_a83006dc4369be6eb7061127f6825dcba}\label{classcgl_1_1Drawable_a83006dc4369be6eb7061127f6825dcba} 
+\index{cgl::Drawable@{cgl::Drawable}!create@{create}}
+\index{create@{create}!cgl::Drawable@{cgl::Drawable}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classcgl_1_1Vector2}{typename}} T , typename... Args$>$ \\
+\mbox{\hyperlink{classcgl_1_1Vector2}{static}} std\+::shared\+\_\+ptr$<$ T $>$ cgl\+::\+Drawable\+::create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcgl_1_1Vector2}{Args}} \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Factory method to create shared pointers to drawable objects. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of drawable to create (must derive from \doxylink{classcgl_1_1Drawable}{Drawable}). \\
+\hline
+{\em Args} & Constructor argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to forward to the constructor of T. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the created drawable object. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command\+GL/include/drawable.\+hpp\item 
+Command\+GL/src/drawable.\+cpp\end{DoxyCompactItemize}
