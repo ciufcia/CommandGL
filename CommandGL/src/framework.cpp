@@ -50,8 +50,8 @@ namespace cgl
 
     void Framework::update() {
         m_screenScaleFactor = {
-            static_cast<f32>(m_console.getSize().x) / static_cast<f32>(baseConsoleSize.x),
-            static_cast<f32>(m_console.getSize().y) / static_cast<f32>(baseConsoleSize.y)
+            static_cast<f32>(m_console.getSize().x) / std::max(static_cast<f32>(baseConsoleSize.x), 1e-6f),
+            static_cast<f32>(m_console.getSize().y) / std::max(static_cast<f32>(baseConsoleSize.y), 1e-6f)
         };
 
         render();

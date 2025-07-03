@@ -35,6 +35,7 @@ namespace cgl
          * is returned as a reference to a Vector2<u32> where x is the width and y is the height.
          * 
          * @return Reference to a Vector2<u32> containing the console's width (x) and height (y).
+         * @throws std::runtime_error if unable to get console screen buffer info.
          */
         Vector2<u32> getSize() const;
 
@@ -44,6 +45,12 @@ namespace cgl
          * This function attempts to resize the console window to the specified width and height (in character cells).
          *
          * @param size The desired size of the console window as a Vector2<u32> (width, height).
+         *
+         * @throws std::invalid_argument if either width or height is zero.
+         * @throws std::runtime_error if unable to get console screen buffer info, 
+         *         get largest console window size, set console window info, 
+         *         set console screen buffer size, or if the requested size exceeds 
+         *         the largest console window size or is too small for the current font.
          *
          * @note If called in an environment where the console is not resizable (such as some modern Windows Terminal or remote sessions),
          *       the behavior is undefined and may result in errors or no effect. This function is intended to work in the legacy console host.
@@ -57,6 +64,7 @@ namespace cgl
          * the font settings (name, size, weight, and family) currently used by the console.
          *
          * @return Reference to a ConsoleFont containing the console's font configuration.
+         * @throws std::runtime_error if unable to get console font info.
          */
         ConsoleFont getFont() const;
 
@@ -67,6 +75,8 @@ namespace cgl
          * to the specified ConsoleFont configuration.
          *
          * @param font The desired ConsoleFont configuration to apply to the console.
+         *
+         * @throws std::runtime_error if unable to set console font.
          *
          * @note If called in an environment where the console font cannot be changed (such as Windows Terminal or remote sessions),
          *       the behavior is undefined and may result in errors or no effect. This function is intended to work in the legacy console host.
@@ -80,6 +90,7 @@ namespace cgl
          * The console will display the characters as defined in the buffer.
          *
          * @param buffer The CharacterBuffer containing characters to write to the console.
+         * @throws std::runtime_error if WriteConsole fails.
          */
         void writeCharacterBuffer(const CharacterBuffer &buffer);
 

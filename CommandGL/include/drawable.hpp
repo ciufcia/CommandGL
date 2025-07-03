@@ -75,9 +75,6 @@ namespace cgl
         {
         public:
 
-            /**
-             * @brief Default constructor.
-             */
             Mesh() = default;
 
             /**

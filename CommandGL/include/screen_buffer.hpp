@@ -15,9 +15,7 @@ namespace cgl
     class ScreenBuffer
     {
     public:
-        /**
-         * @brief Default constructor.
-         */
+
         ScreenBuffer() = default;
 
         /**
@@ -35,6 +33,7 @@ namespace cgl
         /**
          * @brief Sets the size of the screen buffer.
          * @param size The new size of the screen buffer.
+         * @throws std::invalid_argument if either width or height is zero.
          */
         void setSize(const Vector2<u32> &size);
 

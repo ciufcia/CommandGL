@@ -30,6 +30,7 @@ namespace cgl
         /**
          * @brief Sets the size of the character buffer.
          * @param size The new size of the character buffer.
+         * @throws std::invalid_argument if either width or height is zero.
          */
         void setSize(const Vector2<u32> &size);
 
