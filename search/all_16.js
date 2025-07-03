@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../classcgl_1_1Vector2.html#a2cb397384e505fb638c44a946e77b84a',1,'cgl::Vector2']]],
-  ['xpm_20dependency_1',['npm/xpm dependency',['../md_docs_2doxygen-awesome-css_2README.html#autotoc_md36',1,'']]]
+  ['y_0',['y',['../classcgl_1_1Vector2.html#a8a12525a47efe7736b592d626d7a9ff1',1,'cgl::Vector2']]]
 ];

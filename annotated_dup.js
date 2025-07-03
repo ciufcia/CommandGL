@@ -34,10 +34,5 @@ var annotated_dup =
       [ "Transform", "classcgl_1_1Transform.html", null ],
       [ "Transformable", "classcgl_1_1Transformable.html", null ],
       [ "Vector2", "classcgl_1_1Vector2.html", "classcgl_1_1Vector2" ]
-    ] ],
-    [ "MyLibrary", null, [
-      [ "Example", "classMyLibrary_1_1Example.html", "classMyLibrary_1_1Example" ],
-      [ "SecondExample", "classMyLibrary_1_1SecondExample.html", null ],
-      [ "SubclassExample", "classMyLibrary_1_1SubclassExample.html", "classMyLibrary_1_1SubclassExample" ]
     ] ]
 ];
