@@ -23,7 +23,7 @@ var annotated_dup =
       [ "Filter", "structcgl_1_1Filter.html", "structcgl_1_1Filter" ],
       [ "FilterPipeline", "classcgl_1_1FilterPipeline.html", "classcgl_1_1FilterPipeline" ],
       [ "Framework", "classcgl_1_1Framework.html", "classcgl_1_1Framework" ],
-      [ "GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
+      [ "GlobalMemory", "classcgl_1_1GlobalMemory.html", "classcgl_1_1GlobalMemory" ],
       [ "InvalidEvent", "structcgl_1_1InvalidEvent.html", null ],
       [ "KeyPressEvent", "structcgl_1_1KeyPressEvent.html", null ],
       [ "KeyReleaseEvent", "structcgl_1_1KeyReleaseEvent.html", null ],

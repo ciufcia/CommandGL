@@ -1,7 +1,7 @@
 var searchData=
 [
   ['screenblend_0',['screenBlend',['../classcgl_1_1Color.html#a155b1256eca9764d6fe3ae9e4177fd53',1,'cgl::Color']]],
-  ['screenbuffer_1',['ScreenBuffer',['../classcgl_1_1ScreenBuffer.html#a3c35cb245fefd997ed16f4e78667747a',1,'cgl::ScreenBuffer']]],
+  ['set_1',['set',['../classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639',1,'cgl::GlobalMemory']]],
   ['setbottomright_2',['setBottomRight',['../classcgl_1_1drawables_1_1Rectangle.html#a13d9e0258aca2db59b11e841fdd8aba0',1,'cgl::drawables::Rectangle']]],
   ['setfont_3',['setFont',['../classcgl_1_1Console.html#a9dd0689bbcb2adb53e95fba26dd104bf',1,'cgl::Console']]],
   ['setpoint_4',['setPoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle']]],

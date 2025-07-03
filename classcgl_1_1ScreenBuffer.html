@@ -118,10 +118,6 @@ $(document).ready(function(){initNavTree('classcgl_1_1ScreenBuffer.html',''); in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3c35cb245fefd997ed16f4e78667747a" id="r_a3c35cb245fefd997ed16f4e78667747a"><td class="memItemLeft" align="right" valign="top"><a id="a3c35cb245fefd997ed16f4e78667747a" name="a3c35cb245fefd997ed16f4e78667747a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScreenBuffer</b> ()=<a class="el" href="classcgl_1_1Vector2.html">default</a></td></tr>
-<tr class="memdesc:a3c35cb245fefd997ed16f4e78667747a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
-<tr class="separator:a3c35cb245fefd997ed16f4e78667747a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38e946fe0b054b9d28a6e2882d42be56" id="r_a38e946fe0b054b9d28a6e2882d42be56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; u32 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56">getSize</a> () <a class="el" href="classcgl_1_1Vector2.html">const</a></td></tr>
 <tr class="memdesc:a38e946fe0b054b9d28a6e2882d42be56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the screen buffer.  <br /></td></tr>
 <tr class="separator:a38e946fe0b054b9d28a6e2882d42be56"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,6 +214,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The new size of the screen buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if either width or height is zero. </td></tr>
   </table>
   </dd>
 </dl>
