@@ -262,4 +262,16 @@ namespace cgl
     Vector2<f32> drawables::Rectangle::getSize() const {
         return m_size;
     }
+
+    void drawables::Point::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+        Vector2<f32> transformedPosition = transform.getMatrix() * position;
+
+        filter_pass_data::PixelPass pixelData;
+        pixelData.position = transformedPosition;
+        pixelData.uv = { 0.f, 0.f };
+        pixelData.size = { 1.f, 1.f };
+        pixelData.inverseSize = { 1.f, 1.f };
+        
+        drawableBuffer.push_back(pixelData);
+    }
 }

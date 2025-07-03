@@ -228,6 +228,27 @@ namespace cgl
 
             Vector2<f32> m_size;
         };
+
+        class Point : public Drawable
+        {
+        public:
+
+            Point() = default;
+
+            /**
+             * @brief Constructor that creates a point at a specific position.
+             * @param position The position of the point in 2D space.
+             */
+            Point(const Vector2<f32> &position) : position(position) {}
+
+        public:
+
+            Vector2<f32> position { 0.f, 0.f };
+
+        private:
+
+            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+        };
     }
 
     template<typename T, typename... Args>

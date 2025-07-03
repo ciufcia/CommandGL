@@ -23,7 +23,9 @@ int main() {
         rectangle->fragmentPipeline.addFilter(solidFilter, 0);
         rectangle->transform.setOrigin({20.f, 20.f});
         rectangle->transform.setPosition({60.f, 60.f});
-        rectangle->blendMode = BlendMode::Alpha;
+
+        auto point = Drawable::create<drawables::Point>(Vector2<f32>{0.f, 0.f});
+        point->fragmentPipeline.addFilter(solidFilter, 0);
 
         auto triangle = Drawable::create<drawables::Triangle>(
             Vector2<f32>{0.f, 0.f},
@@ -58,6 +60,7 @@ int main() {
 
             framework.draw(rectangle);
             framework.draw(triangle);
+            framework.draw(point);
 
             framework.update();
         }
