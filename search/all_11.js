@@ -1,9 +1,27 @@
 var searchData=
 [
-  ['tick_0',['tick',['../classcgl_1_1Clock.html#ac9cb5b8043990dda394ee935cfda5245',1,'cgl::Clock']]],
-  ['tohex_1',['toHex',['../classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137',1,'cgl::Color']]],
-  ['transform_2',['Transform',['../classcgl_1_1Transform.html',1,'cgl']]],
-  ['transformable_3',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
-  ['triangle_4',['triangle',['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables::Triangle'],['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle()']]],
-  ['type_5',['type',['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter']]]
+  ['scaleonbasesizedeviation_0',['scaleOnBaseSizeDeviation',['../classcgl_1_1Framework.html#aedfa55a31d0300060413599723e85d1a',1,'cgl::Framework']]],
+  ['screenblend_1',['screenBlend',['../classcgl_1_1Color.html#a155b1256eca9764d6fe3ae9e4177fd53',1,'cgl::Color']]],
+  ['screenbuffer_2',['screenbuffer',['../classcgl_1_1ScreenBuffer.html',1,'cgl::ScreenBuffer'],['../classcgl_1_1ScreenBuffer.html#a3c35cb245fefd997ed16f4e78667747a',1,'cgl::ScreenBuffer::ScreenBuffer()']]],
+  ['secondexample_3',['SecondExample',['../classMyLibrary_1_1SecondExample.html',1,'MyLibrary']]],
+  ['setbottomright_4',['setBottomRight',['../classcgl_1_1drawables_1_1Rectangle.html#a13d9e0258aca2db59b11e841fdd8aba0',1,'cgl::drawables::Rectangle']]],
+  ['setfont_5',['setFont',['../classcgl_1_1Console.html#a9dd0689bbcb2adb53e95fba26dd104bf',1,'cgl::Console']]],
+  ['setpoint_6',['setPoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle']]],
+  ['setsize_7',['setsize',['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()'],['../classcgl_1_1Console.html#ad4fc50b18a6fc8b880b9ff3974076c11',1,'cgl::Console::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()'],['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()']]],
+  ['settopleft_8',['setTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#a3ea44c8fcbe61fb813705be0b9e9b47d',1,'cgl::drawables::Rectangle']]],
+  ['settype_9',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
+  ['setup_10',['Setup',['../md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md2',1,'']]],
+  ['share_20your_20customizations_11',['Share your customizations',['../md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md5',1,'']]],
+  ['sidebar_20width_12',['Choosing Sidebar Width',['../md_docs_2doxygen-awesome-css_2docs_2tricks.html#tricks-sidebar',1,'']]],
+  ['singlecolordata_13',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
+  ['size_14',['size',['../classcgl_1_1ConsoleFont.html#a19f994708b0bd44862f40723abd465a7',1,'cgl::ConsoleFont']]],
+  ['special_20hints_15',['special hints',['../classMyLibrary_1_1Example.html#autotoc_md28',1,'Special hints'],['../bug.html#_bug000001',1,'Special hints'],['../deprecated.html#_deprecated000001',1,'Special hints'],['../todo.html#_todo000001',1,'Special hints']]],
+  ['start_16',['start',['../classcgl_1_1FilterPipeline.html#ad4638c05db02ee5a1664019728581cb8',1,'cgl::FilterPipeline']]],
+  ['step_17',['step',['../classcgl_1_1FilterPipeline.html#ae8d03fcfe05b0955ca02229ec9cbeea3',1,'cgl::FilterPipeline']]],
+  ['subclassexample_18',['SubclassExample',['../classMyLibrary_1_1SubclassExample.html',1,'MyLibrary']]],
+  ['submodule_19',['Git submodule',['../md_docs_2doxygen-awesome-css_2README.html#autotoc_md34',1,'']]],
+  ['subtractiveblend_20',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]],
+  ['support_21',['Browser support',['../md_docs_2doxygen-awesome-css_2README.html#autotoc_md40',1,'']]],
+  ['supported_20elements_22',['Supported elements',['../classMyLibrary_1_1Example.html#autotoc_md22',1,'']]],
+  ['system_20wide_23',['System-wide',['../md_docs_2doxygen-awesome-css_2README.html#autotoc_md37',1,'']]]
 ];

@@ -25,6 +25,67 @@
 var NAVTREE =
 [
   [ "CommandGL", "index.html", [
+    [ "Customization", "md_docs_2doxygen-awesome-css_2docs_2customization.html", [
+      [ "CSS-Variables", "md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md1", [
+        [ "Setup", "md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md2", null ],
+        [ "Available variables", "md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md3", null ]
+      ] ],
+      [ "Doxygen generator", "md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md4", null ],
+      [ "Share your customizations", "md_docs_2doxygen-awesome-css_2docs_2customization.html#autotoc_md5", null ]
+    ] ],
+    [ "Extensions", "md_docs_2doxygen-awesome-css_2docs_2extensions.html", [
+      [ "Dark Mode Toggle", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-dark-mode-toggle", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md7", null ],
+        [ "Customizing", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md8", null ]
+      ] ],
+      [ "Fragment Copy Button", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-copy-button", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md9", null ],
+        [ "Customizing", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md10", null ]
+      ] ],
+      [ "Paragraph Linking", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-para", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md11", null ],
+        [ "Customizing", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md12", null ]
+      ] ],
+      [ "Interactive TOC", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-toc", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md13", null ],
+        [ "Customizing", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md14", null ]
+      ] ],
+      [ "Tabs", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-tabs", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md15", null ],
+        [ "Usage", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md16", null ]
+      ] ],
+      [ "Page Navigation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#extension-page-navigation", [
+        [ "Installation", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md17", null ],
+        [ "Usage", "md_docs_2doxygen-awesome-css_2docs_2extensions.html#autotoc_md18", null ]
+      ] ]
+    ] ],
+    [ "Tips & Tricks", "md_docs_2doxygen-awesome-css_2docs_2tricks.html", [
+      [ "Diagrams with Graphviz", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#tricks-graphviz", null ],
+      [ "Disable Dark Mode", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#tricks-darkmode", null ],
+      [ "Choosing Sidebar Width", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#tricks-sidebar", null ],
+      [ "Formatting Tables", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#tricks-tables", [
+        [ "Centering", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#autotoc_md20", null ],
+        [ "Full Width", "md_docs_2doxygen-awesome-css_2docs_2tricks.html#autotoc_md21", null ]
+      ] ]
+    ] ],
+    [ "Doxygen Awesome", "md_docs_2doxygen-awesome-css_2README.html", [
+      [ "Motivation", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md30", null ],
+      [ "Features", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md31", null ],
+      [ "Examples", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md32", null ],
+      [ "Installation", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md33", [
+        [ "Git submodule", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md34", null ],
+        [ "CMake with FetchContent", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md35", null ],
+        [ "npm/xpm dependency", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md36", null ],
+        [ "System-wide", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md37", null ],
+        [ "Choosing a layout", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md38", null ],
+        [ "Further installation instructions", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md39", null ]
+      ] ],
+      [ "Browser support", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md40", null ],
+      [ "Credits", "md_docs_2doxygen-awesome-css_2README.html#autotoc_md41", null ]
+    ] ],
+    [ "Bug List", "bug.html", null ],
+    [ "Deprecated List", "deprecated.html", null ],
+    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],

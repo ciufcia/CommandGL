@@ -15,6 +15,9 @@ var hierarchy =
       [ "cgl::MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
       [ "cgl::MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ]
     ] ],
+    [ "MyLibrary::Example", "classMyLibrary_1_1Example.html", [
+      [ "MyLibrary::SubclassExample< TemplatedClass >", "classMyLibrary_1_1SubclassExample.html", null ]
+    ] ],
     [ "cgl::Filter", "structcgl_1_1Filter.html", null ],
     [ "cgl::FilterPipeline", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
@@ -22,6 +25,7 @@ var hierarchy =
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
     [ "cgl::ScreenBuffer", "classcgl_1_1ScreenBuffer.html", null ],
+    [ "MyLibrary::SecondExample", "classMyLibrary_1_1SecondExample.html", null ],
     [ "cgl::filters::SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", null ],
     [ "cgl::Transform", "classcgl_1_1Transform.html", null ],
     [ "cgl::Transformable", "classcgl_1_1Transformable.html", [
