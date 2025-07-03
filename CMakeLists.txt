@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.26)
 project(
     CommandGL
     VERSION 1.0.0
-    DESCRIPTION "Command line graphics library for Windows"
+    DESCRIPTION "Command line graphics library for Windows written in C++."
     LANGUAGES CXX
 )
 
