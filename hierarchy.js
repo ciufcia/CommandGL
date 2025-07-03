@@ -29,7 +29,8 @@ var hierarchy =
         [ "cgl::drawables::Mesh", "classcgl_1_1drawables_1_1Mesh.html", [
           [ "cgl::drawables::Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", null ],
           [ "cgl::drawables::Triangle", "classcgl_1_1drawables_1_1Triangle.html", null ]
-        ] ]
+        ] ],
+        [ "cgl::drawables::Point", "classcgl_1_1drawables_1_1Point.html", null ]
       ] ]
     ] ],
     [ "cgl::Vector2< T >", "classcgl_1_1Vector2.html", null ],

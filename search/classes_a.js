@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['transform_0',['Transform',['../classcgl_1_1Transform.html',1,'cgl']]],
-  ['transformable_1',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
-  ['triangle_2',['Triangle',['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables']]]
+  ['screenbuffer_0',['ScreenBuffer',['../classcgl_1_1ScreenBuffer.html',1,'cgl']]],
+  ['singlecolordata_1',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]]
 ];
