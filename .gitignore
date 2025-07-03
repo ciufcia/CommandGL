@@ -3,3 +3,7 @@ out
 CMakeSettings.json
 .vs
 .vscode
+
+# Doxygen output
+html/
+latex/
