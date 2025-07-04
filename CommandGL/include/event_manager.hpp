@@ -20,13 +20,6 @@ namespace cgl
     class EventManager
     {
     public:
-    
-        /**
-         * @brief Constructs an EventManager with a reference to a Console
-         * 
-         * @param console Reference to the Console object that will provide input events
-         */
-        EventManager(Console& console) : m_console(console) {}
 
         /**
          * @brief Checks if a specific key is currently pressed
@@ -95,6 +88,8 @@ namespace cgl
         void handleEvents(Callbacks&&... callbacks);
 
     private:
+
+        EventManager(Console& console) : m_console(console) {}
 
         void updateEvents();
 

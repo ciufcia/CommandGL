@@ -60,12 +60,21 @@ namespace cgl
     public:
 
         /**
+         * @brief Console used for rendering graphics and handling input.
+         * 
+         * This console provides the screen buffer where all graphics are drawn,
+         * and handles input events from the user. It is the main output target
+         * for the framework's rendering operations.
+         */
+        Console console {};
+
+        /**
          * @brief Event manager for handling keyboard, mouse, and console events.
          * 
          * Provides access to input event handling and polling functionality.
          * Use this to check key states, handle events, and respond to user input.
          */
-        EventManager eventManager { m_console };
+        EventManager eventManager { console };
 
         /**
          * @brief High-resolution timer for frame timing and elapsed time measurement.
@@ -112,8 +121,6 @@ namespace cgl
 
         ScreenBuffer m_screenBuffer {};
         CharacterBuffer m_characterBuffer {};
-
-        Console m_console {};
 
         FilterPipeline m_screenFilterPipeline {};
         FilterPipeline m_characterFilterPipeline {};

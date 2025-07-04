@@ -154,6 +154,27 @@ namespace cgl
         )) throw std::runtime_error("Failed to set console font");
     }
 
+    std::string Console::getTitle() const {
+        DWORD titleLength = GetConsoleTitleW(nullptr, 0);
+        if (titleLength == 0) {
+            throw std::runtime_error("Failed to get console title length");
+        }
+
+        std::vector<wchar_t> title(titleLength + 1);
+        if (!GetConsoleTitleW(title.data(), static_cast<DWORD>(title.size()))) {
+            throw std::runtime_error("Failed to get console title");
+        }
+
+        return wideStringToString(std::wstring(title.data()));
+    }
+
+    void Console::setTitle(const std::string &title) {
+        std::wstring wide_title = stringToWideString(title);
+        if (!SetConsoleTitleW(wide_title.c_str())) {
+            throw std::runtime_error("Failed to set console title");
+        }
+    }
+
     void Console::writeCharacterBuffer(const CharacterBuffer &buffer) {
         SetConsoleCursorPosition(
             m_handles.output,

@@ -23,8 +23,7 @@ namespace cgl
     class Console
     {
     public:
-
-        Console();  
+  
         ~Console();
 
         /**
@@ -52,7 +51,7 @@ namespace cgl
          *         set console screen buffer size, or if the requested size exceeds 
          *         the largest console window size or is too small for the current font.
          *
-         * @note If called in an environment where the console is not resizable (such as some modern Windows Terminal or remote sessions),
+         * @note If called in an environment where the console is not resizable (such as Windows Terminal or remote sessions),
          *       the behavior is undefined and may result in errors or no effect. This function is intended to work in the legacy console host.
          */
         void setSize(const Vector2<u32> &size);
@@ -84,15 +83,26 @@ namespace cgl
         void setFont(const ConsoleFont &font);
 
         /**
-         * @brief Writes the contents of a CharacterBuffer to the console.
+         * @brief Gets the current console title.
          *
-         * This function takes a CharacterBuffer object and writes its contents to the console.
-         * The console will display the characters as defined in the buffer.
+         * This function retrieves the current title of the console window.
+         * The title is returned as a standard string.
          *
-         * @param buffer The CharacterBuffer containing characters to write to the console.
-         * @throws std::runtime_error if WriteConsole fails.
+         * @return The current console title as a std::string.
+         * @throws std::runtime_error if unable to get console title.
          */
-        void writeCharacterBuffer(const CharacterBuffer &buffer);
+        std::string getTitle() const;
+
+        /**
+         * @brief Sets the console title.
+         *
+         * This function changes the title of the console window to the specified string.
+         * The title is displayed in the console window's title bar.
+         *
+         * @param title The new title for the console window as a std::string.
+         * @throws std::runtime_error if unable to set console title.
+         */
+        void setTitle(const std::string &title);
 
     private:
 
@@ -104,6 +114,8 @@ namespace cgl
 
     private:
 
+        Console();
+
         void init();
         void getHandles();
         void setInputMode();
@@ -111,6 +123,8 @@ namespace cgl
         void clear();
 
         void destroy();
+
+        void writeCharacterBuffer(const CharacterBuffer &buffer);
 
         void getEvents(std::vector<Event> &events);
         void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords, std::vector<Event> &events);
@@ -133,6 +147,7 @@ namespace cgl
         Vector2<u32> m_lastMousePosition { 0u, 0u };
 
     friend class EventManager;
+    friend class Framework;
     };
 }
 

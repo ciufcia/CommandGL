@@ -24,6 +24,8 @@ int main() {
 
         framework.initialize();
 
+        framework.console.setTitle("CommandGL Example");
+
         framework.scaleOnBaseSizeDeviation = true;
 
         while (true) {

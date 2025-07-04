@@ -12,7 +12,7 @@ namespace cgl
 
         clock.tick();
 
-        baseConsoleSize = m_console.getSize();
+        baseConsoleSize = console.getSize();
     }
 
     void Framework::populateGlobalMemory() const {
@@ -22,7 +22,7 @@ namespace cgl
     }
 
     void Framework::initializeBuffers() {
-        Vector2<u32> consoleSize = m_console.getSize();
+        Vector2<u32> consoleSize = console.getSize();
 
         m_screenBuffer.setSize(consoleSize);
         m_characterBuffer.setSize(consoleSize);
@@ -50,8 +50,8 @@ namespace cgl
 
     void Framework::update() {
         m_screenScaleFactor = {
-            static_cast<f32>(m_console.getSize().x) / std::max(static_cast<f32>(baseConsoleSize.x), 1e-6f),
-            static_cast<f32>(m_console.getSize().y) / std::max(static_cast<f32>(baseConsoleSize.y), 1e-6f)
+            static_cast<f32>(console.getSize().x) / std::max(static_cast<f32>(baseConsoleSize.x), 1e-6f),
+            static_cast<f32>(console.getSize().y) / std::max(static_cast<f32>(baseConsoleSize.y), 1e-6f)
         };
 
         render();
@@ -202,7 +202,7 @@ namespace cgl
     }
 
     void Framework::writeCharacterBuffer() {
-        m_console.writeCharacterBuffer(m_characterBuffer);
+        console.writeCharacterBuffer(m_characterBuffer);
     }
 
     void Framework::handleResizing(const Vector2<u32> &newSize) {
