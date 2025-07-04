@@ -35,7 +35,7 @@ int main() {
                 }
             }
 
-            deltaTime = std::chrono::duration_cast<std::chrono::duration<f32>>(framework.clock.tick()).count();
+            deltaTime = getDurationInSeconds(framework.clock.tick());
 
             framework.clearDisplay({255, 255, 255, 255});
 
@@ -43,13 +43,12 @@ int main() {
 
             framework.update();
         }
+
     } catch (const std::exception& ex) {
         std::cerr << "Exception: " << ex.what() << std::endl;
     } catch (...) {
         std::cerr << "Unknown exception occurred." << std::endl;
     }
-
-    std::cout << deltaTime << " seconds elapsed." << std::endl;
 
     return 0;
 }

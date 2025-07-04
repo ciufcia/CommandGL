@@ -62,6 +62,37 @@ namespace cgl
         std::chrono::steady_clock::time_point m_startTime = std::chrono::steady_clock::now();   
         std::chrono::steady_clock::time_point m_lastTickTime = std::chrono::steady_clock::now();
     };
+
+    /**
+     * @brief Converts a std::chrono::steady_clock::duration to seconds as a floating-point value.
+     * @param duration The duration to convert.
+     * @return The duration in seconds.
+     */
+    f32 getDurationInSeconds(const std::chrono::steady_clock::duration &duration);
+    /**
+     * @brief Converts a std::chrono::steady_clock::duration to milliseconds as a floating-point value.
+     * @param duration The duration to convert.
+     * @return The duration in milliseconds.
+     */
+    f32 getDurationInMilliseconds(const std::chrono::steady_clock::duration &duration);
+    /**
+     * @brief Converts a std::chrono::steady_clock::duration to microseconds as a floating-point value.
+     * @param duration The duration to convert.
+     * @return The duration in microseconds.
+     */
+    f32 getDurationInMicroseconds(const std::chrono::steady_clock::duration &duration);
+    /**
+     * @brief Converts a std::chrono::steady_clock::duration to nanoseconds as a floating-point value.
+     * @param duration The duration to convert.
+     * @return The duration in nanoseconds.
+     */
+    f32 getDurationInNanoseconds(const std::chrono::steady_clock::duration &duration);
+    /**
+     * @brief Calculates frames per second (FPS) from a frame time duration.
+     * @param frameTime The duration of a single frame.
+     * @return The calculated FPS as a floating-point value.
+     */
+    f32 calculateFPS(const std::chrono::steady_clock::duration &frameTime);
 }
 
 #endif // CGL_TIMING_HPP
