@@ -243,7 +243,7 @@ namespace cgl
 
         public:
 
-            Vector2<f32> position { 0.f, 0.f };
+            Vector2<f32> position { 0.f, 0.f };  ///< Position of the point in 2D space.
 
         private:
 

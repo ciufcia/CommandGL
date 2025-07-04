@@ -60,7 +60,6 @@ int main() {
 
             framework.draw(rectangle);
             framework.draw(triangle);
-            framework.draw(point);
 
             framework.update();
         }

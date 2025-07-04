@@ -131,6 +131,7 @@ namespace cgl
                     localBuffer.push_back(pixelData);
                 }
             }
+
             #pragma omp critical
             drawableBuffer.insert(drawableBuffer.end(), localBuffer.begin(), localBuffer.end());
         }
@@ -271,7 +272,7 @@ namespace cgl
         pixelData.uv = { 0.f, 0.f };
         pixelData.size = { 1.f, 1.f };
         pixelData.inverseSize = { 1.f, 1.f };
-        
+
         drawableBuffer.push_back(pixelData);
     }
 }

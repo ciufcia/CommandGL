@@ -108,7 +108,7 @@ namespace cgl
          * @return The squared magnitude of the vector (x² + y²).
          * @note This is more efficient than magnitude() when only comparing lengths.
          */
-        T magnitude_squared() const;
+        T magnitudeSquared() const;
 
         /**
          * @brief Returns the magnitude (length) of the vector.
@@ -166,14 +166,14 @@ namespace cgl
     }
 
     template<arithmetic T>
-    T Vector2<T>::magnitude_squared() const {
+    T Vector2<T>::magnitudeSquared() const {
         return x * x + y * y;
     }
 
     template<arithmetic T>
     T Vector2<T>::magnitude() const {
         using std::sqrt;
-        return sqrt(static_cast<double>(magnitude_squared()));
+        return sqrt(static_cast<double>(magnitudeSquared()));
     }
 
     template<arithmetic T>
