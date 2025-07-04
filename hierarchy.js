@@ -23,6 +23,9 @@ var hierarchy =
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
     [ "cgl::ScreenBuffer", "classcgl_1_1ScreenBuffer.html", null ],
     [ "cgl::filters::SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", null ],
+    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
+    [ "cgl::Texture", "classcgl_1_1Texture.html", null ],
+    [ "cgl::filters::TextureData", "structcgl_1_1filters_1_1TextureData.html", null ],
     [ "cgl::Transform", "classcgl_1_1Transform.html", null ],
     [ "cgl::Transformable", "classcgl_1_1Transformable.html", [
       [ "cgl::Drawable", "classcgl_1_1Drawable.html", [

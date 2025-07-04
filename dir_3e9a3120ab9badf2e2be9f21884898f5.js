@@ -15,6 +15,8 @@ var dir_3e9a3120ab9badf2e2be9f21884898f5 =
     [ "matrix3.hpp", "matrix3_8hpp_source.html", null ],
     [ "numeric_types.hpp", "numeric__types_8hpp_source.html", null ],
     [ "screen_buffer.hpp", "screen__buffer_8hpp_source.html", null ],
+    [ "stb_image.h", "stb__image_8h_source.html", null ],
+    [ "texture.hpp", "texture_8hpp_source.html", null ],
     [ "timing.hpp", "timing_8hpp_source.html", null ],
     [ "transform.hpp", "transform_8hpp_source.html", null ],
     [ "vector2.hpp", "vector2_8hpp_source.html", null ]

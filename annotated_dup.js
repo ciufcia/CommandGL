@@ -11,7 +11,8 @@ var annotated_dup =
       ] ],
       [ "filters", null, [
         [ "RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", "structcgl_1_1filters_1_1RGBSingleCharacterData" ],
-        [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ]
+        [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
+        [ "TextureData", "structcgl_1_1filters_1_1TextureData.html", "structcgl_1_1filters_1_1TextureData" ]
       ] ],
       [ "CharacterBuffer", "classcgl_1_1CharacterBuffer.html", "classcgl_1_1CharacterBuffer" ],
       [ "Clock", "classcgl_1_1Clock.html", "classcgl_1_1Clock" ],
@@ -34,8 +35,10 @@ var annotated_dup =
       [ "MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
       [ "MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ],
       [ "ScreenBuffer", "classcgl_1_1ScreenBuffer.html", "classcgl_1_1ScreenBuffer" ],
+      [ "Texture", "classcgl_1_1Texture.html", "classcgl_1_1Texture" ],
       [ "Transform", "classcgl_1_1Transform.html", null ],
       [ "Transformable", "classcgl_1_1Transformable.html", null ],
       [ "Vector2", "classcgl_1_1Vector2.html", "classcgl_1_1Vector2" ]
-    ] ]
+    ] ],
+    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ]
 ];

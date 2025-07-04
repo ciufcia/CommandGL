@@ -5,8 +5,9 @@ var indexSectionsWithContent =
   2: "f",
   3: "acdefghilmnoprstuvw",
   4: "abcdefgikmnprstuwxy",
-  5: "o",
-  6: "c"
+  5: "s",
+  6: "o",
+  7: "c"
 };
 
 var indexSectionNames =
@@ -16,8 +17,9 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "variables",
-  5: "related",
-  6: "concepts"
+  5: "enums",
+  6: "related",
+  7: "concepts"
 };
 
 var indexSectionLabels =
@@ -27,7 +29,8 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Functions",
   4: "Variables",
-  5: "Friends",
-  6: "Concepts"
+  5: "Enumerations",
+  6: "Friends",
+  7: "Concepts"
 };
 
