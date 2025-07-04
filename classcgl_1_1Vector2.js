@@ -4,7 +4,7 @@ var classcgl_1_1Vector2 =
     [ "Vector2", "classcgl_1_1Vector2.html#a4b5e308c7790400a0ba3bf2eeb977933", null ],
     [ "dot", "classcgl_1_1Vector2.html#af20e19392595536d93233c3ec3edffc0", null ],
     [ "magnitude", "classcgl_1_1Vector2.html#ac803aaa15f023b7bc84780d7cad130b9", null ],
-    [ "magnitude_squared", "classcgl_1_1Vector2.html#a22f48ac82793630d21bcd1562f003801", null ],
+    [ "magnitudeSquared", "classcgl_1_1Vector2.html#aa8f0689f5b9c90212685aafd49b2eb74", null ],
     [ "normalized", "classcgl_1_1Vector2.html#afeeefa53a4f364b13f356db96917f380", null ],
     [ "operator!=", "classcgl_1_1Vector2.html#a4813e61357e87f3e53bcec3cd926525b", null ],
     [ "operator*", "classcgl_1_1Vector2.html#a873487e864565ee8fd3d12c4bcaadd54", null ],
