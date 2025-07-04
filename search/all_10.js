@@ -14,11 +14,12 @@ var searchData=
   ['setpixel_11',['setPixel',['../classcgl_1_1Texture.html#a8fe4e546b7d8d403da29dc069fb33c33',1,'cgl::Texture']]],
   ['setpoint_12',['setPoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle']]],
   ['setsize_13',['setsize',['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()'],['../classcgl_1_1Console.html#ad4fc50b18a6fc8b880b9ff3974076c11',1,'cgl::Console::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()'],['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()'],['../classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe',1,'cgl::Texture::setSize()']]],
-  ['settopleft_14',['setTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#a3ea44c8fcbe61fb813705be0b9e9b47d',1,'cgl::drawables::Rectangle']]],
-  ['settype_15',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
-  ['singlecolordata_16',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
-  ['size_17',['size',['../classcgl_1_1ConsoleFont.html#a19f994708b0bd44862f40723abd465a7',1,'cgl::ConsoleFont']]],
-  ['start_18',['start',['../classcgl_1_1drawables_1_1Line.html#ad4424dabd76917215ad8fea7fa66cefb',1,'cgl::drawables::Line']]],
-  ['stbi_5fio_5fcallbacks_19',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]],
-  ['subtractiveblend_20',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
+  ['settitle_14',['setTitle',['../classcgl_1_1Console.html#a45e7d913b038b751bd8f6efaa6776abe',1,'cgl::Console']]],
+  ['settopleft_15',['setTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#a3ea44c8fcbe61fb813705be0b9e9b47d',1,'cgl::drawables::Rectangle']]],
+  ['settype_16',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
+  ['singlecolordata_17',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
+  ['size_18',['size',['../classcgl_1_1ConsoleFont.html#a19f994708b0bd44862f40723abd465a7',1,'cgl::ConsoleFont']]],
+  ['start_19',['start',['../classcgl_1_1drawables_1_1Line.html#ad4424dabd76917215ad8fea7fa66cefb',1,'cgl::drawables::Line']]],
+  ['stbi_5fio_5fcallbacks_20',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]],
+  ['subtractiveblend_21',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
 ];

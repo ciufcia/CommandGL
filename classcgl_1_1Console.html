@@ -132,15 +132,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9dd0689bbcb2adb53e95fba26dd104bf" id="r_a9dd0689bbcb2adb53e95fba26dd104bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a9dd0689bbcb2adb53e95fba26dd104bf">setFont</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1ConsoleFont.html">ConsoleFont</a> &amp;<a class="el" href="classcgl_1_1Vector2.html">font</a>)</td></tr>
 <tr class="memdesc:a9dd0689bbcb2adb53e95fba26dd104bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the font configuration for the console.  <br /></td></tr>
 <tr class="separator:a9dd0689bbcb2adb53e95fba26dd104bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ccdb11302740c2f4e546b2c10da5c06" id="r_a1ccdb11302740c2f4e546b2c10da5c06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">writeCharacterBuffer</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1CharacterBuffer.html">CharacterBuffer</a> &amp;<a class="el" href="classcgl_1_1Vector2.html">buffer</a>)</td></tr>
-<tr class="memdesc:a1ccdb11302740c2f4e546b2c10da5c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the contents of a <a class="el" href="classcgl_1_1CharacterBuffer.html" title="A 2D buffer for storing wide characters with specified dimensions.">CharacterBuffer</a> to the console.  <br /></td></tr>
-<tr class="separator:a1ccdb11302740c2f4e546b2c10da5c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237107ff36f37f79e79fee6740c5b95c" id="r_a237107ff36f37f79e79fee6740c5b95c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a237107ff36f37f79e79fee6740c5b95c">getTitle</a> () <a class="el" href="classcgl_1_1Vector2.html">const</a></td></tr>
+<tr class="memdesc:a237107ff36f37f79e79fee6740c5b95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current console title.  <br /></td></tr>
+<tr class="separator:a237107ff36f37f79e79fee6740c5b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e7d913b038b751bd8f6efaa6776abe" id="r_a45e7d913b038b751bd8f6efaa6776abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a45e7d913b038b751bd8f6efaa6776abe">setTitle</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> std::string &amp;<a class="el" href="classcgl_1_1Vector2.html">title</a>)</td></tr>
+<tr class="memdesc:a45e7d913b038b751bd8f6efaa6776abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the console title.  <br /></td></tr>
+<tr class="separator:a45e7d913b038b751bd8f6efaa6776abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:aba45a46c615e2683daffdae82e2d3b8f" id="r_aba45a46c615e2683daffdae82e2d3b8f"><td class="memItemLeft" align="right" valign="top"><a id="aba45a46c615e2683daffdae82e2d3b8f" name="aba45a46c615e2683daffdae82e2d3b8f"></a>
 <a class="el" href="classcgl_1_1Vector2.html">class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>EventManager</b></td></tr>
 <tr class="separator:aba45a46c615e2683daffdae82e2d3b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3defef37a1222bb2b2a65577a6c4816" id="r_ad3defef37a1222bb2b2a65577a6c4816"><td class="memItemLeft" align="right" valign="top"><a id="ad3defef37a1222bb2b2a65577a6c4816" name="ad3defef37a1222bb2b2a65577a6c4816"></a>
+<a class="el" href="classcgl_1_1Vector2.html">class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Framework</b></td></tr>
+<tr class="separator:ad3defef37a1222bb2b2a65577a6c4816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages Windows console operations including display, input, and font configuration. </p>
@@ -194,6 +200,33 @@ Friends</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if unable to get console screen buffer info. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a237107ff36f37f79e79fee6740c5b95c" name="a237107ff36f37f79e79fee6740c5b95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a237107ff36f37f79e79fee6740c5b95c">&#9670;&#160;</a></span>getTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cgl::Console::getTitle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current console title. </p>
+<p>This function retrieves the current title of the console window. The title is returned as a standard string.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current console title as a std::string. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>if unable to get console title. </td></tr>
   </table>
   </dd>
 </dl>
@@ -265,37 +298,37 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>If called in an environment where the console is not resizable (such as some modern Windows Terminal or remote sessions), the behavior is undefined and may result in errors or no effect. This function is intended to work in the legacy console host. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If called in an environment where the console is not resizable (such as Windows Terminal or remote sessions), the behavior is undefined and may result in errors or no effect. This function is intended to work in the legacy console host. </dd></dl>
 
 </div>
 </div>
-<a id="a1ccdb11302740c2f4e546b2c10da5c06" name="a1ccdb11302740c2f4e546b2c10da5c06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ccdb11302740c2f4e546b2c10da5c06">&#9670;&#160;</a></span>writeCharacterBuffer()</h2>
+<a id="a45e7d913b038b751bd8f6efaa6776abe" name="a45e7d913b038b751bd8f6efaa6776abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e7d913b038b751bd8f6efaa6776abe">&#9670;&#160;</a></span>setTitle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">void</a> cgl::Console::writeCharacterBuffer </td>
+          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">void</a> cgl::Console::setTitle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1CharacterBuffer.html">CharacterBuffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classcgl_1_1Vector2.html">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Writes the contents of a <a class="el" href="classcgl_1_1CharacterBuffer.html" title="A 2D buffer for storing wide characters with specified dimensions.">CharacterBuffer</a> to the console. </p>
-<p>This function takes a <a class="el" href="classcgl_1_1CharacterBuffer.html" title="A 2D buffer for storing wide characters with specified dimensions.">CharacterBuffer</a> object and writes its contents to the console. The console will display the characters as defined in the buffer.</p>
+<p>Sets the console title. </p>
+<p>This function changes the title of the console window to the specified string. The title is displayed in the console window's title bar.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>The <a class="el" href="classcgl_1_1CharacterBuffer.html" title="A 2D buffer for storing wide characters with specified dimensions.">CharacterBuffer</a> containing characters to write to the console. </td></tr>
+    <tr><td class="paramname">title</td><td>The new title for the console window as a std::string. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if WriteConsole fails. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>if unable to set console title. </td></tr>
   </table>
   </dd>
 </dl>

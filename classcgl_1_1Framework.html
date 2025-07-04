@@ -134,7 +134,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a623d8d4ca4c8b159081841813146c075" id="r_a623d8d4ca4c8b159081841813146c075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075">eventManager</a> { m_console }</td></tr>
+<tr class="memitem:a5938a118e28c4a2e323c75da5a53c2c3" id="r_a5938a118e28c4a2e323c75da5a53c2c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Console.html">Console</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a5938a118e28c4a2e323c75da5a53c2c3">console</a> {}</td></tr>
+<tr class="memdesc:a5938a118e28c4a2e323c75da5a53c2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> used for rendering graphics and handling input.  <br /></td></tr>
+<tr class="separator:a5938a118e28c4a2e323c75da5a53c2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623d8d4ca4c8b159081841813146c075" id="r_a623d8d4ca4c8b159081841813146c075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075">eventManager</a> { <a class="el" href="classcgl_1_1Framework.html#a5938a118e28c4a2e323c75da5a53c2c3">console</a> }</td></tr>
 <tr class="memdesc:a623d8d4ca4c8b159081841813146c075"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a> manager for handling keyboard, mouse, and console events.  <br /></td></tr>
 <tr class="separator:a623d8d4ca4c8b159081841813146c075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f9d254ad9b28af89003c015016b7f3" id="r_a30f9d254ad9b28af89003c015016b7f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Clock.html">Clock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a30f9d254ad9b28af89003c015016b7f3">clock</a></td></tr>
@@ -280,6 +283,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5938a118e28c4a2e323c75da5a53c2c3" name="a5938a118e28c4a2e323c75da5a53c2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5938a118e28c4a2e323c75da5a53c2c3">&#9670;&#160;</a></span>console</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1Console.html">Console</a> cgl::Framework::console {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> used for rendering graphics and handling input. </p>
+<p>This console provides the screen buffer where all graphics are drawn, and handles input events from the user. It is the main output target for the framework's rendering operations. </p>
+
+</div>
+</div>
 <a id="a623d8d4ca4c8b159081841813146c075" name="a623d8d4ca4c8b159081841813146c075"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a623d8d4ca4c8b159081841813146c075">&#9670;&#160;</a></span>eventManager</h2>
 
@@ -287,7 +307,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a> cgl::Framework::eventManager { m_console }</td>
+          <td class="memname"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a> cgl::Framework::eventManager { <a class="el" href="classcgl_1_1Framework.html#a5938a118e28c4a2e323c75da5a53c2c3">console</a> }</td>
         </tr>
       </table>
 </div><div class="memdoc">

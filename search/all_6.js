@@ -17,6 +17,7 @@ var searchData=
   ['getsize_14',['getsize',['../classcgl_1_1CharacterBuffer.html#ab2831352f52099e7473b0c13f9fa6a44',1,'cgl::CharacterBuffer::getSize()'],['../classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011',1,'cgl::Console::getSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a84cbfb3bbd39d0e968a380ad74724960',1,'cgl::drawables::Rectangle::getSize()'],['../classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56',1,'cgl::ScreenBuffer::getSize()'],['../classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4',1,'cgl::Texture::getSize()']]],
   ['getstarttime_15',['getStartTime',['../classcgl_1_1Clock.html#abd75441b4488d95a8949095997a10bb9',1,'cgl::Clock']]],
   ['gettickduration_16',['getTickDuration',['../classcgl_1_1Clock.html#af4b46c5050ecad6f512747909c80584a',1,'cgl::Clock']]],
-  ['gettopleft_17',['getTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#added39ec0994c271528306f4fc1ecdd6',1,'cgl::drawables::Rectangle']]],
-  ['globalmemory_18',['GlobalMemory',['../classcgl_1_1GlobalMemory.html',1,'cgl']]]
+  ['gettitle_17',['getTitle',['../classcgl_1_1Console.html#a237107ff36f37f79e79fee6740c5b95c',1,'cgl::Console']]],
+  ['gettopleft_18',['getTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#added39ec0994c271528306f4fc1ecdd6',1,'cgl::drawables::Rectangle']]],
+  ['globalmemory_19',['GlobalMemory',['../classcgl_1_1GlobalMemory.html',1,'cgl']]]
 ];
