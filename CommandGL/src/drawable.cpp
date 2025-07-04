@@ -138,11 +138,11 @@ namespace cgl
     }
 
     bool drawables::Mesh::isTopEdge(const Vector2<f32>& v1, const Vector2<f32>& v2) {
-        return v1.y == v2.y && v1.x > v2.x;
+        return v1.y == v2.y && v2.x > v1.x;
     }
 
     bool drawables::Mesh::isLeftEdge(const Vector2<f32>& v1, const Vector2<f32>& v2) {
-        return v1.y < v2.y;
+        return v2.y < v1.y;
     }
 
     bool drawables::Mesh::isTopOrLeftEdge(const Vector2<f32>& v1, const Vector2<f32>& v2) {
@@ -336,6 +336,44 @@ namespace cgl
 
             #pragma omp critical
             drawableBuffer.insert(drawableBuffer.end(), localBuffer.begin(), localBuffer.end());
+        }
+    }
+
+    void drawables::Line::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+        Matrix3<f32> transformMatrix = transform.getMatrix();
+
+        Vector2<f32> startTransformed = transformMatrix * start;
+        Vector2<f32> endTransformed = transformMatrix * end;
+
+        Vector2<f32> difference = endTransformed - startTransformed;
+        Vector2<f32> inverseDifference = { 1.f / difference.x, 1.f / difference.y };
+        float length = difference.magnitude();
+
+        filter_pass_data::PixelPass pixelData;
+
+        if (length < 1e-6f) {
+            pixelData.position = startTransformed;
+            pixelData.uv = { 0.f, 0.f };
+            pixelData.size = { 1.f, 1.f };
+            pixelData.inverseSize = { 1.f, 1.f };
+
+            drawableBuffer.push_back(pixelData);
+            return;
+        }
+
+        u32 steps = static_cast<u32>(std::ceil(length));
+        f32 inverseSteps = 1.f / static_cast<f32>(steps);
+        Vector2<f32> step = difference / static_cast<f32>(steps);
+
+        for (u32 i = 0; i <= steps; ++i) {
+            Vector2<f32> position = startTransformed + step * static_cast<f32>(i);
+
+            pixelData.position = position;
+            pixelData.uv = { static_cast<f32>(i) * inverseSteps, 0.f };
+            pixelData.size = difference;
+            pixelData.inverseSize = inverseDifference;
+
+            drawableBuffer.push_back(pixelData);
         }
     }
 }

@@ -21,7 +21,7 @@ int main() {
 
         auto rectangle = Drawable::create<drawables::Rectangle>(Vector2<f32>(0, 0), Vector2<f32>(40.f, 40.f));
         rectangle->fragmentPipeline.addFilter(filter, 0);
-        rectangle->transform.setOrigin({20.f, 20.f});
+        rectangle->transform.setOrigin({40.f, 40.f});
 
         auto point = Drawable::create<drawables::Point>(Vector2<f32>{0.f, 0.f});
         point->fragmentPipeline.addFilter(solidFilter, 0);
@@ -36,12 +36,20 @@ int main() {
             Vector2<f32>{20.f, 40.f}
         );
 
+        auto line = Drawable::create<drawables::Line>(
+            Vector2<f32>{0.f, 0.f},
+            Vector2<f32>{20.f, 0.f}
+        );
+        line->fragmentPipeline.addFilter(filter, 0);
+
         triangle->fragmentPipeline.addFilter(filter, 0);
         triangle->transform.setOrigin({20.0f, 13.333333f});
         triangle->transform.setPosition({80.f, 80.f});
         triangle->depth = 10.f;
 
         framework.initialize();
+
+        rectangle->transform.setPosition({(f32)framework.baseConsoleSize.x, (f32)framework.baseConsoleSize.y});
 
         framework.scaleOnBaseSizeDeviation = true;
 
@@ -56,15 +64,16 @@ int main() {
 
             deltaTime = std::chrono::duration_cast<std::chrono::duration<f32>>(framework.clock.tick()).count();
 
-            rectangle->transform.rotate(180.f * deltaTime);
+            //rectangle->transform.rotate(180.f * deltaTime);
             //triangle->transform.rotate(180.f * deltaTime);
-            ellipse->transform.rotate(180.f * deltaTime);
+            //ellipse->transform.rotate(180.f * deltaTime);
 
             framework.clearDisplay({255, 255, 255, 255});
 
             framework.draw(rectangle);
             //framework.draw(triangle);
-            framework.draw(ellipse);
+            //framework.draw(ellipse);
+            //framework.draw(line);
 
             framework.update();
         }

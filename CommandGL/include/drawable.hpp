@@ -272,6 +272,29 @@ namespace cgl
     
             void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
         };
+
+        class Line : public Drawable
+        {
+        public:
+
+            Line() = default;
+
+            /**
+             * @brief Constructor that creates a line segment between two points.
+             * @param start The starting point of the line.
+             * @param end The ending point of the line.
+             */
+            Line(const Vector2<f32> &start, const Vector2<f32> &end) : start(start), end(end) {}
+
+        public:
+
+            Vector2<f32> start { 0.f, 0.f };  ///< Starting point of the line segment.
+            Vector2<f32> end { 1.f, 1.f };    ///< Ending point of the line segment.
+
+        private:
+
+            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+        };
     }
 
     template<typename T, typename... Args>
