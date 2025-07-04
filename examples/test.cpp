@@ -10,46 +10,19 @@ int main() {
     try {
         Framework framework;
 
-        auto filter = std::make_shared<Filter>();
-        filter->type = FilterType::Parallel;
-        filter->function = filters::uv;
+        auto texture = Texture::create("img.jpg");
 
-        auto solidFilter = std::make_shared<Filter>();
-        solidFilter->type = FilterType::Parallel;
-        solidFilter->function = filters::singleColor;
-        solidFilter->data = std::make_shared<filters::SingleColorData>(Color(0, 0, 0, 128));
+        auto filter = Filter::create(
+            FilterType::Parallel,
+            filters::texture,
+            filters::TextureData{texture, Texture::SamplingMode::Bilinear}
+        );
 
-        auto rectangle = Drawable::create<drawables::Rectangle>(Vector2<f32>(0, 0), Vector2<f32>(40.f, 40.f));
-        rectangle->fragmentPipeline.addFilter(filter, 0);
-        rectangle->transform.setOrigin({40.f, 40.f});
-
-        auto point = Drawable::create<drawables::Point>(Vector2<f32>{0.f, 0.f});
-        point->fragmentPipeline.addFilter(solidFilter, 0);
-
-        auto ellipse = Drawable::create<drawables::Ellipse>(Vector2<f32>{0.f, 0.f}, Vector2<f32>{50.f, 10.f});
+        auto ellipse = Drawable::create<drawables::Ellipse>(Vector2<f32>(0, 0), Vector2<f32>(40.f, 20.f));
         ellipse->fragmentPipeline.addFilter(filter, 0);
-        ellipse->transform.setPosition({160.f, 30.f});
-
-        auto triangle = Drawable::create<drawables::Triangle>(
-            Vector2<f32>{0.f, 0.f},
-            Vector2<f32>{40.f, 0.f},
-            Vector2<f32>{20.f, 40.f}
-        );
-
-        auto line = Drawable::create<drawables::Line>(
-            Vector2<f32>{0.f, 0.f},
-            Vector2<f32>{20.f, 0.f}
-        );
-        line->fragmentPipeline.addFilter(filter, 0);
-
-        triangle->fragmentPipeline.addFilter(filter, 0);
-        triangle->transform.setOrigin({20.0f, 13.333333f});
-        triangle->transform.setPosition({80.f, 80.f});
-        triangle->depth = 10.f;
+        ellipse->transform.setPosition({40.f, 40.f});
 
         framework.initialize();
-
-        rectangle->transform.setPosition({(f32)framework.baseConsoleSize.x, (f32)framework.baseConsoleSize.y});
 
         framework.scaleOnBaseSizeDeviation = true;
 
@@ -64,16 +37,9 @@ int main() {
 
             deltaTime = std::chrono::duration_cast<std::chrono::duration<f32>>(framework.clock.tick()).count();
 
-            //rectangle->transform.rotate(180.f * deltaTime);
-            //triangle->transform.rotate(180.f * deltaTime);
-            //ellipse->transform.rotate(180.f * deltaTime);
-
             framework.clearDisplay({255, 255, 255, 255});
 
-            framework.draw(rectangle);
-            //framework.draw(triangle);
-            //framework.draw(ellipse);
-            //framework.draw(line);
+            framework.draw(ellipse);
 
             framework.update();
         }

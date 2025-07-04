@@ -19,5 +19,6 @@
 #include "transform.hpp"
 #include "drawable.hpp"
 #include "timing.hpp"
+#include "texture.hpp"
 
 #endif // CGL_CGL_HPP

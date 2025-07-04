@@ -5,6 +5,7 @@
 #include "numeric_types.hpp"
 #include <memory>
 #include <vector>
+#include "texture.hpp"
 
 namespace cgl
 {
@@ -272,6 +273,29 @@ namespace cgl
          * them to specific colors.
          */
         void uv(void *filterData, void *passData);
+
+        /**
+         * @brief Filter that samples a texture and applies it to the screen buffer.
+         * @param filterData Pointer to TextureData containing the texture and sampling mode.
+         * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
+         * 
+         * This filter samples a texture and applies it to the screen buffer,
+         * allowing for texture-based rendering effects.
+         */
+        void texture(void *filterData, void *passData);
+
+        /**
+         * @struct TextureData
+         * @brief Configuration data for the texture filter.
+         * 
+         * This structure holds the texture to sample from and the sampling mode
+         * to use when filtering the texture.
+         */
+        struct TextureData
+        {
+            std::shared_ptr<Texture> texture = nullptr;  ///< The texture to sample from
+            Texture::SamplingMode sampling = Texture::SamplingMode::NearestNeighbor;  ///< Sampling mode for texture filtering
+        };
 
         /**
          * @brief Filter that converts RGB colors to character representation.

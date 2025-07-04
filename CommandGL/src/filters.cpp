@@ -88,6 +88,13 @@ namespace cgl
             castedPassData->color = sampleUVColor(castedPassData->uv);
         }
 
+        void texture(void *filterData, void *passData) {
+            auto castedFilterData = static_cast<TextureData *>(filterData);
+            auto castedPassData = static_cast<filter_pass_data::PixelPass *>(passData);
+
+            castedPassData->color = castedFilterData->texture->sample(castedPassData->uv, castedFilterData->sampling);
+        }
+
         void rgbSingleCharacter(void *filterData, void *passData) {
             auto castedFilterData = static_cast<RGBSingleCharacterData *>(filterData);
             auto castedPassData = static_cast<filter_pass_data::CharacterBufferSinglePass *>(passData);

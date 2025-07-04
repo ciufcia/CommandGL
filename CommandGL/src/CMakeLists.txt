@@ -12,6 +12,7 @@ add_library(
     transform.cpp
     drawable.cpp
     timing.cpp
+    texture.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
