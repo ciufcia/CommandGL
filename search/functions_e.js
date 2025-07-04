@@ -9,10 +9,8 @@ var searchData=
   ['setfont_6',['setFont',['../classcgl_1_1Console.html#a9dd0689bbcb2adb53e95fba26dd104bf',1,'cgl::Console']]],
   ['setpixel_7',['setPixel',['../classcgl_1_1Texture.html#a8fe4e546b7d8d403da29dc069fb33c33',1,'cgl::Texture']]],
   ['setpoint_8',['setPoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle']]],
-  ['setsize_9',['setsize',['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()'],['../classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe',1,'cgl::Texture::setSize()'],['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()'],['../classcgl_1_1Console.html#ad4fc50b18a6fc8b880b9ff3974076c11',1,'cgl::Console::setSize()']]],
+  ['setsize_9',['setsize',['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()'],['../classcgl_1_1Console.html#ad4fc50b18a6fc8b880b9ff3974076c11',1,'cgl::Console::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()'],['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()'],['../classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe',1,'cgl::Texture::setSize()']]],
   ['settopleft_10',['setTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#a3ea44c8fcbe61fb813705be0b9e9b47d',1,'cgl::drawables::Rectangle']]],
   ['settype_11',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
-  ['start_12',['start',['../classcgl_1_1FilterPipeline.html#ad4638c05db02ee5a1664019728581cb8',1,'cgl::FilterPipeline']]],
-  ['step_13',['step',['../classcgl_1_1FilterPipeline.html#ae8d03fcfe05b0955ca02229ec9cbeea3',1,'cgl::FilterPipeline']]],
-  ['subtractiveblend_14',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
+  ['subtractiveblend_12',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
 ];

@@ -18,8 +18,7 @@ var searchData=
   ['settype_15',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
   ['singlecolordata_16',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
   ['size_17',['size',['../classcgl_1_1ConsoleFont.html#a19f994708b0bd44862f40723abd465a7',1,'cgl::ConsoleFont']]],
-  ['start_18',['start',['../classcgl_1_1drawables_1_1Line.html#ad4424dabd76917215ad8fea7fa66cefb',1,'cgl::drawables::Line::start'],['../classcgl_1_1FilterPipeline.html#ad4638c05db02ee5a1664019728581cb8',1,'cgl::FilterPipeline::start()']]],
+  ['start_18',['start',['../classcgl_1_1drawables_1_1Line.html#ad4424dabd76917215ad8fea7fa66cefb',1,'cgl::drawables::Line']]],
   ['stbi_5fio_5fcallbacks_19',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]],
-  ['step_20',['step',['../classcgl_1_1FilterPipeline.html#ae8d03fcfe05b0955ca02229ec9cbeea3',1,'cgl::FilterPipeline']]],
-  ['subtractiveblend_21',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
+  ['subtractiveblend_20',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
 ];
