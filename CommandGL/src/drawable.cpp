@@ -275,4 +275,67 @@ namespace cgl
 
         drawableBuffer.push_back(pixelData);
     }
+
+    void drawables::Ellipse::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+        Matrix3<f32> transformMatrix = transform.getMatrix();
+        Matrix3<f32> inverseMatrix = transformMatrix.inverse();
+
+        Vector2<f32> corners[4] = {
+            { center.x - radius.x, center.y - radius.y },
+            { center.x + radius.x, center.y - radius.y },
+            { center.x + radius.x, center.y + radius.y },
+            { center.x - radius.x, center.y + radius.y }
+        };
+
+        Vector2<f32> topLeft = transformMatrix * corners[0];
+        Vector2<f32> bottomRight = topLeft;
+
+        for (u32 i = 1; i < 4; ++i) {
+            Vector2<f32> transformedCorner = transformMatrix * corners[i];
+
+            topLeft.x = std::min(topLeft.x, transformedCorner.x);
+            topLeft.y = std::min(topLeft.y, transformedCorner.y);
+            bottomRight.x = std::max(bottomRight.x, transformedCorner.x);
+            bottomRight.y = std::max(bottomRight.y, transformedCorner.y);
+        }
+
+        Vector2<f32> size = bottomRight - topLeft;
+        Vector2<f32> inverseSize = { 1.f / size.x, 1.f / size.y };
+        Vector2<f32> inverseDiameter = { 1.f / (2.f * radius.x), 1.f / (2.f * radius.y) };
+
+        #pragma omp parallel
+        {
+            std::vector<filter_pass_data::PixelPass> localBuffer;
+            localBuffer.reserve(256);
+
+            #pragma omp for collapse(2) schedule(dynamic)
+            for (int y = static_cast<int>(topLeft.y); y <= static_cast<int>(bottomRight.y); ++y) {
+                for (int x = static_cast<int>(topLeft.x); x <= static_cast<int>(bottomRight.x); ++x) {
+                    Vector2<f32> pixelPos = { static_cast<f32>(x), static_cast<f32>(y) };
+                    Vector2<f32> localPos = inverseMatrix * pixelPos;
+
+                    f32 dx = localPos.x - center.x;
+                    f32 dy = localPos.y - center.y;
+                    f32 distanceSquared = (dx * dx) / (radius.x * radius.x) + (dy * dy) / (radius.y * radius.y);
+
+                    if (distanceSquared <= 1.f) {
+                        filter_pass_data::PixelPass pixelData;
+                        
+                        pixelData.position = pixelPos;
+                        pixelData.uv = {
+                            (localPos.x - center.x) * inverseDiameter.x + 0.5f,
+                            (localPos.y - center.y) * inverseDiameter.y + 0.5f
+                        };
+                        pixelData.size = size;
+                        pixelData.inverseSize = inverseSize;
+
+                        localBuffer.push_back(pixelData);
+                    }
+                }
+            }
+
+            #pragma omp critical
+            drawableBuffer.insert(drawableBuffer.end(), localBuffer.begin(), localBuffer.end());
+        }
+    }
 }

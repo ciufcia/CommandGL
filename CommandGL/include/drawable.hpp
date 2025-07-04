@@ -249,6 +249,29 @@ namespace cgl
 
             void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
         };
+
+        class Ellipse : public Drawable
+        {
+        public:
+
+            Ellipse() = default;
+
+            /**
+             * @brief Constructor that creates an ellipse with a center and radius.
+             * @param center The center position of the ellipse.
+             * @param radius The radius of the ellipse in both x and y directions.
+             */
+            Ellipse(const Vector2<f32> &center, const Vector2<f32> &radius) : center(center), radius(radius) {}
+
+        public:
+
+            Vector2<f32> center { 0.f, 0.f };  ///< Center position of the ellipse.
+            Vector2<f32> radius { 1.f, 1.f };  ///< Radius in x and y directions.
+
+        private:
+    
+            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+        };
     }
 
     template<typename T, typename... Args>

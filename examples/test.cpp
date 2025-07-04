@@ -20,12 +20,15 @@ int main() {
         solidFilter->data = std::make_shared<filters::SingleColorData>(Color(0, 0, 0, 128));
 
         auto rectangle = Drawable::create<drawables::Rectangle>(Vector2<f32>(0, 0), Vector2<f32>(40.f, 40.f));
-        rectangle->fragmentPipeline.addFilter(solidFilter, 0);
+        rectangle->fragmentPipeline.addFilter(filter, 0);
         rectangle->transform.setOrigin({20.f, 20.f});
-        rectangle->transform.setPosition({60.f, 60.f});
 
         auto point = Drawable::create<drawables::Point>(Vector2<f32>{0.f, 0.f});
         point->fragmentPipeline.addFilter(solidFilter, 0);
+
+        auto ellipse = Drawable::create<drawables::Ellipse>(Vector2<f32>{0.f, 0.f}, Vector2<f32>{50.f, 10.f});
+        ellipse->fragmentPipeline.addFilter(filter, 0);
+        ellipse->transform.setPosition({160.f, 30.f});
 
         auto triangle = Drawable::create<drawables::Triangle>(
             Vector2<f32>{0.f, 0.f},
@@ -54,12 +57,14 @@ int main() {
             deltaTime = std::chrono::duration_cast<std::chrono::duration<f32>>(framework.clock.tick()).count();
 
             rectangle->transform.rotate(180.f * deltaTime);
-            triangle->transform.rotate(180.f * deltaTime);
+            //triangle->transform.rotate(180.f * deltaTime);
+            ellipse->transform.rotate(180.f * deltaTime);
 
             framework.clearDisplay({255, 255, 255, 255});
 
             framework.draw(rectangle);
-            framework.draw(triangle);
+            //framework.draw(triangle);
+            framework.draw(ellipse);
 
             framework.update();
         }
