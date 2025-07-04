@@ -126,39 +126,25 @@ namespace cgl
          */
         void clearFilters();
 
-        /**
-         * @brief Gets the filter at the specified position.
-         * @param position The position of the filter to retrieve.
-         * @return A shared pointer to the filter at the given position.
-         */
+    private:
+
         std::shared_ptr<Filter> getFilter(u32 position) const;
 
-        /**
-         * @brief Starts iterating through the pipeline from the first filter.
-         * 
-         * This prepares the pipeline for sequential execution of filters.
-         * Must be called before using step() or getCurrentFilter().
-         */
         void start();
         
-        /**
-         * @brief Gets the currently active filter during pipeline iteration.
-         * @return A shared pointer to the current filter, or nullptr if iteration hasn't started.
-         */
         std::shared_ptr<Filter> getCurrentFilter() const;
         
-        /**
-         * @brief Advances to the next filter in the pipeline.
-         * @return True if there are more filters to process, false if the end is reached.
-         */
         bool step();
-
-    private:
 
         std::vector<std::shared_ptr<Filter>> m_filters;
 
+    private:
+
         int m_currentFilterIndex = -1;
         bool m_isActive = false;
+
+    friend class Drawable;
+    friend class Framework;
     };
 
     /**
