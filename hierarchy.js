@@ -26,6 +26,7 @@ var hierarchy =
     [ "cgl::Transform", "classcgl_1_1Transform.html", null ],
     [ "cgl::Transformable", "classcgl_1_1Transformable.html", [
       [ "cgl::Drawable", "classcgl_1_1Drawable.html", [
+        [ "cgl::drawables::Ellipse", "classcgl_1_1drawables_1_1Ellipse.html", null ],
         [ "cgl::drawables::Mesh", "classcgl_1_1drawables_1_1Mesh.html", [
           [ "cgl::drawables::Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", null ],
           [ "cgl::drawables::Triangle", "classcgl_1_1drawables_1_1Triangle.html", null ]
