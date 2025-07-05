@@ -10,7 +10,7 @@ namespace cgl
         initializeBuffers();
         initializeFilterPipelines();
 
-        clock.tick();
+        m_clock.tick();
 
         baseConsoleSize = console.getSize();
     }
@@ -63,6 +63,34 @@ namespace cgl
                 handleResizing(event.newSize);
             }
         }
+
+        auto frameDuration = m_clock.tick();
+
+        if (frameDuration < m_targetFrameTime) {
+            m_clock.wait(m_targetFrameTime - frameDuration);
+        }
+
+        m_lastFrameTime = frameDuration + m_clock.getTickDuration();
+    }
+
+    u32 Framework::getFPSTarget() const {
+        return static_cast<u32>(std::chrono::duration_cast<std::chrono::milliseconds>(m_targetFrameTime).count());
+    }
+
+    void Framework::setFPSTarget(u32 target) {
+        m_targetFrameTime = std::chrono::milliseconds(1000 / target);
+    }
+
+    std::chrono::steady_clock::duration Framework::getTargetFrameTime() const {
+        return m_targetFrameTime;
+    }
+
+    void Framework::setTargetFrameTime(std::chrono::steady_clock::duration targetFrameTime) {
+        m_targetFrameTime = targetFrameTime;
+    }
+
+    std::chrono::steady_clock::duration Framework::getLastFrameTime() const {
+        return m_lastFrameTime;
     }
 
     void Framework::scaleToScreen(Transform &transform) {
@@ -80,7 +108,7 @@ namespace cgl
             }
         );
 
-        f32 time = std::chrono::duration_cast<std::chrono::duration<f32>>(clock.getRunningDuration()).count();
+        f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
         for (auto &pair : m_drawQueue) {
             m_drawableBuffer.clear();
@@ -119,7 +147,7 @@ namespace cgl
     }
 
     void Framework::runScreenFilterPipeline() {
-        f32 time = std::chrono::duration_cast<std::chrono::duration<f32>>(clock.getRunningDuration()).count();
+        f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
         m_screenFilterPipeline.start();
 
@@ -173,12 +201,11 @@ namespace cgl
                     }
                 }
             }
-
         }
     }
 
     void Framework::runCharacterFilterPipeline() {
-        f32 time = std::chrono::duration_cast<std::chrono::duration<f32>>(clock.getRunningDuration()).count();
+        f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
         m_characterFilterPipeline.start();
 

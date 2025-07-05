@@ -57,6 +57,48 @@ namespace cgl
          */
         void update();
 
+        /**
+         * @brief Gets the target FPS for the framework.
+         * @return The target FPS as an unsigned 32-bit integer.
+         */
+        u32 getFPSTarget() const;
+        
+        /**
+         * @brief Sets the target FPS for the framework.
+         * @param target The target FPS as an unsigned 32-bit integer.
+         * 
+         * This sets the desired frames per second for the rendering loop. The framework
+         * will attempt to maintain this frame rate by adjusting the timing of each frame.
+         */
+        void setFPSTarget(u32 target);
+
+        /**
+         * @brief Gets the target frame time for the framework.
+         * @return The target frame time as a duration in steady clock ticks.
+         * 
+         * This represents the duration that each frame should ideally take to maintain
+         * the desired frame rate.
+         */
+        std::chrono::steady_clock::duration getTargetFrameTime() const;
+        
+        /**
+         * @brief Sets the target frame time for the framework.
+         * @param targetFrameTime The target frame time as a duration in steady clock ticks.
+         * 
+         * This allows you to specify a custom frame time, which can be useful for
+         * fine-tuning performance or implementing variable frame rates.
+         */
+        void setTargetFrameTime(std::chrono::steady_clock::duration targetFrameTime);
+
+        /**
+         * @brief Gets the duration of the last frame.
+         * @return The duration of the last frame as a steady clock duration.
+         * 
+         * This can be used for performance monitoring or debugging purposes,
+         * allowing you to see how long the last frame took to render.
+         */
+        std::chrono::steady_clock::duration getLastFrameTime() const;
+
     public:
 
         /**
@@ -75,14 +117,6 @@ namespace cgl
          * Use this to check key states, handle events, and respond to user input.
          */
         EventManager eventManager { console };
-
-        /**
-         * @brief High-resolution timer for frame timing and elapsed time measurement.
-         * 
-         * Use this clock for frame delta calculations, animation timing,
-         * and performance measurement.
-         */
-        Clock clock;
 
         /**
          * @brief Whether to automatically scale drawables when console size differs from base size.
@@ -129,6 +163,12 @@ namespace cgl
         std::vector<std::pair<std::shared_ptr<Drawable>, Transform>> m_drawQueue {};
 
         Vector2<f32> m_screenScaleFactor { 1.f, 1.f };
+
+        Clock m_clock;
+
+        std::chrono::steady_clock::duration m_targetFrameTime { std::chrono::milliseconds(16) };
+
+        std::chrono::steady_clock::duration m_lastFrameTime { std::chrono::steady_clock::duration::zero() };
     };
 }
 

@@ -29,6 +29,11 @@ namespace cgl
         return duration;
     }
 
+    void Clock::wait(std::chrono::steady_clock::duration duration) {
+        auto end = getCurrentTime() + duration;
+        while (getCurrentTime() < end) { }
+    }
+
     f32 getDurationInSeconds(const std::chrono::steady_clock::duration &duration) {
         return std::chrono::duration_cast<std::chrono::duration<float>>(duration).count();
     }

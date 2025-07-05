@@ -57,6 +57,14 @@ namespace cgl
          */
         std::chrono::steady_clock::duration tick();
 
+        /**
+         * @brief Waits for a specified duration.
+         * @param duration The duration to wait.
+         * 
+         * This method blocks the current thread until the specified duration has passed.
+         */
+        void wait(std::chrono::steady_clock::duration duration);
+
     private:
 
         std::chrono::steady_clock::time_point m_startTime = std::chrono::steady_clock::now();   
