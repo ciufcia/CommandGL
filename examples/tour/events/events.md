@@ -141,6 +141,6 @@ Let's now make it so that the screen switches between white and black, when resi
 
 <div align="center">
 
-# [Next Chapter: Events](../events/events.md) | [Go to the Top](#3-events) | [Code from this Chapter](events.cpp)
+# [Next Chapter: Drawing](../drawing/drawing.md) | [Go to the Top](#3-events) | [Code from this Chapter](events.cpp)
 
 </div>
