@@ -24,6 +24,9 @@ namespace cgl
     {
     public:
   
+        Console(const Console&) = delete;
+        Console& operator=(const Console&) = delete;
+
         ~Console();
 
         /**

@@ -6,7 +6,7 @@
 
 ### [About ❔](#about)
 ### [Building ⚒️](#building)
-### Tour 🗺️
+### [Tour 🗺️](examples/tour/table_of_contents.md)
 ### [Showcase](#showcase) ⭐
 ### [Documentation 📘](https://ciufcia.github.io/CommandGL/)
 
@@ -14,15 +14,9 @@
 
 ## About
 
-<div style="margin-left: 2em">
-
 CommandGL (cgl) is a modern C++ 20 framework for high-performance rasterization and interactive graphics directly in the Windows console. It provides efficient rendering, robust input handling, and a flexible architecture designed for both customization and ease of use. CommandGL empowers developers to create advanced console-based graphical applications with minimal overhead and maximum control.
 
-</div>
-
 ## Building
-
-<div style="margin-left: 2em">
 
 ### Prerequisites:
 
@@ -32,8 +26,6 @@ CommandGL (cgl) is a modern C++ 20 framework for high-performance rasterization 
 - **OpenMP**
 
 ### Option 1 - use FetchContent
-
-<div style="margin-left: 4em">
 
 You can add CommandGL as a dependency to your own CMake project using [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html):
 
@@ -50,56 +42,31 @@ FetchContent_MakeAvailable(CommandGL)
 
 target_link_libraries(your_target PRIVATE CommandGL)
 ```
-
-</div>
-
 ### Option 2 - build manually
 
-<div style="margin-left: 2em">
-
 #### 1. Clone the repository.
-
-<div style="margin-left: 2em">
 
 ```sh
 git clone https://github.com/ciufcia/CommandGL.git && cd CommandGL
 ```
 
-</div>
-
 #### 2. Create a build directory.
-
-<div style="margin-left: 2em">
 
 ```sh
 mkdir build && cd build
 ```
 
-</div>
-
 #### 3. Generate project files using CMake.
-
-<div style="margin-left: 2em">
 
 ```sh
 cmake ..
 ```
 
-</div>
-
 #### 4. Build the project using CMake.
-
-<div style="margin-left: 2em">
 
 ```sh
 cmake --build .
 ```
-
-</div>
-
-</div>
-
-</div>
 
 ## Showcase
 

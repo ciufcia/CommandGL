@@ -20,6 +20,10 @@ std::optional<cgl::Event> cgl::EventManager::pollEvent() {
     return event;
 }
 
+void cgl::EventManager::discardEvents() {
+    m_events.clear();
+}
+
 void cgl::EventManager::updateEvents() {
     m_console.getEvents(m_events);
 }

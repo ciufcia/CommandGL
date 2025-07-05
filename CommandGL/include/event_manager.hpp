@@ -21,6 +21,9 @@ namespace cgl
     {
     public:
 
+        EventManager(const EventManager&) = delete;
+        EventManager& operator=(const EventManager&) = delete;
+
         /**
          * @brief Checks if a specific key is currently pressed
          * 
@@ -87,6 +90,14 @@ namespace cgl
         template<typename... Callbacks>
         void handleEvents(Callbacks&&... callbacks);
 
+        /**
+         * @brief Discards all events in the event queue
+         * 
+         * This method clears the internal event queue, removing all pending events.
+         * It can be useful to reset the event state without processing them.
+         */
+        void discardEvents();
+
     private:
 
         EventManager(Console& console) : m_console(console) {}
@@ -105,10 +116,7 @@ namespace cgl
     };    
     
     template<typename... Callbacks>
-    void EventManager::handleEvents(Callbacks&&... callbacks) {
-
-        updateEvents();
-        
+    void EventManager::handleEvents(Callbacks&&... callbacks) {    
         std::vector<bool> handledEvents(m_events.size(), false);
         
         auto processCallback = [this, &handledEvents](auto&& callback) {
