@@ -161,6 +161,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a4b851f5c3533d8d0dbfb7a54e621e00a" id="r_a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a4b851f5c3533d8d0dbfb7a54e621e00a">baseConsoleSize</a> { 1<a class="el" href="classcgl_1_1Vector2.html">u</a>, 1<a class="el" href="classcgl_1_1Vector2.html">u</a> }</td></tr>
 <tr class="memdesc:a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference console size used for automatic scaling calculations.  <br /></td></tr>
 <tr class="separator:a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d1f8201a5318c7bcb4145fa40b54e80" id="r_a0d1f8201a5318c7bcb4145fa40b54e80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a0d1f8201a5318c7bcb4145fa40b54e80">screenFilterPipeline</a> {}</td></tr>
+<tr class="memdesc:a0d1f8201a5318c7bcb4145fa40b54e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen filter pipeline for post-processing effects applied to the entire screen.  <br /></td></tr>
+<tr class="separator:a0d1f8201a5318c7bcb4145fa40b54e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59987c90b326d38496de8fd341397188" id="r_a59987c90b326d38496de8fd341397188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a59987c90b326d38496de8fd341397188">characterFilterPipeline</a> {}</td></tr>
+<tr class="memdesc:a59987c90b326d38496de8fd341397188"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pipeline that handles converting pixel data to character data.  <br /></td></tr>
+<tr class="separator:a59987c90b326d38496de8fd341397188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main framework class that manages the graphics rendering pipeline and application lifecycle. </p>
@@ -394,6 +400,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a59987c90b326d38496de8fd341397188" name="a59987c90b326d38496de8fd341397188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59987c90b326d38496de8fd341397188">&#9670;&#160;</a></span>characterFilterPipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a> cgl::Framework::characterFilterPipeline {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The pipeline that handles converting pixel data to character data. </p>
+<p>This pipeline processes the rendered pixel data and converts it into character data for display in the console. It can apply effects like dithering, color quantization, or other transformations to optimize the character representation of the rendered scene. </p>
+
+</div>
+</div>
 <a id="a5938a118e28c4a2e323c75da5a53c2c3" name="a5938a118e28c4a2e323c75da5a53c2c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5938a118e28c4a2e323c75da5a53c2c3">&#9670;&#160;</a></span>console</h2>
 
@@ -442,6 +465,23 @@ Public Attributes</h2></td></tr>
 
 <p>Whether to automatically scale drawables when console size differs from base size. </p>
 <p>When true, drawables will be scaled to maintain consistent appearance across different console window sizes relative to the baseConsoleSize. </p>
+
+</div>
+</div>
+<a id="a0d1f8201a5318c7bcb4145fa40b54e80" name="a0d1f8201a5318c7bcb4145fa40b54e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d1f8201a5318c7bcb4145fa40b54e80">&#9670;&#160;</a></span>screenFilterPipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a> cgl::Framework::screenFilterPipeline {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The screen filter pipeline for post-processing effects applied to the entire screen. </p>
+<p>This pipeline is used to apply global effects after all drawables have been rendered. </p>
 
 </div>
 </div>

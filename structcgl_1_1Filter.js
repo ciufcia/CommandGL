@@ -1,6 +1,7 @@
 var structcgl_1_1Filter =
 [
     [ "~Filter", "structcgl_1_1Filter.html#afe5aaefe45b5219eb30f529054ef493d", null ],
+    [ "create", "structcgl_1_1Filter.html#a5cab1b1a29cb8a4ac9f15ede48c777c1", null ],
     [ "data", "structcgl_1_1Filter.html#aa4d9e8d95d70483473270f0aa86f31ab", null ],
     [ "description", "structcgl_1_1Filter.html#a76cec71c67934386d2a0b9e34bdde203", null ],
     [ "function", "structcgl_1_1Filter.html#a47420509adb3e52fc811a8e0827433f6", null ],
