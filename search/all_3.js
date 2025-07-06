@@ -1,7 +1,7 @@
 var searchData=
 [
   ['d_0',['D',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caf623e75af30e62bbd73d6df5b50bb7b5',1,'cgl']]],
-  ['data_1',['data',['../structcgl_1_1Filter.html#aa4d9e8d95d70483473270f0aa86f31ab',1,'cgl::Filter']]],
+  ['data_1',['data',['../structcgl_1_1Filter.html#aa4d9e8d95d70483473270f0aa86f31ab',1,'cgl::Filter::data'],['../group__filter__pass__data.html',1,'Filter Pass Data']]],
   ['decimal_2',['Decimal',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca937504f318f04eaf0f1d701df4c4d7f3',1,'cgl']]],
   ['decorative_3',['Decorative',['../namespacecgl.html#a7d7288420437c74943ee079cd20e7977ac830fbfb2e5085792d8abe7553533b1e',1,'cgl']]],
   ['degreestoradians_4',['degreesToRadians',['../classcgl_1_1Transform.html#a8babfe9a68f86036798b59f3ec0f1e99',1,'cgl::Transform']]],

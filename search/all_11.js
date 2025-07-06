@@ -7,7 +7,7 @@ var searchData=
   ['rectangle_4',['rectangle',['../classcgl_1_1drawables_1_1Rectangle.html#a1dcbb2fcd22a8e154d779cc57c3880da',1,'cgl::drawables::Rectangle::Rectangle()'],['../classcgl_1_1drawables_1_1Rectangle.html#a7972f6099487a64820f7273867f7caad',1,'cgl::drawables::Rectangle::Rectangle(const Vector2&lt; f32 &gt; &amp;topLeft, const Vector2&lt; f32 &gt; &amp;size)'],['../classcgl_1_1drawables_1_1Rectangle.html',1,'cgl::drawables::Rectangle']]],
   ['remove_5',['remove',['../classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb',1,'cgl::GlobalMemory']]],
   ['removefilter_6',['removeFilter',['../classcgl_1_1FilterPipeline.html#a5fd5353a146d50973780c6091972cc2c',1,'cgl::FilterPipeline']]],
-  ['rgbsinglecharacter_7',['rgbSingleCharacter',['../namespacecgl_1_1filters.html#a56a33b1a3a7ca9d692cbf4bd49c8d2ee',1,'cgl::filters']]],
+  ['rgbsinglecharacter_7',['rgbSingleCharacter',['../group__filters.html#ga56a33b1a3a7ca9d692cbf4bd49c8d2ee',1,'cgl::filters']]],
   ['rgbsinglecharacterdata_8',['RGBSingleCharacterData',['../structcgl_1_1filters_1_1RGBSingleCharacterData.html',1,'cgl::filters']]],
   ['right_9',['Right',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca92b09c7c48c520c3c55e497875da437c',1,'cgl']]],
   ['rightalt_10',['RightAlt',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cad88bad98046b623323aa6ca28eefa6d5',1,'cgl']]],

@@ -41,7 +41,7 @@ var searchData=
   ['settype_38',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
   ['seven_39',['Seven',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca12e67aac3e7f9227cc35f8f047d7dc74',1,'cgl']]],
   ['shift_40',['Shift',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca825a3d98017bab11815ad2817201324c',1,'cgl']]],
-  ['singlecolor_41',['singleColor',['../namespacecgl_1_1filters.html#ace308d77c8bcf61290611c27e3f96e9c',1,'cgl::filters']]],
+  ['singlecolor_41',['singleColor',['../group__filters.html#gace308d77c8bcf61290611c27e3f96e9c',1,'cgl::filters']]],
   ['singlecolordata_42',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
   ['singlepass_43',['SinglePass',['../namespacecgl.html#a861ba869b50405c09261d6d47fd328b5afb4c9649ec491b503777cb90a6c37975',1,'cgl']]],
   ['six_44',['Six',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae6fbc0b9673f8c86726688d7607fc8f5',1,'cgl']]],

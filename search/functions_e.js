@@ -23,7 +23,7 @@ var searchData=
   ['settitle_20',['setTitle',['../classcgl_1_1Console.html#a45e7d913b038b751bd8f6efaa6776abe',1,'cgl::Console']]],
   ['settopleft_21',['setTopLeft',['../classcgl_1_1drawables_1_1Rectangle.html#a3ea44c8fcbe61fb813705be0b9e9b47d',1,'cgl::drawables::Rectangle']]],
   ['settype_22',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
-  ['singlecolor_23',['singleColor',['../namespacecgl_1_1filters.html#ace308d77c8bcf61290611c27e3f96e9c',1,'cgl::filters']]],
+  ['singlecolor_23',['singleColor',['../group__filters.html#gace308d77c8bcf61290611c27e3f96e9c',1,'cgl::filters']]],
   ['stbi_5fconvert_5fiphone_5fpng_5fto_5frgb_24',['stbi_convert_iphone_png_to_rgb',['../stb__image_8h.html#a23525ef2b882f3de426b47ecf8d9151b',1,'stb_image.h']]],
   ['stbi_5ffailure_5freason_25',['stbi_failure_reason',['../stb__image_8h.html#ac72f312f610a7df1519ea0f2a2f94be9',1,'stb_image.h']]],
   ['stbi_5fhdr_5fto_5fldr_5fgamma_26',['stbi_hdr_to_ldr_gamma',['../stb__image_8h.html#ab18889e43518d6b4421b705782bb1b5e',1,'stb_image.h']]],
