@@ -4,6 +4,8 @@ var classcgl_1_1Texture =
       [ "NearestNeighbor", "classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaa020331bb30d2fa2ecf7c3a0777823f", null ],
       [ "Bilinear", "classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaf17c98bbd83c27d6426d2ff3fa81d7f", null ]
     ] ],
+    [ "Texture", "classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414", null ],
+    [ "~Texture", "classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e", null ],
     [ "Texture", "classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656", null ],
     [ "Texture", "classcgl_1_1Texture.html#acb9b7673056e11fe51c32c01cf578caf", null ],
     [ "getSize", "classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4", null ],
