@@ -154,20 +154,31 @@ namespace cgl
      * This namespace defines the various data structures that are passed to filter
      * functions, providing context and data for different types of rendering operations.
      */
+    /** @defgroup filter_pass_data Filter Pass Data
+     *  Data structures for filter passes.
+     *  @{ */
     namespace filter_pass_data
     {
         /**
          * @struct Base
          * @brief Base structure for all filter pass data types.
-         * @ingroup filter_pass_data
          *
          * Provides common fields that are available to all filter types.
+         */
+        /**
+         * @struct Base
+         * @brief Base structure for all filter pass data types.
+         * @ingroup filter_pass_data
          */
         struct Base
         {
             float time = 0.f;  ///< Current time value for time-based effects
         };
 
+        /**
+         * @struct ScreenBufferSinglePass
+         * @brief Pass data for filters that operate on the entire screen buffer at once.
+         */
         /**
          * @struct ScreenBufferSinglePass
          * @brief Pass data for filters that operate on the entire screen buffer at once.
@@ -181,10 +192,14 @@ namespace cgl
         /**
          * @struct PixelPass
          * @brief Pass data for filters that operate on individual pixels.
-         * @ingroup filter_pass_data
          *
          * Contains all the information needed to process a single pixel,
          * including color, position, UV coordinates, and custom data.
+         */
+        /**
+         * @struct PixelPass
+         * @brief Pass data for filters that operate on individual pixels.
+         * @ingroup filter_pass_data
          */
         struct PixelPass : public Base
         {
@@ -201,6 +216,10 @@ namespace cgl
         /**
          * @struct PixelSinglePass
          * @brief Pass data for filters that operate on entire pixel buffers at once.
+         */
+        /**
+         * @struct PixelSinglePass
+         * @brief Pass data for filters that operate on entire pixel buffers at once.
          * @ingroup filter_pass_data
          */
         struct PixelSinglePass : public Base
@@ -208,6 +227,10 @@ namespace cgl
             std::vector<PixelPass> *pixelBuffer = nullptr;  ///< Pointer to the pixel buffer to process
         };
 
+        /**
+         * @struct CharacterBufferSinglePass
+         * @brief Pass data for filters that convert pixels to character representation.
+         */
         /**
          * @struct CharacterBufferSinglePass
          * @brief Pass data for filters that convert pixels to character representation.
@@ -219,6 +242,7 @@ namespace cgl
             ScreenBuffer *screenBuffer = nullptr;        ///< Pointer to the source screen buffer
         };
     }
+    /** @} */
 
     /**
      * @brief Samples a color from UV coordinates.
@@ -237,8 +261,16 @@ namespace cgl
      * This namespace provides a collection of ready-to-use filters for common
      * rendering operations, along with their configuration data structures.
      */
+    /** @defgroup filters Built-in Filters
+     *  Built-in filter implementations and their configuration data.
+     *  @{ */
     namespace filters
     {
+        /**
+         * @brief Filter that sets all pixels to a single solid color.
+         * @param filterData Pointer to SingleColorData containing the color to use.
+         * @param passData Pointer to PixelPass data for the current pixel.
+         */
         /**
          * @brief Filter that sets all pixels to a single solid color.
          * @param filterData Pointer to SingleColorData containing the color to use.
@@ -250,6 +282,10 @@ namespace cgl
         /**
          * @struct SingleColorData
          * @brief Configuration data for the singleColor filter.
+         */
+        /**
+         * @struct SingleColorData
+         * @brief Configuration data for the singleColor filter.
          * @ingroup filters
          */
         struct SingleColorData
@@ -257,6 +293,14 @@ namespace cgl
             Color color = { 255, 0, 255, 255 };  ///< The solid color to apply (defaults to magenta)
         };
 
+        /**
+         * @brief Filter that sets pixel color based on UV coordinates.
+         * @param filterData Unused for this filter.
+         * @param passData Pointer to PixelPass data for the current pixel.
+         *
+         * Creates a visual representation of UV coordinates by mapping
+         * them to specific colors.
+         */
         /**
          * @brief Filter that sets pixel color based on UV coordinates.
          * @param filterData Unused for this filter.
@@ -272,6 +316,14 @@ namespace cgl
          * @brief Filter that samples a texture and applies it to the screen buffer.
          * @param filterData Pointer to TextureData containing the texture and sampling mode.
          * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
+         *
+         * This filter samples a texture and applies it to the screen buffer,
+         * allowing for texture-based rendering effects.
+         */
+        /**
+         * @brief Filter that samples a texture and applies it to the screen buffer.
+         * @param filterData Pointer to TextureData containing the texture and sampling mode.
+         * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
          * @ingroup filters
          *
          * This filter samples a texture and applies it to the screen buffer,
@@ -279,6 +331,13 @@ namespace cgl
          */
         void texture(void *filterData, void *passData);
 
+        /**
+         * @struct TextureData
+         * @brief Configuration data for the texture filter.
+         *
+         * This structure holds the texture to sample from and the sampling mode
+         * to use when filtering the texture.
+         */
         /**
          * @struct TextureData
          * @brief Configuration data for the texture filter.
@@ -297,6 +356,14 @@ namespace cgl
          * @brief Filter that converts RGB colors to character representation.
          * @param filterData Pointer to RGBSingleCharacterData containing the character to use.
          * @param passData Pointer to CharacterBufferSinglePass data.
+         *
+         * This filter converts pixel colors to character-based representation
+         * suitable for console output.
+         */
+        /**
+         * @brief Filter that converts RGB colors to character representation.
+         * @param filterData Pointer to RGBSingleCharacterData containing the character to use.
+         * @param passData Pointer to CharacterBufferSinglePass data.
          * @ingroup filters
          *
          * This filter converts pixel colors to character-based representation
@@ -307,6 +374,10 @@ namespace cgl
         /**
          * @struct RGBSingleCharacterData
          * @brief Configuration data for the rgbSingleCharacter filter.
+         */
+        /**
+         * @struct RGBSingleCharacterData
+         * @brief Configuration data for the rgbSingleCharacter filter.
          * @ingroup filters
          */
         struct RGBSingleCharacterData
@@ -314,6 +385,7 @@ namespace cgl
             std::string character = "@";  ///< The character to use for representation (defaults to "@")
         };
     }
+    /** @} */
 
     template<typename T>
     std::shared_ptr<Filter> Filter::create(FilterType type, FilterFunction function, T data) {
