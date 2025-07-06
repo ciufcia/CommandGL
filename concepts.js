@@ -1,6 +1,6 @@
 var concepts =
 [
-    [ "cgl", "namespacecgl.html", [
+    [ "cgl", null, [
       [ "arithmetic", "conceptcgl_1_1arithmetic.html", null ]
     ] ]
 ];

@@ -10,9 +10,7 @@ var classcgl_1_1Framework =
     [ "setTargetFrameTime", "classcgl_1_1Framework.html#a28343c052177d15c66536429102f5fba", null ],
     [ "update", "classcgl_1_1Framework.html#acdef5741356bd589fb2f146057357a7b", null ],
     [ "baseConsoleSize", "classcgl_1_1Framework.html#a4b851f5c3533d8d0dbfb7a54e621e00a", null ],
-    [ "characterFilterPipeline", "classcgl_1_1Framework.html#a59987c90b326d38496de8fd341397188", null ],
     [ "console", "classcgl_1_1Framework.html#a5938a118e28c4a2e323c75da5a53c2c3", null ],
     [ "eventManager", "classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075", null ],
-    [ "scaleOnBaseSizeDeviation", "classcgl_1_1Framework.html#aedfa55a31d0300060413599723e85d1a", null ],
-    [ "screenFilterPipeline", "classcgl_1_1Framework.html#a0d1f8201a5318c7bcb4145fa40b54e80", null ]
+    [ "scaleOnBaseSizeDeviation", "classcgl_1_1Framework.html#aedfa55a31d0300060413599723e85d1a", null ]
 ];

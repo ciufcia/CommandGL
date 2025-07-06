@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['l_0',['L',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cad20caec3b48a1eef164cb4ca81ba2587',1,'cgl']]],
-  ['left_1',['Left',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca945d5e233cf7d6240f6b783b36a374ff',1,'cgl']]],
-  ['leftalt_2',['LeftAlt',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca96f9c4eb595a467d02e35c723f63ebf7',1,'cgl']]],
-  ['leftcontrol_3',['LeftControl',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca641642d3718d5db8994a79d51b43e88c',1,'cgl']]],
-  ['leftmousebutton_4',['LeftMouseButton',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca566743f4f733644724fcad19861dc7d8',1,'cgl']]],
-  ['leftshift_5',['LeftShift',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca982621712db76f723b7bb88b631dc64d',1,'cgl']]],
-  ['leftwindowskey_6',['LeftWindowsKey',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca50c061016fa3e0676ff33f6880079e44',1,'cgl']]],
-  ['light_7',['Light',['../namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba9914a0ce04a7b7b6a8e39bec55064b82',1,'cgl']]],
-  ['line_8',['line',['../classcgl_1_1drawables_1_1Line.html',1,'cgl::drawables::Line'],['../classcgl_1_1drawables_1_1Line.html#aea77d806cfb977c80947b618a201f031',1,'cgl::drawables::Line::Line()=default'],['../classcgl_1_1drawables_1_1Line.html#acebe9c72f8bdb6edb7dc8320035d36bb',1,'cgl::drawables::Line::Line(const Vector2&lt; f32 &gt; &amp;start, const Vector2&lt; f32 &gt; &amp;end)']]],
-  ['load_9',['load',['../classcgl_1_1Texture.html#a65c4322688efe44a84d1a8f56167adf2',1,'cgl::Texture']]],
-  ['luminance_10',['luminance',['../classcgl_1_1Color.html#adeb66a9139ed63a7911b9f74be67d2e2',1,'cgl::Color']]]
+  ['magnitude_0',['magnitude',['../classcgl_1_1Vector2.html#ac803aaa15f023b7bc84780d7cad130b9',1,'cgl::Vector2']]],
+  ['magnitudesquared_1',['magnitudeSquared',['../classcgl_1_1Vector2.html#aa8f0689f5b9c90212685aafd49b2eb74',1,'cgl::Vector2']]],
+  ['matrix3_2',['Matrix3',['../classcgl_1_1Matrix3.html',1,'cgl']]],
+  ['mesh_3',['Mesh',['../classcgl_1_1drawables_1_1Mesh.html',1,'cgl::drawables']]],
+  ['mousedelta_4',['mouseDelta',['../classcgl_1_1Event.html#aeff4cda14aafca35c35dde8206fb0dea',1,'cgl::Event']]],
+  ['mousemoveevent_5',['MouseMoveEvent',['../structcgl_1_1MouseMoveEvent.html',1,'cgl']]],
+  ['mouseposition_6',['mousePosition',['../classcgl_1_1Event.html#aa28f8740622322d147aeedbd35d86b73',1,'cgl::Event']]],
+  ['mousescrolldelta_7',['mouseScrollDelta',['../classcgl_1_1Event.html#a86ff3ee4f0f70debfea3143802966d88',1,'cgl::Event']]],
+  ['mousescrollevent_8',['MouseScrollEvent',['../structcgl_1_1MouseScrollEvent.html',1,'cgl']]],
+  ['multiplicativeblend_9',['multiplicativeBlend',['../classcgl_1_1Color.html#a0e7f1c671c5171bab6f01164a9d01caf',1,'cgl::Color']]]
 ];

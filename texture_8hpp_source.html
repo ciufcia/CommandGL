@@ -112,15 +112,15 @@ $(document).ready(function(){initNavTree('texture_8hpp_source.html',''); initRes
   <div class="headertitle"><div class="title">texture.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="texture_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGL_TEXTURE_HPP</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGL_TEXTURE_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CGL_TEXTURE_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="color_8hpp.html">color.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="vector2_8hpp.html">vector2.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;color.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;vector2.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecgl.html">cgl</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>cgl</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classcgl_1_1Texture.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1Texture.html">Texture</a></div>
@@ -130,19 +130,19 @@ $(document).ready(function(){initNavTree('texture_8hpp_source.html',''); initRes
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f">   29</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f">SamplingMode</a></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_enumvalue" href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaa020331bb30d2fa2ecf7c3a0777823f">NearestNeighbor</a>,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_enumvalue" href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaf17c98bbd83c27d6426d2ff3fa81d7f">Bilinear</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            NearestNeighbor,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            Bilinear</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        };</div>
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414">   37</a></span>        <a class="code hl_function" href="classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414">Texture</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e">   38</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e">~Texture</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_class" href="classcgl_1_1Texture.html">Texture</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classcgl_1_1Texture.html">~Texture</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656">   44</a></span>        <a class="code hl_function" href="classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656">Texture</a>(<span class="keyword">const</span> <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;u32&gt;</a> &amp;size) : m_size(size), m_data(size.x * size.y, <a class="code hl_class" href="classcgl_1_1Color.html">Color</a>()) {}</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_function" href="classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414">Texture</a>(<span class="keyword">const</span> std::string &amp;<a class="code hl_class" href="classcgl_1_1Vector2.html">filepath</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_class" href="classcgl_1_1Texture.html">Texture</a>(<span class="keyword">const</span> std::string &amp;<a class="code hl_class" href="classcgl_1_1Vector2.html">filepath</a>);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">static</span> std::shared_ptr&lt;Texture&gt; <a class="code hl_function" href="classcgl_1_1Texture.html#ab45907373df5cf3bb819f8ee80d71fb3">create</a>(<span class="keyword">const</span> <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;u32&gt;</a> &amp;size);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
@@ -174,11 +174,8 @@ $(document).ready(function(){initNavTree('texture_8hpp_source.html',''); initRes
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif </span><span class="comment">// CGL_TEXTURE_HPP</span></div>
 <div class="ttc" id="aclasscgl_1_1Color_html"><div class="ttname"><a href="classcgl_1_1Color.html">cgl::Color</a></div><div class="ttdoc">Represents an RGBA color with 8-bit channels and blending operations.</div><div class="ttdef"><b>Definition</b> color.hpp:28</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html"><div class="ttname"><a href="classcgl_1_1Texture.html">cgl::Texture</a></div><div class="ttdoc">Represents a 2D image or pixel buffer that can be loaded from a file or created with a specific size.</div><div class="ttdef"><b>Definition</b> texture.hpp:20</div></div>
-<div class="ttc" id="aclasscgl_1_1Texture_html_a04d4a77dd72f120d2f8471f742347d8e"><div class="ttname"><a href="classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e">cgl::Texture::~Texture</a></div><div class="ttdeci">virtual ~Texture()=default</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_a08b9a55a48cc2112dbaa00cb9f9994b4"><div class="ttname"><a href="classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4">cgl::Texture::getSize</a></div><div class="ttdeci">Vector2&lt; u32 &gt; getSize() const</div><div class="ttdoc">Gets the current size of the texture.</div><div class="ttdef"><b>Definition</b> texture.cpp:21</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_a14184195d3709892cbf5e8f422fd556f"><div class="ttname"><a href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f">cgl::Texture::SamplingMode</a></div><div class="ttdeci">SamplingMode</div><div class="ttdoc">Enumeration of texture sampling modes.</div><div class="ttdef"><b>Definition</b> texture.hpp:30</div></div>
-<div class="ttc" id="aclasscgl_1_1Texture_html_a14184195d3709892cbf5e8f422fd556faaa020331bb30d2fa2ecf7c3a0777823f"><div class="ttname"><a href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaa020331bb30d2fa2ecf7c3a0777823f">cgl::Texture::SamplingMode::NearestNeighbor</a></div><div class="ttdeci">@ NearestNeighbor</div></div>
-<div class="ttc" id="aclasscgl_1_1Texture_html_a14184195d3709892cbf5e8f422fd556faaf17c98bbd83c27d6426d2ff3fa81d7f"><div class="ttname"><a href="classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaf17c98bbd83c27d6426d2ff3fa81d7f">cgl::Texture::SamplingMode::Bilinear</a></div><div class="ttdeci">@ Bilinear</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_a4b12bf88b2d8821f4ae08e4d9d6e8bfe"><div class="ttname"><a href="classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe">cgl::Texture::setSize</a></div><div class="ttdeci">Vector2&lt; u32 &gt; setSize(const Vector2&lt; u32 &gt; &amp;size)</div><div class="ttdoc">Sets the size of the texture and resizes the pixel data.</div><div class="ttdef"><b>Definition</b> texture.cpp:25</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_a65c4322688efe44a84d1a8f56167adf2"><div class="ttname"><a href="classcgl_1_1Texture.html#a65c4322688efe44a84d1a8f56167adf2">cgl::Texture::load</a></div><div class="ttdeci">void load(const std::string &amp;filepath)</div><div class="ttdoc">Loads texture data from an image file.</div><div class="ttdef"><b>Definition</b> texture.cpp:31</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_a852c18175bd814ad918577b16529b8a3"><div class="ttname"><a href="classcgl_1_1Texture.html#a852c18175bd814ad918577b16529b8a3">cgl::Texture::sample</a></div><div class="ttdeci">Color sample(const Vector2&lt; f32 &gt; &amp;uv, SamplingMode mode) const</div><div class="ttdoc">Samples the texture at given UV coordinates using the specified sampling mode.</div><div class="ttdef"><b>Definition</b> texture.cpp:64</div></div>
@@ -187,17 +184,13 @@ $(document).ready(function(){initNavTree('texture_8hpp_source.html',''); initRes
 <div class="ttc" id="aclasscgl_1_1Texture_html_ab6686dab5c0daf310e33157f8e0a68f8"><div class="ttname"><a href="classcgl_1_1Texture.html#ab6686dab5c0daf310e33157f8e0a68f8">cgl::Texture::sampleBilinear</a></div><div class="ttdeci">Color sampleBilinear(const Vector2&lt; f32 &gt; &amp;uv) const</div><div class="ttdoc">Samples the texture at given UV coordinates using bilinear sampling.</div><div class="ttdef"><b>Definition</b> texture.cpp:86</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_ad57fe806fbb09889880deb967791bdb7"><div class="ttname"><a href="classcgl_1_1Texture.html#ad57fe806fbb09889880deb967791bdb7">cgl::Texture::sampleNearestNeighbor</a></div><div class="ttdeci">Color sampleNearestNeighbor(const Vector2&lt; f32 &gt; &amp;uv) const</div><div class="ttdoc">Samples the texture at given UV coordinates using nearest neighbor sampling.</div><div class="ttdef"><b>Definition</b> texture.cpp:75</div></div>
 <div class="ttc" id="aclasscgl_1_1Texture_html_af4031c35e19609a8c09434d59e857656"><div class="ttname"><a href="classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656">cgl::Texture::Texture</a></div><div class="ttdeci">Texture(const Vector2&lt; u32 &gt; &amp;size)</div><div class="ttdoc">Constructs a texture with the given size, filled with default color.</div><div class="ttdef"><b>Definition</b> texture.hpp:44</div></div>
-<div class="ttc" id="aclasscgl_1_1Texture_html_afc3d1650521f8c5889b2278255032414"><div class="ttname"><a href="classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414">cgl::Texture::Texture</a></div><div class="ttdeci">Texture()=default</div></div>
 <div class="ttc" id="aclasscgl_1_1Vector2_html"><div class="ttname"><a href="classcgl_1_1Vector2.html">cgl::Vector2</a></div><div class="ttdoc">A simple 2D vector class template.</div><div class="ttdef"><b>Definition</b> vector2.hpp:22</div></div>
-<div class="ttc" id="acolor_8hpp_html"><div class="ttname"><a href="color_8hpp.html">color.hpp</a></div></div>
-<div class="ttc" id="anamespacecgl_html"><div class="ttname"><a href="namespacecgl.html">cgl</a></div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:5</div></div>
-<div class="ttc" id="avector2_8hpp_html"><div class="ttname"><a href="vector2_8hpp.html">vector2.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_bb5bb54c4e31613a3ae18370528bd953.html">CommandGL</a></li><li class="navelem"><a class="el" href="dir_3e9a3120ab9badf2e2be9f21884898f5.html">include</a></li><li class="navelem"><a class="el" href="texture_8hpp.html">texture.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_bb5bb54c4e31613a3ae18370528bd953.html">CommandGL</a></li><li class="navelem"><a class="el" href="dir_3e9a3120ab9badf2e2be9f21884898f5.html">include</a></li><li class="navelem"><b>texture.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
