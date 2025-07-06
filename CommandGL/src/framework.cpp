@@ -34,7 +34,7 @@ namespace cgl
         filter->function = filters::rgbSingleCharacter;
         filter->data = std::make_shared<filters::RGBSingleCharacterData>();
 
-        m_characterFilterPipeline.addFilter(filter, 0u);
+        characterFilterPipeline.addFilter(filter, 0u);
     }
 
     void Framework::clearDisplay(Color color) {
@@ -149,10 +149,10 @@ namespace cgl
     void Framework::runScreenFilterPipeline() {
         f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
-        m_screenFilterPipeline.start();
+        screenFilterPipeline.start();
 
-        while (m_screenFilterPipeline.step()) {
-            auto currentFilter = m_screenFilterPipeline.getCurrentFilter();
+        while (screenFilterPipeline.step()) {
+            auto currentFilter = screenFilterPipeline.getCurrentFilter();
             
             if (!currentFilter->isEnabled)
                 continue;
@@ -207,10 +207,10 @@ namespace cgl
     void Framework::runCharacterFilterPipeline() {
         f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
-        m_characterFilterPipeline.start();
+        characterFilterPipeline.start();
 
-        while (m_characterFilterPipeline.step()) {
-            auto currentFilter = m_characterFilterPipeline.getCurrentFilter();
+        while (characterFilterPipeline.step()) {
+            auto currentFilter = characterFilterPipeline.getCurrentFilter();
             
             if (!currentFilter->isEnabled)
                 continue;

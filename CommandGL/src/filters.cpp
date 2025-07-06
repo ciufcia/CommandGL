@@ -82,7 +82,6 @@ namespace cgl
         }
 
         void uv(void *filterData, void *passData) {
-            auto castedFilterData = static_cast<SingleColorData *>(filterData);
             auto castedPassData = static_cast<filter_pass_data::PixelPass *>(passData);
 
             castedPassData->color = sampleUVColor(castedPassData->uv);

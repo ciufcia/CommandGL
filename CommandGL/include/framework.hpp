@@ -134,6 +134,23 @@ namespace cgl
          */
         Vector2<u32> baseConsoleSize { 1u, 1u };
 
+        /**
+         * @brief The screen filter pipeline for post-processing effects applied to the entire screen.
+         * 
+         * This pipeline is used to apply global effects after all drawables have been rendered.
+         */
+        FilterPipeline screenFilterPipeline {};
+
+        /**
+         * @brief The pipeline that handles converting pixel data to character data
+         * 
+         * This pipeline processes the rendered pixel data and converts it into
+         * character data for display in the console. It can apply effects like
+         * dithering, color quantization, or other transformations to optimize the
+         * character representation of the rendered scene.
+         */
+        FilterPipeline characterFilterPipeline {};
+
     private:
 
         void populateGlobalMemory() const;
@@ -155,9 +172,6 @@ namespace cgl
 
         ScreenBuffer m_screenBuffer {};
         CharacterBuffer m_characterBuffer {};
-
-        FilterPipeline m_screenFilterPipeline {};
-        FilterPipeline m_characterFilterPipeline {};
 
         std::vector<filter_pass_data::PixelPass> m_drawableBuffer {};
         std::vector<std::pair<std::shared_ptr<Drawable>, Transform>> m_drawQueue {};
