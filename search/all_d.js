@@ -1,10 +1,26 @@
 var searchData=
 [
-  ['operator_21_3d_0',['operator!=',['../classcgl_1_1Color.html#a559bee8f00b7aad60661a7a3b6b4d382',1,'cgl::Color::operator!=()'],['../classcgl_1_1Vector2.html#a4813e61357e87f3e53bcec3cd926525b',1,'cgl::Vector2::operator!=(const Vector2&lt; T &gt; &amp;other) const']]],
-  ['operator_2a_1',['operator*',['../classcgl_1_1Vector2.html#a873487e864565ee8fd3d12c4bcaadd54',1,'cgl::Vector2::operator*(T scalar) const'],['../classcgl_1_1Vector2.html#a5b2377c60012e217e09f93bd2999e5d5',1,'cgl::Vector2::operator*']]],
-  ['operator_2b_2',['operator+',['../classcgl_1_1Vector2.html#a3178d264af79f75fea80c8da8790d5b1',1,'cgl::Vector2']]],
-  ['operator_2d_3',['operator-',['../classcgl_1_1Vector2.html#a13d2e0632f788acc5aacec2b963b6354',1,'cgl::Vector2']]],
-  ['operator_2f_4',['operator/',['../classcgl_1_1Vector2.html#a495cc68d30325b7c53bdbde7bdb7ac07',1,'cgl::Vector2']]],
-  ['operator_3d_3d_5',['operator==',['../classcgl_1_1Color.html#a5746fbf72d9d742dc44542820ddbd14c',1,'cgl::Color::operator==()'],['../classcgl_1_1Vector2.html#a16c368f78a0e80d329dfda860aa31869',1,'cgl::Vector2::operator==()']]],
-  ['overlayblend_6',['overlayBlend',['../classcgl_1_1Color.html#aebe05b87e74e6b95e1872a10881ef120',1,'cgl::Color']]]
+  ['n_0',['N',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca8d9c307cb7f3c4a32822a51922d1ceaa',1,'cgl']]],
+  ['name_1',['name',['../classcgl_1_1ConsoleFont.html#ab599aa161002f554652999ce00c1e720',1,'cgl::ConsoleFont::name'],['../structcgl_1_1Filter.html#ad905a062a71ac2e2dddefb8310711d05',1,'cgl::Filter::name']]],
+  ['nearestneighbor_2',['NearestNeighbor',['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaa020331bb30d2fa2ecf7c3a0777823f',1,'cgl::Texture']]],
+  ['newsize_3',['newSize',['../classcgl_1_1Event.html#abb5100a49511cb4703791d7b47908f33',1,'cgl::Event']]],
+  ['nexttrack_4',['NextTrack',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca68cb3886bd9a4fe34ba9abcf1fd3054c',1,'cgl']]],
+  ['nine_5',['Nine',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca24db11216549ee55172c33cf3def2f3f',1,'cgl']]],
+  ['noblend_6',['noBlend',['../classcgl_1_1Color.html#a62dff16309bd003ab92bbd132816e162',1,'cgl::Color']]],
+  ['nominmax_7',['NOMINMAX',['../cgl_8hpp.html#a9f918755b601cf4bffca775992e6fb90',1,'cgl.hpp']]],
+  ['none_8',['None',['../namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4a6adf97f83acf6453d4a6a4b1070f3754',1,'cgl']]],
+  ['normal_9',['Normal',['../namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba960b44c579bc2f6818d2daaf9e4c16f0',1,'cgl']]],
+  ['normalized_10',['normalized',['../classcgl_1_1Vector2.html#afeeefa53a4f364b13f356db96917f380',1,'cgl::Vector2']]],
+  ['numeric_5ftypes_2ehpp_11',['numeric_types.hpp',['../numeric__types_8hpp.html',1,'']]],
+  ['numlock_12',['NumLock',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cacf6cc0261135c6d163fd4305375773d2',1,'cgl']]],
+  ['numpad0_13',['Numpad0',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca1b1118fbe9aecd479f93d37449578365',1,'cgl']]],
+  ['numpad1_14',['Numpad1',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cac8e841f6b917061dd15aedb19a80cb77',1,'cgl']]],
+  ['numpad2_15',['Numpad2',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caf7303042267ef3576930c1f4cd79348a',1,'cgl']]],
+  ['numpad3_16',['Numpad3',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca5e23a433a108a85788894b705ec11cdd',1,'cgl']]],
+  ['numpad4_17',['Numpad4',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca50b622a0442de23f15effc7fc46f3892',1,'cgl']]],
+  ['numpad5_18',['Numpad5',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca6252c5b171a2982612e31042b953f558',1,'cgl']]],
+  ['numpad6_19',['Numpad6',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4d9afa3da3cc40661d50a925dd3010ad',1,'cgl']]],
+  ['numpad7_20',['Numpad7',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4314bbf1a297c4b03a5246a71c9c93b6',1,'cgl']]],
+  ['numpad8_21',['Numpad8',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca8bf3a062ba0e0fa6ef21508d15e7820e',1,'cgl']]],
+  ['numpad9_22',['Numpad9',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca15f7ca721fe2b648a34d498084f70919',1,'cgl']]]
 ];

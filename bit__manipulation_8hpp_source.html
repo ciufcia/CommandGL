@@ -112,39 +112,55 @@ $(document).ready(function(){initNavTree('bit__manipulation_8hpp_source.html',''
   <div class="headertitle"><div class="title">bit_manipulation.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGL_BIT_MANIPULATION_HPP</span></div>
+<a href="bit__manipulation_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CGL_BIT_MANIPULATION_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CGL_BIT_MANIPULATION_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span>cgl</div>
+<div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="namespacecgl.html">    4</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecgl.html">cgl</a></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">constexpr</span> T setBit(T value, <span class="keywordtype">int</span> bit) {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> value | (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacecgl.html#a28886765f62feba1622941c5d6e1f397">   13</a></span>    <span class="keyword">constexpr</span> <a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> <a class="code hl_function" href="namespacecgl.html#a28886765f62feba1622941c5d6e1f397">setBit</a>(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value, <span class="keywordtype">int</span> bit) {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">return</span> value | (<span class="keyword">static_cast&lt;</span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a><span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
+</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">constexpr</span> T clearBit(T value, <span class="keywordtype">int</span> bit) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> value &amp; ~(<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacecgl.html#ae21a433aab85f625b47f054998b01c9e">   24</a></span>    <span class="keyword">constexpr</span> <a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> <a class="code hl_function" href="namespacecgl.html#ae21a433aab85f625b47f054998b01c9e">clearBit</a>(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value, <span class="keywordtype">int</span> bit) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> value &amp; ~(<span class="keyword">static_cast&lt;</span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a><span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">constexpr</span> T toggleBit(T value, <span class="keywordtype">int</span> bit) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> value ^ (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacecgl.html#abc434f38af99a562d710c34c24495791">   35</a></span>    <span class="keyword">constexpr</span> <a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> <a class="code hl_function" href="namespacecgl.html#abc434f38af99a562d710c34c24495791">toggleBit</a>(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value, <span class="keywordtype">int</span> bit) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> value ^ (<span class="keyword">static_cast&lt;</span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a><span class="keyword">&gt;</span>(1) &lt;&lt; bit);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> isBitSet(T value, <span class="keywordtype">int</span> bit) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> (value &amp; (<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1) &lt;&lt; bit)) != 0;</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328">   46</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328">isBitSet</a>(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> value, <span class="keywordtype">int</span> bit) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> (value &amp; (<span class="keyword">static_cast&lt;</span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a><span class="keyword">&gt;</span>(1) &lt;&lt; bit)) != 0;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif </span><span class="comment">// CGL_BIT_MANIPULATION_HPP</span></div>
+<div class="ttc" id="anamespacecgl_html"><div class="ttname"><a href="namespacecgl.html">cgl</a></div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:5</div></div>
+<div class="ttc" id="anamespacecgl_html_a28886765f62feba1622941c5d6e1f397"><div class="ttname"><a href="namespacecgl.html#a28886765f62feba1622941c5d6e1f397">cgl::setBit</a></div><div class="ttdeci">constexpr T setBit(T value, int bit)</div><div class="ttdoc">Sets a specific bit in an integer to 1.</div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:13</div></div>
+<div class="ttc" id="anamespacecgl_html_a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3"><div class="ttname"><a href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">cgl::KeyCode::T</a></div><div class="ttdeci">@ T</div></div>
+<div class="ttc" id="anamespacecgl_html_a9da3221e7bcaa5db759ab4bc62962328"><div class="ttname"><a href="namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328">cgl::isBitSet</a></div><div class="ttdeci">constexpr bool isBitSet(T value, int bit)</div><div class="ttdoc">Checks if a specific bit in an integer is set (1).</div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:46</div></div>
+<div class="ttc" id="anamespacecgl_html_abc434f38af99a562d710c34c24495791"><div class="ttname"><a href="namespacecgl.html#abc434f38af99a562d710c34c24495791">cgl::toggleBit</a></div><div class="ttdeci">constexpr T toggleBit(T value, int bit)</div><div class="ttdoc">Toggles a specific bit in an integer (flips its value).</div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:35</div></div>
+<div class="ttc" id="anamespacecgl_html_ae21a433aab85f625b47f054998b01c9e"><div class="ttname"><a href="namespacecgl.html#ae21a433aab85f625b47f054998b01c9e">cgl::clearBit</a></div><div class="ttdeci">constexpr T clearBit(T value, int bit)</div><div class="ttdoc">Clears a specific bit in an integer (sets it to 0).</div><div class="ttdef"><b>Definition</b> bit_manipulation.hpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_bb5bb54c4e31613a3ae18370528bd953.html">CommandGL</a></li><li class="navelem"><a class="el" href="dir_3e9a3120ab9badf2e2be9f21884898f5.html">include</a></li><li class="navelem"><b>bit_manipulation.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_bb5bb54c4e31613a3ae18370528bd953.html">CommandGL</a></li><li class="navelem"><a class="el" href="dir_3e9a3120ab9badf2e2be9f21884898f5.html">include</a></li><li class="navelem"><a class="el" href="bit__manipulation_8hpp.html">bit_manipulation.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

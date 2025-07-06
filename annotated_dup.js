@@ -1,7 +1,7 @@
 var annotated_dup =
 [
-    [ "cgl", null, [
-      [ "drawables", null, [
+    [ "cgl", "namespacecgl.html", [
+      [ "drawables", "namespacecgl_1_1drawables.html", [
         [ "Ellipse", "classcgl_1_1drawables_1_1Ellipse.html", "classcgl_1_1drawables_1_1Ellipse" ],
         [ "Line", "classcgl_1_1drawables_1_1Line.html", "classcgl_1_1drawables_1_1Line" ],
         [ "Mesh", "classcgl_1_1drawables_1_1Mesh.html", "classcgl_1_1drawables_1_1Mesh" ],
@@ -9,7 +9,7 @@ var annotated_dup =
         [ "Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", "classcgl_1_1drawables_1_1Rectangle" ],
         [ "Triangle", "classcgl_1_1drawables_1_1Triangle.html", "classcgl_1_1drawables_1_1Triangle" ]
       ] ],
-      [ "filters", null, [
+      [ "filters", "namespacecgl_1_1filters.html", [
         [ "RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", "structcgl_1_1filters_1_1RGBSingleCharacterData" ],
         [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
         [ "TextureData", "structcgl_1_1filters_1_1TextureData.html", "structcgl_1_1filters_1_1TextureData" ]
@@ -23,7 +23,7 @@ var annotated_dup =
       [ "Drawable", "classcgl_1_1Drawable.html", "classcgl_1_1Drawable" ],
       [ "Event", "classcgl_1_1Event.html", "classcgl_1_1Event" ],
       [ "EventManager", "classcgl_1_1EventManager.html", "classcgl_1_1EventManager" ],
-      [ "EventType", "structcgl_1_1EventType.html", null ],
+      [ "EventType", "structcgl_1_1EventType.html", "structcgl_1_1EventType" ],
       [ "Filter", "structcgl_1_1Filter.html", "structcgl_1_1Filter" ],
       [ "FilterPipeline", "classcgl_1_1FilterPipeline.html", "classcgl_1_1FilterPipeline" ],
       [ "Framework", "classcgl_1_1Framework.html", "classcgl_1_1Framework" ],
@@ -31,14 +31,14 @@ var annotated_dup =
       [ "InvalidEvent", "structcgl_1_1InvalidEvent.html", null ],
       [ "KeyPressEvent", "structcgl_1_1KeyPressEvent.html", null ],
       [ "KeyReleaseEvent", "structcgl_1_1KeyReleaseEvent.html", null ],
-      [ "Matrix3", "classcgl_1_1Matrix3.html", null ],
+      [ "Matrix3", "classcgl_1_1Matrix3.html", "classcgl_1_1Matrix3" ],
       [ "MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
       [ "MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ],
       [ "ScreenBuffer", "classcgl_1_1ScreenBuffer.html", "classcgl_1_1ScreenBuffer" ],
       [ "Texture", "classcgl_1_1Texture.html", "classcgl_1_1Texture" ],
-      [ "Transform", "classcgl_1_1Transform.html", null ],
-      [ "Transformable", "classcgl_1_1Transformable.html", null ],
+      [ "Transform", "classcgl_1_1Transform.html", "classcgl_1_1Transform" ],
+      [ "Transformable", "classcgl_1_1Transformable.html", "classcgl_1_1Transformable" ],
       [ "Vector2", "classcgl_1_1Vector2.html", "classcgl_1_1Vector2" ]
     ] ],
-    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ]
+    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", "structstbi__io__callbacks" ]
 ];

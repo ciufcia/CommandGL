@@ -1,6 +1,24 @@
 var searchData=
 [
-  ['vector2_0',['vector2',['../classcgl_1_1Vector2.html',1,'cgl::Vector2&lt; T &gt;'],['../classcgl_1_1Vector2.html#a2ff99151a774650ed6537125a2e08d17',1,'cgl::Vector2::Vector2()'],['../classcgl_1_1Vector2.html#a4b5e308c7790400a0ba3bf2eeb977933',1,'cgl::Vector2::Vector2(T x, T y)']]],
-  ['vector2_3c_20f32_20_3e_1',['Vector2&lt; f32 &gt;',['../classcgl_1_1Vector2.html',1,'cgl']]],
-  ['vector2_3c_20u32_20_3e_2',['Vector2&lt; u32 &gt;',['../classcgl_1_1Vector2.html',1,'cgl']]]
+  ['t_0',['T',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3',1,'cgl']]],
+  ['tab_1',['Tab',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca5c6ba25104401c9ee0650230fc6ba413',1,'cgl']]],
+  ['texture_2',['texture',['../namespacecgl_1_1filters.html#ab5cb3d206d661c1bd8ea2ea6e23a679e',1,'cgl::filters::texture()'],['../classcgl_1_1Texture.html',1,'cgl::Texture'],['../structcgl_1_1filters_1_1TextureData.html#ac28da397c5f0f0fa9cd4e9bdc772d92e',1,'cgl::filters::TextureData::texture'],['../classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414',1,'cgl::Texture::Texture()=default'],['../classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656',1,'cgl::Texture::Texture(const Vector2&lt; u32 &gt; &amp;size)'],['../classcgl_1_1Texture.html#acb9b7673056e11fe51c32c01cf578caf',1,'cgl::Texture::Texture(const std::string &amp;filepath)']]],
+  ['texture_2ecpp_3',['texture.cpp',['../texture_8cpp.html',1,'']]],
+  ['texture_2ehpp_4',['texture.hpp',['../texture_8hpp.html',1,'']]],
+  ['texturedata_5',['TextureData',['../structcgl_1_1filters_1_1TextureData.html',1,'cgl::filters']]],
+  ['thin_6',['Thin',['../namespacecgl.html#a84ec7045a124d6781431944b7e72eb7baaedfcbf06fc92bafadf4527a2fcccc69',1,'cgl']]],
+  ['three_7',['Three',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caca8a2087e5557e317599344687a57391',1,'cgl']]],
+  ['tick_8',['tick',['../classcgl_1_1Clock.html#ac9cb5b8043990dda394ee935cfda5245',1,'cgl::Clock']]],
+  ['timing_2ecpp_9',['timing.cpp',['../timing_8cpp.html',1,'']]],
+  ['timing_2ehpp_10',['timing.hpp',['../timing_8hpp.html',1,'']]],
+  ['togglebit_11',['toggleBit',['../namespacecgl.html#abc434f38af99a562d710c34c24495791',1,'cgl']]],
+  ['tohex_12',['toHex',['../classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137',1,'cgl::Color']]],
+  ['transform_13',['transform',['../classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224',1,'cgl::Transformable::transform'],['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform(const Vector2&lt; f32 &gt; &amp;position, const Vector2&lt; f32 &gt; &amp;scale, f32 rotation, const Vector2&lt; f32 &gt; &amp;origin)'],['../classcgl_1_1Transform.html',1,'cgl::Transform']]],
+  ['transform_2ecpp_14',['transform.cpp',['../transform_8cpp.html',1,'']]],
+  ['transform_2ehpp_15',['transform.hpp',['../transform_8hpp.html',1,'']]],
+  ['transformable_16',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
+  ['translate_17',['translate',['../classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84',1,'cgl::Matrix3']]],
+  ['triangle_18',['triangle',['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle()'],['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables::Triangle'],['../classcgl_1_1drawables_1_1Triangle.html#a0565f2f4775a7ca460c5c18fafcf6408',1,'cgl::drawables::Triangle::Triangle()']]],
+  ['two_19',['Two',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caaada29daee1d64ed0fe907043855cb7e',1,'cgl']]],
+  ['type_20',['type',['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['samplingmode_0',['SamplingMode',['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f',1,'cgl::Texture']]]
+  ['blendmode_0',['BlendMode',['../namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4',1,'cgl']]]
 ];
