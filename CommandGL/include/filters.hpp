@@ -159,7 +159,8 @@ namespace cgl
         /**
          * @struct Base
          * @brief Base structure for all filter pass data types.
-         * 
+         * @ingroup filter_pass_data
+         *
          * Provides common fields that are available to all filter types.
          */
         struct Base
@@ -170,6 +171,7 @@ namespace cgl
         /**
          * @struct ScreenBufferSinglePass
          * @brief Pass data for filters that operate on the entire screen buffer at once.
+         * @ingroup filter_pass_data
          */
         struct ScreenBufferSinglePass : public Base
         {
@@ -179,7 +181,8 @@ namespace cgl
         /**
          * @struct PixelPass
          * @brief Pass data for filters that operate on individual pixels.
-         * 
+         * @ingroup filter_pass_data
+         *
          * Contains all the information needed to process a single pixel,
          * including color, position, UV coordinates, and custom data.
          */
@@ -198,6 +201,7 @@ namespace cgl
         /**
          * @struct PixelSinglePass
          * @brief Pass data for filters that operate on entire pixel buffers at once.
+         * @ingroup filter_pass_data
          */
         struct PixelSinglePass : public Base
         {
@@ -207,6 +211,7 @@ namespace cgl
         /**
          * @struct CharacterBufferSinglePass
          * @brief Pass data for filters that convert pixels to character representation.
+         * @ingroup filter_pass_data
          */
         struct CharacterBufferSinglePass : public Base
         {
@@ -238,12 +243,14 @@ namespace cgl
          * @brief Filter that sets all pixels to a single solid color.
          * @param filterData Pointer to SingleColorData containing the color to use.
          * @param passData Pointer to PixelPass data for the current pixel.
+         * @ingroup filters
          */
         void singleColor(void *filterData, void *passData);
 
         /**
          * @struct SingleColorData
          * @brief Configuration data for the singleColor filter.
+         * @ingroup filters
          */
         struct SingleColorData
         {
@@ -254,7 +261,8 @@ namespace cgl
          * @brief Filter that sets pixel color based on UV coordinates.
          * @param filterData Unused for this filter.
          * @param passData Pointer to PixelPass data for the current pixel.
-         * 
+         * @ingroup filters
+         *
          * Creates a visual representation of UV coordinates by mapping
          * them to specific colors.
          */
@@ -264,7 +272,8 @@ namespace cgl
          * @brief Filter that samples a texture and applies it to the screen buffer.
          * @param filterData Pointer to TextureData containing the texture and sampling mode.
          * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
-         * 
+         * @ingroup filters
+         *
          * This filter samples a texture and applies it to the screen buffer,
          * allowing for texture-based rendering effects.
          */
@@ -273,7 +282,8 @@ namespace cgl
         /**
          * @struct TextureData
          * @brief Configuration data for the texture filter.
-         * 
+         * @ingroup filters
+         *
          * This structure holds the texture to sample from and the sampling mode
          * to use when filtering the texture.
          */
@@ -287,7 +297,8 @@ namespace cgl
          * @brief Filter that converts RGB colors to character representation.
          * @param filterData Pointer to RGBSingleCharacterData containing the character to use.
          * @param passData Pointer to CharacterBufferSinglePass data.
-         * 
+         * @ingroup filters
+         *
          * This filter converts pixel colors to character-based representation
          * suitable for console output.
          */
@@ -296,6 +307,7 @@ namespace cgl
         /**
          * @struct RGBSingleCharacterData
          * @brief Configuration data for the rgbSingleCharacter filter.
+         * @ingroup filters
          */
         struct RGBSingleCharacterData
         {
