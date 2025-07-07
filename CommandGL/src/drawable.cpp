@@ -207,10 +207,11 @@ namespace cgl
         m_size = { 1.f, 1.f };
     }
 
-    drawables::Rectangle::Rectangle(const Vector2<f32> &topLeft, const Vector2<f32> &size) {
-        Vector2<f32> topRight = { topLeft.x + size.x, topLeft.y };
-        Vector2<f32> bottomRight = { topLeft.x + size.x, topLeft.y + size.y };
-        Vector2<f32> bottomLeft = { topLeft.x, topLeft.y + size.y };
+    drawables::Rectangle::Rectangle(const Vector2<f32> &size) {
+        Vector2<f32> topLeft = { 0, 0 };
+        Vector2<f32> topRight = { size.x, 0 };
+        Vector2<f32> bottomRight = { size.x, size.y };
+        Vector2<f32> bottomLeft = { 0, size.y };
 
         points = {
             topLeft, topRight, bottomRight,
@@ -224,37 +225,11 @@ namespace cgl
         m_size = size;
     }
 
-    void drawables::Rectangle::setTopLeft(const Vector2<f32> &topLeft) {
-        Vector2<f32> topRight = { topLeft.x + m_size.x, topLeft.y };
-        Vector2<f32> bottomRight = { topLeft.x + m_size.x, topLeft.y + m_size.y };
-        Vector2<f32> bottomLeft = { topLeft.x, topLeft.y + m_size.y };
-
-        points[0] = topLeft; points[1] = topRight; points[2] = bottomRight;
-        points[3] = topLeft; points[4] = bottomRight; points[5] = bottomLeft;
-    }
-
-    Vector2<f32> drawables::Rectangle::getTopLeft() const {
-        return points[0];
-    }
-
-    void drawables::Rectangle::setBottomRight(const Vector2<f32> &bottomRight) {
-        Vector2<f32> topLeft = bottomRight - m_size;
-        Vector2<f32> topRight = { bottomRight.x, topLeft.y };
-        Vector2<f32> bottomLeft = { topLeft.x, bottomRight.y };
-
-        points[0] = topLeft; points[1] = topRight; points[2] = bottomRight;
-        points[3] = topLeft; points[4] = bottomRight; points[5] = bottomLeft;
-    }
-
-    Vector2<f32> drawables::Rectangle::getBottomRight() const {
-        return points[1];
-    }
-
     void drawables::Rectangle::setSize(const Vector2<f32> &size) {
-        Vector2<f32> topLeft = getTopLeft();
-        Vector2<f32> topRight = { topLeft.x + size.x, topLeft.y };
-        Vector2<f32> bottomRight = { topLeft.x + size.x, topLeft.y + size.y };
-        Vector2<f32> bottomLeft = { topLeft.x, topLeft.y + size.y };
+        Vector2<f32> topLeft = { 0, 0 };
+        Vector2<f32> topRight = { size.x, 0 };
+        Vector2<f32> bottomRight = { size.x, size.y };
+        Vector2<f32> bottomLeft = { 0, size.y };
 
         points[0] = topLeft; points[1] = topRight; points[2] = bottomRight;
         points[3] = topLeft; points[4] = bottomRight; points[5] = bottomLeft;

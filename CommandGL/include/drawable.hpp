@@ -185,31 +185,7 @@ namespace cgl
              * @param topLeft The top-left corner position.
              * @param size The width and height of the rectangle.
              */
-            Rectangle(const Vector2<f32> &topLeft, const Vector2<f32> &size);
-
-            /**
-             * @brief Sets the top-left corner position while maintaining size.
-             * @param topLeft The new top-left corner position.
-             */
-            void setTopLeft(const Vector2<f32> &topLeft);
-            
-            /**
-             * @brief Gets the current top-left corner position.
-             * @return The top-left corner position.
-             */
-            Vector2<f32> getTopLeft() const;
-
-            /**
-             * @brief Sets the bottom-right corner position, adjusting size accordingly.
-             * @param bottomRight The new bottom-right corner position.
-             */
-            void setBottomRight(const Vector2<f32> &bottomRight);
-            
-            /**
-             * @brief Gets the current bottom-right corner position.
-             * @return The bottom-right corner position.
-             */
-            Vector2<f32> getBottomRight() const;
+            Rectangle(const Vector2<f32> &size);
 
             /**
              * @brief Sets the rectangle size while maintaining top-left position.
