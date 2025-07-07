@@ -30,7 +30,7 @@ var searchData=
   ['m_5fscale_27',['m_scale',['../classcgl_1_1Transform.html#a7ab7d96c3747043bd26a7f2ee783a5b3',1,'cgl::Transform']]],
   ['m_5fscreenbuffer_28',['m_screenBuffer',['../classcgl_1_1Framework.html#a79eb59a0db238e12b0362ef79feaf281',1,'cgl::Framework']]],
   ['m_5fscreenscalefactor_29',['m_screenScaleFactor',['../classcgl_1_1Framework.html#ae14ec2631006e8ef495fcd4b4f7dcc7f',1,'cgl::Framework']]],
-  ['m_5fsize_30',['m_size',['../classcgl_1_1CharacterBuffer.html#a6bfab91f6ffc4c9b7c6cc20653fdd9a5',1,'cgl::CharacterBuffer::m_size'],['../classcgl_1_1drawables_1_1Rectangle.html#a9d601aa3d2d7610564ac773033f47d53',1,'cgl::drawables::Rectangle::m_size'],['../classcgl_1_1ScreenBuffer.html#a033906357b50947480ae213c522db3e6',1,'cgl::ScreenBuffer::m_size'],['../classcgl_1_1Texture.html#aa63429ed7b2f988bbd5d62f1b9abfc22',1,'cgl::Texture::m_size']]],
+  ['m_5fsize_30',['m_size',['../classcgl_1_1CharacterBuffer.html#a6bfab91f6ffc4c9b7c6cc20653fdd9a5',1,'cgl::CharacterBuffer::m_size'],['../classcgl_1_1Texture.html#aa63429ed7b2f988bbd5d62f1b9abfc22',1,'cgl::Texture::m_size'],['../classcgl_1_1ScreenBuffer.html#a033906357b50947480ae213c522db3e6',1,'cgl::ScreenBuffer::m_size'],['../classcgl_1_1drawables_1_1Rectangle.html#a9d601aa3d2d7610564ac773033f47d53',1,'cgl::drawables::Rectangle::m_size']]],
   ['m_5fstarttime_31',['m_startTime',['../classcgl_1_1Clock.html#af793eab273cd8cbf9560a3dce56e21e1',1,'cgl::Clock']]],
   ['m_5fstorage_32',['m_storage',['../classcgl_1_1GlobalMemory.html#a044cec4029cce87665998162874968bc',1,'cgl::GlobalMemory']]],
   ['m_5ftargetframetime_33',['m_targetFrameTime',['../classcgl_1_1Framework.html#a436c78cbaa8a3a551ca53b0dc1959ab2',1,'cgl::Framework']]],

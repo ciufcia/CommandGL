@@ -10,7 +10,7 @@ var filters_8hpp =
     [ "cgl::filters::SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
     [ "cgl::filters::TextureData", "structcgl_1_1filters_1_1TextureData.html", "structcgl_1_1filters_1_1TextureData" ],
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", "structcgl_1_1filters_1_1RGBSingleCharacterData" ],
-    [ "FilterFunction", "filters_8hpp.html#a071665a718a50cbf21a72639bff71abc", null ],
+    [ "FilterFunction", "filters_8hpp.html#a70c79705893837131c1e68e8fbe64d65", null ],
     [ "FilterType", "filters_8hpp.html#a861ba869b50405c09261d6d47fd328b5", [
       [ "SinglePass", "filters_8hpp.html#a861ba869b50405c09261d6d47fd328b5afb4c9649ec491b503777cb90a6c37975", null ],
       [ "Sequential", "filters_8hpp.html#a861ba869b50405c09261d6d47fd328b5aa7e82daa7280af25afbaa076ac16eb1e", null ],
