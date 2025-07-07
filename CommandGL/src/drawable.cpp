@@ -376,4 +376,174 @@ namespace cgl
             drawableBuffer.push_back(pixelData);
         }
     }
+
+    drawables::Polygon::Polygon(const std::vector<Vector2<f32>> &points) {
+        nonTriangulatedPoints = points;
+        triangulated = false;
+    }
+
+    void drawables::Polygon::addPoint(const Vector2<f32> &point) {
+        nonTriangulatedPoints.push_back(point);
+        triangulated = false;
+    }
+
+    void drawables::Polygon::insertPoint(u32 index, const Vector2<f32> &point) {
+        nonTriangulatedPoints.insert(std::next(nonTriangulatedPoints.begin(), index), point);
+        triangulated = false;
+    }
+
+    void drawables::Polygon::removePoint(u32 index) {
+        nonTriangulatedPoints.erase(std::next(nonTriangulatedPoints.begin(), index));
+        triangulated = false;
+    }
+
+    Vector2<f32> drawables::Polygon::getPoint(u32 index) const {
+        if (index >= nonTriangulatedPoints.size()) {
+            throw std::out_of_range("Index out of range");
+        }
+
+        return nonTriangulatedPoints[index];
+    }
+
+    void drawables::Polygon::setPoint(u32 index, const Vector2<f32> &point) {
+        if (index >= nonTriangulatedPoints.size()) {
+            throw std::out_of_range("Index out of range");
+        }
+
+        nonTriangulatedPoints[index] = point;
+        triangulated = false;
+    }
+
+    const std::vector<Vector2<f32>>& drawables::Polygon::getPoints() const {
+        return nonTriangulatedPoints;
+    }
+
+    void drawables::Polygon::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+        if (!triangulated) {
+            triangulate();
+        }
+
+        Mesh::generateGeometry(drawableBuffer, transform);
+    }
+
+    void drawables::Polygon::triangulate() {
+        if (nonTriangulatedPoints.size() < 3) {
+            throw std::runtime_error("Not enough points to form a polygon.");
+        }
+
+        auto nonTriangulatedPointsList = std::list<Vector2<f32>>(nonTriangulatedPoints.begin(), nonTriangulatedPoints.end());
+
+        if (calculateSignedArea() < 0) {
+            std::reverse(nonTriangulatedPointsList.begin(), nonTriangulatedPointsList.end());
+        }
+        
+        Vector2<f32> topleft = { std::numeric_limits<f32>::max(), std::numeric_limits<f32>::max() };
+        Vector2<f32> bottomright = { std::numeric_limits<f32>::lowest(), std::numeric_limits<f32>::lowest() };
+
+        for (const auto &point : nonTriangulatedPoints) {
+            topleft.x = std::min(topleft.x, point.x);
+            topleft.y = std::min(topleft.y, point.y);
+            bottomright.x = std::max(bottomright.x, point.x);
+            bottomright.y = std::max(bottomright.y, point.y);
+        }
+        
+        Vector2<f32> size = bottomright - topleft;
+        Vector2<f32> inverseSize = { 1.f / size.x, 1.f / size.y };
+
+        points.clear();
+        uvs.clear();
+
+        auto p1 = nonTriangulatedPointsList.begin();
+        auto p2 = std::next(p1);
+        auto p3 = std::next(p2);
+
+        auto advance = [&](auto it) {
+            ++it;
+            if (it == nonTriangulatedPointsList.end()) {
+                it = nonTriangulatedPointsList.begin();
+            }
+            return it;
+        };
+
+        u32 count = 0u;
+
+        while (nonTriangulatedPointsList.size() > 3) {
+            if (count >= nonTriangulatedPointsList.size()) {
+                throw std::runtime_error("Couldn't triangulate polygon");
+            }
+
+            count++;
+
+            f32 turn = (p2->x - p1->x) * (p3->y - p2->y) - (p3->x - p2->x) * (p2->y - p1->y);
+
+            if (turn <= 0) {
+                p1 = p2;
+                p2 = p3;
+                p3 = advance(p2);
+                continue;
+            }
+
+            f32 e1a = p1->y - p2->y; f32 e1b = p2->x - p1->x; f32 e1c = p1->x * p2->y - p2->x * p1->y;
+            f32 e2a = p2->y - p3->y; f32 e2b = p3->x - p2->x; f32 e2c = p2->x * p3->y - p3->x * p2->y;
+            f32 e3a = p3->y - p1->y; f32 e3b = p1->x - p3->x; f32 e3c = p3->x * p1->y - p1->x * p3->y;
+
+            bool found = false;
+            for (auto it = nonTriangulatedPointsList.begin(); it != nonTriangulatedPointsList.end(); it++) {
+                if (it == p1 || it == p2 || it == p3) {
+                    ++it;
+                    continue;
+                }
+
+                f32 e1 = e1a * it->x + e1b * it->y + e1c;
+                f32 e2 = e2a * it->x + e2b * it->y + e2c;
+                f32 e3 = e3a * it->x + e3b * it->y + e3c;
+
+                bool inside = (e1 > 0 && e2 > 0 && e3 > 0);
+
+                if (inside) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                p1 = p2;
+                p2 = p3;
+                p3 = advance(p2);
+                continue;
+            }
+
+            count = 0u;
+
+            points.push_back(*p1); uvs.push_back({ (p1->x - topleft.x) * inverseSize.x, (p1->y - topleft.y) * inverseSize.y });
+            points.push_back(*p2); uvs.push_back({ (p2->x - topleft.x) * inverseSize.x, (p2->y - topleft.y) * inverseSize.y });
+            points.push_back(*p3); uvs.push_back({ (p3->x - topleft.x) * inverseSize.x, (p3->y - topleft.y) * inverseSize.y });
+
+            nonTriangulatedPointsList.erase(p2);
+            p2 = p3;
+            p3 = advance(p2);
+        }
+
+        auto it = nonTriangulatedPointsList.begin();
+        points.push_back(*it); uvs.push_back({ (it->x - topleft.x) * inverseSize.x, (it->y - topleft.y) * inverseSize.y }); it++;
+        points.push_back(*it); uvs.push_back({ (it->x - topleft.x) * inverseSize.x, (it->y - topleft.y) * inverseSize.y }); it++;
+        points.push_back(*it); uvs.push_back({ (it->x - topleft.x) * inverseSize.x, (it->y - topleft.y) * inverseSize.y }); it++;
+
+        nonTriangulatedPointsList.clear();
+
+		triangulated = true;
+    }
+
+    f32 drawables::Polygon::calculateSignedArea() {
+        f32 area = 0.f;
+
+        for (u32 i = 0; i < nonTriangulatedPoints.size(); ++i) {
+            u32 next_x = (i + 1) % nonTriangulatedPoints.size();
+            u32 next_y = (i + 1) % nonTriangulatedPoints.size();
+
+            area += nonTriangulatedPoints[i].x * nonTriangulatedPoints[next_y].y - nonTriangulatedPoints[next_x].x * nonTriangulatedPoints[i].y;
+        }
+
+        return area * 0.5f;
+    }
 }

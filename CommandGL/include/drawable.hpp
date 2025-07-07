@@ -3,6 +3,7 @@
 
 #include "filters.hpp"
 #include "transform.hpp"
+#include <list>
 
 namespace cgl
 {
@@ -116,8 +117,6 @@ namespace cgl
              * @return True if pixels on this edge should be filled.
              */
             static bool isTopOrLeftEdge(const Vector2<f32>& v1, const Vector2<f32>& v2);
-
-        private:
 
             void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
         };
@@ -294,6 +293,83 @@ namespace cgl
         private:
 
             void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+        };
+
+        /**
+         * @class Polygon
+         * @brief A drawable polygon defined by a list of 2D points.
+         * 
+         * Polygons can be non-convex and are automatically triangulated for rendering.
+         * The winding order is corrected to ensure counter-clockwise orientation.
+         * Self-intersecting polygons are not supported.
+         */
+        class Polygon : public Mesh
+        {
+        public:
+
+            Polygon() = default;
+
+            /**
+             * @brief Constructor that creates a polygon with a list of vertices.
+             * @param vertices A vector of 2D points defining the polygon's shape.
+             */
+            Polygon(const std::vector<Vector2<f32>> &points);
+
+            /**
+             * @brief Adds a point to the polygon.
+             * @param point The point to add to the polygon.
+             */
+            void addPoint(const Vector2<f32> &point);
+
+            /**
+             * @brief Inserts a point at a specific index in the polygon.
+             * @param index The index at which to insert the point.
+             * @param point The point to insert.
+             * @throws std::out_of_range if index is out of bounds.
+             */
+            void insertPoint(u32 index, const Vector2<f32> &point);
+
+            /**
+             * @brief Removes a point at a specific index in the polygon.
+             * @param index The index of the point to remove.
+             * @throws std::out_of_range if index is out of bounds.
+             */
+            void removePoint(u32 index);
+
+            /**
+             * @brief Gets the point at a specific index in the polygon.
+             * @param index The index of the point to retrieve.
+             * @return The point at the specified index.
+             * @throws std::out_of_range if index is out of bounds.
+             */
+            Vector2<f32> getPoint(u32 index) const;
+
+            /**
+             * @brief Sets the point at a specific index in the polygon.
+             * @param index The index of the point to set.
+             * @param point The new point to set at the specified index.
+             * @throws std::out_of_range if index is out of bounds.
+             */
+            void setPoint(u32 index, const Vector2<f32> &point);
+
+            /**
+             * @brief Gets the list of points defining the polygon.
+             * @return A list 2D points representing the polygon's vertices.
+             */
+            const std::vector<Vector2<f32>>& getPoints() const;
+
+        private:
+
+            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+
+            void triangulate();
+
+            f32 calculateSignedArea();
+
+        private:
+
+            bool triangulated = false;
+            std::vector<Vector2<f32>> nonTriangulatedPoints;
         };
     }
 
