@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['filter_0',['Filter',['../structcgl_1_1Filter.html',1,'cgl']]],
-  ['filterpipeline_1',['FilterPipeline',['../classcgl_1_1FilterPipeline.html',1,'cgl']]],
-  ['framework_2',['Framework',['../classcgl_1_1Framework.html',1,'cgl']]]
+  ['ellipse_0',['Ellipse',['../classcgl_1_1drawables_1_1Ellipse.html',1,'cgl::drawables']]],
+  ['event_1',['Event',['../classcgl_1_1Event.html',1,'cgl']]],
+  ['eventmanager_2',['EventManager',['../classcgl_1_1EventManager.html',1,'cgl']]],
+  ['eventtype_3',['EventType',['../structcgl_1_1EventType.html',1,'cgl']]]
 ];

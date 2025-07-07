@@ -1,5 +1,11 @@
 var hierarchy =
 [
+    [ "cgl::filter_pass_data::Base", "structcgl_1_1filter__pass__data_1_1Base.html", [
+      [ "cgl::filter_pass_data::CharacterBufferSinglePass", "structcgl_1_1filter__pass__data_1_1CharacterBufferSinglePass.html", null ],
+      [ "cgl::filter_pass_data::PixelPass", "structcgl_1_1filter__pass__data_1_1PixelPass.html", null ],
+      [ "cgl::filter_pass_data::PixelSinglePass", "structcgl_1_1filter__pass__data_1_1PixelSinglePass.html", null ],
+      [ "cgl::filter_pass_data::ScreenBufferSinglePass", "structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass.html", null ]
+    ] ],
     [ "cgl::CharacterBuffer", "classcgl_1_1CharacterBuffer.html", null ],
     [ "cgl::Clock", "classcgl_1_1Clock.html", null ],
     [ "cgl::Color", "classcgl_1_1Color.html", null ],

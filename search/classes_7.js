@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['line_0',['Line',['../classcgl_1_1drawables_1_1Line.html',1,'cgl::drawables']]]
+  ['keypressevent_0',['KeyPressEvent',['../structcgl_1_1KeyPressEvent.html',1,'cgl']]],
+  ['keyreleaseevent_1',['KeyReleaseEvent',['../structcgl_1_1KeyReleaseEvent.html',1,'cgl']]]
 ];

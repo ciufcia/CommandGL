@@ -9,6 +9,13 @@ var annotated_dup =
         [ "Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", "classcgl_1_1drawables_1_1Rectangle" ],
         [ "Triangle", "classcgl_1_1drawables_1_1Triangle.html", "classcgl_1_1drawables_1_1Triangle" ]
       ] ],
+      [ "filter_pass_data", "namespacecgl_1_1filter__pass__data.html", [
+        [ "Base", "structcgl_1_1filter__pass__data_1_1Base.html", "structcgl_1_1filter__pass__data_1_1Base" ],
+        [ "CharacterBufferSinglePass", "structcgl_1_1filter__pass__data_1_1CharacterBufferSinglePass.html", "structcgl_1_1filter__pass__data_1_1CharacterBufferSinglePass" ],
+        [ "PixelPass", "structcgl_1_1filter__pass__data_1_1PixelPass.html", "structcgl_1_1filter__pass__data_1_1PixelPass" ],
+        [ "PixelSinglePass", "structcgl_1_1filter__pass__data_1_1PixelSinglePass.html", "structcgl_1_1filter__pass__data_1_1PixelSinglePass" ],
+        [ "ScreenBufferSinglePass", "structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass.html", "structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass" ]
+      ] ],
       [ "filters", "namespacecgl_1_1filters.html", [
         [ "RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", "structcgl_1_1filters_1_1RGBSingleCharacterData" ],
         [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
