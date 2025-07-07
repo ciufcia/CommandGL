@@ -41,7 +41,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
@@ -65,9 +65,9 @@ var NAVTREEINDEX =
 "annotated.html",
 "classcgl_1_1FilterPipeline.html#ab4e33c56a08351224d9f94bee9601b66",
 "classcgl_1_1Vector2.html#a3178d264af79f75fea80c8da8790d5b1",
-"event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca9b869c510c75c5827ac82e49d4340927",
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca77ee859d232790a420e7d44c280955a3",
-"structcgl_1_1filter__pass__data_1_1PixelSinglePass.html"
+"event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca7fc56270e7a70fa81a5935b72eacbe29",
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca258f49887ef8d14ac268c92b02503aaa",
+"structcgl_1_1Filter.html#a5cab1b1a29cb8a4ac9f15ede48c777c1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

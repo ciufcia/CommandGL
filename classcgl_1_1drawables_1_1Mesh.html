@@ -107,8 +107,8 @@ $(document).ready(function(){initNavTree('classcgl_1_1drawables_1_1Mesh.html',''
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classcgl_1_1drawables_1_1Mesh-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">cgl::drawables::Mesh Class Reference</div></div>
 </div><!--header-->
@@ -124,10 +124,11 @@ Inheritance diagram for cgl::drawables::Mesh:</div>
  <div class="center">
   <img src="classcgl_1_1drawables_1_1Mesh.png" usemap="#cgl::drawables::Mesh_map" alt=""/>
   <map id="cgl::drawables::Mesh_map" name="cgl::drawables::Mesh_map">
-<area href="classcgl_1_1Drawable.html" title="Abstract base class for all drawable objects in the graphics framework." alt="cgl::Drawable" shape="rect" coords="82,56,237,80"/>
-<area href="classcgl_1_1Transformable.html" alt="cgl::Transformable" shape="rect" coords="82,0,237,24"/>
-<area href="classcgl_1_1drawables_1_1Rectangle.html" title="A drawable rectangle composed of two triangles." alt="cgl::drawables::Rectangle" shape="rect" coords="0,168,155,192"/>
-<area href="classcgl_1_1drawables_1_1Triangle.html" title="A drawable triangle defined by three vertices." alt="cgl::drawables::Triangle" shape="rect" coords="165,168,320,192"/>
+<area href="classcgl_1_1Drawable.html" title="Abstract base class for all drawable objects in the graphics framework." alt="cgl::Drawable" shape="rect" coords="165,56,320,80"/>
+<area href="classcgl_1_1Transformable.html" alt="cgl::Transformable" shape="rect" coords="165,0,320,24"/>
+<area href="classcgl_1_1drawables_1_1Polygon.html" title="A drawable polygon defined by a list of 2D points." alt="cgl::drawables::Polygon" shape="rect" coords="0,168,155,192"/>
+<area href="classcgl_1_1drawables_1_1Rectangle.html" title="A drawable rectangle composed of two triangles." alt="cgl::drawables::Rectangle" shape="rect" coords="165,168,320,192"/>
+<area href="classcgl_1_1drawables_1_1Triangle.html" title="A drawable triangle defined by three vertices." alt="cgl::drawables::Triangle" shape="rect" coords="330,168,485,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -161,6 +162,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad4e82127d2ff2e25955a670bbd623224 inherit pub_attribs_classcgl_1_1Transformable" id="r_ad4e82127d2ff2e25955a670bbd623224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a></td></tr>
 <tr class="separator:ad4e82127d2ff2e25955a670bbd623224 inherit pub_attribs_classcgl_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:afae9c2c9df89e4c0f8c4c4e2e584495f" id="r_afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#afae9c2c9df89e4c0f8c4c4e2e584495f">generateGeometry</a> (std::vector&lt; <a class="el" href="structcgl_1_1filter__pass__data_1_1PixelPass.html">filter_pass_data::PixelPass</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">drawableBuffer</a>, <a class="el" href="classcgl_1_1Transform.html">Transform</a> &amp;<a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a>) <a class="el" href="classcgl_1_1Vector2.html">override</a></td></tr>
+<tr class="memdesc:afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to generate geometry for rendering.  <br /></td></tr>
+<tr class="separator:afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a685a4f485948eed07d0a8ed450e82825" id="r_a685a4f485948eed07d0a8ed450e82825"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">static</a> <a class="el" href="classcgl_1_1Vector2.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#a685a4f485948eed07d0a8ed450e82825">isTopEdge</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">v1</a>, <a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">v2</a>)</td></tr>
@@ -172,12 +179,6 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a2ad0d94e0158acbd43b75eb27020dde4" id="r_a2ad0d94e0158acbd43b75eb27020dde4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">static</a> <a class="el" href="classcgl_1_1Vector2.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#a2ad0d94e0158acbd43b75eb27020dde4">isTopOrLeftEdge</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">v1</a>, <a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">v2</a>)</td></tr>
 <tr class="memdesc:a2ad0d94e0158acbd43b75eb27020dde4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if an edge should be filled according to the top-left rule.  <br /></td></tr>
 <tr class="separator:a2ad0d94e0158acbd43b75eb27020dde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:afae9c2c9df89e4c0f8c4c4e2e584495f" id="r_afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#afae9c2c9df89e4c0f8c4c4e2e584495f">generateGeometry</a> (std::vector&lt; <a class="el" href="structcgl_1_1filter__pass__data_1_1PixelPass.html">filter_pass_data::PixelPass</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">drawableBuffer</a>, <a class="el" href="classcgl_1_1Transform.html">Transform</a> &amp;<a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a>) <a class="el" href="classcgl_1_1Vector2.html">override</a></td></tr>
-<tr class="memdesc:afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to generate geometry for rendering.  <br /></td></tr>
-<tr class="separator:afae9c2c9df89e4c0f8c4c4e2e584495f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -249,7 +250,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -264,6 +265,8 @@ Additional Inherited Members</h2></td></tr>
 <p>This method must be implemented by derived classes to define how the drawable's geometry is rasterized into pixels. </p>
 
 <p>Implements <a class="el" href="classcgl_1_1Drawable.html#a233f954e74252d90252c79948be20e17">cgl::Drawable</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classcgl_1_1drawables_1_1Polygon.html#aa29e5ffdd82d6cb82343c1592ccfefa4">cgl::drawables::Polygon</a>.</p>
 
 </div>
 </div>

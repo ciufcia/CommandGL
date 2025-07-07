@@ -17,7 +17,7 @@ var searchData=
   ['setorigin_14',['setOrigin',['../classcgl_1_1Transform.html#a423b8605ace49116bd7ee2f65d35a11d',1,'cgl::Transform']]],
   ['setoutputmode_15',['setOutputMode',['../classcgl_1_1Console.html#ab6d318dbbbb772f35dd792ca87591984',1,'cgl::Console']]],
   ['setpixel_16',['setPixel',['../classcgl_1_1Texture.html#a8fe4e546b7d8d403da29dc069fb33c33',1,'cgl::Texture']]],
-  ['setpoint_17',['setPoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle']]],
+  ['setpoint_17',['setpoint',['../classcgl_1_1drawables_1_1Triangle.html#a1c770169e12aaf74cdc4dd665f8442ed',1,'cgl::drawables::Triangle::setPoint()'],['../classcgl_1_1drawables_1_1Polygon.html#ae8fcad9bed48c7a7034b4be44afde9e8',1,'cgl::drawables::Polygon::setPoint()']]],
   ['setposition_18',['setPosition',['../classcgl_1_1Transform.html#ae61d02d9f19f6e6c577cf97935b8be1c',1,'cgl::Transform']]],
   ['setrotation_19',['setRotation',['../classcgl_1_1Transform.html#af5b38594d5e112e23f526845497020f6',1,'cgl::Transform']]],
   ['setscale_20',['setScale',['../classcgl_1_1Transform.html#a10764559e6aaa0381169615ebd915a32',1,'cgl::Transform']]],

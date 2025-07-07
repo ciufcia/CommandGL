@@ -19,9 +19,10 @@ var searchData=
   ['point_16',['point',['../classcgl_1_1drawables_1_1Point.html#ac0fff2bceda34a820c8b6d1bbf8caba5',1,'cgl::drawables::Point::Point(const Vector2&lt; f32 &gt; &amp;position)'],['../classcgl_1_1drawables_1_1Point.html#a09abdd36743ab15dbd4031cb56021e9f',1,'cgl::drawables::Point::Point()=default'],['../classcgl_1_1drawables_1_1Point.html',1,'cgl::drawables::Point']]],
   ['points_17',['points',['../classcgl_1_1drawables_1_1Mesh.html#a58d196c94b8da211de9015248f6a9756',1,'cgl::drawables::Mesh']]],
   ['pollevent_18',['pollEvent',['../classcgl_1_1EventManager.html#abf419ef0be0ea964e0e793e194c7b250',1,'cgl::EventManager']]],
-  ['populateglobalmemory_19',['populateGlobalMemory',['../classcgl_1_1Framework.html#a4c04e4e698469e787842a0193a35115e',1,'cgl::Framework']]],
-  ['position_20',['position',['../structcgl_1_1filter__pass__data_1_1PixelPass.html#aedd4fbb59c056222d6f9a33ef6e148fa',1,'cgl::filter_pass_data::PixelPass::position'],['../classcgl_1_1drawables_1_1Point.html#a81b76e0bb49f3d21601f9b1b04d3a7ed',1,'cgl::drawables::Point::position']]],
-  ['previoustrack_21',['PreviousTrack',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca978f2d1824e2b007ee5fcbd56d196f4f',1,'cgl']]],
-  ['print_22',['Print',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca13dba24862cf9128167a59100e154c8d',1,'cgl']]],
-  ['printscreen_23',['PrintScreen',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cabf54024481cd2ad6bbb9ae44b7312472',1,'cgl']]]
+  ['polygon_19',['polygon',['../classcgl_1_1drawables_1_1Polygon.html#a4a334c69b75c2b0e8399588a75e153f1',1,'cgl::drawables::Polygon::Polygon(const std::vector&lt; Vector2&lt; f32 &gt; &gt; &amp;points)'],['../classcgl_1_1drawables_1_1Polygon.html#a299798ef8fa06b712bd23702fcd6acc6',1,'cgl::drawables::Polygon::Polygon()=default'],['../classcgl_1_1drawables_1_1Polygon.html',1,'cgl::drawables::Polygon']]],
+  ['populateglobalmemory_20',['populateGlobalMemory',['../classcgl_1_1Framework.html#a4c04e4e698469e787842a0193a35115e',1,'cgl::Framework']]],
+  ['position_21',['position',['../structcgl_1_1filter__pass__data_1_1PixelPass.html#aedd4fbb59c056222d6f9a33ef6e148fa',1,'cgl::filter_pass_data::PixelPass::position'],['../classcgl_1_1drawables_1_1Point.html#a81b76e0bb49f3d21601f9b1b04d3a7ed',1,'cgl::drawables::Point::position']]],
+  ['previoustrack_22',['PreviousTrack',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca978f2d1824e2b007ee5fcbd56d196f4f',1,'cgl']]],
+  ['print_23',['Print',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca13dba24862cf9128167a59100e154c8d',1,'cgl']]],
+  ['printscreen_24',['PrintScreen',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cabf54024481cd2ad6bbb9ae44b7312472',1,'cgl']]]
 ];

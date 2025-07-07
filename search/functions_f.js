@@ -6,5 +6,6 @@ var searchData=
   ['tohex_3',['toHex',['../classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137',1,'cgl::Color']]],
   ['transform_4',['transform',['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform(const Vector2&lt; f32 &gt; &amp;position, const Vector2&lt; f32 &gt; &amp;scale, f32 rotation, const Vector2&lt; f32 &gt; &amp;origin)']]],
   ['translate_5',['translate',['../classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84',1,'cgl::Matrix3']]],
-  ['triangle_6',['triangle',['../classcgl_1_1drawables_1_1Triangle.html#a0565f2f4775a7ca460c5c18fafcf6408',1,'cgl::drawables::Triangle::Triangle()'],['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle(const Vector2&lt; f32 &gt; &amp;p1, const Vector2&lt; f32 &gt; &amp;p2, const Vector2&lt; f32 &gt; &amp;p3)']]]
+  ['triangle_6',['triangle',['../classcgl_1_1drawables_1_1Triangle.html#a0565f2f4775a7ca460c5c18fafcf6408',1,'cgl::drawables::Triangle::Triangle()'],['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle(const Vector2&lt; f32 &gt; &amp;p1, const Vector2&lt; f32 &gt; &amp;p2, const Vector2&lt; f32 &gt; &amp;p3)']]],
+  ['triangulate_7',['triangulate',['../classcgl_1_1drawables_1_1Polygon.html#a120bc7f6fe3fb1783b065f641afe177e',1,'cgl::drawables::Polygon']]]
 ];

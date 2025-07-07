@@ -6,5 +6,6 @@ var drawable_8hpp =
     [ "cgl::drawables::Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", "classcgl_1_1drawables_1_1Rectangle" ],
     [ "cgl::drawables::Point", "classcgl_1_1drawables_1_1Point.html", "classcgl_1_1drawables_1_1Point" ],
     [ "cgl::drawables::Ellipse", "classcgl_1_1drawables_1_1Ellipse.html", "classcgl_1_1drawables_1_1Ellipse" ],
-    [ "cgl::drawables::Line", "classcgl_1_1drawables_1_1Line.html", "classcgl_1_1drawables_1_1Line" ]
+    [ "cgl::drawables::Line", "classcgl_1_1drawables_1_1Line.html", "classcgl_1_1drawables_1_1Line" ],
+    [ "cgl::drawables::Polygon", "classcgl_1_1drawables_1_1Polygon.html", "classcgl_1_1drawables_1_1Polygon" ]
 ];

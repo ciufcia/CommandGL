@@ -2,7 +2,7 @@ var searchData=
 [
   ['t_0',['T',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3',1,'cgl']]],
   ['tab_1',['Tab',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca5c6ba25104401c9ee0650230fc6ba413',1,'cgl']]],
-  ['texture_2',['texture',['../namespacecgl_1_1filters.html#ab5cb3d206d661c1bd8ea2ea6e23a679e',1,'cgl::filters::texture()'],['../classcgl_1_1Texture.html',1,'cgl::Texture'],['../classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414',1,'cgl::Texture::Texture()=default'],['../classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656',1,'cgl::Texture::Texture(const Vector2&lt; u32 &gt; &amp;size)'],['../classcgl_1_1Texture.html#acb9b7673056e11fe51c32c01cf578caf',1,'cgl::Texture::Texture(const std::string &amp;filepath)'],['../structcgl_1_1filters_1_1TextureData.html#ac28da397c5f0f0fa9cd4e9bdc772d92e',1,'cgl::filters::TextureData::texture']]],
+  ['texture_2',['texture',['../classcgl_1_1Texture.html',1,'cgl::Texture'],['../classcgl_1_1Texture.html#acb9b7673056e11fe51c32c01cf578caf',1,'cgl::Texture::Texture(const std::string &amp;filepath)'],['../classcgl_1_1Texture.html#af4031c35e19609a8c09434d59e857656',1,'cgl::Texture::Texture(const Vector2&lt; u32 &gt; &amp;size)'],['../classcgl_1_1Texture.html#afc3d1650521f8c5889b2278255032414',1,'cgl::Texture::Texture()=default'],['../namespacecgl_1_1filters.html#ab5cb3d206d661c1bd8ea2ea6e23a679e',1,'cgl::filters::texture()'],['../structcgl_1_1filters_1_1TextureData.html#ac28da397c5f0f0fa9cd4e9bdc772d92e',1,'cgl::filters::TextureData::texture']]],
   ['texture_2ecpp_3',['texture.cpp',['../texture_8cpp.html',1,'']]],
   ['texture_2ehpp_4',['texture.hpp',['../texture_8hpp.html',1,'']]],
   ['texturedata_5',['TextureData',['../structcgl_1_1filters_1_1TextureData.html',1,'cgl::filters']]],
@@ -14,12 +14,14 @@ var searchData=
   ['timing_2ehpp_11',['timing.hpp',['../timing_8hpp.html',1,'']]],
   ['togglebit_12',['toggleBit',['../namespacecgl.html#abc434f38af99a562d710c34c24495791',1,'cgl']]],
   ['tohex_13',['toHex',['../classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137',1,'cgl::Color']]],
-  ['transform_14',['transform',['../classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224',1,'cgl::Transformable::transform'],['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform(const Vector2&lt; f32 &gt; &amp;position, const Vector2&lt; f32 &gt; &amp;scale, f32 rotation, const Vector2&lt; f32 &gt; &amp;origin)'],['../classcgl_1_1Transform.html',1,'cgl::Transform']]],
+  ['transform_14',['transform',['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224',1,'cgl::Transformable::transform'],['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html',1,'cgl::Transform']]],
   ['transform_2ecpp_15',['transform.cpp',['../transform_8cpp.html',1,'']]],
   ['transform_2ehpp_16',['transform.hpp',['../transform_8hpp.html',1,'']]],
   ['transformable_17',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
   ['translate_18',['translate',['../classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84',1,'cgl::Matrix3']]],
   ['triangle_19',['triangle',['../classcgl_1_1drawables_1_1Triangle.html#a0565f2f4775a7ca460c5c18fafcf6408',1,'cgl::drawables::Triangle::Triangle()'],['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle(const Vector2&lt; f32 &gt; &amp;p1, const Vector2&lt; f32 &gt; &amp;p2, const Vector2&lt; f32 &gt; &amp;p3)'],['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables::Triangle']]],
-  ['two_20',['Two',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caaada29daee1d64ed0fe907043855cb7e',1,'cgl']]],
-  ['type_21',['type',['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter::type'],['../classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5',1,'cgl::Event::type']]]
+  ['triangulate_20',['triangulate',['../classcgl_1_1drawables_1_1Polygon.html#a120bc7f6fe3fb1783b065f641afe177e',1,'cgl::drawables::Polygon']]],
+  ['triangulated_21',['triangulated',['../classcgl_1_1drawables_1_1Polygon.html#a2a510e2a73279fa2989f50142a09f447',1,'cgl::drawables::Polygon']]],
+  ['two_22',['Two',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caaada29daee1d64ed0fe907043855cb7e',1,'cgl']]],
+  ['type_23',['type',['../classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5',1,'cgl::Event::type'],['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter::type']]]
 ];

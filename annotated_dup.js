@@ -6,6 +6,7 @@ var annotated_dup =
         [ "Line", "classcgl_1_1drawables_1_1Line.html", "classcgl_1_1drawables_1_1Line" ],
         [ "Mesh", "classcgl_1_1drawables_1_1Mesh.html", "classcgl_1_1drawables_1_1Mesh" ],
         [ "Point", "classcgl_1_1drawables_1_1Point.html", "classcgl_1_1drawables_1_1Point" ],
+        [ "Polygon", "classcgl_1_1drawables_1_1Polygon.html", "classcgl_1_1drawables_1_1Polygon" ],
         [ "Rectangle", "classcgl_1_1drawables_1_1Rectangle.html", "classcgl_1_1drawables_1_1Rectangle" ],
         [ "Triangle", "classcgl_1_1drawables_1_1Triangle.html", "classcgl_1_1drawables_1_1Triangle" ]
       ] ],
