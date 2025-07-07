@@ -139,7 +139,15 @@ auto uvFilterObject = cgl::Filter::create(
 ...
 ```
 
-Then we can insert our filter into the triangles fragment pipeline.
+Then we can insert our filter into the triangles fragment pipeline:
+
+```cpp
+...
+
+triangle->fragmentPipeline.addFilter(uvFilterObject, 0);
+
+...
+```
 
 After running this our triangle should be filled with a nice gradient.
 
