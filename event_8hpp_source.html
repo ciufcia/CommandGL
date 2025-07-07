@@ -338,7 +338,7 @@ $(function(){initNavTree('event_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        std::shared_ptr&lt;EventType&gt; type = std::make_shared&lt;InvalidEvent&gt;();</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno"><a class="line" href="classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5">  305</a></span>        std::shared_ptr&lt;EventType&gt; <a class="code hl_variable" href="classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5">type</a> = std::make_shared&lt;InvalidEvent&gt;();</div>
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    };</div>
 </div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
@@ -346,7 +346,7 @@ $(function(){initNavTree('event_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keyword">requires</span> std::derived_from&lt;T, EventType&gt;</div>
 <div class="foldopen" id="foldopen00310" data-start="{" data-end="}">
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149">  310</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149">Event::isOfType</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keywordflow">return</span> <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a>*<span class="keyword">&gt;</span>(type.get()) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keywordflow">return</span> <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5">type</a>.get()) != <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
 </div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
@@ -354,7 +354,7 @@ $(function(){initNavTree('event_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keyword">requires</span> std::derived_from&lt;T, EventType&gt;</div>
 <div class="foldopen" id="foldopen00316" data-start="{" data-end="}">
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf">  316</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf">Event::setType</a>() {</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        type = std::make_shared&lt;T&gt;();</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <a class="code hl_variable" href="classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5">type</a> = std::make_shared&lt;T&gt;();</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    }</div>
 </div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>}</div>
@@ -366,6 +366,7 @@ $(function(){initNavTree('event_8hpp_source.html',''); initResizable(); });
 <div class="ttc" id="aclasscgl_1_1Event_html_aa28f8740622322d147aeedbd35d86b73"><div class="ttname"><a href="classcgl_1_1Event.html#aa28f8740622322d147aeedbd35d86b73">cgl::Event::mousePosition</a></div><div class="ttdeci">Vector2&lt; u32 &gt; mousePosition</div><div class="ttdoc">The current mouse cursor position in console character coordinates.</div><div class="ttdef"><b>Definition</b> event.hpp:277</div></div>
 <div class="ttc" id="aclasscgl_1_1Event_html_abb5100a49511cb4703791d7b47908f33"><div class="ttname"><a href="classcgl_1_1Event.html#abb5100a49511cb4703791d7b47908f33">cgl::Event::newSize</a></div><div class="ttdeci">Vector2&lt; u32 &gt; newSize</div><div class="ttdoc">The new console window size for console resize events.</div><div class="ttdef"><b>Definition</b> event.hpp:301</div></div>
 <div class="ttc" id="aclasscgl_1_1Event_html_ad592d94f61f08ef34592e4097ef979bf"><div class="ttname"><a href="classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf">cgl::Event::setType</a></div><div class="ttdeci">void setType()</div><div class="ttdoc">Sets the event to a specific type.</div><div class="ttdef"><b>Definition</b> event.hpp:316</div></div>
+<div class="ttc" id="aclasscgl_1_1Event_html_adc33cdc0e145da8a8693be61e0403df5"><div class="ttname"><a href="classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5">cgl::Event::type</a></div><div class="ttdeci">std::shared_ptr&lt; EventType &gt; type</div><div class="ttdef"><b>Definition</b> event.hpp:305</div></div>
 <div class="ttc" id="aclasscgl_1_1Event_html_adf774f7b3efe3d917a8db35477376149"><div class="ttname"><a href="classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149">cgl::Event::isOfType</a></div><div class="ttdeci">bool isOfType() const</div><div class="ttdoc">Checks if the event is of a specific type.</div><div class="ttdef"><b>Definition</b> event.hpp:310</div></div>
 <div class="ttc" id="aclasscgl_1_1Event_html_aeff4cda14aafca35c35dde8206fb0dea"><div class="ttname"><a href="classcgl_1_1Event.html#aeff4cda14aafca35c35dde8206fb0dea">cgl::Event::mouseDelta</a></div><div class="ttdeci">Vector2&lt; u32 &gt; mouseDelta</div><div class="ttdoc">The change in mouse position since the last mouse event.</div><div class="ttdef"><b>Definition</b> event.hpp:284</div></div>
 <div class="ttc" id="aclasscgl_1_1Vector2_html"><div class="ttname"><a href="classcgl_1_1Vector2.html">cgl::Vector2</a></div><div class="ttdoc">A simple 2D vector class template.</div><div class="ttdef"><b>Definition</b> vector2.hpp:22</div></div>

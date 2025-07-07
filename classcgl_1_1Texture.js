@@ -16,5 +16,7 @@ var classcgl_1_1Texture =
     [ "sampleBilinear", "classcgl_1_1Texture.html#ab6686dab5c0daf310e33157f8e0a68f8", null ],
     [ "sampleNearestNeighbor", "classcgl_1_1Texture.html#ad57fe806fbb09889880deb967791bdb7", null ],
     [ "setPixel", "classcgl_1_1Texture.html#a8fe4e546b7d8d403da29dc069fb33c33", null ],
-    [ "setSize", "classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe", null ]
+    [ "setSize", "classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe", null ],
+    [ "m_data", "classcgl_1_1Texture.html#acadb34100ea2c63ac5c8a7aec9818ff5", null ],
+    [ "m_size", "classcgl_1_1Texture.html#aa63429ed7b2f988bbd5d62f1b9abfc22", null ]
 ];

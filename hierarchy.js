@@ -25,6 +25,7 @@ var hierarchy =
     [ "cgl::FilterPipeline", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
+    [ "cgl::Console::Handles", "structcgl_1_1Console_1_1Handles.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
     [ "cgl::ScreenBuffer", "classcgl_1_1ScreenBuffer.html", null ],

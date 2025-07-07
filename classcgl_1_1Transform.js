@@ -15,5 +15,10 @@ var classcgl_1_1Transform =
     [ "setPosition", "classcgl_1_1Transform.html#ae61d02d9f19f6e6c577cf97935b8be1c", null ],
     [ "setRotation", "classcgl_1_1Transform.html#af5b38594d5e112e23f526845497020f6", null ],
     [ "setScale", "classcgl_1_1Transform.html#a10764559e6aaa0381169615ebd915a32", null ],
-    [ "Framework", "classcgl_1_1Transform.html#ad3defef37a1222bb2b2a65577a6c4816", null ]
+    [ "Framework", "classcgl_1_1Transform.html#ad3defef37a1222bb2b2a65577a6c4816", null ],
+    [ "m_origin", "classcgl_1_1Transform.html#ae649d5e11fc436e9187dc3a560034ab1", null ],
+    [ "m_position", "classcgl_1_1Transform.html#aded01d10e0cce2c6f90e4be911bf4783", null ],
+    [ "m_postScale", "classcgl_1_1Transform.html#ac72aa13d6ebb5925b9fea99392229729", null ],
+    [ "m_rotation", "classcgl_1_1Transform.html#a269bd0f798016673f92876a6050548ac", null ],
+    [ "m_scale", "classcgl_1_1Transform.html#a7ab7d96c3747043bd26a7f2ee783a5b3", null ]
 ];

@@ -24,5 +24,5 @@ var searchData=
   ['translate_21',['translate',['../classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84',1,'cgl::Matrix3']]],
   ['triangle_22',['Triangle',['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables::Triangle'],['../classcgl_1_1drawables_1_1Triangle.html#a0565f2f4775a7ca460c5c18fafcf6408',1,'cgl::drawables::Triangle::Triangle()'],['../classcgl_1_1drawables_1_1Triangle.html#a2ad6d5fb5466d0cdcfd2336a522e1617',1,'cgl::drawables::Triangle::Triangle(const Vector2&lt; f32 &gt; &amp;p1, const Vector2&lt; f32 &gt; &amp;p2, const Vector2&lt; f32 &gt; &amp;p3)']]],
   ['two_23',['Two',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caaada29daee1d64ed0fe907043855cb7e',1,'cgl']]],
-  ['type_24',['type',['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter']]]
+  ['type_24',['type',['../classcgl_1_1Event.html#adc33cdc0e145da8a8693be61e0403df5',1,'cgl::Event::type'],['../structcgl_1_1Filter.html#abd2e061a4783a3eff4320a5becd6fce6',1,'cgl::Filter::type']]]
 ];

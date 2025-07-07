@@ -107,6 +107,7 @@ $(function(){initNavTree('classcgl_1_1ScreenBuffer.html',''); initResizable(); }
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classcgl_1_1ScreenBuffer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">cgl::ScreenBuffer Class Reference</div></div>
 </div><!--header-->
@@ -133,6 +134,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c06a1df6e3979e506caa64a7800c07e" id="r_a8c06a1df6e3979e506caa64a7800c07e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Color.html">Color</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c06a1df6e3979e506caa64a7800c07e">getBuffer</a> ()</td></tr>
 <tr class="memdesc:a8c06a1df6e3979e506caa64a7800c07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the color buffer.  <br /></td></tr>
 <tr class="separator:a8c06a1df6e3979e506caa64a7800c07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a033906357b50947480ae213c522db3e6" id="r_a033906357b50947480ae213c522db3e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#af8f6af7c742fe4923b2860f4dd9c189f">u32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a033906357b50947480ae213c522db3e6">m_size</a> { 0u, 0u }</td></tr>
+<tr class="separator:a033906357b50947480ae213c522db3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702159a8a205b3cadc4f19c50bfc2ce8" id="r_a702159a8a205b3cadc4f19c50bfc2ce8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a1c046f3f308ad6c85f2636fabcf1b888">f32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a702159a8a205b3cadc4f19c50bfc2ce8">m_inverseSize</a> { 0.<a class="el" href="classcgl_1_1Vector2.html">f</a>, 0.<a class="el" href="classcgl_1_1Vector2.html">f</a> }</td></tr>
+<tr class="separator:a702159a8a205b3cadc4f19c50bfc2ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade691be86e61c2b5e83d92ba0e8a87a3" id="r_ade691be86e61c2b5e83d92ba0e8a87a3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Color.html">Color</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade691be86e61c2b5e83d92ba0e8a87a3">m_buffer</a> {}</td></tr>
+<tr class="separator:ade691be86e61c2b5e83d92ba0e8a87a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a screen buffer for rendering operations. </p>
@@ -251,6 +261,73 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ade691be86e61c2b5e83d92ba0e8a87a3" name="ade691be86e61c2b5e83d92ba0e8a87a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade691be86e61c2b5e83d92ba0e8a87a3">&#9670;&#160;</a></span>m_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classcgl_1_1Color.html">Color</a>&gt; cgl::ScreenBuffer::m_buffer {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a702159a8a205b3cadc4f19c50bfc2ce8" name="a702159a8a205b3cadc4f19c50bfc2ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a702159a8a205b3cadc4f19c50bfc2ce8">&#9670;&#160;</a></span>m_inverseSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt;<a class="el" href="namespacecgl.html#a1c046f3f308ad6c85f2636fabcf1b888">f32</a>&gt; cgl::ScreenBuffer::m_inverseSize { 0.<a class="el" href="classcgl_1_1Vector2.html">f</a>, 0.<a class="el" href="classcgl_1_1Vector2.html">f</a> }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a033906357b50947480ae213c522db3e6" name="a033906357b50947480ae213c522db3e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a033906357b50947480ae213c522db3e6">&#9670;&#160;</a></span>m_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt;<a class="el" href="namespacecgl.html#af8f6af7c742fe4923b2860f4dd9c189f">u32</a>&gt; cgl::ScreenBuffer::m_size { 0u, 0u }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -8,13 +8,14 @@ var searchData=
   ['delete_5',['Delete',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caf2a6c498fb90ee345d997f888fce3b18',1,'cgl']]],
   ['depth_6',['depth',['../classcgl_1_1Drawable.html#ac0198a882310243c34d8968feb689997',1,'cgl::Drawable']]],
   ['description_7',['description',['../structcgl_1_1Filter.html#a76cec71c67934386d2a0b9e34bdde203',1,'cgl::Filter']]],
-  ['discardevents_8',['discardEvents',['../classcgl_1_1EventManager.html#a655254fcac0bc0e24809de06c3da970b',1,'cgl::EventManager']]],
-  ['divide_9',['Divide',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca0b914e196182d02615487e9793ecff3d',1,'cgl']]],
-  ['dontcare_10',['DontCare',['../namespacecgl.html#a7d7288420437c74943ee079cd20e7977a60a3629ef6a8f991f45d7a85f2458544',1,'cgl']]],
-  ['dot_11',['dot',['../classcgl_1_1Vector2.html#af20e19392595536d93233c3ec3edffc0',1,'cgl::Vector2']]],
-  ['down_12',['Down',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca08a38277b0309070706f6652eeae9a53',1,'cgl']]],
-  ['draw_13',['draw',['../classcgl_1_1Framework.html#a3a352845a3525e5b24772119a02792bb',1,'cgl::Framework']]],
-  ['drawable_14',['Drawable',['../classcgl_1_1Drawable.html',1,'cgl::Drawable'],['../classcgl_1_1FilterPipeline.html#ae6b8f986b6592da1f509cd113591156b',1,'cgl::FilterPipeline::Drawable']]],
-  ['drawable_2ecpp_15',['drawable.cpp',['../drawable_8cpp.html',1,'']]],
-  ['drawable_2ehpp_16',['drawable.hpp',['../drawable_8hpp.html',1,'']]]
+  ['destroy_8',['destroy',['../classcgl_1_1Console.html#a8eb259e3c38d2cfeacba9ac3032d8e4d',1,'cgl::Console']]],
+  ['discardevents_9',['discardEvents',['../classcgl_1_1EventManager.html#a655254fcac0bc0e24809de06c3da970b',1,'cgl::EventManager']]],
+  ['divide_10',['Divide',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca0b914e196182d02615487e9793ecff3d',1,'cgl']]],
+  ['dontcare_11',['DontCare',['../namespacecgl.html#a7d7288420437c74943ee079cd20e7977a60a3629ef6a8f991f45d7a85f2458544',1,'cgl']]],
+  ['dot_12',['dot',['../classcgl_1_1Vector2.html#af20e19392595536d93233c3ec3edffc0',1,'cgl::Vector2']]],
+  ['down_13',['Down',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca08a38277b0309070706f6652eeae9a53',1,'cgl']]],
+  ['draw_14',['draw',['../classcgl_1_1Framework.html#a3a352845a3525e5b24772119a02792bb',1,'cgl::Framework']]],
+  ['drawable_15',['Drawable',['../classcgl_1_1Drawable.html',1,'cgl::Drawable'],['../classcgl_1_1FilterPipeline.html#ae6b8f986b6592da1f509cd113591156b',1,'cgl::FilterPipeline::Drawable']]],
+  ['drawable_2ecpp_16',['drawable.cpp',['../drawable_8cpp.html',1,'']]],
+  ['drawable_2ehpp_17',['drawable.hpp',['../drawable_8hpp.html',1,'']]]
 ];

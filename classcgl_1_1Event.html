@@ -108,6 +108,7 @@ $(function(){initNavTree('classcgl_1_1Event.html',''); initResizable(); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classcgl_1_1Event-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">cgl::Event Class Reference</div></div>
 </div><!--header-->
@@ -148,6 +149,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abb5100a49511cb4703791d7b47908f33" id="r_abb5100a49511cb4703791d7b47908f33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#af8f6af7c742fe4923b2860f4dd9c189f">u32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb5100a49511cb4703791d7b47908f33">newSize</a> { 0u, 0u }</td></tr>
 <tr class="memdesc:abb5100a49511cb4703791d7b47908f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">The new console window size for console resize events.  <br /></td></tr>
 <tr class="separator:abb5100a49511cb4703791d7b47908f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adc33cdc0e145da8a8693be61e0403df5" id="r_adc33cdc0e145da8a8693be61e0403df5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structcgl_1_1EventType.html">EventType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc33cdc0e145da8a8693be61e0403df5">type</a> = std::make_shared&lt;<a class="el" href="structcgl_1_1InvalidEvent.html">InvalidEvent</a>&gt;()</td></tr>
+<tr class="separator:adc33cdc0e145da8a8693be61e0403df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents an input event with type-safe event classification. </p>
@@ -293,6 +299,28 @@ requires std::derived_from&lt;<a class="el" href="namespacecgl.html#a94a91c82f37
 
 <p>The new console window size for console resize events. </p>
 <p>This field is valid for <a class="el" href="structcgl_1_1ConsoleEvent.html" title="Event type marker for console window events (such as resize).">ConsoleEvent</a> and contains the new dimensions of the console window in character cells. </p>
+
+</div>
+</div>
+<a id="adc33cdc0e145da8a8693be61e0403df5" name="adc33cdc0e145da8a8693be61e0403df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc33cdc0e145da8a8693be61e0403df5">&#9670;&#160;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structcgl_1_1EventType.html">EventType</a>&gt; cgl::Event::type = std::make_shared&lt;<a class="el" href="structcgl_1_1InvalidEvent.html">InvalidEvent</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

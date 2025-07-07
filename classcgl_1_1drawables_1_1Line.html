@@ -108,6 +108,7 @@ $(function(){initNavTree('classcgl_1_1drawables_1_1Line.html',''); initResizable
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classcgl_1_1drawables_1_1Line-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">cgl::drawables::Line Class Reference</div></div>
 </div><!--header-->
@@ -157,6 +158,12 @@ Public Attributes</h2></td></tr>
 <tr class="inherit_header pub_attribs_classcgl_1_1Transformable"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_classcgl_1_1Transformable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classcgl_1_1Transformable.html">cgl::Transformable</a></td></tr>
 <tr class="memitem:ad4e82127d2ff2e25955a670bbd623224 inherit pub_attribs_classcgl_1_1Transformable" id="r_ad4e82127d2ff2e25955a670bbd623224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a></td></tr>
 <tr class="separator:ad4e82127d2ff2e25955a670bbd623224 inherit pub_attribs_classcgl_1_1Transformable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a85e8af037bb0b26282e1146a340063a4" id="r_a85e8af037bb0b26282e1146a340063a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85e8af037bb0b26282e1146a340063a4">generateGeometry</a> (std::vector&lt; <a class="el" href="structcgl_1_1filter__pass__data_1_1PixelPass.html">filter_pass_data::PixelPass</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">drawableBuffer</a>, <a class="el" href="classcgl_1_1Transform.html">Transform</a> &amp;<a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a>) <a class="el" href="classcgl_1_1Vector2.html">override</a></td></tr>
+<tr class="memdesc:a85e8af037bb0b26282e1146a340063a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to generate geometry for rendering.  <br /></td></tr>
+<tr class="separator:a85e8af037bb0b26282e1146a340063a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -230,6 +237,47 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a85e8af037bb0b26282e1146a340063a4" name="a85e8af037bb0b26282e1146a340063a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e8af037bb0b26282e1146a340063a4">&#9670;&#160;</a></span>generateGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">void</a> cgl::drawables::Line::generateGeometry </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structcgl_1_1filter__pass__data_1_1PixelPass.html">filter_pass_data::PixelPass</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>drawableBuffer</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcgl_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>transform</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to generate geometry for rendering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">drawableBuffer</td><td>Buffer to fill with pixel data for rendering.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method must be implemented by derived classes to define how the drawable's geometry is rasterized into pixels. </p>
+
+<p>Implements <a class="el" href="classcgl_1_1Drawable.html#a233f954e74252d90252c79948be20e17">cgl::Drawable</a>.</p>
 
 </div>
 </div>

@@ -13,7 +13,7 @@ var searchData=
   ['event_2ehpp_10',['event.hpp',['../event_8hpp.html',1,'']]],
   ['event_5fmanager_2ecpp_11',['event_manager.cpp',['../event__manager_8cpp.html',1,'']]],
   ['event_5fmanager_2ehpp_12',['event_manager.hpp',['../event__manager_8hpp.html',1,'']]],
-  ['eventmanager_13',['EventManager',['../classcgl_1_1EventManager.html',1,'cgl::EventManager'],['../classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f',1,'cgl::Console::EventManager'],['../classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c',1,'cgl::EventManager::EventManager()']]],
+  ['eventmanager_13',['EventManager',['../classcgl_1_1EventManager.html',1,'cgl::EventManager'],['../classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f',1,'cgl::Console::EventManager'],['../classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c',1,'cgl::EventManager::EventManager(const EventManager &amp;)=delete'],['../classcgl_1_1EventManager.html#a642a9d40e88246ebf2d63b4444083e90',1,'cgl::EventManager::EventManager(Console &amp;console)']]],
   ['eventmanager_14',['eventManager',['../classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075',1,'cgl::Framework']]],
   ['eventtype_15',['EventType',['../structcgl_1_1EventType.html',1,'cgl']]],
   ['execute_16',['Execute',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca40cd014b7b6251e3a22e6a45a73a64e1',1,'cgl']]],

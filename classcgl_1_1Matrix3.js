@@ -11,5 +11,6 @@ var classcgl_1_1Matrix3 =
     [ "operator[]", "classcgl_1_1Matrix3.html#a47725e328409004a9d861f0a593a097d", null ],
     [ "rotate", "classcgl_1_1Matrix3.html#a26f4aba8d199260855d50a8eb6f8b16f", null ],
     [ "scale", "classcgl_1_1Matrix3.html#a2d2e801304c9e755e2ad49e2a399cb24", null ],
-    [ "translate", "classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84", null ]
+    [ "translate", "classcgl_1_1Matrix3.html#a51b052812296cf9ae3a9dbc9f87a0a84", null ],
+    [ "m", "classcgl_1_1Matrix3.html#aef44d9c364237947425a09bc26576b78", null ]
 ];
