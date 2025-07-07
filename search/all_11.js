@@ -4,7 +4,7 @@ var searchData=
   ['radianstodegrees_1',['radiansToDegrees',['../classcgl_1_1Transform.html#ad5aacdb59a715cf81104c85a16ae668b',1,'cgl::Transform']]],
   ['radius_2',['radius',['../classcgl_1_1drawables_1_1Ellipse.html#aba75279dd7e56f199016a11b938b2a55',1,'cgl::drawables::Ellipse']]],
   ['read_3',['read',['../structstbi__io__callbacks.html#a623e46b3a2a019611601409926283a88',1,'stbi_io_callbacks']]],
-  ['rectangle_4',['rectangle',['../classcgl_1_1drawables_1_1Rectangle.html#a1dcbb2fcd22a8e154d779cc57c3880da',1,'cgl::drawables::Rectangle::Rectangle()'],['../classcgl_1_1drawables_1_1Rectangle.html#a7972f6099487a64820f7273867f7caad',1,'cgl::drawables::Rectangle::Rectangle(const Vector2&lt; f32 &gt; &amp;topLeft, const Vector2&lt; f32 &gt; &amp;size)'],['../classcgl_1_1drawables_1_1Rectangle.html',1,'cgl::drawables::Rectangle']]],
+  ['rectangle_4',['rectangle',['../classcgl_1_1drawables_1_1Rectangle.html#a1dcbb2fcd22a8e154d779cc57c3880da',1,'cgl::drawables::Rectangle::Rectangle()'],['../classcgl_1_1drawables_1_1Rectangle.html#a69723923fca9fef3b45a853c77553e29',1,'cgl::drawables::Rectangle::Rectangle(const Vector2&lt; f32 &gt; &amp;size)'],['../classcgl_1_1drawables_1_1Rectangle.html',1,'cgl::drawables::Rectangle']]],
   ['remove_5',['remove',['../classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb',1,'cgl::GlobalMemory']]],
   ['removefilter_6',['removeFilter',['../classcgl_1_1FilterPipeline.html#a5fd5353a146d50973780c6091972cc2c',1,'cgl::FilterPipeline']]],
   ['removepoint_7',['removePoint',['../classcgl_1_1drawables_1_1Polygon.html#ab7b04b3ea9458036c4f3c891464de775',1,'cgl::drawables::Polygon']]],

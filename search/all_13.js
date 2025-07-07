@@ -14,7 +14,7 @@ var searchData=
   ['timing_2ehpp_11',['timing.hpp',['../timing_8hpp.html',1,'']]],
   ['togglebit_12',['toggleBit',['../namespacecgl.html#abc434f38af99a562d710c34c24495791',1,'cgl']]],
   ['tohex_13',['toHex',['../classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137',1,'cgl::Color']]],
-  ['transform_14',['transform',['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224',1,'cgl::Transformable::transform'],['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html',1,'cgl::Transform']]],
+  ['transform_14',['transform',['../classcgl_1_1Transform.html#a22b73b2467f268faf3de3690bd823b27',1,'cgl::Transform::Transform()'],['../classcgl_1_1Transform.html#a5b58de2c2b3b85138c2e2adc01bce8d5',1,'cgl::Transform::Transform(const Vector2&lt; f32 &gt; &amp;position, const Vector2&lt; f32 &gt; &amp;scale, f32 rotation, const Vector2&lt; f32 &gt; &amp;origin)'],['../classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224',1,'cgl::Transformable::transform'],['../classcgl_1_1Transform.html',1,'cgl::Transform']]],
   ['transform_2ecpp_15',['transform.cpp',['../transform_8cpp.html',1,'']]],
   ['transform_2ehpp_16',['transform.hpp',['../transform_8hpp.html',1,'']]],
   ['transformable_17',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
