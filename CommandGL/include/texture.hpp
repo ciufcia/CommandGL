@@ -51,6 +51,12 @@ namespace cgl
         Texture(const std::string &filepath);
 
         /**
+         * @brief Factory method to create a texture.
+         * @return A shared pointer to the created Texture instance.
+         */
+        static std::shared_ptr<Texture> create();
+
+        /**
          * @brief Factory method to create a texture with a specific size.
          * @param size The size (width, height) of the texture in pixels.
          * @return A shared pointer to the created Texture instance.
@@ -79,11 +85,34 @@ namespace cgl
         Vector2<u32> setSize(const Vector2<u32> &size);
 
         /**
+         * @brief Sets the raw pixel data for the texture.
+         * @param size The size (width, height) of the texture in pixels.
+         * @param data The pixel data as a vector of Color objects.
+         * @note The size must match the size of the data provided.
+         */
+        void setRawData(const Vector2<u32> &size, const std::vector<Color> &data);
+
+        /**
+         * @brief Sets the raw pixel data for the texture.
+         * @param size The size (width, height) of the texture in pixels.
+         * @param data The pixel data as a vector of Color objects.
+         * @note The size must match the size of the data provided.
+         */
+        void setRawData(const Vector2<u32> &size, const std::vector<Color> &&data);
+
+        /**
          * @brief Loads texture data from an image file.
          * @param filepath The path to the image file to load.
          * @throws std::runtime_error if loading fails.
          */
         void load(const std::string &filepath);
+
+        /**
+         * @brief Saves the texture data to an image file.
+         * @param filepath The path where the texture will be saved.
+         * @throws std::runtime_error if saving fails.
+         */
+        void save(const std::string &filepath) const;
 
         /**
          * @brief Sets the color of a specific pixel in the texture.

@@ -46,6 +46,23 @@ namespace cgl
     constexpr bool isBitSet(T value, int bit) {
         return (value & (static_cast<T>(1) << bit)) != 0;
     }
+
+    /**
+     * @brief Reverses the bit order of an integer value using all bits of T.
+     *        For example, reverseBits(0b1101u) == 0b10110000...0u (for 32-bit unsigned).
+     * @param value The integer value whose bits to reverse.
+     * @return The integer with its bits reversed.
+     */
+    template<typename T>
+    constexpr T reverseBits(T value) {
+        T result = 0;
+        constexpr int numBits = sizeof(T) * 8;
+        for (int i = 0; i < numBits; ++i) {
+            if ((value >> i) & 1)
+                result |= (static_cast<T>(1) << (numBits - 1 - i));
+        }
+        return result;
+    }
 }
 
 #endif // CGL_BIT_MANIPULATION_HPP

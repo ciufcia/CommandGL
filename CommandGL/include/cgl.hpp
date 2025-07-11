@@ -20,5 +20,6 @@
 #include "drawable.hpp"
 #include "timing.hpp"
 #include "texture.hpp"
+#include "text.hpp"
 
 #endif // CGL_CGL_HPP

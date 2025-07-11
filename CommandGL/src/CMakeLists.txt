@@ -13,6 +13,7 @@ add_library(
     drawable.cpp
     timing.cpp
     texture.cpp
+    text.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -23,4 +24,4 @@ target_include_directories(
     ${PROJECT_NAME} PUBLIC "../include"
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
+target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX utf8cpp)
