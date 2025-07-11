@@ -6,6 +6,7 @@ var hierarchy =
       [ "cgl::filter_pass_data::PixelSinglePass", "structcgl_1_1filter__pass__data_1_1PixelSinglePass.html", null ],
       [ "cgl::filter_pass_data::ScreenBufferSinglePass", "structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass.html", null ]
     ] ],
+    [ "cgl::BitmapFont", "classcgl_1_1BitmapFont.html", null ],
     [ "cgl::CharacterBuffer", "classcgl_1_1CharacterBuffer.html", null ],
     [ "cgl::Clock", "classcgl_1_1Clock.html", null ],
     [ "cgl::Color", "classcgl_1_1Color.html", null ],
@@ -25,6 +26,7 @@ var hierarchy =
     [ "cgl::FilterPipeline", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
+    [ "cgl::BitmapFont::Glyph", "structcgl_1_1BitmapFont_1_1Glyph.html", null ],
     [ "cgl::Console::Handles", "structcgl_1_1Console_1_1Handles.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
@@ -48,5 +50,6 @@ var hierarchy =
     ] ],
     [ "cgl::Vector2< T >", "classcgl_1_1Vector2.html", null ],
     [ "cgl::Vector2< f32 >", "classcgl_1_1Vector2.html", null ],
+    [ "cgl::Vector2< i32 >", "classcgl_1_1Vector2.html", null ],
     [ "cgl::Vector2< u32 >", "classcgl_1_1Vector2.html", null ]
 ];

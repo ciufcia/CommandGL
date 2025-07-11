@@ -10,6 +10,7 @@ var dir_4c1a703bf2ef0e08acc1ce4afda17c9d =
     [ "framework.cpp", "framework_8cpp.html", null ],
     [ "global_memory.cpp", "global__memory_8cpp.html", null ],
     [ "screen_buffer.cpp", "screen__buffer_8cpp.html", null ],
+    [ "text.cpp", "text_8cpp.html", null ],
     [ "texture.cpp", "texture_8cpp.html", "texture_8cpp" ],
     [ "timing.cpp", "timing_8cpp.html", "timing_8cpp" ],
     [ "transform.cpp", "transform_8cpp.html", null ]

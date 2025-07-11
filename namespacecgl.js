@@ -3,6 +3,7 @@ var namespacecgl =
     [ "drawables", "namespacecgl_1_1drawables.html", "namespacecgl_1_1drawables" ],
     [ "filter_pass_data", "namespacecgl_1_1filter__pass__data.html", "namespacecgl_1_1filter__pass__data" ],
     [ "filters", "namespacecgl_1_1filters.html", "namespacecgl_1_1filters" ],
+    [ "BitmapFont", "classcgl_1_1BitmapFont.html", "classcgl_1_1BitmapFont" ],
     [ "CharacterBuffer", "classcgl_1_1CharacterBuffer.html", "classcgl_1_1CharacterBuffer" ],
     [ "Clock", "classcgl_1_1Clock.html", "classcgl_1_1Clock" ],
     [ "Color", "classcgl_1_1Color.html", "classcgl_1_1Color" ],
@@ -254,6 +255,7 @@ var namespacecgl =
     [ "getDurationInNanoseconds", "namespacecgl.html#ae20170ce990a2be0f8d1c1b1c9616497", null ],
     [ "getDurationInSeconds", "namespacecgl.html#a303170301be8b53299617afc5b27114e", null ],
     [ "isBitSet", "namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328", null ],
+    [ "reverseBits", "namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60", null ],
     [ "sampleUVColor", "namespacecgl.html#a91f4f9e4e6f690ba7a4827856ebd3d99", null ],
     [ "setBit", "namespacecgl.html#a28886765f62feba1622941c5d6e1f397", null ],
     [ "toggleBit", "namespacecgl.html#abc434f38af99a562d710c34c24495791", null ]

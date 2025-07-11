@@ -22,6 +22,7 @@ var annotated_dup =
         [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
         [ "TextureData", "structcgl_1_1filters_1_1TextureData.html", "structcgl_1_1filters_1_1TextureData" ]
       ] ],
+      [ "BitmapFont", "classcgl_1_1BitmapFont.html", "classcgl_1_1BitmapFont" ],
       [ "CharacterBuffer", "classcgl_1_1CharacterBuffer.html", "classcgl_1_1CharacterBuffer" ],
       [ "Clock", "classcgl_1_1Clock.html", "classcgl_1_1Clock" ],
       [ "Color", "classcgl_1_1Color.html", "classcgl_1_1Color" ],

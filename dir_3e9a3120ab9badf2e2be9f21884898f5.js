@@ -16,6 +16,8 @@ var dir_3e9a3120ab9badf2e2be9f21884898f5 =
     [ "numeric_types.hpp", "numeric__types_8hpp.html", "numeric__types_8hpp" ],
     [ "screen_buffer.hpp", "screen__buffer_8hpp.html", "screen__buffer_8hpp" ],
     [ "stb_image.h", "stb__image_8h.html", "stb__image_8h" ],
+    [ "stb_image_write.h", "stb__image__write_8h.html", "stb__image__write_8h" ],
+    [ "text.hpp", "text_8hpp.html", "text_8hpp" ],
     [ "texture.hpp", "texture_8hpp.html", "texture_8hpp" ],
     [ "timing.hpp", "timing_8hpp.html", "timing_8hpp" ],
     [ "transform.hpp", "transform_8hpp.html", "transform_8hpp" ],
