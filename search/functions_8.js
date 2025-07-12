@@ -1,7 +1,29 @@
 var searchData=
 [
-  ['line_0',['line',['../classcgl_1_1drawables_1_1Line.html#aea77d806cfb977c80947b618a201f031',1,'cgl::drawables::Line::Line()=default'],['../classcgl_1_1drawables_1_1Line.html#acebe9c72f8bdb6edb7dc8320035d36bb',1,'cgl::drawables::Line::Line(const Vector2&lt; f32 &gt; &amp;start, const Vector2&lt; f32 &gt; &amp;end)']]],
-  ['load_1',['load',['../classcgl_1_1Texture.html#a65c4322688efe44a84d1a8f56167adf2',1,'cgl::Texture']]],
-  ['loadfrombdf_2',['loadFromBDF',['../classcgl_1_1BitmapFont.html#a387b8d815a41892be66b2f1e6fc6fb73',1,'cgl::BitmapFont']]],
-  ['luminance_3',['luminance',['../classcgl_1_1Color.html#adeb66a9139ed63a7911b9f74be67d2e2',1,'cgl::Color']]]
+  ['identity_0',['identity',['../classcgl_1_1Matrix3.html#a32ceb5988eb4d18b129b94460d3b56df',1,'cgl::Matrix3']]],
+  ['increase_5fsafely_1',['increase_safely',['../namespaceutf8_1_1internal.html#afd9f0bd31586d97a9095cc435a3102fa',1,'utf8::internal']]],
+  ['init_2',['init',['../classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28',1,'cgl::Console']]],
+  ['initialize_3',['initialize',['../classcgl_1_1Framework.html#a74f775a1367c5f0611b3e166c0166f00',1,'cgl::Framework']]],
+  ['initializebuffers_4',['initializeBuffers',['../classcgl_1_1Framework.html#a2b933e54fce53c60f48572a2a9d89499',1,'cgl::Framework']]],
+  ['initializefilterpipelines_5',['initializeFilterPipelines',['../classcgl_1_1Framework.html#a8d7806fdfa37b6613acb8898eda2c302',1,'cgl::Framework']]],
+  ['insertpoint_6',['insertPoint',['../classcgl_1_1drawables_1_1Polygon.html#a020e24027a6cf26b2540915e6ed8e1e6',1,'cgl::drawables::Polygon']]],
+  ['invalid_5fcode_5fpoint_7',['invalid_code_point',['../classutf8_1_1invalid__code__point.html#aa4ffc6e7bd7719202676674b5b7daa99',1,'utf8::invalid_code_point']]],
+  ['invalid_5futf16_8',['invalid_utf16',['../classutf8_1_1invalid__utf16.html#afbe5c029047a58e5869010ac86740f7d',1,'utf8::invalid_utf16']]],
+  ['invalid_5futf8_9',['invalid_utf8',['../classutf8_1_1invalid__utf8.html#a7fb02e5aed8fea6e97f07c700fac12a4',1,'utf8::invalid_utf8::invalid_utf8(utfchar8_t u)'],['../classutf8_1_1invalid__utf8.html#a2dcea8c3172fe289ed0641d8136095b9',1,'utf8::invalid_utf8::invalid_utf8(char c)']]],
+  ['inverse_10',['inverse',['../classcgl_1_1Matrix3.html#a64e4bc727af597c318b8dd1d91c56191',1,'cgl::Matrix3']]],
+  ['is_5fcode_5fpoint_5fvalid_11',['is_code_point_valid',['../namespaceutf8_1_1internal.html#aaf7eda3ea700b9ec5a2168f33d398c42',1,'utf8::internal']]],
+  ['is_5fin_5fbmp_12',['is_in_bmp',['../namespaceutf8_1_1internal.html#a60ff2449356a325571773a25396ce9ad',1,'utf8::internal']]],
+  ['is_5flead_5fsurrogate_13',['is_lead_surrogate',['../namespaceutf8_1_1internal.html#a07351cb7c2dce8cdf5cb5c30377824d2',1,'utf8::internal']]],
+  ['is_5foverlong_5fsequence_14',['is_overlong_sequence',['../namespaceutf8_1_1internal.html#adf4a3e4c7cd74dfd442659f98bb02560',1,'utf8::internal']]],
+  ['is_5fsurrogate_15',['is_surrogate',['../namespaceutf8_1_1internal.html#a538fcd62c61c3c7f2d969b071a8a0630',1,'utf8::internal']]],
+  ['is_5ftrail_16',['is_trail',['../namespaceutf8_1_1internal.html#ab4820484159ba613b4901476ceb24516',1,'utf8::internal']]],
+  ['is_5ftrail_5fsurrogate_17',['is_trail_surrogate',['../namespaceutf8_1_1internal.html#a75754db6bf52797bc9a69c8193ece4fe',1,'utf8::internal']]],
+  ['is_5fvalid_18',['is_valid',['../namespaceutf8.html#add2dbec3d058aa66500ec4f97cc8174b',1,'utf8::is_valid(octet_iterator start, octet_iterator end)'],['../namespaceutf8.html#a4aa490eb471fecbbaea9d430f15ac438',1,'utf8::is_valid(const char *str)'],['../namespaceutf8.html#ab90aec49a4ba6c462782b5276b53a33e',1,'utf8::is_valid(const std::string &amp;s)'],['../namespaceutf8.html#aa4c9202311f1a5b3f75000db5f867e7d',1,'utf8::is_valid(std::string_view s)'],['../namespaceutf8.html#abb38f610fe8f5d9ea31495d6007beb98',1,'utf8::is_valid(const std::u8string &amp;s)']]],
+  ['isbitset_19',['isBitSet',['../namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328',1,'cgl']]],
+  ['iskeypressed_20',['isKeyPressed',['../classcgl_1_1EventManager.html#acb0a9ed88000209a6bb9628f7ff0ec56',1,'cgl::EventManager']]],
+  ['isleftedge_21',['isLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#ae9898292161f4540505222840a34862c',1,'cgl::drawables::Mesh']]],
+  ['isoftype_22',['isOfType',['../classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149',1,'cgl::Event']]],
+  ['istopedge_23',['isTopEdge',['../classcgl_1_1drawables_1_1Mesh.html#a685a4f485948eed07d0a8ed450e82825',1,'cgl::drawables::Mesh']]],
+  ['istoporleftedge_24',['isTopOrLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#a2ad0d94e0158acbd43b75eb27020dde4',1,'cgl::drawables::Mesh']]],
+  ['iterator_25',['iterator',['../classutf8_1_1unchecked_1_1iterator.html#a0f93d81989f2eb1038c0550431b9653b',1,'utf8::unchecked::iterator::iterator(const octet_iterator &amp;octet_it)'],['../classutf8_1_1unchecked_1_1iterator.html#a6564ecea96a82b87daca60a153ee1a6f',1,'utf8::unchecked::iterator::iterator()'],['../classutf8_1_1iterator.html#ae94b26da21b80560a1507fc8d2178fd7',1,'utf8::iterator::iterator(const octet_iterator &amp;octet_it, const octet_iterator &amp;rangestart, const octet_iterator &amp;rangeend)'],['../classutf8_1_1iterator.html#a507000943ac3fdfe59331dac3c35c6bd',1,'utf8::iterator::iterator()']]]
 ];

@@ -30,8 +30,10 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Concepts", "concepts.html", "concepts" ],
@@ -43,6 +45,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
@@ -64,11 +67,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classcgl_1_1EventManager.html#adff2d917c7c742130925ed681524ec64",
-"classcgl_1_1Transform.html#ad2aff0b125d5607e5e9a496fa0f7cf4f",
-"event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca5c6ba25104401c9ee0650230fc6ba413",
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca06c2cea18679d64399783748fa367bdd",
-"stb__image_8h.html#aede708cca1304520b2afcf4d5eb61d70"
+"classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c",
+"classcgl_1_1Transform.html#a7ab7d96c3747043bd26a7f2ee783a5b3",
+"classutf8_1_1unchecked_1_1iterator.html#a0f93d81989f2eb1038c0550431b9653b",
+"event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca8d9c307cb7f3c4a32822a51922d1ceaa",
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca32ba78fe43257d3e7f88e3935a8ea0d4",
+"namespaceutf8_1_1internal.html#a9e96c2bc98b37e336b787a281090392cac4d854b29be6992e66c957cf4b957cca",
+"unchecked_8h.html#ae1d800d3209bc3503672e6902c642a46"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

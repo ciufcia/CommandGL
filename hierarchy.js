@@ -22,12 +22,22 @@ var hierarchy =
       [ "cgl::MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
       [ "cgl::MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ]
     ] ],
+    [ "std::exception", null, [
+      [ "utf8::exception", "classutf8_1_1exception.html", [
+        [ "utf8::invalid_code_point", "classutf8_1_1invalid__code__point.html", null ],
+        [ "utf8::invalid_utf16", "classutf8_1_1invalid__utf16.html", null ],
+        [ "utf8::invalid_utf8", "classutf8_1_1invalid__utf8.html", null ],
+        [ "utf8::not_enough_room", "classutf8_1_1not__enough__room.html", null ]
+      ] ]
+    ] ],
     [ "cgl::Filter", "structcgl_1_1Filter.html", null ],
     [ "cgl::FilterPipeline", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
     [ "cgl::BitmapFont::Glyph", "structcgl_1_1BitmapFont_1_1Glyph.html", null ],
     [ "cgl::Console::Handles", "structcgl_1_1Console_1_1Handles.html", null ],
+    [ "utf8::iterator< octet_iterator >", "classutf8_1_1iterator.html", null ],
+    [ "utf8::unchecked::iterator< octet_iterator >", "classutf8_1_1unchecked_1_1iterator.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
     [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
     [ "cgl::ScreenBuffer", "classcgl_1_1ScreenBuffer.html", null ],

@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['radianstodegrees_0',['radiansToDegrees',['../classcgl_1_1Transform.html#ad5aacdb59a715cf81104c85a16ae668b',1,'cgl::Transform']]],
-  ['rectangle_1',['rectangle',['../classcgl_1_1drawables_1_1Rectangle.html#a1dcbb2fcd22a8e154d779cc57c3880da',1,'cgl::drawables::Rectangle::Rectangle()'],['../classcgl_1_1drawables_1_1Rectangle.html#a69723923fca9fef3b45a853c77553e29',1,'cgl::drawables::Rectangle::Rectangle(const Vector2&lt; f32 &gt; &amp;size)']]],
-  ['remove_2',['remove',['../classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb',1,'cgl::GlobalMemory']]],
-  ['removefilter_3',['removeFilter',['../classcgl_1_1FilterPipeline.html#a5fd5353a146d50973780c6091972cc2c',1,'cgl::FilterPipeline']]],
-  ['removepoint_4',['removePoint',['../classcgl_1_1drawables_1_1Polygon.html#ab7b04b3ea9458036c4f3c891464de775',1,'cgl::drawables::Polygon']]],
-  ['render_5',['render',['../classcgl_1_1Framework.html#aa3aa76b3294f510f07b6031427b1f793',1,'cgl::Framework']]],
-  ['rendertotexture_6',['renderToTexture',['../classcgl_1_1BitmapFont.html#aa3ebe4f5364d03e013a2e53f5429ef38',1,'cgl::BitmapFont']]],
-  ['reversebits_7',['reverseBits',['../namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60',1,'cgl']]],
-  ['rgbsinglecharacter_8',['rgbSingleCharacter',['../namespacecgl_1_1filters.html#a56a33b1a3a7ca9d692cbf4bd49c8d2ee',1,'cgl::filters']]],
-  ['rotate_9',['rotate',['../classcgl_1_1Matrix3.html#a26f4aba8d199260855d50a8eb6f8b16f',1,'cgl::Matrix3::rotate()'],['../classcgl_1_1Transform.html#ad283e21062a06cc25c3feac079cdf47f',1,'cgl::Transform::rotate()']]],
-  ['runcharacterfilterpipeline_10',['runCharacterFilterPipeline',['../classcgl_1_1Framework.html#a13aba452df67ef96521757d2a13d72da',1,'cgl::Framework']]],
-  ['runscreenfilterpipeline_11',['runScreenFilterPipeline',['../classcgl_1_1Framework.html#adb9aa1b62d591d4e21724346966d9a83',1,'cgl::Framework']]]
+  ['parseinputrecords_0',['parseInputRecords',['../classcgl_1_1Console.html#aacf6d1dfa535ecae52409f21d0e1de56',1,'cgl::Console']]],
+  ['peek_5fnext_1',['peek_next',['../namespaceutf8.html#a05aea23b669e9d7a94400efe9b5aaacd',1,'utf8::peek_next()'],['../namespaceutf8_1_1unchecked.html#af9fcee7ff6917f1b82e2b896b85f26fc',1,'utf8::unchecked::peek_next()']]],
+  ['peekevents_2',['peekEvents',['../classcgl_1_1EventManager.html#a53bb15f9b63a15d88a3f41af46894209',1,'cgl::EventManager']]],
+  ['point_3',['point',['../classcgl_1_1drawables_1_1Point.html#a09abdd36743ab15dbd4031cb56021e9f',1,'cgl::drawables::Point::Point()=default'],['../classcgl_1_1drawables_1_1Point.html#ac0fff2bceda34a820c8b6d1bbf8caba5',1,'cgl::drawables::Point::Point(const Vector2&lt; f32 &gt; &amp;position)']]],
+  ['pollevent_4',['pollEvent',['../classcgl_1_1EventManager.html#abf419ef0be0ea964e0e793e194c7b250',1,'cgl::EventManager']]],
+  ['polygon_5',['polygon',['../classcgl_1_1drawables_1_1Polygon.html#a299798ef8fa06b712bd23702fcd6acc6',1,'cgl::drawables::Polygon::Polygon()=default'],['../classcgl_1_1drawables_1_1Polygon.html#a4a334c69b75c2b0e8399588a75e153f1',1,'cgl::drawables::Polygon::Polygon(const std::vector&lt; Vector2&lt; f32 &gt; &gt; &amp;points)']]],
+  ['populateglobalmemory_6',['populateGlobalMemory',['../classcgl_1_1Framework.html#a4c04e4e698469e787842a0193a35115e',1,'cgl::Framework']]],
+  ['prior_7',['prior',['../namespaceutf8.html#ae1358f3aa16c4e3cbfeb80835d2f3ae0',1,'utf8::prior()'],['../namespaceutf8_1_1unchecked.html#ab8ccdb621e6879854873e61c6c5e05cf',1,'utf8::unchecked::prior()']]]
 ];

@@ -1,0 +1,26 @@
+var checked_8h =
+[
+    [ "utf8::exception", "classutf8_1_1exception.html", null ],
+    [ "utf8::invalid_code_point", "classutf8_1_1invalid__code__point.html", "classutf8_1_1invalid__code__point" ],
+    [ "utf8::invalid_utf8", "classutf8_1_1invalid__utf8.html", "classutf8_1_1invalid__utf8" ],
+    [ "utf8::invalid_utf16", "classutf8_1_1invalid__utf16.html", "classutf8_1_1invalid__utf16" ],
+    [ "utf8::not_enough_room", "classutf8_1_1not__enough__room.html", "classutf8_1_1not__enough__room" ],
+    [ "utf8::iterator< octet_iterator >", "classutf8_1_1iterator.html", "classutf8_1_1iterator" ],
+    [ "advance", "checked_8h.html#a411eec0d2919810bb26966be242c1e9e", null ],
+    [ "append", "checked_8h.html#ab8097599b7e570c2b998d689899f46d9", null ],
+    [ "append", "checked_8h.html#a8fe5f5d61986c9ee40c137f1024d454a", null ],
+    [ "append16", "checked_8h.html#a3f393b6907d3c85271694479843d1634", null ],
+    [ "distance", "checked_8h.html#ac2cd6005bab859b32fb7bb1cb999795d", null ],
+    [ "next", "checked_8h.html#a789b0afb32654dab874e5f7cee49c0a2", null ],
+    [ "next16", "checked_8h.html#a4c8c8c1d9fbc78ec407557c1b753de52", null ],
+    [ "peek_next", "checked_8h.html#a05aea23b669e9d7a94400efe9b5aaacd", null ],
+    [ "prior", "checked_8h.html#ae1358f3aa16c4e3cbfeb80835d2f3ae0", null ],
+    [ "replace_invalid", "checked_8h.html#aec77c74e34421cc8e4b0fdaf3e0e023a", null ],
+    [ "replace_invalid", "checked_8h.html#adb5bccce14fbf9e900af9bbe237cbc58", null ],
+    [ "replace_invalid", "checked_8h.html#a13db09b6629724205302c623b76db028", null ],
+    [ "replace_invalid", "checked_8h.html#af6885fac54d2f7cd367b1ed422b0a2fc", null ],
+    [ "utf16to8", "checked_8h.html#acb68503442bd2e797e8fc8a960f54cf8", null ],
+    [ "utf32to8", "checked_8h.html#a4a1157ef2f85d4bc8366dbbea20dcb48", null ],
+    [ "utf8to16", "checked_8h.html#a6404050074139c367a42f0a911779903", null ],
+    [ "utf8to32", "checked_8h.html#a8020ed399788dca779663adf061ed718", null ]
+];

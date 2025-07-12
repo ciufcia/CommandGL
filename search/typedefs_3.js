@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['u16_0',['u16',['../namespacecgl.html#aa65230c8b9f68701966ba8dada833079',1,'cgl']]],
-  ['u32_1',['u32',['../namespacecgl.html#a49334542f48e831ce744c76bc33da894',1,'cgl']]],
-  ['u64_2',['u64',['../namespacecgl.html#a11252f1a3b07386e30a51a16c4eff1b9',1,'cgl']]],
-  ['u8_3',['u8',['../namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9',1,'cgl']]]
+  ['pointer_0',['pointer',['../classutf8_1_1iterator.html#a8c79c057dfc8ffaf1e94c627caf82dda',1,'utf8::iterator::pointer'],['../classutf8_1_1unchecked_1_1iterator.html#ab6d55a98cf2cdceaa87e1cb1b2bd1a81',1,'utf8::unchecked::iterator::pointer']]]
 ];

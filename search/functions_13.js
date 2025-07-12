@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['_7econsole_0',['~Console',['../classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1',1,'cgl::Console']]],
-  ['_7edrawable_1',['~Drawable',['../classcgl_1_1Drawable.html#a9472289cd5d209075a318048d169c483',1,'cgl::Drawable']]],
-  ['_7eeventtype_2',['~EventType',['../structcgl_1_1EventType.html#a61242b4040cc2d99c6e0b25b2c084719',1,'cgl::EventType']]],
-  ['_7efilter_3',['~Filter',['../structcgl_1_1Filter.html#afe5aaefe45b5219eb30f529054ef493d',1,'cgl::Filter']]],
-  ['_7eglobalmemory_4',['~GlobalMemory',['../classcgl_1_1GlobalMemory.html#a919e3b9a813f250bdee11bb50de7e940',1,'cgl::GlobalMemory']]],
-  ['_7etexture_5',['~Texture',['../classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e',1,'cgl::Texture']]]
+  ['wait_0',['wait',['../classcgl_1_1Clock.html#a5210fadc060bceed695967bd6e01d49e',1,'cgl::Clock']]],
+  ['what_1',['what',['../classutf8_1_1invalid__code__point.html#a927754250b8c274755b196f1ec9f15a7',1,'utf8::invalid_code_point::what()'],['../classutf8_1_1invalid__utf8.html#ad74f73c8bf4e95c90b57c6854afa5f29',1,'utf8::invalid_utf8::what()'],['../classutf8_1_1invalid__utf16.html#a5a92ce3b42948f3778f5960efa6b98c6',1,'utf8::invalid_utf16::what()'],['../classutf8_1_1not__enough__room.html#a265f56919423e64ff87a5af81d28287e',1,'utf8::not_enough_room::what()']]],
+  ['widestringtostring_2',['wideStringToString',['../classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff',1,'cgl::Console']]],
+  ['writecharacterbuffer_3',['writecharacterbuffer',['../classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06',1,'cgl::Console::writeCharacterBuffer()'],['../classcgl_1_1Framework.html#af934d50194a7b9620a8fc0bfd2464ee4',1,'cgl::Framework::writeCharacterBuffer()']]],
+  ['writedrawablebuffer_4',['writeDrawableBuffer',['../classcgl_1_1Framework.html#ac62733f86ec6b4700ecc475774e2b4d6',1,'cgl::Framework']]]
 ];

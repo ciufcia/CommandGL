@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['ellipse_0',['ellipse',['../classcgl_1_1drawables_1_1Ellipse.html#a99edb7d9f200c44a5b3610882bda0a30',1,'cgl::drawables::Ellipse::Ellipse()=default'],['../classcgl_1_1drawables_1_1Ellipse.html#ad87ee20a84ae7802689371af10d6cdeb',1,'cgl::drawables::Ellipse::Ellipse(const Vector2&lt; f32 &gt; &amp;center, const Vector2&lt; f32 &gt; &amp;radius)']]],
-  ['eventmanager_1',['eventmanager',['../classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c',1,'cgl::EventManager::EventManager(const EventManager &amp;)=delete'],['../classcgl_1_1EventManager.html#a642a9d40e88246ebf2d63b4444083e90',1,'cgl::EventManager::EventManager(Console &amp;console)']]],
-  ['exists_2',['exists',['../classcgl_1_1GlobalMemory.html#a8c869f375c30c8a389f3863573ff9b00',1,'cgl::GlobalMemory']]]
+  ['degreestoradians_0',['degreesToRadians',['../classcgl_1_1Transform.html#a8babfe9a68f86036798b59f3ec0f1e99',1,'cgl::Transform']]],
+  ['destroy_1',['destroy',['../classcgl_1_1Console.html#a8eb259e3c38d2cfeacba9ac3032d8e4d',1,'cgl::Console']]],
+  ['discardevents_2',['discardEvents',['../classcgl_1_1EventManager.html#a655254fcac0bc0e24809de06c3da970b',1,'cgl::EventManager']]],
+  ['distance_3',['distance',['../namespaceutf8.html#ac2cd6005bab859b32fb7bb1cb999795d',1,'utf8::distance()'],['../namespaceutf8_1_1unchecked.html#a033fb7223533ef6d9c92ae7c38f57138',1,'utf8::unchecked::distance()']]],
+  ['dot_4',['dot',['../classcgl_1_1Vector2.html#af20e19392595536d93233c3ec3edffc0',1,'cgl::Vector2']]],
+  ['draw_5',['draw',['../classcgl_1_1Framework.html#a3a352845a3525e5b24772119a02792bb',1,'cgl::Framework']]]
 ];
