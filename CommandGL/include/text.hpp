@@ -75,12 +75,6 @@ namespace cgl
 
     private:
 
-        /**
-         * @brief Precomputes glyph layout and texture size for a given text string.
-         * @param text The text to analyze (UTF-8 encoded).
-         * @param texture The texture to resize for the rendered text.
-         * @internal Used by renderToTexture().
-         */
         void textureRenderPrepass(const std::string &text, Texture &texture);
 
     private:
