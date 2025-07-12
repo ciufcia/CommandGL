@@ -20,8 +20,12 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     POSITION_INDEPENDENT_CODE ${BUILD_SHARED_LIBS}
 )
 
+message(${CMAKE_CURRENT_SOURCE_DIR} "Current source directory")
+
 target_include_directories(
-    ${PROJECT_NAME} PUBLIC "../include"
+    ${PROJECT_NAME} PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+    $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX utf8cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)

@@ -465,7 +465,6 @@ namespace cgl
             bool found = false;
             for (auto it = nonTriangulatedPointsList.begin(); it != nonTriangulatedPointsList.end(); it++) {
                 if (it == p1 || it == p2 || it == p3) {
-                    ++it;
                     continue;
                 }
 

@@ -30,15 +30,5 @@ set(WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 option(BUILD_SHARED_LIBS OFF)
 
-include(FetchContent)
-
-FetchContent_Declare(
-    utf8cpp
-    GIT_REPOSITORY https://github.com/nemtrif/utfcpp.git
-    GIT_TAG        v4.0.6
-)
-
-FetchContent_MakeAvailable(utf8cpp)
-
 add_subdirectory(CommandGL)
 add_subdirectory(examples)
