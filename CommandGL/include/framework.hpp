@@ -153,6 +153,20 @@ namespace cgl
 
     private:
 
+        /**
+         * @brief A structure representing a single drawable entry in the render queue.
+         * 
+         * This structure holds a shared pointer to the drawable object and its associated
+         * transform, which defines how the drawable should be rendered on the screen.
+         */
+        struct DrawEntry
+        {
+            std::shared_ptr<Drawable> drawable; ///< The drawable object to render.
+            Transform transform;                ///< The transform applied to the drawable.
+        };
+
+    private:
+
         void populateGlobalMemory() const;
         void initializeBuffers();
         void initializeFilterPipelines();
@@ -174,7 +188,7 @@ namespace cgl
         CharacterBuffer m_characterBuffer {};
 
         std::vector<filter_pass_data::PixelPass> m_drawableBuffer {};
-        std::vector<std::pair<std::shared_ptr<Drawable>, Transform>> m_drawQueue {};
+        std::vector<DrawEntry> m_drawQueue {};
 
         Vector2<f32> m_screenScaleFactor { 1.f, 1.f };
 

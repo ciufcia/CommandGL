@@ -45,6 +45,14 @@ namespace cgl
     }
 
     void Framework::draw(std::shared_ptr<Drawable> drawable) {
+        if (drawable->cloneOnDraw) {
+            drawable = drawable->clone();
+
+            if (!drawable) {
+                throw std::runtime_error("Failed to clone drawable object.");
+            }
+        }
+
         m_drawQueue.push_back({ drawable, drawable->transform });
     }
 
@@ -104,22 +112,22 @@ namespace cgl
             m_drawQueue.begin(),
             m_drawQueue.end(),
             [](const auto& a, auto& b) {
-                return a.first->depth > b.first->depth;
+                return a.drawable->depth > b.drawable->depth;
             }
         );
 
         f32 time = getDurationInSeconds(m_clock.getRunningDuration());
 
-        for (auto &pair : m_drawQueue) {
+        for (auto &drawEntry : m_drawQueue) {
             m_drawableBuffer.clear();
 
-            scaleToScreen(pair.second);
+            scaleToScreen(drawEntry.transform);
 
-            pair.first->generateGeometry(m_drawableBuffer, pair.second);
+            drawEntry.drawable->generateGeometry(m_drawableBuffer, drawEntry.transform);
 
-            pair.first->applyFragmentPipeline(m_drawableBuffer, time);
+            drawEntry.drawable->applyFragmentPipeline(m_drawableBuffer, time);
 
-            writeDrawableBuffer(pair.first->blendMode);
+            writeDrawableBuffer(drawEntry.drawable->blendMode);
         }
 
         m_drawQueue.clear();

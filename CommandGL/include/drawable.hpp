@@ -5,6 +5,8 @@
 #include "transform.hpp"
 #include <list>
 
+#define ENABLE_DRAWABLE_CLONING(T) std::shared_ptr<Drawable> clone() const override { return std::make_shared<T>(*this); }
+
 namespace cgl
 {
     /**
@@ -43,6 +45,17 @@ namespace cgl
 
         void applyFragmentPipeline(std::vector<filter_pass_data::PixelPass> &drawableBuffer, f32 time);
 
+        /**
+         * @brief Clones the drawable object.
+         * @return A shared pointer to a new instance of the drawable with the same state.
+         * 
+         * This method is used to create a copy of the drawable, which can be useful
+         * for rendering multiple instances with the same properties.
+         * 
+         * To make a drawable cloneable, you must use the ENABLE_DRAWABLE_CLONING macro in the class definition.
+         */
+        virtual std::shared_ptr<Drawable> clone() const;
+
     public:
 
         /**
@@ -60,6 +73,11 @@ namespace cgl
          */
         FilterPipeline fragmentPipeline;
 
+        /**
+         * @brief Whether to copy the drawable into the drawQueue on a draw call, or use a reference.
+         */
+        bool cloneOnDraw = false;
+
     friend class Framework;
     };
 
@@ -75,6 +93,8 @@ namespace cgl
         class Mesh : public Drawable
         {
         public:
+
+            ENABLE_DRAWABLE_CLONING(Mesh)
 
             Mesh() = default;
 
@@ -132,6 +152,8 @@ namespace cgl
         {
         public:
 
+            ENABLE_DRAWABLE_CLONING(Triangle)
+
             Triangle();
             
             /**
@@ -174,7 +196,9 @@ namespace cgl
         class Rectangle : public Mesh
         {
         public:
-        
+    
+            ENABLE_DRAWABLE_CLONING(Rectangle)
+
             /**
              * @brief Default constructor creates a unit rectangle (1x1) at origin.
              */
@@ -208,6 +232,8 @@ namespace cgl
         {
         public:
 
+            ENABLE_DRAWABLE_CLONING(Point)
+
             Point() = default;
 
             /**
@@ -228,6 +254,8 @@ namespace cgl
         class Ellipse : public Drawable
         {
         public:
+
+            ENABLE_DRAWABLE_CLONING(Ellipse)
 
             Ellipse() = default;
 
@@ -251,6 +279,8 @@ namespace cgl
         class Line : public Drawable
         {
         public:
+
+            ENABLE_DRAWABLE_CLONING(Line)
 
             Line() = default;
 
@@ -282,6 +312,8 @@ namespace cgl
         class Polygon : public Mesh
         {
         public:
+
+            ENABLE_DRAWABLE_CLONING(Polygon)
 
             Polygon() = default;
 

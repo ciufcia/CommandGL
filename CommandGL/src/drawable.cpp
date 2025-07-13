@@ -39,6 +39,10 @@ namespace cgl
         }
     }
 
+    std::shared_ptr<Drawable> Drawable::clone() const {
+        return nullptr;
+    }
+
     void drawables::Mesh::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
         int triangleCount = static_cast<int>(points.size() / 3);
 
