@@ -12,6 +12,7 @@ var hierarchy =
     [ "cgl::Color", "classcgl_1_1Color.html", null ],
     [ "cgl::Console", "classcgl_1_1Console.html", null ],
     [ "cgl::ConsoleFont", "classcgl_1_1ConsoleFont.html", null ],
+    [ "cgl::Framework::DrawEntry", "structcgl_1_1Framework_1_1DrawEntry.html", null ],
     [ "cgl::Event", "classcgl_1_1Event.html", null ],
     [ "cgl::EventManager", "classcgl_1_1EventManager.html", null ],
     [ "cgl::EventType", "structcgl_1_1EventType.html", [

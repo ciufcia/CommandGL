@@ -7,5 +7,6 @@ var drawable_8hpp =
     [ "cgl::drawables::Point", "classcgl_1_1drawables_1_1Point.html", "classcgl_1_1drawables_1_1Point" ],
     [ "cgl::drawables::Ellipse", "classcgl_1_1drawables_1_1Ellipse.html", "classcgl_1_1drawables_1_1Ellipse" ],
     [ "cgl::drawables::Line", "classcgl_1_1drawables_1_1Line.html", "classcgl_1_1drawables_1_1Line" ],
-    [ "cgl::drawables::Polygon", "classcgl_1_1drawables_1_1Polygon.html", "classcgl_1_1drawables_1_1Polygon" ]
+    [ "cgl::drawables::Polygon", "classcgl_1_1drawables_1_1Polygon.html", "classcgl_1_1drawables_1_1Polygon" ],
+    [ "ENABLE_DRAWABLE_CLONING", "drawable_8hpp.html#a87fd79978f56a1e4f126f446edcd9e3d", null ]
 ];

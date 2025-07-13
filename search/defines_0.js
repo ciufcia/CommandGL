@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nominmax_0',['NOMINMAX',['../cgl_8hpp.html#a9f918755b601cf4bffca775992e6fb90',1,'cgl.hpp']]]
+  ['enable_5fdrawable_5fcloning_0',['ENABLE_DRAWABLE_CLONING',['../drawable_8hpp.html#a87fd79978f56a1e4f126f446edcd9e3d',1,'drawable.hpp']]]
 ];
