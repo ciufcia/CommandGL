@@ -156,6 +156,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afeeefa53a4f364b13f356db96917f380" id="r_afeeefa53a4f364b13f356db96917f380"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Vector2.html#afeeefa53a4f364b13f356db96917f380">normalized</a> () <a class="el" href="classcgl_1_1Vector2.html">const</a></td></tr>
 <tr class="memdesc:afeeefa53a4f364b13f356db96917f380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a normalized (unit length) vector.  <br /></td></tr>
 <tr class="separator:afeeefa53a4f364b13f356db96917f380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83fa1c27cef1c6002674ea7a64c758e" id="r_ab83fa1c27cef1c6002674ea7a64c758e"><td class="memTemplParams" colspan="2">template&lt;arithmetic U&gt; </td></tr>
+<tr class="memitem:ab83fa1c27cef1c6002674ea7a64c758e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1Vector2.html#ab83fa1c27cef1c6002674ea7a64c758e">Vector2</a> (<a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4c614360da93c0a041b22e537de151eb">U</a> &gt; &amp;<a class="el" href="classcgl_1_1Vector2.html">other</a>)</td></tr>
+<tr class="memdesc:ab83fa1c27cef1c6002674ea7a64c758e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a vector of another type to this vector type.  <br /></td></tr>
+<tr class="separator:ab83fa1c27cef1c6002674ea7a64c758e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -183,7 +187,7 @@ class cgl::Vector2&lt; T &gt;</div><p>A simple 2D vector class template. </p>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2ff99151a774650ed6537125a2e08d17" name="a2ff99151a774650ed6537125a2e08d17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ff99151a774650ed6537125a2e08d17">&#9670;&#160;</a></span>Vector2() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff99151a774650ed6537125a2e08d17">&#9670;&#160;</a></span>Vector2() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +208,7 @@ template&lt;arithmetic T&gt; </div>
 </div>
 </div>
 <a id="a4b5e308c7790400a0ba3bf2eeb977933" name="a4b5e308c7790400a0ba3bf2eeb977933"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b5e308c7790400a0ba3bf2eeb977933">&#9670;&#160;</a></span>Vector2() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5e308c7790400a0ba3bf2eeb977933">&#9670;&#160;</a></span>Vector2() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,6 +243,44 @@ template&lt;arithmetic T&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab83fa1c27cef1c6002674ea7a64c758e" name="ab83fa1c27cef1c6002674ea7a64c758e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab83fa1c27cef1c6002674ea7a64c758e">&#9670;&#160;</a></span>Vector2() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;arithmetic T&gt; </div>
+<div class="memtemplate">
+template&lt;arithmetic U&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcgl_1_1Vector2.html">cgl::Vector2</a>&lt; <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt;::Vector2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcgl_1_1Vector2.html">const</a> <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4c614360da93c0a041b22e537de151eb">U</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a vector of another type to this vector type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">U</td><td>The type of the other vector's components. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The vector to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector with components converted to this type.</dd></dl>
+<p>This constructor allows for easy conversion between different numeric types. </p>
 
 </div>
 </div>

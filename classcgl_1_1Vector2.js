@@ -2,6 +2,7 @@ var classcgl_1_1Vector2 =
 [
     [ "Vector2", "classcgl_1_1Vector2.html#a2ff99151a774650ed6537125a2e08d17", null ],
     [ "Vector2", "classcgl_1_1Vector2.html#a4b5e308c7790400a0ba3bf2eeb977933", null ],
+    [ "Vector2", "classcgl_1_1Vector2.html#ab83fa1c27cef1c6002674ea7a64c758e", null ],
     [ "dot", "classcgl_1_1Vector2.html#af20e19392595536d93233c3ec3edffc0", null ],
     [ "magnitude", "classcgl_1_1Vector2.html#ac803aaa15f023b7bc84780d7cad130b9", null ],
     [ "magnitudeSquared", "classcgl_1_1Vector2.html#aa8f0689f5b9c90212685aafd49b2eb74", null ],
