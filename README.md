@@ -68,6 +68,20 @@ cmake ..
 cmake --build .
 ```
 
+#### 5. Install.
+
+```sh
+cmake --install .
+```
+
+#### 6. You can now link to CommandGL via:
+
+```cmake
+find_package(CommandGL REQUIRED)
+
+target_link_libraries(your_target PRIVATE CommandGL::CommandGL)
+```
+
 ## Showcase
 
 nothing here :(

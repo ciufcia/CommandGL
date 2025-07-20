@@ -122,6 +122,17 @@ namespace cgl
          *         If the original vector has zero magnitude, returns a zero vector.
          */
         Vector2<T> normalized() const;
+
+        /**
+         * @brief Converts a vector of another type to this vector type.
+         * @tparam U The type of the other vector's components.
+         * @param other The vector to convert.
+         * @return A new vector with components converted to this type.
+         * 
+         * This constructor allows for easy conversion between different numeric types.
+         */
+        template<arithmetic U>
+        Vector2(const Vector2<U>& other);
     };
 
     template<arithmetic T>
@@ -129,6 +140,10 @@ namespace cgl
 
     template<arithmetic T>
     Vector2<T>::Vector2(T x, T y) : x(x), y(y) {}
+
+    template<arithmetic T>
+    template<arithmetic U>
+    Vector2<T>::Vector2(const Vector2<U>& other) : x(static_cast<T>(other.x)), y(static_cast<T>(other.y)) {}
 
     template<arithmetic T>
     Vector2<T> Vector2<T>::operator+(const Vector2<T>& other) const {
