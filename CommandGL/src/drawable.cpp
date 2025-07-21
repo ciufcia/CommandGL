@@ -237,6 +237,8 @@ namespace cgl
 
         points[0] = topLeft; points[1] = topRight; points[2] = bottomRight;
         points[3] = topLeft; points[4] = bottomRight; points[5] = bottomLeft;
+
+        m_size = size;
     }
 
     Vector2<f32> drawables::Rectangle::getSize() const {
