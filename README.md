@@ -84,4 +84,9 @@ target_link_libraries(your_target PRIVATE CommandGL::CommandGL)
 
 ## Showcase
 
-nothing here :(
+## ⭐ [Asteroids](https://github.com/ciufcia/Asteroids?tab=readme-ov-file)
+
+### 🎬
+
+[![Video](https://img.youtube.com/vi/_tC4R2s1Evk/0.jpg)](https://youtu.be/_tC4R2s1Evk?si=tbBk5HRBGwbJfX2_)
+
