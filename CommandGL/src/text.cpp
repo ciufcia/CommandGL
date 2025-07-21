@@ -39,37 +39,38 @@ namespace cgl
                     currentGlyph.size = { width, height };
                     currentGlyph.offset = { xOffset, yOffset };
                     continue;
-				} else if (buffer == "DWIDTH") {
-					i32 xAdvance, yAdvance;
-					iss >> xAdvance >> yAdvance;
-					currentGlyph.advance = { xAdvance, yAdvance };
+                } else if (buffer == "DWIDTH") {
+                    i32 xAdvance, yAdvance;
+                    iss >> xAdvance >> yAdvance;
+                    currentGlyph.advance = { xAdvance, yAdvance };
                 } else if (buffer == "BITMAP") {
-                    currentGlyph.bitmap.clear();
 
+                    currentGlyph.bitmap.clear();
                     for (i32 y = 0; y < currentGlyph.size.y; ++y) {
                         std::getline(file, line);
 
-                        auto hexCharToByte = [](char hexChar) -> u8 {
+                        std::vector<bool> rowBits;
+                        int totalBits = static_cast<int>(line.length()) * 4;
+                        for (int i = 0; i < line.length(); ++i) {
+                            u8 byte = 0;
+                            char hexChar = line[i];
                             if (hexChar >= '0' && hexChar <= '9') {
-                                return hexChar - '0';
+                                byte = hexChar - '0';
                             } else if (hexChar >= 'A' && hexChar <= 'F') {
-                                return hexChar - 'A' + 10;
+                                byte = hexChar - 'A' + 10;
                             } else if (hexChar >= 'a' && hexChar <= 'f') {
-                                return hexChar - 'a' + 10;
+                                byte = hexChar - 'a' + 10;
+                            } else {
+                                throw std::runtime_error("Invalid hex character: " + std::string(1, hexChar));
                             }
                             
-                            throw std::runtime_error("Invalid hex character: " + std::string(1, hexChar));
-						};
-
-                        u64 bits = 0;
-                        for (i32 i = 0; i < line.length(); ++i) {
-							u8 byte = hexCharToByte(line[i]);
-
-                            bits |= static_cast<u64>(byte >> i);
+                            for (int b = 3; b >= 0; --b) {
+                                rowBits.push_back((byte >> b) & 1);
+                            }
                         }
 
-                        for (i32 x = currentGlyph.size.x - 1; x >= 0; --x) {
-							currentGlyph.bitmap.push_back(isBitSet(bits, x));
+                        for (int x = 0; x < currentGlyph.size.x; ++x) {
+                            currentGlyph.bitmap.push_back(rowBits[x]);
                         }
                     }
 
@@ -99,7 +100,7 @@ namespace cgl
             for (i32 x = 0; x < texture.getSize().x; ++x) {
                 texture.setPixel({static_cast<u32>(x), static_cast<u32>(y)}, backgroundColor);
             }
-		}
+        }
 
         Vector2<i32> position = {0, m_ascentDescentPrepassBuffer[0].first};
 
@@ -141,7 +142,7 @@ namespace cgl
 
         i32 currentLineWidth = 0;
 
-		bool firstCharacterInLine = true;
+        bool firstCharacterInLine = true;
 
         i32 lineNumber = 0;
 
@@ -165,9 +166,9 @@ namespace cgl
                 Glyph currentGlyph;
                 currentGlyph.codepoint = codepoint;
 
-				m_prepassGlyphBuffer.push_back(currentGlyph);
+                m_prepassGlyphBuffer.push_back(currentGlyph);
 
-				firstCharacterInLine = true;
+                firstCharacterInLine = true;
 
                 continue;
             }
@@ -176,7 +177,7 @@ namespace cgl
 
             if (firstCharacterInLine) {
                 firstCharacterInLine = false;
-				currentLineWidth += currentGlyph.offset.x;
+                currentLineWidth += currentGlyph.offset.x;
             }
 
             m_prepassGlyphBuffer.push_back(currentGlyph);
