@@ -114,6 +114,8 @@ namespace cgl
     }
 
     Color Texture::sample(const Vector2<f32> &uv, SamplingMode mode) const {
+        Vector2<u32> normalizedUV = normalizeUV(uv);
+
         switch (mode) {
             case SamplingMode::NearestNeighbor:
                 return sampleNearestNeighbor(uv);
@@ -125,8 +127,8 @@ namespace cgl
     }
 
     Color Texture::sampleNearestNeighbor(const Vector2<f32> &uv) const {
-        int x = std::min(static_cast<int>(uv.x * m_size.x), (int)m_size.x - 1);
-        int y = std::min(static_cast<int>(uv.y * m_size.y), (int)m_size.y - 1);
+        int x = static_cast<int>(uv.x * m_size.x);
+        int y = static_cast<int>(uv.y * m_size.y);
 
         if (x < 0 || x >= static_cast<int>(m_size.x) || y < 0 || y >= static_cast<int>(m_size.y)) {
             return Color();

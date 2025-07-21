@@ -367,6 +367,8 @@ namespace cgl
         };
     }
 
+    Vector2<f32> normalizeUV(const Vector2<f32> &uv);
+
     template<typename T>
     std::shared_ptr<Filter> Filter::create(FilterType type, FilterFunction function, T data) {
         auto filter = std::make_shared<Filter>();
