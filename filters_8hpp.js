@@ -16,6 +16,7 @@ var filters_8hpp =
       [ "Sequential", "filters_8hpp.html#a861ba869b50405c09261d6d47fd328b5aa7e82daa7280af25afbaa076ac16eb1e", null ],
       [ "Parallel", "filters_8hpp.html#a861ba869b50405c09261d6d47fd328b5a98402eecfbcefc336954458a01752131", null ]
     ] ],
+    [ "normalizeUV", "filters_8hpp.html#a2b78454acba582b57b08e112e58f9f5e", null ],
     [ "rgbSingleCharacter", "filters_8hpp.html#a56a33b1a3a7ca9d692cbf4bd49c8d2ee", null ],
     [ "sampleUVColor", "filters_8hpp.html#a91f4f9e4e6f690ba7a4827856ebd3d99", null ],
     [ "singleColor", "filters_8hpp.html#ace308d77c8bcf61290611c27e3f96e9c", null ],
