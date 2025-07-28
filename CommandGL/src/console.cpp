@@ -6,13 +6,19 @@
 #include <algorithm>
 #include <cstdlib>
 
+#if defined(__linux__) || defined(__APPLE__)
+#include <sys/ioctl.h>
+#include <unistd.h>
+#endif
+
 namespace cgl
 {
     Console::Console() {
         init();
     }
     
-    Console::~Console() {     
+    Console::~Console() {
+#ifdef _WIN32
         SetConsoleMode(
             m_handles.input,
             m_firstInputMode
@@ -22,9 +28,11 @@ namespace cgl
             m_handles.output,
             m_firstOutputMode
         );
+#endif // _WIN32
     }
     
     Vector2<u32> Console::getSize() const {
+#ifdef _WIN32
         CONSOLE_SCREEN_BUFFER_INFO consoleScreenBufferInfo;
         if (!GetConsoleScreenBufferInfo(
             m_handles.output,
@@ -32,8 +40,14 @@ namespace cgl
         )) throw std::runtime_error("Failed to get console screen buffer info");
 
         return { static_cast<u32>(consoleScreenBufferInfo.dwSize.X), static_cast<u32>(consoleScreenBufferInfo.dwSize.Y) };
+#elif defined(__linux__) || defined(__APPLE__)
+        struct winsize w;
+        if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == -1) throw std::runtime_error("Failed to get console size");
+        return { static_cast<u32>(w.ws_col), static_cast<u32>(w.ws_row) };
+#endif // _WIN32
     }
-    
+
+#ifdef _WIN32
     void Console::setSize(const Vector2<u32> &size)
     {
         if (size.x == 0u || size.y == 0u)
@@ -175,7 +189,10 @@ namespace cgl
         }
     }
 
+#endif // _WIN32
+
     void Console::writeCharacterBuffer(const CharacterBuffer &buffer) {
+#ifdef _WIN32
         SetConsoleCursorPosition(
             m_handles.output,
             { 0u, 0u }
@@ -192,9 +209,11 @@ namespace cgl
         )) {
             throw std::runtime_error("WriteConsole failed. Error code: " + std::to_string(GetLastError()));
         }
+#endif // _WIN32
     }
     
     void Console::init() {
+#ifdef _WIN32
         getHandles();
 
         if (!GetConsoleMode(m_handles.input, &m_firstInputMode))
@@ -205,9 +224,12 @@ namespace cgl
 
         setInputMode();
 		setOutputMode();
+#endif // _WIN32
 
         clear();
     }
+
+#ifdef _WIN32
 
     void Console::getHandles() {
         m_handles.input = GetStdHandle(STD_INPUT_HANDLE);
@@ -243,12 +265,19 @@ namespace cgl
         if (!SetConsoleMode(m_handles.output, mode))
             throw std::runtime_error("SetConsoleMode failed");
     }
-    
+   
+#endif // _WIN32
+
     void Console::clear() {
+#ifdef _WIN32
         std::system("cls");
+#else
+        std::system("clear");
+#endif // _WIN32
     }
 
     void Console::destroy() {
+#ifdef _WIN32
         if (!SetConsoleMode(
             m_handles.input,
             m_firstInputMode
@@ -258,9 +287,11 @@ namespace cgl
             m_handles.output,
             m_firstOutputMode
         )) throw std::runtime_error("Failed to reset console output mode");
+#endif // _WIN32
     }
 
     void Console::getEvents(std::vector<Event> &events) {
+#ifdef _WIN32
         events.clear();
 
         DWORD numberOfEvents;
@@ -282,8 +313,10 @@ namespace cgl
         );
 
         return parseInputRecords(inputRecords, events);
+#endif // _WIN32
     }
 
+#ifdef _WIN32
     void Console::parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords, std::vector<Event> &events) {
         for (const auto &record : inputRecords) {
             Event event;
@@ -409,4 +442,6 @@ namespace cgl
         int result = WideCharToMultiByte(CP_UTF8, 0, wstr.c_str(), static_cast<int>(wstr.size()), &str[0], size_needed, NULL, NULL);
         return str;
     }
+#endif // _WIN32
+
 }

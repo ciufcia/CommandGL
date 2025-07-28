@@ -1,10 +1,12 @@
 #ifndef CGL_CONSOLE_HPP
 #define CGL_CONSOLE_HPP
 
+#ifdef _WIN32
 #include <windows.h>
+#include "console_font.hpp"
+#endif // _WIN32
 #include "vector2.hpp"
 #include "numeric_types.hpp"
-#include "console_font.hpp"
 #include "character_buffer.hpp"
 #include "event.hpp"
 #include <array>
@@ -40,6 +42,8 @@ namespace cgl
          * @throws std::runtime_error if unable to get console screen buffer info.
          */
         Vector2<u32> getSize() const;
+
+#ifdef _WIN32
 
         /**
          * @brief Sets the size of the console window in character cells.
@@ -107,7 +111,11 @@ namespace cgl
          */
         void setTitle(const std::string &title);
 
+#endif // _WIN32
+
     private:
+
+#ifdef _WIN32
 
         struct Handles
         {
@@ -115,14 +123,22 @@ namespace cgl
             HANDLE output;
         };
 
+#endif // _WIN32
+
     private:
 
         Console();
 
         void init();
+
+#ifdef _WIN32
+
         void getHandles();
         void setInputMode();
 		void setOutputMode();
+
+#endif // _WIN32
+
         void clear();
 
         void destroy();
@@ -130,7 +146,10 @@ namespace cgl
         void writeCharacterBuffer(const CharacterBuffer &buffer);
 
         void getEvents(std::vector<Event> &events);
+
+#ifdef _WIN32
         void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords, std::vector<Event> &events);
+#endif // _WIN32
 
         const std::array<bool, static_cast<size_t>(KeyCode::Count)> &getKeyStates() const;
 
@@ -138,15 +157,18 @@ namespace cgl
         std::string wideStringToString(const std::wstring &wstr) const;
 
     private:
-        
+       
+#ifdef _WIN32
         Handles m_handles;
 
         DWORD m_firstInputMode;
 		DWORD m_firstOutputMode;
         
+        DWORD m_lastMouseButtonState { 0u };
+#endif // _WIN32
+
         std::array<bool, static_cast<size_t>(KeyCode::Count)> m_keyStates { false };
         
-        DWORD m_lastMouseButtonState { 0u };
         Vector2<u32> m_lastMousePosition { 0u, 0u };
 
     friend class EventManager;
