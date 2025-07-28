@@ -26,7 +26,6 @@ var searchData=
   ['f8_23',['F8',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4787509ad9f9d747a81a30e9dde3d4a7',1,'cgl']]],
   ['f9_24',['F9',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca892a245e287c163080b23db737d3c4c9',1,'cgl']]],
   ['five_25',['Five',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae5d9de39f7ca1ba2637e5640af3ae8aa',1,'cgl']]],
-  ['forwardmousebutton_26',['ForwardMouseButton',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae78208302617fd274d1d98674b3dd92d',1,'cgl']]],
-  ['forwardslash_27',['ForwardSlash',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab7b67f517f7a29e5734ab453e5adc69b',1,'cgl']]],
-  ['four_28',['Four',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca981b8fcee42e1e726a67a2b9a98ea6e9',1,'cgl']]]
+  ['forwardslash_26',['ForwardSlash',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab7b67f517f7a29e5734ab453e5adc69b',1,'cgl']]],
+  ['four_27',['Four',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca981b8fcee42e1e726a67a2b9a98ea6e9',1,'cgl']]]
 ];

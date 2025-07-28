@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['screenbuffer_0',['ScreenBuffer',['../classcgl_1_1ScreenBuffer.html',1,'cgl']]],
-  ['screenbuffersinglepass_1',['ScreenBufferSinglePass',['../structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass.html',1,'cgl::filter_pass_data']]],
-  ['singlecolordata_2',['SingleColorData',['../structcgl_1_1filters_1_1SingleColorData.html',1,'cgl::filters']]],
-  ['stbi_5fio_5fcallbacks_3',['stbi_io_callbacks',['../structstbi__io__callbacks.html',1,'']]]
+  ['texture_0',['Texture',['../classcgl_1_1Texture.html',1,'cgl']]],
+  ['texturedata_1',['TextureData',['../structcgl_1_1filters_1_1TextureData.html',1,'cgl::filters']]],
+  ['transform_2',['Transform',['../classcgl_1_1Transform.html',1,'cgl']]],
+  ['transformable_3',['Transformable',['../classcgl_1_1Transformable.html',1,'cgl']]],
+  ['triangle_4',['Triangle',['../classcgl_1_1drawables_1_1Triangle.html',1,'cgl::drawables']]]
 ];

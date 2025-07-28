@@ -36,7 +36,6 @@ var hierarchy =
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
     [ "cgl::BitmapFont::Glyph", "structcgl_1_1BitmapFont_1_1Glyph.html", null ],
-    [ "cgl::Console::Handles", "structcgl_1_1Console_1_1Handles.html", null ],
     [ "utf8::iterator< octet_iterator >", "classutf8_1_1iterator.html", null ],
     [ "utf8::unchecked::iterator< octet_iterator >", "classutf8_1_1unchecked_1_1iterator.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
