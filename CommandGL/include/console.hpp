@@ -1,10 +1,13 @@
 #ifndef CGL_CONSOLE_HPP
 #define CGL_CONSOLE_HPP
 
+#ifdef _WIN32
 #include <windows.h>
+#include "console_font.hpp"
+#endif // _WIN32
+
 #include "vector2.hpp"
 #include "numeric_types.hpp"
-#include "console_font.hpp"
 #include "character_buffer.hpp"
 #include "event.hpp"
 #include <array>
@@ -40,6 +43,8 @@ namespace cgl
          * @throws std::runtime_error if unable to get console screen buffer info.
          */
         Vector2<u32> getSize() const;
+
+#ifdef _WIN32
 
         /**
          * @brief Sets the size of the console window in character cells.
@@ -106,6 +111,7 @@ namespace cgl
          * @throws std::runtime_error if unable to set console title.
          */
         void setTitle(const std::string &title);
+#endif // _WIN32
 
     private:
 
@@ -120,9 +126,11 @@ namespace cgl
         Console();
 
         void init();
+#ifdef _WIN32
         void getHandles();
         void setInputMode();
 		void setOutputMode();
+#endif // _WIN32
         void clear();
 
         void destroy();
