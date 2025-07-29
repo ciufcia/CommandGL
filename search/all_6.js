@@ -1,7 +1,7 @@
 var searchData=
 [
   ['g_0',['g',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cadfcf28d0734569a6a693bc8194de62bf',1,'cgl::G'],['../classcgl_1_1Color.html#a8f0ff5ecdee1e8ef6945627c1a9ad7f6',1,'cgl::Color::g']]],
-  ['generategeometry_1',['generategeometry',['../classcgl_1_1drawables_1_1Polygon.html#aa29e5ffdd82d6cb82343c1592ccfefa4',1,'cgl::drawables::Polygon::generateGeometry()'],['../classcgl_1_1drawables_1_1Line.html#a85e8af037bb0b26282e1146a340063a4',1,'cgl::drawables::Line::generateGeometry()'],['../classcgl_1_1Drawable.html#a233f954e74252d90252c79948be20e17',1,'cgl::Drawable::generateGeometry()'],['../classcgl_1_1drawables_1_1Mesh.html#afae9c2c9df89e4c0f8c4c4e2e584495f',1,'cgl::drawables::Mesh::generateGeometry()'],['../classcgl_1_1drawables_1_1Point.html#a3c1161cc127e145a6937ddb8d5ed01e0',1,'cgl::drawables::Point::generateGeometry()'],['../classcgl_1_1drawables_1_1Ellipse.html#a67b7f480854a4470dcb4a8dc709b7a9e',1,'cgl::drawables::Ellipse::generateGeometry()']]],
+  ['generategeometry_1',['generategeometry',['../classcgl_1_1Drawable.html#a233f954e74252d90252c79948be20e17',1,'cgl::Drawable::generateGeometry()'],['../classcgl_1_1drawables_1_1Mesh.html#afae9c2c9df89e4c0f8c4c4e2e584495f',1,'cgl::drawables::Mesh::generateGeometry()'],['../classcgl_1_1drawables_1_1Point.html#a3c1161cc127e145a6937ddb8d5ed01e0',1,'cgl::drawables::Point::generateGeometry()'],['../classcgl_1_1drawables_1_1Ellipse.html#a67b7f480854a4470dcb4a8dc709b7a9e',1,'cgl::drawables::Ellipse::generateGeometry()'],['../classcgl_1_1drawables_1_1Line.html#a85e8af037bb0b26282e1146a340063a4',1,'cgl::drawables::Line::generateGeometry()'],['../classcgl_1_1drawables_1_1Polygon.html#aa29e5ffdd82d6cb82343c1592ccfefa4',1,'cgl::drawables::Polygon::generateGeometry()']]],
   ['get_2',['get',['../classcgl_1_1GlobalMemory.html#a660d676eac58c50a8861738e92da702d',1,'cgl::GlobalMemory']]],
   ['get_5fsequence_5f1_3',['get_sequence_1',['../namespaceutf8_1_1internal.html#a7843170911cd24c7e1bd214228d88961',1,'utf8::internal']]],
   ['get_5fsequence_5f2_4',['get_sequence_2',['../namespaceutf8_1_1internal.html#a133086c92207cb5554f4f243bb57c5cb',1,'utf8::internal']]],
@@ -22,7 +22,7 @@ var searchData=
   ['getglyph_19',['getGlyph',['../classcgl_1_1BitmapFont.html#a9715852ac0dfb6babb58db440a4b1d18',1,'cgl::BitmapFont']]],
   ['getinstance_20',['getInstance',['../classcgl_1_1GlobalMemory.html#ada661a03b41b05fb19bd25e5c9c9c831',1,'cgl::GlobalMemory']]],
   ['getinversesize_21',['getInverseSize',['../classcgl_1_1ScreenBuffer.html#a3f6aa5d0853b7b21502fe8c6dac5eb3e',1,'cgl::ScreenBuffer']]],
-  ['getkeystates_22',['getkeystates',['../classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48',1,'cgl::Console::getKeyStates()'],['../classcgl_1_1EventManager.html#a5fce46c255cf5006aa555de2ca5b604e',1,'cgl::EventManager::getKeyStates()']]],
+  ['getkeystates_22',['getkeystates',['../classcgl_1_1EventManager.html#a5fce46c255cf5006aa555de2ca5b604e',1,'cgl::EventManager::getKeyStates()'],['../classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48',1,'cgl::Console::getKeyStates()']]],
   ['getlastframetime_23',['getLastFrameTime',['../classcgl_1_1Framework.html#a9ef6c93aae9988330e2f15bce3ac8672',1,'cgl::Framework']]],
   ['getlastticktime_24',['getLastTickTime',['../classcgl_1_1Clock.html#ad1a26a0666d643e01aebcb53f44ca846',1,'cgl::Clock']]],
   ['getmatrix_25',['getMatrix',['../classcgl_1_1Transform.html#a9bd1b25366734066c8bd9a020a6d515c',1,'cgl::Transform']]],
@@ -33,12 +33,13 @@ var searchData=
   ['getrotation_30',['getRotation',['../classcgl_1_1Transform.html#ac210592bcc5220b842b741a789fdfdea',1,'cgl::Transform']]],
   ['getrunningduration_31',['getRunningDuration',['../classcgl_1_1Clock.html#a481dedea48183fec247e60de9d10e8cb',1,'cgl::Clock']]],
   ['getscale_32',['getScale',['../classcgl_1_1Transform.html#ad2aff0b125d5607e5e9a496fa0f7cf4f',1,'cgl::Transform']]],
-  ['getsize_33',['getsize',['../classcgl_1_1CharacterBuffer.html#ab2831352f52099e7473b0c13f9fa6a44',1,'cgl::CharacterBuffer::getSize()'],['../classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011',1,'cgl::Console::getSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a84cbfb3bbd39d0e968a380ad74724960',1,'cgl::drawables::Rectangle::getSize()'],['../classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56',1,'cgl::ScreenBuffer::getSize()'],['../classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4',1,'cgl::Texture::getSize()']]],
+  ['getsize_33',['getsize',['../classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4',1,'cgl::Texture::getSize()'],['../classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56',1,'cgl::ScreenBuffer::getSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a84cbfb3bbd39d0e968a380ad74724960',1,'cgl::drawables::Rectangle::getSize()'],['../classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011',1,'cgl::Console::getSize()'],['../classcgl_1_1CharacterBuffer.html#ab2831352f52099e7473b0c13f9fa6a44',1,'cgl::CharacterBuffer::getSize()']]],
   ['getstarttime_34',['getStartTime',['../classcgl_1_1Clock.html#abd75441b4488d95a8949095997a10bb9',1,'cgl::Clock']]],
   ['gettargetframetime_35',['getTargetFrameTime',['../classcgl_1_1Framework.html#a06bc02cb2d318037f7ac376eb9374e25',1,'cgl::Framework']]],
   ['gettickduration_36',['getTickDuration',['../classcgl_1_1Clock.html#af4b46c5050ecad6f512747909c80584a',1,'cgl::Clock']]],
-  ['global_5fmemory_2ecpp_37',['global_memory.cpp',['../global__memory_8cpp.html',1,'']]],
-  ['global_5fmemory_2ehpp_38',['global_memory.hpp',['../global__memory_8hpp.html',1,'']]],
-  ['globalmemory_39',['globalmemory',['../classcgl_1_1GlobalMemory.html#a0c8f87b4e068ec4a19fbad65a10526f3',1,'cgl::GlobalMemory::GlobalMemory()'],['../classcgl_1_1GlobalMemory.html',1,'cgl::GlobalMemory'],['../classcgl_1_1GlobalMemory.html#ae29669077c6d91b15b20716915a06f3e',1,'cgl::GlobalMemory::GlobalMemory()']]],
-  ['glyph_40',['Glyph',['../structcgl_1_1BitmapFont_1_1Glyph.html',1,'cgl::BitmapFont']]]
+  ['getwinapivk_37',['getWinapiVK',['../namespacecgl.html#a3c1c6d7c4cbf02f9a68b21c7fa14b07b',1,'cgl']]],
+  ['global_5fmemory_2ecpp_38',['global_memory.cpp',['../global__memory_8cpp.html',1,'']]],
+  ['global_5fmemory_2ehpp_39',['global_memory.hpp',['../global__memory_8hpp.html',1,'']]],
+  ['globalmemory_40',['globalmemory',['../classcgl_1_1GlobalMemory.html#ae29669077c6d91b15b20716915a06f3e',1,'cgl::GlobalMemory::GlobalMemory()=default'],['../classcgl_1_1GlobalMemory.html#a0c8f87b4e068ec4a19fbad65a10526f3',1,'cgl::GlobalMemory::GlobalMemory(const GlobalMemory &amp;)=delete'],['../classcgl_1_1GlobalMemory.html',1,'cgl::GlobalMemory']]],
+  ['glyph_41',['Glyph',['../structcgl_1_1BitmapFont_1_1Glyph.html',1,'cgl::BitmapFont']]]
 ];

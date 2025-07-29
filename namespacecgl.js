@@ -215,6 +215,7 @@ var namespacecgl =
     [ "getDurationInMilliseconds", "namespacecgl.html#af14d44ec0c6cd6648c2c3817cbf1d170", null ],
     [ "getDurationInNanoseconds", "namespacecgl.html#ae20170ce990a2be0f8d1c1b1c9616497", null ],
     [ "getDurationInSeconds", "namespacecgl.html#a303170301be8b53299617afc5b27114e", null ],
+    [ "getWinapiVK", "namespacecgl.html#a3c1c6d7c4cbf02f9a68b21c7fa14b07b", null ],
     [ "isBitSet", "namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328", null ],
     [ "normalizeUV", "namespacecgl.html#a2b78454acba582b57b08e112e58f9f5e", null ],
     [ "reverseBits", "namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60", null ],

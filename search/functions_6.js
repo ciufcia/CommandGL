@@ -7,7 +7,7 @@ var searchData=
   ['get_5fsequence_5f3_4',['get_sequence_3',['../namespaceutf8_1_1internal.html#a9eb55d0254b1cdfefa5b7e2d173ad246',1,'utf8::internal']]],
   ['get_5fsequence_5f4_5',['get_sequence_4',['../namespaceutf8_1_1internal.html#a88cdfd5db83f47b80cc8bd50bdb2f514',1,'utf8::internal']]],
   ['getbuffer_6',['getBuffer',['../classcgl_1_1ScreenBuffer.html#a8c06a1df6e3979e506caa64a7800c07e',1,'cgl::ScreenBuffer']]],
-  ['getcharacters_7',['getcharacters',['../classcgl_1_1CharacterBuffer.html#a3d37f5567efc96566026545ade757609',1,'cgl::CharacterBuffer::getCharacters()'],['../classcgl_1_1CharacterBuffer.html#a630977e9b45a9fa5cd64a0a3e7b5c430',1,'cgl::CharacterBuffer::getCharacters() const']]],
+  ['getcharacters_7',['getcharacters',['../classcgl_1_1CharacterBuffer.html#a630977e9b45a9fa5cd64a0a3e7b5c430',1,'cgl::CharacterBuffer::getCharacters() const'],['../classcgl_1_1CharacterBuffer.html#a3d37f5567efc96566026545ade757609',1,'cgl::CharacterBuffer::getCharacters()']]],
   ['getcurrentfilter_8',['getCurrentFilter',['../classcgl_1_1FilterPipeline.html#a2217a6cca8bca8e660388160e36218ac',1,'cgl::FilterPipeline']]],
   ['getcurrenttime_9',['getCurrentTime',['../classcgl_1_1Clock.html#a377afe7b5217b5b5f24fbcc30cf5cf36',1,'cgl::Clock']]],
   ['getdurationinmicroseconds_10',['getDurationInMicroseconds',['../namespacecgl.html#a9e401deac65eb1d4c9f31c4a4db5d187',1,'cgl']]],
@@ -21,7 +21,7 @@ var searchData=
   ['getglyph_18',['getGlyph',['../classcgl_1_1BitmapFont.html#a9715852ac0dfb6babb58db440a4b1d18',1,'cgl::BitmapFont']]],
   ['getinstance_19',['getInstance',['../classcgl_1_1GlobalMemory.html#ada661a03b41b05fb19bd25e5c9c9c831',1,'cgl::GlobalMemory']]],
   ['getinversesize_20',['getInverseSize',['../classcgl_1_1ScreenBuffer.html#a3f6aa5d0853b7b21502fe8c6dac5eb3e',1,'cgl::ScreenBuffer']]],
-  ['getkeystates_21',['getkeystates',['../classcgl_1_1EventManager.html#a5fce46c255cf5006aa555de2ca5b604e',1,'cgl::EventManager::getKeyStates()'],['../classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48',1,'cgl::Console::getKeyStates()']]],
+  ['getkeystates_21',['getkeystates',['../classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48',1,'cgl::Console::getKeyStates()'],['../classcgl_1_1EventManager.html#a5fce46c255cf5006aa555de2ca5b604e',1,'cgl::EventManager::getKeyStates()']]],
   ['getlastframetime_22',['getLastFrameTime',['../classcgl_1_1Framework.html#a9ef6c93aae9988330e2f15bce3ac8672',1,'cgl::Framework']]],
   ['getlastticktime_23',['getLastTickTime',['../classcgl_1_1Clock.html#ad1a26a0666d643e01aebcb53f44ca846',1,'cgl::Clock']]],
   ['getmatrix_24',['getMatrix',['../classcgl_1_1Transform.html#a9bd1b25366734066c8bd9a020a6d515c',1,'cgl::Transform']]],
@@ -32,9 +32,10 @@ var searchData=
   ['getrotation_29',['getRotation',['../classcgl_1_1Transform.html#ac210592bcc5220b842b741a789fdfdea',1,'cgl::Transform']]],
   ['getrunningduration_30',['getRunningDuration',['../classcgl_1_1Clock.html#a481dedea48183fec247e60de9d10e8cb',1,'cgl::Clock']]],
   ['getscale_31',['getScale',['../classcgl_1_1Transform.html#ad2aff0b125d5607e5e9a496fa0f7cf4f',1,'cgl::Transform']]],
-  ['getsize_32',['getsize',['../classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4',1,'cgl::Texture::getSize()'],['../classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56',1,'cgl::ScreenBuffer::getSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a84cbfb3bbd39d0e968a380ad74724960',1,'cgl::drawables::Rectangle::getSize()'],['../classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011',1,'cgl::Console::getSize()'],['../classcgl_1_1CharacterBuffer.html#ab2831352f52099e7473b0c13f9fa6a44',1,'cgl::CharacterBuffer::getSize()']]],
+  ['getsize_32',['getsize',['../classcgl_1_1ScreenBuffer.html#a38e946fe0b054b9d28a6e2882d42be56',1,'cgl::ScreenBuffer::getSize()'],['../classcgl_1_1CharacterBuffer.html#ab2831352f52099e7473b0c13f9fa6a44',1,'cgl::CharacterBuffer::getSize()'],['../classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011',1,'cgl::Console::getSize()'],['../classcgl_1_1Texture.html#a08b9a55a48cc2112dbaa00cb9f9994b4',1,'cgl::Texture::getSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a84cbfb3bbd39d0e968a380ad74724960',1,'cgl::drawables::Rectangle::getSize()']]],
   ['getstarttime_33',['getStartTime',['../classcgl_1_1Clock.html#abd75441b4488d95a8949095997a10bb9',1,'cgl::Clock']]],
   ['gettargetframetime_34',['getTargetFrameTime',['../classcgl_1_1Framework.html#a06bc02cb2d318037f7ac376eb9374e25',1,'cgl::Framework']]],
   ['gettickduration_35',['getTickDuration',['../classcgl_1_1Clock.html#af4b46c5050ecad6f512747909c80584a',1,'cgl::Clock']]],
-  ['globalmemory_36',['globalmemory',['../classcgl_1_1GlobalMemory.html#a0c8f87b4e068ec4a19fbad65a10526f3',1,'cgl::GlobalMemory::GlobalMemory(const GlobalMemory &amp;)=delete'],['../classcgl_1_1GlobalMemory.html#ae29669077c6d91b15b20716915a06f3e',1,'cgl::GlobalMemory::GlobalMemory()=default']]]
+  ['getwinapivk_36',['getWinapiVK',['../namespacecgl.html#a3c1c6d7c4cbf02f9a68b21c7fa14b07b',1,'cgl']]],
+  ['globalmemory_37',['globalmemory',['../classcgl_1_1GlobalMemory.html#ae29669077c6d91b15b20716915a06f3e',1,'cgl::GlobalMemory::GlobalMemory()=default'],['../classcgl_1_1GlobalMemory.html#a0c8f87b4e068ec4a19fbad65a10526f3',1,'cgl::GlobalMemory::GlobalMemory(const GlobalMemory &amp;)=delete']]]
 ];
