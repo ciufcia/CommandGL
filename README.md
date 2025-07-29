@@ -35,7 +35,7 @@ include(FetchContent)
 FetchContent_Declare(
     CommandGL
     GIT_REPOSITORY https://github.com/ciufcia/CommandGL.git
-    GIT_TAG        main
+    GIT_TAG        v1.0
 )
 
 FetchContent_MakeAvailable(CommandGL)

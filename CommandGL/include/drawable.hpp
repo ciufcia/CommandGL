@@ -382,7 +382,7 @@ namespace cgl
     }
 
     template<typename T, typename... Args>
-    static std::shared_ptr<T> Drawable::create(Args&&... args) {
+    std::shared_ptr<T> Drawable::create(Args&&... args) {
         static_assert(std::is_base_of_v<Drawable, T>, "T must derive from Drawable");
         return std::make_shared<T>(std::forward<Args>(args)...);
     }

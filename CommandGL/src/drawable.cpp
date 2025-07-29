@@ -99,17 +99,22 @@ namespace cgl
             triangle.inverseArea = (std::abs(area2) > 1e-6f) ? 1.f / area2 : 0.f;
         }
 
-        #pragma omp parallel
-        {
-            std::vector<filter_pass_data::PixelPass> localBuffer;
-            localBuffer.reserve(256);
+        std::vector<filter_pass_data::PixelPass> triangleBuffer;
 
-            #pragma omp for collapse(3) schedule(dynamic)
-            for (int ti = 0; ti < triangleCount; ++ti)
-            for (int y = static_cast<int>(triangles[ti].topLeft.y); y <= static_cast<int>(triangles[ti].bottomRight.y); ++y)
-            for (int x = static_cast<int>(triangles[ti].topLeft.x); x <= static_cast<int>(triangles[ti].bottomRight.x); ++x) {
-                auto &triangle = triangles[ti];
-                
+        for (int ti = 0; ti < triangleCount; ++ti) {
+            const auto &triangle = triangles[ti];
+
+            Vector2<i32> size = {
+                static_cast<i32>(std::ceil(triangle.bottomRight.x - triangle.topLeft.x)),
+                static_cast<i32>(std::ceil(triangle.bottomRight.y - triangle.topLeft.y))
+            };
+
+            triangleBuffer.resize(size.x * size.y);
+
+            #pragma omp for collapse(2) schedule(dynamic)
+            for (int y = static_cast<int>(triangle.topLeft.y); y <= static_cast<int>(triangle.bottomRight.y); ++y)
+            for (int x = static_cast<int>(triangle.topLeft.x); x <= static_cast<int>(triangle.bottomRight.x); ++x) {
+
                 f32 e1 = triangle.e1a * x + triangle.e1b * y + triangle.e1c;
                 f32 e2 = triangle.e2a * x + triangle.e2b * y + triangle.e2c;
                 f32 e3 = triangle.e3a * x + triangle.e3b * y + triangle.e3c;
@@ -120,24 +125,30 @@ namespace cgl
                     (e3 > 0 || (e3 == 0 && triangle.e3_topLeft))
                 );
                 
+                int index = (y - static_cast<int>(triangle.topLeft.y)) * size.x + (x - static_cast<int>(triangle.topLeft.x));
+
+                filter_pass_data::PixelPass &pixelData = triangleBuffer[index];
+
                 if (inside) {
                     f32 w1 = e2 * triangle.inverseArea;
                     f32 w2 = e3 * triangle.inverseArea;
                     f32 w3 = e1 * triangle.inverseArea;
 
-                    filter_pass_data::PixelPass pixelData;
                     pixelData.position = { static_cast<f32>(x), static_cast<f32>(y) };
                     pixelData.uv = { triangle.uv1.x * w1 + triangle.uv2.x * w2 + triangle.uv3.x * w3,
-                                     triangle.uv1.y * w1 + triangle.uv2.y * w2 + triangle.uv3.y * w3 };
+                                    triangle.uv1.y * w1 + triangle.uv2.y * w2 + triangle.uv3.y * w3 };
                     pixelData.size = triangle.size;
                     pixelData.inverseSize = triangle.inverseSize;
-
-                    localBuffer.push_back(pixelData);
+                } else {
+                    pixelData.size = { -1.f, -1.f };
                 }
             }
 
-            #pragma omp critical
-            drawableBuffer.insert(drawableBuffer.end(), localBuffer.begin(), localBuffer.end());
+            for (const auto &pixelData : triangleBuffer) {
+                if (pixelData.size.x >= 0 && pixelData.size.y >= 0) {
+                    drawableBuffer.push_back(pixelData);
+                }
+            }
         }
     }
 

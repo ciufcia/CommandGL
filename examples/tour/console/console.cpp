@@ -20,7 +20,7 @@ int main() {
 
         cgl::Vector2<cgl::u32> size = console.getSize();
 
-        console.setTitle("Size: " + std::to_string(size.x) + "x" + std::to_string(size.y));
+        //console.setTitle("Size: " + std::to_string(size.x) + "x" + std::to_string(size.y));
 
         framework.clearDisplay({255, 255, 255});
 
