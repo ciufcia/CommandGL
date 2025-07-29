@@ -2,6 +2,7 @@ add_library(
     ${PROJECT_NAME}
     cgl.cpp
     console.cpp
+    event.cpp
     event_manager.cpp
     global_memory.cpp
     color.cpp

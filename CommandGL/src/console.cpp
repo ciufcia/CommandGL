@@ -407,7 +407,7 @@ namespace cgl
                 key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
                 continue;
             }
-            bool was_pressed = (GetAsyncKeyState(key) & 0x8000) != 0;
+            bool was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
 
             if (was_pressed && !m_keyStates[key]) {
                 Event event;

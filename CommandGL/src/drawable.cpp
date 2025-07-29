@@ -111,10 +111,9 @@ namespace cgl
 
             triangleBuffer.resize(size.x * size.y);
 
-            #pragma omp for collapse(2) schedule(dynamic)
+            #pragma omp parallel for collapse(2) schedule(dynamic)
             for (int y = static_cast<int>(triangle.topLeft.y); y <= static_cast<int>(triangle.bottomRight.y); ++y)
             for (int x = static_cast<int>(triangle.topLeft.x); x <= static_cast<int>(triangle.bottomRight.x); ++x) {
-
                 f32 e1 = triangle.e1a * x + triangle.e1b * y + triangle.e1c;
                 f32 e2 = triangle.e2a * x + triangle.e2b * y + triangle.e2c;
                 f32 e3 = triangle.e3a * x + triangle.e3b * y + triangle.e3c;
