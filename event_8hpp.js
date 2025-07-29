@@ -29,7 +29,6 @@ var event_8hpp =
       [ "Home", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca8cf04a9734132302f96da8e113e80ce5", null ],
       [ "Select", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193cae0626222614bdee31951d84c64e5e9ff", null ],
       [ "Print", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca13dba24862cf9128167a59100e154c8d", null ],
-      [ "Execute", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193ca40cd014b7b6251e3a22e6a45a73a64e1", null ],
       [ "PrintScreen", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193cabf54024481cd2ad6bbb9ae44b7312472", null ],
       [ "Insert", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193caa458be0f08b7e4ff3c0f633c100176c0", null ],
       [ "Delete", "event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193caf2a6c498fb90ee345d997f888fce3b18", null ],

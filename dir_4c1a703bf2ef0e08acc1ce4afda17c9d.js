@@ -5,7 +5,7 @@ var dir_4c1a703bf2ef0e08acc1ce4afda17c9d =
     [ "color.cpp", "color_8cpp.html", null ],
     [ "console.cpp", "console_8cpp.html", null ],
     [ "drawable.cpp", "drawable_8cpp.html", null ],
-    [ "event.cpp", "event_8cpp.html", "event_8cpp" ],
+    [ "event.cpp", "event_8cpp.html", null ],
     [ "event_manager.cpp", "event__manager_8cpp.html", null ],
     [ "filters.cpp", "filters_8cpp.html", "filters_8cpp" ],
     [ "framework.cpp", "framework_8cpp.html", null ],
