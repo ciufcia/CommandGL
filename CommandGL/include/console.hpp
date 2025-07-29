@@ -5,6 +5,9 @@
 #include <windows.h>
 #include "console_font.hpp"
 #endif // _WIN32
+#ifdef __linux__
+#include <libevdev/libevdev.h>
+#endif // __linux__
 #include "vector2.hpp"
 #include "numeric_types.hpp"
 #include "character_buffer.hpp"
@@ -125,7 +128,7 @@ namespace cgl
 
 #endif // _WIN32
 
-    private:
+    public:
 
         Console();
 
@@ -138,6 +141,10 @@ namespace cgl
 		void setOutputMode();
 
 #endif // _WIN32
+
+#ifdef __linux__
+        std::string findKeyboardDevice();
+#endif // __linux__
 
         void clear();
 
@@ -166,6 +173,13 @@ namespace cgl
         
         DWORD m_lastMouseButtonState { 0u };
 #endif // _WIN32
+
+#ifdef __linux__
+
+        libevdev *keyboardDevice { nullptr };
+        int keyboardFd { -1 };
+
+#endif // __linux__
 
         std::array<bool, static_cast<size_t>(KeyCode::Count)> m_keyStates { false };
         

@@ -29,4 +29,12 @@ target_include_directories(
     $<INSTALL_INTERFACE:include>
 )
 
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(LIBEVDEV REQUIRED libevdev)
+    target_include_directories(${PROJECT_NAME} PUBLIC ${LIBEVDEV_INCLUDE_DIRS})
+    message(STATUS "LIBEVDEV_INCLUDE_DIRS: ${LIBEVDEV_INCLUDE_DIRS}")
+    target_link_libraries(${PROJECT_NAME} PUBLIC ${LIBEVDEV_LIBRARIES})
+endif()
+
 target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)

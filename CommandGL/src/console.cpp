@@ -9,6 +9,10 @@
 #if defined(__linux__) || defined(__APPLE__)
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <libevdev/libevdev.h>
+#include <fcntl.h>
+#include <dirent.h>
+#include <cstring>
 #endif
 
 namespace cgl
@@ -29,6 +33,11 @@ namespace cgl
             m_firstOutputMode
         );
 #endif // _WIN32
+
+#ifdef __linux__
+        libevdev_free(keyboardDevice);
+        close(keyboardFd);
+#endif // __linux__
     }
     
     Vector2<u32> Console::getSize() const {
@@ -190,7 +199,6 @@ namespace cgl
     }
 
 #endif // _WIN32
-
     void Console::writeCharacterBuffer(const CharacterBuffer &buffer) {
 #ifdef _WIN32
         SetConsoleCursorPosition(
@@ -210,6 +218,12 @@ namespace cgl
             throw std::runtime_error("WriteConsole failed. Error code: " + std::to_string(GetLastError()));
         }
 #endif // _WIN32
+
+#if defined(__linux__) || defined(__APPLE__)
+        std::cout << "\033[H";
+        std::string output_buffer(buffer.getCharacters().begin(), buffer.getCharacters().end());
+        std::cout << output_buffer;
+#endif // __linux__ || __APPLE__
     }
     
     void Console::init() {
@@ -220,11 +234,30 @@ namespace cgl
             throw std::runtime_error("Failed to get initial console input mode");
 
         if (!GetConsoleMode(m_handles.output, &m_firstOutputMode))
-			throw std::runtime_error("Failed to get initial console output mode");
+            throw std::runtime_error("Failed to get initial console output mode");
 
         setInputMode();
-		setOutputMode();
+        setOutputMode();
 #endif // _WIN32
+
+#ifdef __linux__
+        std::string devicePath = findKeyboardDevice();
+
+        if (devicePath.empty()) {
+            throw std::runtime_error("Failed to find keyboard device");
+        }
+
+        keyboardFd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
+
+        if (keyboardFd < 0) {
+            throw std::runtime_error("Failed to open keyboard device: " + devicePath);
+        }
+
+        if (libevdev_new_from_fd(keyboardFd, &keyboardDevice) < 0) {
+            close(keyboardFd);
+            throw std::runtime_error("Failed to initialize libevdev");
+        }
+#endif // __linux__
 
         clear();
     }
@@ -265,8 +298,39 @@ namespace cgl
         if (!SetConsoleMode(m_handles.output, mode))
             throw std::runtime_error("SetConsoleMode failed");
     }
-   
+
 #endif // _WIN32
+
+#ifdef __linux__
+    std::string Console::findKeyboardDevice() {
+        DIR *dir = opendir("/dev/input");
+        if (!dir) return "";
+
+        struct dirent *ent;
+        while ((ent = readdir(dir)) != nullptr) {
+            if (std::strncmp(ent->d_name, "event", 5) == 0) {
+                std::string path = "/dev/input/" + std::string(ent->d_name);
+                int fd = open(path.c_str(), O_RDONLY|O_NONBLOCK);
+                if (fd >= 0) {
+                    libevdev *dev = nullptr;
+                    if (libevdev_new_from_fd(fd, &dev) == 0) {
+                        const char* name = libevdev_get_name(dev);
+                        if (name && std::strstr(name, "keyboard")) {
+                            libevdev_free(dev);
+                            close(fd);
+                            closedir(dir);
+                            return path;
+                        }
+                        libevdev_free(dev);
+                    }
+                    close(fd);
+                }
+            }
+        }
+        closedir(dir);
+        return "";
+    }
+#endif // __linux__
 
     void Console::clear() {
 #ifdef _WIN32
@@ -291,8 +355,9 @@ namespace cgl
     }
 
     void Console::getEvents(std::vector<Event> &events) {
-#ifdef _WIN32
         events.clear();
+
+#ifdef _WIN32
 
         DWORD numberOfEvents;
 
@@ -312,8 +377,43 @@ namespace cgl
             &events_read
         );
 
-        return parseInputRecords(inputRecords, events);
+        parseInputRecords(inputRecords, events);
 #endif // _WIN32
+
+        for (u32 key = 0; key < static_cast<u32>(KeyCode::Count); ++key) {
+            if (key == static_cast<u32>(KeyCode::LeftMouseButton) ||
+                key == static_cast<u32>(KeyCode::RightMouseButton) ||
+                key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
+                continue;
+            }
+            bool was_pressed = false;
+
+#ifdef _WIN32
+            int code = getWinapiVK(static_cast<KeyCode>(key));
+            if (code == -1) continue;
+            was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
+#endif // _WIN32
+
+#ifdef __linux__
+            int code = getLinuxKey(static_cast<KeyCode>(key));
+            if (code == -1) continue;
+            was_pressed = libevdev_fetch_event_value(keyboardDevice, EV_KEY, code, nullptr) == 1;
+#endif // __linux__
+
+            if (was_pressed && !m_keyStates[key]) {
+                Event event;
+                event.setType<KeyPressEvent>();
+                event.key = static_cast<KeyCode>(key);
+                events.push_back(event);
+                m_keyStates[key] = true;
+            } else if (!was_pressed && m_keyStates[key]) {
+                Event event;
+                event.setType<KeyReleaseEvent>();
+                event.key = static_cast<KeyCode>(key);
+                events.push_back(event);
+                m_keyStates[key] = false;
+            }
+        }
     }
 
 #ifdef _WIN32
@@ -399,36 +499,15 @@ namespace cgl
                     break;
             }
         }
-
-        for (u32 key = 0; key < static_cast<u32>(KeyCode::Count); ++key)
-        {
-            if (key == static_cast<u32>(KeyCode::LeftMouseButton) ||
-                key == static_cast<u32>(KeyCode::RightMouseButton) ||
-                key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
-                continue;
-            }
-            bool was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
-
-            if (was_pressed && !m_keyStates[key]) {
-                Event event;
-                event.setType<KeyPressEvent>();
-                event.key = static_cast<KeyCode>(key);
-                events.push_back(event);
-                m_keyStates[key] = true;
-            } else if (!was_pressed && m_keyStates[key]) {
-                Event event;
-                event.setType<KeyReleaseEvent>();
-                event.key = static_cast<KeyCode>(key);
-                events.push_back(event);
-                m_keyStates[key] = false;
-            }
-        }
     }
+
+#endif // _WIN32
 
     const std::array<bool, static_cast<size_t>(KeyCode::Count)> &Console::getKeyStates() const {
         return m_keyStates;
     }
 
+#ifdef _WIN32
     std::wstring Console::stringToWideString(const std::string &str) const {      
         int size_needed = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), static_cast<int>(str.size()), NULL, 0);
         std::wstring wstr(size_needed, 0);

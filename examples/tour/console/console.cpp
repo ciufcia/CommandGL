@@ -1,6 +1,15 @@
 #include <cgl.hpp>
+#include <iostream>
 
 int main() {
+    cgl::Console console;
+    console.init();
+
+    auto s = console.getSize();
+
+    std::cout << "Console size: " << s.x << "x" << s.y << std::endl;
+
+    /*
     cgl::Framework framework;
 
     framework.initialize();
@@ -26,4 +35,5 @@ int main() {
 
         framework.update();
     }
+    */
 }

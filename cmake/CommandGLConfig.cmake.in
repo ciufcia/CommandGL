@@ -2,6 +2,11 @@ include(CMakeFindDependencyMacro)
 
 @PACKAGE_INIT@
 
-find_dependency(OpenMP)
+find_dependency(OpenMP REQUIRED)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(LIBEVDEV REQUIRED libevdev)
+endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/CommandGLTargets.cmake")
