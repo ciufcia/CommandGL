@@ -8,7 +8,7 @@ var searchData=
   ['get_5fsequence_5f3_5',['get_sequence_3',['../namespaceutf8_1_1internal.html#a9eb55d0254b1cdfefa5b7e2d173ad246',1,'utf8::internal']]],
   ['get_5fsequence_5f4_6',['get_sequence_4',['../namespaceutf8_1_1internal.html#a88cdfd5db83f47b80cc8bd50bdb2f514',1,'utf8::internal']]],
   ['getbuffer_7',['getBuffer',['../classcgl_1_1ScreenBuffer.html#a8c06a1df6e3979e506caa64a7800c07e',1,'cgl::ScreenBuffer']]],
-  ['getcharacters_8',['getcharacters',['../classcgl_1_1CharacterBuffer.html#a3d37f5567efc96566026545ade757609',1,'cgl::CharacterBuffer::getCharacters()'],['../classcgl_1_1CharacterBuffer.html#a630977e9b45a9fa5cd64a0a3e7b5c430',1,'cgl::CharacterBuffer::getCharacters() const']]],
+  ['getcharacters_8',['getcharacters',['../classcgl_1_1CharacterBuffer.html#a04d3f0fa64a3d1c0ae9b77dbd8c92b64',1,'cgl::CharacterBuffer::getCharacters()'],['../classcgl_1_1CharacterBuffer.html#a3266f93dc4339e7677902ba7ff31c94a',1,'cgl::CharacterBuffer::getCharacters() const']]],
   ['getcurrentfilter_9',['getCurrentFilter',['../classcgl_1_1FilterPipeline.html#a2217a6cca8bca8e660388160e36218ac',1,'cgl::FilterPipeline']]],
   ['getcurrenttime_10',['getCurrentTime',['../classcgl_1_1Clock.html#a377afe7b5217b5b5f24fbcc30cf5cf36',1,'cgl::Clock']]],
   ['getdurationinmicroseconds_11',['getDurationInMicroseconds',['../namespacecgl.html#a9e401deac65eb1d4c9f31c4a4db5d187',1,'cgl']]],
