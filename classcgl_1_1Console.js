@@ -4,17 +4,18 @@ var classcgl_1_1Console =
     [ "~Console", "classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1", null ],
     [ "Console", "classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03", null ],
     [ "clear", "classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9", null ],
-    [ "destroy", "classcgl_1_1Console.html#a8eb259e3c38d2cfeacba9ac3032d8e4d", null ],
+    [ "getConsoleEvents", "classcgl_1_1Console.html#ad57ce31e2860c5b3e5a28786f3d1082c", null ],
     [ "getEvents", "classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd", null ],
     [ "getKeyStates", "classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48", null ],
     [ "getSize", "classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011", null ],
     [ "init", "classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28", null ],
     [ "operator=", "classcgl_1_1Console.html#a0e7be696dd2c54324b47d0efc071af53", null ],
+    [ "reset", "classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3", null ],
     [ "stringToWideString", "classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237", null ],
     [ "wideStringToString", "classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff", null ],
     [ "writeCharacterBuffer", "classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06", null ],
     [ "EventManager", "classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f", null ],
     [ "Framework", "classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816", null ],
     [ "m_keyStates", "classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380", null ],
-    [ "m_lastMousePosition", "classcgl_1_1Console.html#ac0260dad4e340c9e8bd1d4fb16d93f4a", null ]
+    [ "m_lastMousePosition", "classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f", null ]
 ];

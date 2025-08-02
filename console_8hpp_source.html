@@ -157,101 +157,138 @@ $(document).ready(function(){initNavTree('console_8hpp_source.html',''); initRes
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#ifdef __linux__</span></div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keyword">struct </span>Handles</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            HANDLE input;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            HANDLE output;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        };</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        std::vector&lt;std::string&gt; findValidKeyboardDevices();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        std::vector&lt;std::string&gt; findValidMouseDevices();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span> addKeyboardDevice(<span class="keyword">const</span> std::string &amp;devicePath);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordtype">void</span> addMouseDevice(<span class="keyword">const</span> std::string &amp;devicePath);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordtype">void</span> removeKeyboardDevice(<span class="keyword">const</span> std::string &amp;devicePath);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordtype">void</span> removeMouseDevice(<span class="keyword">const</span> std::string &amp;devicePath);</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <a class="code hl_function" href="classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03">Console</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28">init</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#ifdef _WIN32</span></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordtype">void</span> getHandles();</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordtype">void</span> setInputMode();</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordtype">void</span> setOutputMode();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">struct </span>Handles</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            HANDLE input;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            HANDLE output;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        };</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">#ifdef __linux__</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        std::string findKeyboardDevice();</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9">clear</a>();</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a8eb259e3c38d2cfeacba9ac3032d8e4d">destroy</a>();</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">writeCharacterBuffer</a>(<span class="keyword">const</span> <a class="code hl_class" href="classcgl_1_1CharacterBuffer.html">CharacterBuffer</a> &amp;buffer);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd">getEvents</a>(std::vector&lt;Event&gt; &amp;events);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordtype">void</span> parseInputRecords(<span class="keyword">const</span> std::vector&lt;INPUT_RECORD&gt; &amp;inputRecords, std::vector&lt;Event&gt; &amp;events);</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keyword">const</span> std::array&lt;bool, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae93f994f01c537c4e2f7d8528c3eb5e9">KeyCode::Count</a>)&gt; &amp;<a class="code hl_function" href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">getKeyStates</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keyword">struct </span>DeviceData</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                std::string path;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                libevdev *device { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="keywordtype">int</span> fd { -1 };</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        };</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <a class="code hl_function" href="classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03">Console</a>();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28">init</a>();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3">reset</a>();</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237">  163</a></span>        std::wstring <a class="code hl_function" href="classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237">stringToWideString</a>(<span class="keyword">const</span> std::string &amp;str) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff">  164</a></span>        std::string <a class="code hl_function" href="classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff">wideStringToString</a>(<span class="keyword">const</span> std::wstring &amp;wstr) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>       </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        Handles m_handles;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">void</span> getHandles();</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordtype">void</span> setInputMode();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">void</span> setOutputMode();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        DWORD m_firstInputMode;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        DWORD m_firstOutputMode;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        DWORD m_lastMouseButtonState { 0u };</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">#ifdef __linux__</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        libevdev *keyboardDevice { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordtype">int</span> keyboardFd { -1 };</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">  184</a></span>        std::array&lt;bool, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae93f994f01c537c4e2f7d8528c3eb5e9">KeyCode::Count</a>)&gt; <a class="code hl_variable" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">m_keyStates</a> { <span class="keyword">false</span> };</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ac0260dad4e340c9e8bd1d4fb16d93f4a">  186</a></span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;u32&gt;</a> <a class="code hl_variable" href="classcgl_1_1Console.html#ac0260dad4e340c9e8bd1d4fb16d93f4a">m_lastMousePosition</a> { 0u, 0u };</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f">  188</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1EventManager.html">EventManager</a>;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816">  189</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1Framework.html">Framework</a>;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    };</div>
-</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#ifdef __linux__</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        std::string findKeyboardDevice();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        std::string findMouseDevice();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordtype">void</span> setTerminalRawMode();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordtype">void</span> resetTerminalMode();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keywordtype">void</span> clearDevices();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordtype">void</span> processKeyboardDeviceEvents(fd_set &amp;fds, DeviceData &amp;deviceData, std::vector&lt;Event&gt; &amp;events);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordtype">void</span> processMouseDeviceEvents(fd_set &amp;fds, DeviceData &amp;deviceData, std::vector&lt;Event&gt; &amp;events);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9">clear</a>();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">writeCharacterBuffer</a>(<span class="keyword">const</span> CharacterBuffer &amp;buffer);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd">getEvents</a>(std::vector&lt;Event&gt; &amp;events);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classcgl_1_1Console.html#ad57ce31e2860c5b3e5a28786f3d1082c">getConsoleEvents</a>(std::vector&lt;Event&gt; &amp;events);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordtype">void</span> parseInputRecords(<span class="keyword">const</span> std::vector&lt;INPUT_RECORD&gt; &amp;inputRecords, std::vector&lt;Event&gt; &amp;events);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">#endif </span><span class="comment">// CGL_CONSOLE_HPP</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">const</span> std::array&lt;bool, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae93f994f01c537c4e2f7d8528c3eb5e9">KeyCode::Count</a>)&gt; &amp;<a class="code hl_function" href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">getKeyStates</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237">  195</a></span>        std::wstring <a class="code hl_function" href="classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237">stringToWideString</a>(<span class="keyword">const</span> std::string &amp;str) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff">  196</a></span>        std::string <a class="code hl_function" href="classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff">wideStringToString</a>(<span class="keyword">const</span> std::wstring &amp;wstr) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>       </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        Handles m_handles;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        DWORD m_firstInputMode;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    DWORD m_firstOutputMode;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        DWORD m_lastMouseButtonState { 0u };</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="preprocessor">#ifdef __linux__</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        std::vector&lt;DeviceData&gt; m_keyboardDevices;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        std::vector&lt;DeviceData&gt; m_mouseDevices;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;i32&gt;</a> m_currentMousePosition { 0, 0 };</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        Vector2&lt;i32&gt; m_relativeMouseMovement { 0, 0 };</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        Vector2&lt;u32&gt; m_currentConsoleSize { 0, 0 };</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">  221</a></span>        std::array&lt;bool, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae93f994f01c537c4e2f7d8528c3eb5e9">KeyCode::Count</a>)&gt; <a class="code hl_variable" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">m_keyStates</a> { <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">  223</a></span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;i32&gt;</a> <a class="code hl_variable" href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">m_lastMousePosition</a> { 0, 0 };</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f">  225</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1EventManager.html">EventManager</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816">  226</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1Framework.html">Framework</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    };</div>
+</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">#endif </span><span class="comment">// CGL_CONSOLE_HPP</span></div>
 <div class="ttc" id="acharacter__buffer_8hpp_html"><div class="ttname"><a href="character__buffer_8hpp.html">character_buffer.hpp</a></div></div>
-<div class="ttc" id="aclasscgl_1_1CharacterBuffer_html"><div class="ttname"><a href="classcgl_1_1CharacterBuffer.html">cgl::CharacterBuffer</a></div><div class="ttdoc">A 2D buffer for storing wide characters with specified dimensions.</div><div class="ttdef"><b>Definition</b> character_buffer.hpp:19</div></div>
 <div class="ttc" id="aclasscgl_1_1ConsoleFont_html"><div class="ttname"><a href="classcgl_1_1ConsoleFont.html">cgl::ConsoleFont</a></div><div class="ttdoc">Represents a font configuration for the Windows console.</div><div class="ttdef"><b>Definition</b> console_font.hpp:46</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html"><div class="ttname"><a href="classcgl_1_1Console.html">cgl::Console</a></div><div class="ttdoc">Manages Windows console operations including display, input, and font configuration.</div><div class="ttdef"><b>Definition</b> console.hpp:29</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a0c4eff67afd3b0b62ead8e1d7ca23011"><div class="ttname"><a href="classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011">cgl::Console::getSize</a></div><div class="ttdeci">Vector2&lt; u32 &gt; getSize() const</div><div class="ttdoc">Gets the current size of the console window in character cells.</div><div class="ttdef"><b>Definition</b> console.cpp:43</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a0c4eff67afd3b0b62ead8e1d7ca23011"><div class="ttname"><a href="classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011">cgl::Console::getSize</a></div><div class="ttdeci">Vector2&lt; u32 &gt; getSize() const</div><div class="ttdoc">Gets the current size of the console window in character cells.</div><div class="ttdef"><b>Definition</b> console.cpp:29</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a0e7be696dd2c54324b47d0efc071af53"><div class="ttname"><a href="classcgl_1_1Console.html#a0e7be696dd2c54324b47d0efc071af53">cgl::Console::operator=</a></div><div class="ttdeci">Console &amp; operator=(const Console &amp;)=delete</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a1ccdb11302740c2f4e546b2c10da5c06"><div class="ttname"><a href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">cgl::Console::writeCharacterBuffer</a></div><div class="ttdeci">void writeCharacterBuffer(const CharacterBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> console.cpp:202</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a26b42ae3b6a9ce2133703f2aa2263d03"><div class="ttname"><a href="classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03">cgl::Console::Console</a></div><div class="ttdeci">Console()</div><div class="ttdef"><b>Definition</b> console.cpp:20</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a32cf70eead35c0ed587908c7709c56b1"><div class="ttname"><a href="classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1">cgl::Console::~Console</a></div><div class="ttdeci">~Console()</div><div class="ttdef"><b>Definition</b> console.cpp:24</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a1ccdb11302740c2f4e546b2c10da5c06"><div class="ttname"><a href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">cgl::Console::writeCharacterBuffer</a></div><div class="ttdeci">void writeCharacterBuffer(const CharacterBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> console.cpp:327</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a26b42ae3b6a9ce2133703f2aa2263d03"><div class="ttname"><a href="classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03">cgl::Console::Console</a></div><div class="ttdeci">Console()</div><div class="ttdef"><b>Definition</b> console.cpp:21</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a32cf70eead35c0ed587908c7709c56b1"><div class="ttname"><a href="classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1">cgl::Console::~Console</a></div><div class="ttdeci">~Console()</div><div class="ttdef"><b>Definition</b> console.cpp:25</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a366684925dd1ec44ec958d453743a237"><div class="ttname"><a href="classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237">cgl::Console::stringToWideString</a></div><div class="ttdeci">std::wstring stringToWideString(const std::string &amp;str) const</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a44251a24d2a86d910707542320b8ae73"><div class="ttname"><a href="classcgl_1_1Console.html#a44251a24d2a86d910707542320b8ae73">cgl::Console::Console</a></div><div class="ttdeci">Console(const Console &amp;)=delete</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a59029e71ccf812f33102b0629558ad48"><div class="ttname"><a href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">cgl::Console::getKeyStates</a></div><div class="ttdeci">const std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; &amp; getKeyStates() const</div><div class="ttdef"><b>Definition</b> console.cpp:508</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a5eaacbe26a9e4b8c68aee0e584501fa9"><div class="ttname"><a href="classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9">cgl::Console::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition</b> console.cpp:337</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a59029e71ccf812f33102b0629558ad48"><div class="ttname"><a href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">cgl::Console::getKeyStates</a></div><div class="ttdeci">const std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; &amp; getKeyStates() const</div><div class="ttdef"><b>Definition</b> console.cpp:768</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a5eaacbe26a9e4b8c68aee0e584501fa9"><div class="ttname"><a href="classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9">cgl::Console::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition</b> console.cpp:557</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a7af23724cee1160a3ce95ace996625ff"><div class="ttname"><a href="classcgl_1_1Console.html#a7af23724cee1160a3ce95ace996625ff">cgl::Console::wideStringToString</a></div><div class="ttdeci">std::string wideStringToString(const std::wstring &amp;wstr) const</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a8eb259e3c38d2cfeacba9ac3032d8e4d"><div class="ttname"><a href="classcgl_1_1Console.html#a8eb259e3c38d2cfeacba9ac3032d8e4d">cgl::Console::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdef"><b>Definition</b> console.cpp:345</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a9efa70e1cf29a8c878b1f2faac0d9d28"><div class="ttname"><a href="classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28">cgl::Console::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition</b> console.cpp:229</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_ac0260dad4e340c9e8bd1d4fb16d93f4a"><div class="ttname"><a href="classcgl_1_1Console.html#ac0260dad4e340c9e8bd1d4fb16d93f4a">cgl::Console::m_lastMousePosition</a></div><div class="ttdeci">Vector2&lt; u32 &gt; m_lastMousePosition</div><div class="ttdef"><b>Definition</b> console.hpp:186</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_adfa07d03b6d6cc90486e38b1ea0ab3cd"><div class="ttname"><a href="classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd">cgl::Console::getEvents</a></div><div class="ttdeci">void getEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:359</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_af7a55c6930b16fb03587c13683fce380"><div class="ttname"><a href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">cgl::Console::m_keyStates</a></div><div class="ttdeci">std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; m_keyStates</div><div class="ttdef"><b>Definition</b> console.hpp:184</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a9efa70e1cf29a8c878b1f2faac0d9d28"><div class="ttname"><a href="classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28">cgl::Console::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition</b> console.cpp:353</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_ac77a68a31c16491cdf850f27bceddd8f"><div class="ttname"><a href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">cgl::Console::m_lastMousePosition</a></div><div class="ttdeci">Vector2&lt; i32 &gt; m_lastMousePosition</div><div class="ttdef"><b>Definition</b> console.hpp:223</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_ad57ce31e2860c5b3e5a28786f3d1082c"><div class="ttname"><a href="classcgl_1_1Console.html#ad57ce31e2860c5b3e5a28786f3d1082c">cgl::Console::getConsoleEvents</a></div><div class="ttdeci">void getConsoleEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:668</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_ada44d2cac46807d906f283c4763afad3"><div class="ttname"><a href="classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3">cgl::Console::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> console.cpp:381</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_adfa07d03b6d6cc90486e38b1ea0ab3cd"><div class="ttname"><a href="classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd">cgl::Console::getEvents</a></div><div class="ttdeci">void getEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:565</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_af7a55c6930b16fb03587c13683fce380"><div class="ttname"><a href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">cgl::Console::m_keyStates</a></div><div class="ttdeci">std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; m_keyStates</div><div class="ttdef"><b>Definition</b> console.hpp:221</div></div>
 <div class="ttc" id="aclasscgl_1_1EventManager_html"><div class="ttname"><a href="classcgl_1_1EventManager.html">cgl::EventManager</a></div><div class="ttdoc">Manages input events from the console and provides event handling capabilities.</div><div class="ttdef"><b>Definition</b> event_manager.hpp:21</div></div>
 <div class="ttc" id="aclasscgl_1_1Framework_html"><div class="ttname"><a href="classcgl_1_1Framework.html">cgl::Framework</a></div><div class="ttdoc">Main framework class that manages the graphics rendering pipeline and application lifecycle.</div><div class="ttdef"><b>Definition</b> framework.hpp:21</div></div>
 <div class="ttc" id="aclasscgl_1_1Vector2_html"><div class="ttname"><a href="classcgl_1_1Vector2.html">cgl::Vector2</a></div><div class="ttdoc">A simple 2D vector class template.</div><div class="ttdef"><b>Definition</b> vector2.hpp:22</div></div>
