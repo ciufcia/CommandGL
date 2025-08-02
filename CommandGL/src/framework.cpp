@@ -13,6 +13,8 @@ namespace cgl
         m_clock.tick();
 
         baseConsoleSize = console.getSize();
+
+        console.init();
     }
 
     void Framework::populateGlobalMemory() const {

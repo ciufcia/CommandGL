@@ -481,6 +481,138 @@ const std::unordered_map<KeyCode, int> keyCodeToLinuxKey = {
 
 int getLinuxKey(KeyCode key);
 
+const std::unordered_map<int, KeyCode> linuxKeyToKeyCode = {
+    { BTN_LEFT, KeyCode::LeftMouseButton },
+    { BTN_RIGHT, KeyCode::RightMouseButton },
+    { BTN_MIDDLE, KeyCode::MiddleMouseButton },
+    { KEY_BACKSPACE, KeyCode::BackSpace },
+    { KEY_TAB, KeyCode::Tab },
+    { KEY_CLEAR, KeyCode::Clear },
+    { KEY_ENTER, KeyCode::Enter },
+    { KEY_LEFTSHIFT, KeyCode::LeftShift },
+    { KEY_RIGHTSHIFT, KeyCode::RightShift },
+    { KEY_LEFTCTRL, KeyCode::LeftControl },
+    { KEY_RIGHTCTRL, KeyCode::RightControl },
+    { KEY_LEFTALT, KeyCode::LeftAlt },
+    { KEY_RIGHTALT, KeyCode::RightAlt },
+    { KEY_PAUSE, KeyCode::Pause },
+    { KEY_CAPSLOCK, KeyCode::CapsLock },
+    { KEY_SPACE, KeyCode::Spacebar },
+    { KEY_PAGEUP, KeyCode::PageUp },
+    { KEY_PAGEDOWN, KeyCode::PageDown },
+    { KEY_END, KeyCode::End },
+    { KEY_HOME, KeyCode::Home },
+    { KEY_SELECT, KeyCode::Select },
+    { KEY_PRINT, KeyCode::Print },
+    { KEY_SYSRQ, KeyCode::PrintScreen },
+    { KEY_INSERT, KeyCode::Insert },
+    { KEY_DELETE, KeyCode::Delete },
+    { KEY_HELP, KeyCode::Help },
+    { KEY_KPASTERISK, KeyCode::Multiply },
+    { KEY_KPPLUS, KeyCode::Add },
+    { KEY_KPENTER, KeyCode::Separator },
+    { KEY_KPMINUS, KeyCode::Subtract },
+    { KEY_KPDOT, KeyCode::Decimal },
+    { KEY_KPSLASH, KeyCode::Divide },
+    { KEY_NUMLOCK, KeyCode::NumLock },
+    { KEY_SCROLLLOCK, KeyCode::ScrollLock },
+    { KEY_MUTE, KeyCode::VolumeMute },
+    { KEY_VOLUMEDOWN, KeyCode::VolumeDown },
+    { KEY_VOLUMEUP, KeyCode::VolumeUp },
+    { KEY_NEXTSONG, KeyCode::NextTrack },
+    { KEY_PREVIOUSSONG, KeyCode::PreviousTrack },
+    { KEY_STOPCD, KeyCode::Stop },
+    { KEY_PLAYPAUSE, KeyCode::PlayPause },
+    { KEY_SEMICOLON, KeyCode::Semicolon },
+    { KEY_EQUAL, KeyCode::Plus },
+    { KEY_COMMA, KeyCode::Comma },
+    { KEY_MINUS, KeyCode::Minus },
+    { KEY_DOT, KeyCode::Period },
+    { KEY_SLASH, KeyCode::ForwardSlash },
+    { KEY_GRAVE, KeyCode::Backquote },
+    { KEY_LEFTBRACE, KeyCode::SquareBracketOpen },
+    { KEY_BACKSLASH, KeyCode::BackwardSlash },
+    { KEY_RIGHTBRACE, KeyCode::SquareBracketClose },
+    { KEY_APOSTROPHE, KeyCode::Apostrophe },
+    { KEY_ESC, KeyCode::Escape },
+    { KEY_KP0, KeyCode::Numpad0 },
+    { KEY_KP1, KeyCode::Numpad1 },
+    { KEY_KP2, KeyCode::Numpad2 },
+    { KEY_KP3, KeyCode::Numpad3 },
+    { KEY_KP4, KeyCode::Numpad4 },
+    { KEY_KP5, KeyCode::Numpad5 },
+    { KEY_KP6, KeyCode::Numpad6 },
+    { KEY_KP7, KeyCode::Numpad7 },
+    { KEY_KP8, KeyCode::Numpad8 },
+    { KEY_KP9, KeyCode::Numpad9 },
+    { KEY_LEFT, KeyCode::Left },
+    { KEY_UP, KeyCode::Up },
+    { KEY_RIGHT, KeyCode::Right },
+    { KEY_DOWN, KeyCode::Down },
+    { KEY_0, KeyCode::Zero },
+    { KEY_1, KeyCode::One },
+    { KEY_2, KeyCode::Two },
+    { KEY_3, KeyCode::Three },
+    { KEY_4, KeyCode::Four },
+    { KEY_5, KeyCode::Five },
+    { KEY_6, KeyCode::Six },
+    { KEY_7, KeyCode::Seven },
+    { KEY_8, KeyCode::Eight },
+    { KEY_9, KeyCode::Nine },
+    { KEY_A, KeyCode::A },
+    { KEY_B, KeyCode::B },
+    { KEY_C, KeyCode::C },
+    { KEY_D, KeyCode::D },
+    { KEY_E, KeyCode::E },
+    { KEY_F, KeyCode::F },
+    { KEY_G, KeyCode::G },
+    { KEY_H, KeyCode::H },
+    { KEY_I, KeyCode::I },
+    { KEY_J, KeyCode::J },
+    { KEY_K, KeyCode::K },
+    { KEY_L, KeyCode::L },
+    { KEY_M, KeyCode::M },
+    { KEY_N, KeyCode::N },
+    { KEY_O, KeyCode::O },
+    { KEY_P, KeyCode::P },
+    { KEY_Q, KeyCode::Q },
+    { KEY_R, KeyCode::R },
+    { KEY_S, KeyCode::S },
+    { KEY_T, KeyCode::T },
+    { KEY_U, KeyCode::U },
+    { KEY_V, KeyCode::V },
+    { KEY_W, KeyCode::W },
+    { KEY_X, KeyCode::X },
+    { KEY_Y, KeyCode::Y },
+    { KEY_Z, KeyCode::Z },
+    { KEY_F1, KeyCode::F1 },
+    { KEY_F2, KeyCode::F2 },
+    { KEY_F3, KeyCode::F3 },
+    { KEY_F4, KeyCode::F4 },
+    { KEY_F5, KeyCode::F5 },
+    { KEY_F6, KeyCode::F6 },
+    { KEY_F7, KeyCode::F7 },
+    { KEY_F8, KeyCode::F8 },
+    { KEY_F9, KeyCode::F9 },
+    { KEY_F10, KeyCode::F10 },
+    { KEY_F11, KeyCode::F11 },
+    { KEY_F12, KeyCode::F12 },
+    { KEY_F13, KeyCode::F13 },
+    { KEY_F14, KeyCode::F14 },
+    { KEY_F15, KeyCode::F15 },
+    { KEY_F16, KeyCode::F16 },
+    { KEY_F17, KeyCode::F17 },
+    { KEY_F18, KeyCode::F18 },
+    { KEY_F19, KeyCode::F19 },
+    { KEY_F20, KeyCode::F20 },
+    { KEY_F21, KeyCode::F21 },
+    { KEY_F22, KeyCode::F22 },
+    { KEY_F23, KeyCode::F23 },
+    { KEY_F24, KeyCode::F24 }
+};
+
+KeyCode getKeyCodeFromLinuxKey(int key);
+
 #endif // __linux__
 
     /**
@@ -519,20 +651,13 @@ int getLinuxKey(KeyCode key);
          * For other event types, this field may contain KeyCode::Invalid.
          */
         KeyCode key { KeyCode::Invalid };
-
-        /**
-         * @brief The current mouse cursor position in console character coordinates.
-         * 
-         * This field is valid for MouseMoveEvent and other mouse-related events.
-         */
-        Vector2<u32> mousePosition { 0u, 0u };
         
         /**
          * @brief The change in mouse position since the last mouse event.
          * 
          * This field is valid for MouseMoveEvent and represents the movement delta.
          */
-        Vector2<u32> mouseDelta { 0u, 0u };
+        Vector2<i32> mouseDelta { 0u, 0u };
         
         /**
          * @brief The scroll wheel delta for mouse scroll events.

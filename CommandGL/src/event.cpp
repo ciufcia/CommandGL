@@ -20,5 +20,14 @@ int getLinuxKey(KeyCode key) {
     }
     return -1;
 }
+
+KeyCode getKeyCodeFromLinuxKey(int key) {
+    for (const auto &pair : keyCodeToLinuxKey) {
+        if (pair.second == key) {
+            return pair.first;
+        }
+    }
+    return KeyCode::Invalid;
+}
 #endif // __linux__
 }

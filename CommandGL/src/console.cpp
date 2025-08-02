@@ -13,31 +13,17 @@
 #include <fcntl.h>
 #include <dirent.h>
 #include <cstring>
+#include <termios.h>
 #endif
 
 namespace cgl
 {
     Console::Console() {
-        init();
+        
     }
     
     Console::~Console() {
-#ifdef _WIN32
-        SetConsoleMode(
-            m_handles.input,
-            m_firstInputMode
-        );
-
-        SetConsoleMode(
-            m_handles.output,
-            m_firstOutputMode
-        );
-#endif // _WIN32
-
-#ifdef __linux__
-        libevdev_free(keyboardDevice);
-        close(keyboardFd);
-#endif // __linux__
+        reset();
     }
     
     Vector2<u32> Console::getSize() const {
@@ -199,6 +185,145 @@ namespace cgl
     }
 
 #endif // _WIN32
+
+#ifdef __linux__
+
+    std::vector<std::string> Console::findValidKeyboardDevices() {
+        std::vector<std::string> devices;
+        DIR *dir = opendir("/dev/input");
+        if (!dir) return devices;
+
+        struct dirent *ent;
+        while ((ent = readdir(dir)) != nullptr) {
+            if (std::strncmp(ent->d_name, "event", 5) == 0) {
+                std::string path = "/dev/input/" + std::string(ent->d_name);
+                int fd = open(path.c_str(), O_RDONLY | O_NONBLOCK);
+                if (fd >= 0) {
+                    libevdev *dev = nullptr;
+                    if (libevdev_new_from_fd(fd, &dev) == 0) {
+                        if (libevdev_has_event_type(dev, EV_KEY) &&
+                            libevdev_has_event_code(dev, EV_KEY, KEY_A)) {
+                            devices.push_back(path);
+                        }
+                        libevdev_free(dev);
+                    }
+                    close(fd);
+                }
+            }
+        }
+        closedir(dir);
+        return devices;
+    }
+
+    std::vector<std::string> Console::findValidMouseDevices() {
+        std::vector<std::string> devices;
+        DIR *dir = opendir("/dev/input");
+        if (!dir) return devices;
+
+        struct dirent *ent;
+        while ((ent = readdir(dir)) != nullptr) {
+            if (std::strncmp(ent->d_name, "event", 5) == 0) {
+                std::string path = "/dev/input/" + std::string(ent->d_name);
+                int fd = open(path.c_str(), O_RDONLY | O_NONBLOCK);
+                if (fd >= 0) {
+                    libevdev *dev = nullptr;
+                    if (libevdev_new_from_fd(fd, &dev) == 0) {
+                        bool has_rel_x = libevdev_has_event_code(dev, EV_REL, REL_X);
+                        bool has_rel_y = libevdev_has_event_code(dev, EV_REL, REL_Y);
+                        bool has_rel_wheel = libevdev_has_event_code(dev, EV_REL, REL_WHEEL);
+                        bool has_btn_left = libevdev_has_event_code(dev, EV_KEY, BTN_LEFT);
+                        bool has_btn_right = libevdev_has_event_code(dev, EV_KEY, BTN_RIGHT);
+                        bool has_btn_middle = libevdev_has_event_code(dev, EV_KEY, BTN_MIDDLE);
+                        if (
+                            libevdev_has_event_type(dev, EV_REL) ||
+                            libevdev_has_event_type(dev, EV_KEY) ||
+                            has_rel_x || has_rel_y || has_rel_wheel ||
+                            has_btn_left || has_btn_right || has_btn_middle
+                        ) {
+                            devices.push_back(path);
+                        }
+                        libevdev_free(dev);
+                    }
+                    close(fd);
+                }
+            }
+        }
+        closedir(dir);
+        return devices;
+    }
+
+    void Console::addKeyboardDevice(const std::string &devicePath) {
+        for (auto &device : m_keyboardDevices) {
+            if (device.path == devicePath) {
+                throw std::runtime_error("Keyboard device already added: " + devicePath);
+            }
+        }
+
+        DeviceData deviceData;
+        deviceData.path = devicePath;
+
+        deviceData.fd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
+        if (deviceData.fd < 0) {
+            throw std::runtime_error("Failed to open keyboard device: " + devicePath);
+        }
+
+        if (libevdev_new_from_fd(deviceData.fd, &deviceData.device) < 0) {
+            close(deviceData.fd);
+            throw std::runtime_error("Failed to initialize libevdev for keyboard");
+        }
+
+        m_keyboardDevices.push_back(deviceData);
+    }
+
+    void Console::addMouseDevice(const std::string &devicePath) {
+        for (auto &device : m_mouseDevices) {
+            if (device.path == devicePath) {
+                throw std::runtime_error("Mouse device already added: " + devicePath);
+            }
+        }
+
+        DeviceData deviceData;
+        deviceData.path = devicePath;
+
+        deviceData.fd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
+        if (deviceData.fd < 0) {
+            throw std::runtime_error("Failed to open mouse device: " + devicePath);
+        }
+
+        if (libevdev_new_from_fd(deviceData.fd, &deviceData.device) < 0) {
+            close(deviceData.fd);
+            throw std::runtime_error("Failed to initialize libevdev for mouse");
+        }
+
+        m_mouseDevices.push_back(deviceData);
+    }
+
+    void Console::removeKeyboardDevice(const std::string &devicePath) {
+        for (auto it = m_keyboardDevices.begin(); it != m_keyboardDevices.end(); ++it) {
+            if (it->path == devicePath) {
+                libevdev_free(it->device);
+                close(it->fd);
+                m_keyboardDevices.erase(it);
+                return;
+            }
+        }
+        throw std::runtime_error("Keyboard device not found: " + devicePath);
+    }
+
+    void Console::removeMouseDevice(const std::string &devicePath) {
+        for (auto it = m_mouseDevices.begin(); it != m_mouseDevices.end(); ++it) {
+            if (it->path == devicePath) {
+                libevdev_free(it->device);
+                close(it->fd);
+                m_mouseDevices.erase(it);
+                return;
+            }
+        }
+        throw std::runtime_error("Mouse device not found: " + devicePath);
+    }
+
+#endif // __linux__
+
     void Console::writeCharacterBuffer(const CharacterBuffer &buffer) {
 #ifdef _WIN32
         SetConsoleCursorPosition(
@@ -218,7 +343,6 @@ namespace cgl
             throw std::runtime_error("WriteConsole failed. Error code: " + std::to_string(GetLastError()));
         }
 #endif // _WIN32
-
 #if defined(__linux__) || defined(__APPLE__)
         std::cout << "\033[H";
         std::string output_buffer(buffer.getCharacters().begin(), buffer.getCharacters().end());
@@ -239,27 +363,39 @@ namespace cgl
         setInputMode();
         setOutputMode();
 #endif // _WIN32
-
 #ifdef __linux__
-        std::string devicePath = findKeyboardDevice();
+        setTerminalRawMode();
 
-        if (devicePath.empty()) {
-            throw std::runtime_error("Failed to find keyboard device");
+        for (const auto &devicePath : findValidKeyboardDevices()) {
+            addKeyboardDevice(devicePath);
         }
-
-        keyboardFd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
-
-        if (keyboardFd < 0) {
-            throw std::runtime_error("Failed to open keyboard device: " + devicePath);
-        }
-
-        if (libevdev_new_from_fd(keyboardFd, &keyboardDevice) < 0) {
-            close(keyboardFd);
-            throw std::runtime_error("Failed to initialize libevdev");
+        
+        for (const auto &devicePath : findValidMouseDevices()) {
+            addMouseDevice(devicePath);
         }
 #endif // __linux__
 
-        clear();
+        //clear();
+    }
+
+    void Console::reset() {
+#ifdef _WIN32
+        SetConsoleMode(
+            m_handles.input,
+            m_firstInputMode
+        );
+
+        SetConsoleMode(
+            m_handles.output,
+            m_firstOutputMode
+        );
+#endif // _WIN32
+
+#ifdef __linux__
+        resetTerminalMode();
+
+        clearDevices();
+#endif // __linux__
     }
 
 #ifdef _WIN32
@@ -304,55 +440,125 @@ namespace cgl
 #endif // _WIN32
 
 #ifdef __linux__
-    std::string Console::findKeyboardDevice() {
-        DIR *dir = opendir("/dev/input");
-        if (!dir) return "";
 
-        struct dirent *ent;
-        while ((ent = readdir(dir)) != nullptr) {
-            if (std::strncmp(ent->d_name, "event", 5) == 0) {
-                std::string path = "/dev/input/" + std::string(ent->d_name);
-                int fd = open(path.c_str(), O_RDONLY|O_NONBLOCK);
-                if (fd >= 0) {
-                    libevdev *dev = nullptr;
-                    if (libevdev_new_from_fd(fd, &dev) == 0) {
-                        const char* name = libevdev_get_name(dev);
-                        if (name && std::strstr(name, "keyboard")) {
-                            libevdev_free(dev);
-                            close(fd);
-                            closedir(dir);
-                            return path;
-                        }
-                        libevdev_free(dev);
+    void Console::setTerminalRawMode() {
+        struct termios raw;
+        if (tcgetattr(STDIN_FILENO, &raw) == -1) {
+            throw std::runtime_error("Failed to get terminal attributes");
+        }
+
+        raw.c_lflag &= ~(ICANON | ECHO); // Disable canonical mode and echo
+
+        if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) == -1) {
+            throw std::runtime_error("Failed to set terminal to raw mode");
+        }
+    }
+
+    void Console::resetTerminalMode() {
+        struct termios raw;
+        if (tcgetattr(STDIN_FILENO, &raw) == -1) {
+            throw std::runtime_error("Failed to get terminal attributes");
+        }
+
+        raw.c_lflag |= (ICANON | ECHO); // Enable canonical mode and echo
+
+        if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) == -1) {
+            throw std::runtime_error("Failed to reset terminal mode");
+        }
+    }
+
+    void Console::clearDevices() {
+        for (auto &device : m_keyboardDevices) {
+            libevdev_free(device.device);
+            close(device.fd);
+        }
+        m_keyboardDevices.clear();
+
+        for (auto &device : m_mouseDevices) {
+            libevdev_free(device.device);
+            close(device.fd);
+        }
+        m_mouseDevices.clear();
+    }
+
+    void Console::processKeyboardDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events) {
+        struct input_event inputEvent;
+        
+        if (FD_ISSET(deviceData.fd, &fds)) {
+            while (libevdev_next_event(deviceData.device, LIBEVDEV_READ_FLAG_NORMAL, &inputEvent) == 0) {
+                if (inputEvent.type == EV_KEY) {
+                    KeyCode mappedKey = getKeyCodeFromLinuxKey(inputEvent.code);
+                    if (mappedKey == KeyCode::Invalid) continue;
+
+                    if (inputEvent.value == 1 && !m_keyStates[static_cast<u32>(mappedKey)]) {
+                        Event event;
+                        event.setType<KeyPressEvent>();
+                        event.key = mappedKey;
+                        events.push_back(event);
+                        m_keyStates[static_cast<u32>(mappedKey)] = true;
+                    } else if (inputEvent.value == 0 && m_keyStates[static_cast<u32>(mappedKey)]) {
+                        Event event;
+                        event.setType<KeyReleaseEvent>();
+                        event.key = mappedKey;
+                        events.push_back(event);
+                        m_keyStates[static_cast<u32>(mappedKey)] = false;
                     }
-                    close(fd);
                 }
             }
         }
-        closedir(dir);
-        return "";
     }
+
+    void Console::processMouseDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events) {
+        struct input_event inputEvent;
+
+        if (FD_ISSET(deviceData.fd, &fds)) {
+            while (libevdev_next_event(deviceData.device, LIBEVDEV_READ_FLAG_NORMAL, &inputEvent) == 0) {
+                if (inputEvent.type == EV_REL) {
+                    if (inputEvent.code == REL_X) {
+                        m_relativeMouseMovement.x += inputEvent.value;
+                    } else if (inputEvent.code == REL_Y) {
+                        m_relativeMouseMovement.y += inputEvent.value;
+                    } else if (inputEvent.code == REL_WHEEL) {
+                        Event event;
+                        event.setType<MouseScrollEvent>();
+                        event.mouseScrollDelta = inputEvent.value;
+                        events.push_back(event);
+                    }
+                } else if (inputEvent.type == EV_ABS) {
+                    if (inputEvent.code == ABS_X) {
+                        m_currentMousePosition.x = inputEvent.value;
+                    } else if (inputEvent.code == ABS_Y) {
+                        m_currentMousePosition.y = inputEvent.value;
+                    }
+                } else if (inputEvent.type == EV_KEY) {
+                    KeyCode mappedKey = getKeyCodeFromLinuxKey(inputEvent.code);
+                    if (mappedKey == KeyCode::Invalid) continue;
+
+                    if (inputEvent.value == 1 && !m_keyStates[static_cast<u32>(mappedKey)]) {
+                        Event event;
+                        event.setType<KeyPressEvent>();
+                        event.key = mappedKey;
+                        events.push_back(event);
+                        m_keyStates[static_cast<u32>(mappedKey)] = true;
+                    } else if (inputEvent.value == 0 && m_keyStates[static_cast<u32>(mappedKey)]) {
+                        Event event;
+                        event.setType<KeyReleaseEvent>();
+                        event.key = mappedKey;
+                        events.push_back(event);
+                        m_keyStates[static_cast<u32>(mappedKey)] = false;
+                    }
+                }
+            }
+        }
+    }
+
 #endif // __linux__
 
     void Console::clear() {
 #ifdef _WIN32
         std::system("cls");
-#else
+#elif defined(__linux__) || defined(__APPLE__)
         std::system("clear");
-#endif // _WIN32
-    }
-
-    void Console::destroy() {
-#ifdef _WIN32
-        if (!SetConsoleMode(
-            m_handles.input,
-            m_firstInputMode
-        )) throw std::runtime_error("Failed to reset console input mode");
-
-        if (!SetConsoleMode(
-            m_handles.output,
-            m_firstOutputMode
-        )) throw std::runtime_error("Failed to reset console output mode");
 #endif // _WIN32
     }
 
@@ -380,7 +586,6 @@ namespace cgl
         );
 
         parseInputRecords(inputRecords, events);
-#endif // _WIN32
 
         for (u32 key = 0; key < static_cast<u32>(KeyCode::Count); ++key) {
             if (key == static_cast<u32>(KeyCode::LeftMouseButton) ||
@@ -388,19 +593,10 @@ namespace cgl
                 key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
                 continue;
             }
-            bool was_pressed = false;
 
-#ifdef _WIN32
             int code = getWinapiVK(static_cast<KeyCode>(key));
             if (code == -1) continue;
-            was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
-#endif // _WIN32
-
-#ifdef __linux__
-            int code = getLinuxKey(static_cast<KeyCode>(key));
-            if (code == -1) continue;
-            was_pressed = libevdev_fetch_event_value(keyboardDevice, EV_KEY, code, nullptr) == 1;
-#endif // __linux__
+            bool was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
 
             if (was_pressed && !m_keyStates[key]) {
                 Event event;
@@ -416,6 +612,70 @@ namespace cgl
                 m_keyStates[key] = false;
             }
         }
+#endif // _WIN32
+
+#ifdef __linux__
+        struct input_event inputEvent;
+
+        fd_set fds;
+        FD_ZERO(&fds);
+
+        int maxFd = -1;
+        for (const auto &device : m_keyboardDevices) {
+            FD_SET(device.fd, &fds);
+            maxFd = std::max(maxFd, device.fd);
+        }
+        for (const auto &device : m_mouseDevices) {
+            FD_SET(device.fd, &fds);
+            maxFd = std::max(maxFd, device.fd);
+        }
+
+        struct timeval tv;
+        tv.tv_sec = 0;
+        tv.tv_usec = 0;
+        int ret = select(maxFd, &fds, nullptr, nullptr, &tv);
+
+        if (ret > 0) {
+            for (auto &device : m_mouseDevices) {
+                processMouseDeviceEvents(fds, device, events);
+            }
+
+            Event event;
+            event.setType<MouseMoveEvent>();
+
+            Vector2<i32> absoluteDelta = m_currentMousePosition - m_lastMousePosition;
+            if (absoluteDelta.magnitudeSquared() > m_relativeMouseMovement.magnitudeSquared()) {
+                event.mouseDelta = absoluteDelta;
+            } else {
+                event.mouseDelta = m_relativeMouseMovement;
+            }
+            if (event.mouseDelta != Vector2<i32>{0, 0}) {
+                events.push_back(event);
+            }
+
+            m_lastMousePosition = m_currentMousePosition;
+            m_relativeMouseMovement = {0, 0};
+
+            for (auto &device : m_keyboardDevices) {
+                processKeyboardDeviceEvents(fds, device, events);
+            }
+        }
+#endif // __linux__
+
+        getConsoleEvents(events);
+    }
+
+    void Console::getConsoleEvents(std::vector<Event> &events) {
+#ifdef __linux__
+        Vector2<u32> size = getSize();
+        if (size.x != m_currentConsoleSize.x || size.y != m_currentConsoleSize.y) {
+            Event event;
+            event.setType<ConsoleEvent>();
+            event.newSize = size;
+            events.push_back(event);
+            m_currentConsoleSize = size;
+        }
+#endif // __linux__
     }
 
 #ifdef _WIN32
