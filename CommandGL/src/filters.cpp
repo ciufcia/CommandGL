@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <utf8.h>
 
 namespace cgl
 {
@@ -101,41 +102,41 @@ namespace cgl
             auto castedFilterData = static_cast<RGBSingleCharacterData *>(filterData);
             auto castedPassData = static_cast<filter_pass_data::CharacterBufferSinglePass *>(passData);
 
-            std::wstring &characters = castedPassData->characterBuffer->getCharacters();
+            std::string &characters = castedPassData->characterBuffer->getCharacters();
             std::vector<Color> &colors = castedPassData->screenBuffer->getBuffer();
             
             characters.clear();
 
             Color currentColor = colors[0];
 
-            characters += L"\x1b[38;2;" +
-                          std::to_wstring(currentColor.r) +
-                          L";" +
-                          std::to_wstring(currentColor.g) +
-                          L";" +
-                          std::to_wstring(currentColor.b) +
-                          L"m";
+            characters += "\x1b[38;2;" +
+                          std::to_string(currentColor.r) +
+                          ";" +
+                          std::to_string(currentColor.g) +
+                          ";" +
+                          std::to_string(currentColor.b) +
+                          "m";
 
             for (int y = 0; y < castedPassData->screenBuffer->getSize().y; y++) {
                 for (int x = 0; x < castedPassData->screenBuffer->getSize().x; x++) {
                     if (colors[y * castedPassData->screenBuffer->getSize().x + x] != currentColor) {
                         currentColor = colors[y * castedPassData->screenBuffer->getSize().x + x];
-                        characters += L"\x1b[38;2;" +
-                                      std::to_wstring(currentColor.r) +
-                                      L";" +
-                                      std::to_wstring(currentColor.g) +
-                                      L";" +
-                                      std::to_wstring(currentColor.b) +
-                                      L"m";
+                        characters += "\x1b[38;2;" +
+                                      std::to_string(currentColor.r) +
+                                      ";" +
+                                      std::to_string(currentColor.g) +
+                                      ";" +
+                                      std::to_string(currentColor.b) +
+                                      "m";
                     }
 
-                    characters += L"@";   
+                    utf8::append(0x2588, std::back_inserter(characters));
                 }
 
-                characters += L"\x1b[1E\x1b[0G";
+                characters += "\x1b[1E\x1b[0G";
             }
 
-            characters += L"\x1b[0m";
+            characters += "\x1b[0m";
         }
     }
 

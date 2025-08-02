@@ -109,7 +109,7 @@ namespace cgl
                 static_cast<i32>(std::ceil(triangle.bottomRight.y - triangle.topLeft.y))
             };
 
-            triangleBuffer.resize(size.x * size.y);
+            triangleBuffer.resize((size.x + 1) * (size.y + 1));
 
             #pragma omp parallel for collapse(2) schedule(dynamic)
             for (int y = static_cast<int>(triangle.topLeft.y); y <= static_cast<int>(triangle.bottomRight.y); ++y)

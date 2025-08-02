@@ -208,7 +208,7 @@ namespace cgl
 
         DWORD characters_written;
 
-        if (!WriteConsoleW(
+        if (!WriteConsoleA(
             m_handles.output,
             buffer.getCharacters().data(),
             static_cast<DWORD>(buffer.getCharacters().size()),
@@ -297,6 +297,8 @@ namespace cgl
             | ENABLE_WRAP_AT_EOL_OUTPUT;
         if (!SetConsoleMode(m_handles.output, mode))
             throw std::runtime_error("SetConsoleMode failed");
+
+        SetConsoleOutputCP(CP_UTF8);
     }
 
 #endif // _WIN32

@@ -13,11 +13,11 @@ namespace cgl
         m_size = size;
     }
 
-    std::wstring &CharacterBuffer::getCharacters() {
+    std::string &CharacterBuffer::getCharacters() {
         return m_characters;
     }
 
-    const std::wstring &CharacterBuffer::getCharacters() const {
+    const std::string &CharacterBuffer::getCharacters() const {
         return m_characters;
     }
 }

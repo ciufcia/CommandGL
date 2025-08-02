@@ -38,19 +38,19 @@ namespace cgl
          * @brief Gets the character buffer.
          * @return A reference to the string containing the characters.
          */
-        std::wstring &getCharacters();
+        std::string &getCharacters();
 
         /**
          * @brief Gets the character buffer.
          * @return A const reference to the string containing the characters.
          */
-        const std::wstring &getCharacters() const;
+        const std::string &getCharacters() const;
 
     private:
 
         Vector2<u32> m_size { 0u, 0u };
 
-        std::wstring m_characters;
+        std::string m_characters;
     };
 }
 
