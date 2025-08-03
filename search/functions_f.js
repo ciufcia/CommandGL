@@ -20,12 +20,12 @@ var searchData=
   ['setrawdata_17',['setrawdata',['../classcgl_1_1Texture.html#a4b41feadbb79da416f7faaff2d3f2889',1,'cgl::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, const std::vector&lt; Color &gt; &amp;&amp;data)'],['../classcgl_1_1Texture.html#a30a6519ca4b799a062d23f7c07762b43',1,'cgl::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, const std::vector&lt; Color &gt; &amp;data)']]],
   ['setrotation_18',['setRotation',['../classcgl_1_1Transform.html#af5b38594d5e112e23f526845497020f6',1,'cgl::Transform']]],
   ['setscale_19',['setScale',['../classcgl_1_1Transform.html#a10764559e6aaa0381169615ebd915a32',1,'cgl::Transform']]],
-  ['setsize_20',['setsize',['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()'],['../classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe',1,'cgl::Texture::setSize()'],['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()']]],
+  ['setsize_20',['setsize',['../classcgl_1_1ScreenBuffer.html#a584b3603ec9cbdfb19e3551c39405988',1,'cgl::ScreenBuffer::setSize()'],['../classcgl_1_1Texture.html#a4b12bf88b2d8821f4ae08e4d9d6e8bfe',1,'cgl::Texture::setSize()'],['../classcgl_1_1drawables_1_1Rectangle.html#a0e03632ec6e67410f71efab101fee3fe',1,'cgl::drawables::Rectangle::setSize()'],['../classcgl_1_1CharacterBuffer.html#a0a8555589ffeaaf2192b660668579680',1,'cgl::CharacterBuffer::setSize()']]],
   ['settargetframetime_21',['setTargetFrameTime',['../classcgl_1_1Framework.html#a28343c052177d15c66536429102f5fba',1,'cgl::Framework']]],
   ['settype_22',['setType',['../classcgl_1_1Event.html#ad592d94f61f08ef34592e4097ef979bf',1,'cgl::Event']]],
   ['singlecolor_23',['singleColor',['../namespacecgl_1_1filters.html#ace308d77c8bcf61290611c27e3f96e9c',1,'cgl::filters']]],
   ['start_24',['start',['../classcgl_1_1FilterPipeline.html#ad4638c05db02ee5a1664019728581cb8',1,'cgl::FilterPipeline']]],
-  ['starts_5fwith_5fbom_25',['starts_with_bom',['../namespaceutf8.html#a498c8e7d7a6fd92d4672ef05661dc783',1,'utf8::starts_with_bom(octet_iterator it, octet_iterator end)'],['../namespaceutf8.html#abc10dffbc3ce44d72dea5f1471d8589f',1,'utf8::starts_with_bom(const std::string &amp;s)'],['../namespaceutf8.html#a398e0d19bf8e1e72d7ed6a5bf5ef4559',1,'utf8::starts_with_bom(std::string_view s)'],['../namespaceutf8.html#aaaeb876ee2777112f087a0ddd228952e',1,'utf8::starts_with_bom(const std::u8string &amp;s)']]],
+  ['starts_5fwith_5fbom_25',['starts_with_bom',['../namespaceutf8.html#a498c8e7d7a6fd92d4672ef05661dc783',1,'utf8::starts_with_bom(octet_iterator it, octet_iterator end)'],['../namespaceutf8.html#aaaeb876ee2777112f087a0ddd228952e',1,'utf8::starts_with_bom(const std::u8string &amp;s)'],['../namespaceutf8.html#a398e0d19bf8e1e72d7ed6a5bf5ef4559',1,'utf8::starts_with_bom(std::string_view s)'],['../namespaceutf8.html#abc10dffbc3ce44d72dea5f1471d8589f',1,'utf8::starts_with_bom(const std::string &amp;s)']]],
   ['stbi_5fconvert_5fiphone_5fpng_5fto_5frgb_26',['stbi_convert_iphone_png_to_rgb',['../stb__image_8h.html#a23525ef2b882f3de426b47ecf8d9151b',1,'stb_image.h']]],
   ['stbi_5ffailure_5freason_27',['stbi_failure_reason',['../stb__image_8h.html#ac72f312f610a7df1519ea0f2a2f94be9',1,'stb_image.h']]],
   ['stbi_5fflip_5fvertically_5fon_5fwrite_28',['stbi_flip_vertically_on_write',['../stb__image__write_8h.html#a5c41a5d16dc665edd2489b982ba29b85',1,'stb_image_write.h']]],
@@ -78,6 +78,5 @@ var searchData=
   ['stbi_5fzlib_5fdecode_5fnoheader_5fbuffer_75',['stbi_zlib_decode_noheader_buffer',['../stb__image_8h.html#a0d12efc011adfff7521f3b924feb0b0e',1,'stb_image.h']]],
   ['stbi_5fzlib_5fdecode_5fnoheader_5fmalloc_76',['stbi_zlib_decode_noheader_malloc',['../stb__image_8h.html#ad6b5cd73a89037832ee2b2872a17bd1b',1,'stb_image.h']]],
   ['step_77',['step',['../classcgl_1_1FilterPipeline.html#ae8d03fcfe05b0955ca02229ec9cbeea3',1,'cgl::FilterPipeline']]],
-  ['stringtowidestring_78',['stringToWideString',['../classcgl_1_1Console.html#a366684925dd1ec44ec958d453743a237',1,'cgl::Console']]],
-  ['subtractiveblend_79',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
+  ['subtractiveblend_78',['subtractiveBlend',['../classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59',1,'cgl::Color']]]
 ];
