@@ -5,18 +5,11 @@ int main() {
     cgl::Console console;
     console.init();
 
-    auto d = console.findValidMouseDevices();
-    for (const auto &device : d) {
-        std::cout << "Mouse Device: " << device << std::endl;
-    }
-
     auto s = console.getSize();
 
     std::vector<cgl::Event> events;
 
     while (true) {
-        auto s = console.getSize();
-        std::cout << "Console Size: (" << s.x << ", " << s.y << ")" << std::endl;
         events.clear();
         console.getEvents(events);
         for (const auto &event : events) {

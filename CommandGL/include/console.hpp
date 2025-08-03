@@ -146,9 +146,9 @@ namespace cgl
 
         struct DeviceData
         {
-                std::string path;
-                libevdev *device { nullptr };
-                int fd { -1 };
+            std::string path;
+            libevdev *device { nullptr };
+            int fd { -1 };
         };
 
 #endif // __linux__
@@ -160,12 +160,21 @@ namespace cgl
         void init();
         void reset();
 
-#ifdef _WIN32
+        void clear();
+        void writeCharacterBuffer(const CharacterBuffer &buffer);
+        void getEvents(std::vector<Event> &events);
+        void getMouseEvents(std::vector<Event> &events);
+        void getKeyboardEvents(std::vector<Event> &events);
+        void getConsoleEvents(std::vector<Event> &events);
+        const std::array<bool, static_cast<size_t>(KeyCode::Count)> &getKeyStates() const;
 
+#ifdef _WIN32
         void getHandles();
         void setInputMode();
-	void setOutputMode();
-
+	    void setOutputMode();
+        void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords);
+        std::wstring stringToWideString(const std::string &str) const;
+        std::string wideStringToString(const std::wstring &wstr) const;
 #endif // _WIN32
 
 #ifdef __linux__
@@ -178,36 +187,25 @@ namespace cgl
         void processMouseDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
 #endif // __linux__
 
-        void clear();
-
-        void writeCharacterBuffer(const CharacterBuffer &buffer);
-
-        void getEvents(std::vector<Event> &events);
-
-        void getConsoleEvents(std::vector<Event> &events);
-
-#ifdef _WIN32
-        void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords, std::vector<Event> &events);
-#endif // _WIN32
-
-        const std::array<bool, static_cast<size_t>(KeyCode::Count)> &getKeyStates() const;
-
-        std::wstring stringToWideString(const std::string &str) const;
-        std::string wideStringToString(const std::wstring &wstr) const;
-
     private:
        
+        std::array<bool, static_cast<size_t>(KeyCode::Count)> m_keyStates { false }; 
+        Vector2<i32> m_lastMousePosition { 0, 0 };
+
 #ifdef _WIN32
         Handles m_handles;
 
         DWORD m_firstInputMode;
-	DWORD m_firstOutputMode;
+	    DWORD m_firstOutputMode;
         
         DWORD m_lastMouseButtonState { 0u };
+
+        std::vector<INPUT_RECORD> m_mouseInputRecords;
+        std::vector<INPUT_RECORD> m_keyboardInputRecords;
+        std::vector<INPUT_RECORD> m_consoleInputRecords;
 #endif // _WIN32
 
 #ifdef __linux__
-
         std::vector<DeviceData> m_keyboardDevices;
         std::vector<DeviceData> m_mouseDevices;
 
@@ -215,12 +213,7 @@ namespace cgl
         Vector2<i32> m_relativeMouseMovement { 0, 0 };
 
         Vector2<u32> m_currentConsoleSize { 0, 0 };
-
 #endif // __linux__
-
-        std::array<bool, static_cast<size_t>(KeyCode::Count)> m_keyStates { false };
-        
-        Vector2<i32> m_lastMousePosition { 0, 0 };
 
     friend class EventManager;
     friend class Framework;

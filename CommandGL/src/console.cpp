@@ -566,7 +566,6 @@ namespace cgl
         events.clear();
 
 #ifdef _WIN32
-
         DWORD numberOfEvents;
 
         if (!GetNumberOfConsoleInputEvents(
@@ -585,33 +584,7 @@ namespace cgl
             &events_read
         );
 
-        parseInputRecords(inputRecords, events);
-
-        for (u32 key = 0; key < static_cast<u32>(KeyCode::Count); ++key) {
-            if (key == static_cast<u32>(KeyCode::LeftMouseButton) ||
-                key == static_cast<u32>(KeyCode::RightMouseButton) ||
-                key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
-                continue;
-            }
-
-            int code = getWinapiVK(static_cast<KeyCode>(key));
-            if (code == -1) continue;
-            bool was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
-
-            if (was_pressed && !m_keyStates[key]) {
-                Event event;
-                event.setType<KeyPressEvent>();
-                event.key = static_cast<KeyCode>(key);
-                events.push_back(event);
-                m_keyStates[key] = true;
-            } else if (!was_pressed && m_keyStates[key]) {
-                Event event;
-                event.setType<KeyReleaseEvent>();
-                event.key = static_cast<KeyCode>(key);
-                events.push_back(event);
-                m_keyStates[key] = false;
-            }
-        }
+        parseInputRecords(inputRecords);
 #endif // _WIN32
 
 #ifdef __linux__
@@ -662,10 +635,120 @@ namespace cgl
         }
 #endif // __linux__
 
+        getMouseEvents(events);
+        getKeyboardEvents(events);
         getConsoleEvents(events);
     }
 
+    void Console::getMouseEvents(std::vector<Event> &events) {
+#ifdef _WIN32
+        for (const auto &record : m_mouseInputRecords) {
+            Event event;
+            DWORD currentMouseButtonState = record.Event.MouseEvent.dwButtonState;
+            Vector2<i32> currentMousePosition{
+                static_cast<i32>(record.Event.MouseEvent.dwMousePosition.X),
+                static_cast<i32>(record.Event.MouseEvent.dwMousePosition.Y)
+            };
+            Vector2<i32> mouseDelta = currentMousePosition - m_lastMousePosition;
+            m_lastMousePosition = currentMousePosition;
+
+            event.setType<KeyPressEvent>();
+            if (currentMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)]) {
+                event.key = KeyCode::LeftMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
+                events.push_back(event);
+            }
+            if (currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::RightMouseButton)]) {
+                event.key = KeyCode::RightMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
+                events.push_back(event);
+            }
+            if (currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::MiddleMouseButton)]) {
+                event.key = KeyCode::MiddleMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
+                events.push_back(event);
+            }
+
+            event.setType<KeyReleaseEvent>();
+            if (!(currentMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED) && (m_lastMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED)) {
+                event.key = KeyCode::LeftMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
+                events.push_back(event);
+            }
+            if (!(currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED) && (m_lastMouseButtonState & RIGHTMOST_BUTTON_PRESSED)) {
+                event.key = KeyCode::RightMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
+                events.push_back(event);
+            }
+            if (!(currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED) && (m_lastMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED)) {
+                event.key = KeyCode::MiddleMouseButton;
+                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
+                events.push_back(event);
+            }
+
+            m_lastMouseButtonState = currentMouseButtonState;
+
+            if (mouseDelta != Vector2<i32>{0, 0}) {
+                event.setType<MouseMoveEvent>();
+                event.mouseDelta = mouseDelta;
+                events.push_back(event);
+            }
+
+            if (record.Event.MouseEvent.dwEventFlags & MOUSE_WHEELED) {
+                event.setType<MouseScrollEvent>();
+                i16 d = static_cast<i16>(HIWORD(record.Event.MouseEvent.dwButtonState));
+                if (d > 0) {
+                    event.mouseScrollDelta = 1;
+                } else {
+                    event.mouseScrollDelta = -1;
+                }
+                events.push_back(event);
+            }
+        }
+#endif // _WIN32
+    }
+
+    void Console::getKeyboardEvents(std::vector<Event> &events) {
+#ifdef _WIN32
+        for (u32 key = 0; key < static_cast<u32>(KeyCode::Count); ++key) {
+            if (key == static_cast<u32>(KeyCode::LeftMouseButton) ||
+                key == static_cast<u32>(KeyCode::RightMouseButton) ||
+                key == static_cast<u32>(KeyCode::MiddleMouseButton)) {
+                continue;
+            }
+
+            int code = getWinapiVK(static_cast<KeyCode>(key));
+            if (code == -1) continue;
+            bool was_pressed = (GetAsyncKeyState(getWinapiVK(static_cast<KeyCode>(key))) & 0x8000) != 0;
+
+            if (was_pressed && !m_keyStates[key]) {
+                Event event;
+                event.setType<KeyPressEvent>();
+                event.key = static_cast<KeyCode>(key);
+                events.push_back(event);
+                m_keyStates[key] = true;
+            } else if (!was_pressed && m_keyStates[key]) {
+                Event event;
+                event.setType<KeyReleaseEvent>();
+                event.key = static_cast<KeyCode>(key);
+                events.push_back(event);
+                m_keyStates[key] = false;
+            }
+        }
+#endif // _WIN32
+    }
+
     void Console::getConsoleEvents(std::vector<Event> &events) {
+#ifdef _WIN32
+        for (const auto &record : m_consoleInputRecords) {
+            Event event;
+            event.setType<ConsoleEvent>();
+            event.newSize.x = record.Event.WindowBufferSizeEvent.dwSize.X;
+            event.newSize.y = record.Event.WindowBufferSizeEvent.dwSize.Y;
+            events.push_back(event);
+        }
+#endif // _WIN32
+
 #ifdef __linux__
         Vector2<u32> size = getSize();
         if (size.x != m_currentConsoleSize.x || size.y != m_currentConsoleSize.y) {
@@ -679,85 +762,18 @@ namespace cgl
     }
 
 #ifdef _WIN32
-    void Console::parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords, std::vector<Event> &events) {
-        for (const auto &record : inputRecords) {
-            Event event;
-            Vector2<u32> delta{0u, 0u};
-            DWORD currentMouseButtonState = record.Event.MouseEvent.dwButtonState;
+    void Console::parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords) {
+        m_mouseInputRecords.clear();
+        m_keyboardInputRecords.clear();
+        m_consoleInputRecords.clear();
 
+        for (const auto &record : inputRecords) {
             switch (record.EventType) {
                 case MOUSE_EVENT:
-
-                    event.mousePosition.x = record.Event.MouseEvent.dwMousePosition.X;
-                    event.mousePosition.y = record.Event.MouseEvent.dwMousePosition.Y;
-
-                    event.setType<KeyPressEvent>();
-                    if (currentMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)]) {
-                        event.key = KeyCode::LeftMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
-                        events.push_back(event);
-                    }
-                    if (currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::RightMouseButton)]) {
-                        event.key = KeyCode::RightMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
-                        events.push_back(event);
-                    }
-                    if (currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::MiddleMouseButton)]) {
-                        event.key = KeyCode::MiddleMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
-                        events.push_back(event);
-                    }
-
-                    event.setType<KeyReleaseEvent>();
-                    if (!(currentMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED) && (m_lastMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED)) {
-                        event.key = KeyCode::LeftMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
-                        events.push_back(event);
-                    }
-                    if (!(currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED) && (m_lastMouseButtonState & RIGHTMOST_BUTTON_PRESSED)) {
-                        event.key = KeyCode::RightMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
-                        events.push_back(event);
-                    }
-                    if (!(currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED) && (m_lastMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED)) {
-                        event.key = KeyCode::MiddleMouseButton;
-                        m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
-                        events.push_back(event);
-                    }
-
-                    m_lastMouseButtonState = currentMouseButtonState;
-
-                    delta = {
-                        static_cast<u32>(record.Event.MouseEvent.dwMousePosition.X) - m_lastMousePosition.x,
-                        static_cast<u32>(record.Event.MouseEvent.dwMousePosition.Y) - m_lastMousePosition.y
-                    };
-
-                    m_lastMousePosition = event.mousePosition;
-
-                    if (delta != Vector2<u32>{0u, 0u}) {
-                        event.setType<MouseMoveEvent>();
-                        events.push_back(event);
-                    }
-
-                    if (record.Event.MouseEvent.dwEventFlags & MOUSE_WHEELED) {
-                        event.setType<MouseScrollEvent>();
-                        i16 d = static_cast<i16>(HIWORD(record.Event.MouseEvent.dwButtonState));
-                        if (d > 0) {
-                            event.mouseScrollDelta = 1;
-                        } else {
-                            event.mouseScrollDelta = -1;
-                        }
-                        events.push_back(event);
-                    }
-
+                    m_mouseInputRecords.push_back(record);
                     break;
-
                 case WINDOW_BUFFER_SIZE_EVENT:
-
-                    event.setType<ConsoleEvent>();
-                    event.newSize.x = record.Event.WindowBufferSizeEvent.dwSize.X;
-                    event.newSize.y = record.Event.WindowBufferSizeEvent.dwSize.Y;
-                    events.push_back(event);
+                    m_consoleInputRecords.push_back(record);
                     break;
             }
         }

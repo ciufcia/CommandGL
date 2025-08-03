@@ -6,15 +6,14 @@
 namespace cgl
 {
     void Framework::initialize() {
+        console.init();
+        baseConsoleSize = console.getSize();
+
         populateGlobalMemory();
         initializeBuffers();
         initializeFilterPipelines();
 
         m_clock.tick();
-
-        baseConsoleSize = console.getSize();
-
-        console.init();
     }
 
     void Framework::populateGlobalMemory() const {
