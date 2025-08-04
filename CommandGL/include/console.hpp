@@ -8,6 +8,10 @@
 #ifdef __linux__
 #include <libevdev/libevdev.h>
 #endif // __linux__
+#ifdef __APPLE__
+#include <IOKit/hid/IOHIDManager.h>
+#include <thread>
+#endif // __APPLE__
 #include "vector2.hpp"
 #include "numeric_types.hpp"
 #include "character_buffer.hpp"
@@ -180,12 +184,29 @@ namespace cgl
 #ifdef __linux__
         std::string findKeyboardDevice();
         std::string findMouseDevice();
-        void setTerminalRawMode();
-        void resetTerminalMode();
         void clearDevices();
         void processKeyboardDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
         void processMouseDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
 #endif // __linux__
+
+#ifdef __APPLE__
+        static void keyboardInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event);
+        CFMutableDictionaryRef setupKeyboardDictionary();
+
+        static void mouseInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event);
+        CFMutableDictionaryRef setupMouseDictionary();
+
+        static void unifiedInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event);
+
+        void inputThreadFunction();
+        void setupInputThread();
+        void stopInputThread();
+#endif // __APPLE__
+
+#if defined(__linux__) || defined(__APPLE__)
+        void setTerminalRawMode();
+        void resetTerminalMode();
+#endif
 
     private:
        
@@ -208,12 +229,22 @@ namespace cgl
 #ifdef __linux__
         std::vector<DeviceData> m_keyboardDevices;
         std::vector<DeviceData> m_mouseDevices;
+#endif // __linux__
+
+#ifdef __APPLE__
+IOHIDManagerRef m_hidManager { nullptr };
+CFRunLoopRef m_runLoop { nullptr };
+std::thread m_inputThread;
+std::vector<Event> m_pendingEvents;
+std::mutex m_pendingEventsMutex;
+#endif
+
+#if defined(__linux__) || defined(__APPLE__)
+        Vector2<u32> m_currentConsoleSize { 0, 0 };
 
         Vector2<i32> m_currentMousePosition { 0, 0 };
         Vector2<i32> m_relativeMouseMovement { 0, 0 };
-
-        Vector2<u32> m_currentConsoleSize { 0, 0 };
-#endif // __linux__
+#endif // __linux__ || __APPLE__
 
     friend class EventManager;
     friend class Framework;

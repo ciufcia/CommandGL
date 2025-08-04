@@ -17,7 +17,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(BUILD_SHARED_LIBS OFF)
 set(WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
-# Find OpenMP for parallel processing
+if(APPLE)
+    set(LIBOMP_PATH "/usr/local/opt/libomp/lib/libomp.dylib" CACHE FILEPATH "Path to libomp library")
+    set(OpenMP_CXX_FLAGS "-Xpreprocessor -fopenmp")
+    set(OpenMP_CXX_LIB_NAMES "omp")
+    set(OpenMP_omp_LIBRARY "${LIBOMP_PATH}")
+endif()
+
 find_package(OpenMP REQUIRED)
 if(OpenMP_CXX_FOUND)
     message(STATUS "OpenMP found: ${OpenMP_CXX_VERSION}")

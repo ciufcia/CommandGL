@@ -38,3 +38,9 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
+
+if (APPLE)
+    find_library(COREFOUNDATION_FRAMEWORK CoreFoundation)
+    find_library(IOKIT_FRAMEWORK IOKit)
+    target_link_libraries(${PROJECT_NAME} PUBLIC ${COREFOUNDATION_FRAMEWORK} ${IOKIT_FRAMEWORK})
+endif()

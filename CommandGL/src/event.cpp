@@ -30,4 +30,22 @@ KeyCode getKeyCodeFromLinuxKey(int key) {
     return KeyCode::Invalid;
 }
 #endif // __linux__
+
+#ifdef __APPLE__
+KeyCode getKeyCodeFromMacVK(u32 key) {
+    auto it = hidUsageToKeyCode.find(key);
+    if (it != hidUsageToKeyCode.end()) {
+        return it->second;
+    }
+    return KeyCode::Invalid;
+}
+
+KeyCode getKeyCodeFromMacMouseVK(u32 key) {
+    auto it = macMouseVKToKeyCode.find(key);
+    if (it != macMouseVKToKeyCode.end()) {
+        return it->second;
+    }
+    return KeyCode::Invalid;
+}
+#endif // __APPLE__
 }

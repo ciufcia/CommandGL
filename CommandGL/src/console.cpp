@@ -6,10 +6,13 @@
 #include <algorithm>
 #include <cstdlib>
 
+#ifdef __linux__
+#include <libevdev/libevdev.h>
+#endif
+
 #if defined(__linux__) || defined(__APPLE__)
 #include <sys/ioctl.h>
 #include <unistd.h>
-#include <libevdev/libevdev.h>
 #include <fcntl.h>
 #include <dirent.h>
 #include <cstring>
@@ -363,9 +366,12 @@ namespace cgl
         setInputMode();
         setOutputMode();
 #endif // _WIN32
-#ifdef __linux__
-        setTerminalRawMode();
 
+#if defined(__linux__) || defined(__APPLE__)
+        setTerminalRawMode();
+#endif
+
+#ifdef __linux__
         for (const auto &devicePath : findValidKeyboardDevices()) {
             addKeyboardDevice(devicePath);
         }
@@ -374,6 +380,12 @@ namespace cgl
             addMouseDevice(devicePath);
         }
 #endif // __linux__
+
+#ifdef __APPLE__
+
+        setupInputThread();
+
+#endif // __APPLE__
 
         //clear();
     }
@@ -391,11 +403,17 @@ namespace cgl
         );
 #endif // _WIN32
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
         resetTerminalMode();
+#endif
 
+#ifdef __linux__
         clearDevices();
 #endif // __linux__
+
+#ifdef __APPLE__
+        stopInputThread();
+#endif // __APPLE__
     }
 
 #ifdef _WIN32
@@ -439,7 +457,7 @@ namespace cgl
 
 #endif // _WIN32
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 
     void Console::setTerminalRawMode() {
         struct termios raw;
@@ -460,12 +478,16 @@ namespace cgl
             throw std::runtime_error("Failed to get terminal attributes");
         }
 
-        raw.c_lflag |= (ICANON | ECHO); // Enable canonical mode and echo
+        raw.c_lflag |= (ICANON | ECHO);
 
         if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) == -1) {
             throw std::runtime_error("Failed to reset terminal mode");
         }
     }
+
+#endif // __linux__ || __APPLE__
+
+#ifdef __linux__
 
     void Console::clearDevices() {
         for (auto &device : m_keyboardDevices) {
@@ -553,6 +575,179 @@ namespace cgl
     }
 
 #endif // __linux__
+
+#ifdef __APPLE__
+    void Console::keyboardInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event) {
+        Console *console = static_cast<Console *>(context);
+
+        IOHIDElementRef element = IOHIDValueGetElement(event);
+        u32 usagePage = IOHIDElementGetUsagePage(element);
+        u32 usage = IOHIDElementGetUsage(element);
+
+        if (usagePage == kHIDPage_KeyboardOrKeypad) {
+            int pressed = IOHIDValueGetIntegerValue(event);
+            
+            KeyCode mappedKey = getKeyCodeFromMacVK(usage);
+            if (mappedKey == KeyCode::Invalid) return;
+
+            if (pressed == 1 && !console->m_keyStates[static_cast<size_t>(mappedKey)]) {
+                Event event;
+                event.setType<KeyPressEvent>();
+                event.key = mappedKey;
+                console->m_keyStates[static_cast<size_t>(mappedKey)] = true;
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_pendingEvents.push_back(event);
+            } else if (pressed == 0 && console->m_keyStates[static_cast<size_t>(mappedKey)]) {
+                Event event;
+                event.setType<KeyReleaseEvent>();
+                event.key = mappedKey;
+                console->m_keyStates[static_cast<size_t>(mappedKey)] = false;
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_pendingEvents.push_back(event);
+            }
+        }
+    }
+
+    CFMutableDictionaryRef Console::setupKeyboardDictionary() {
+        CFMutableDictionaryRef keyboardDictionary = CFDictionaryCreateMutable(
+            kCFAllocatorDefault,
+            0,
+            &kCFTypeDictionaryKeyCallBacks,
+            &kCFTypeDictionaryValueCallBacks
+        );
+
+        int page = kHIDPage_GenericDesktop;
+        CFDictionarySetValue(
+            keyboardDictionary,
+            CFSTR(kIOHIDDeviceUsagePageKey),
+            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page)
+        );
+        int usage = kHIDUsage_GD_Keyboard;
+        CFDictionarySetValue(
+            keyboardDictionary,
+            CFSTR(kIOHIDDeviceUsageKey),
+            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage)
+        );
+
+        return keyboardDictionary;
+    }
+
+    void Console::mouseInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event) {
+        Console *console = static_cast<Console *>(context);
+
+        IOHIDElementRef element = IOHIDValueGetElement(event);
+        u32 usagePage = IOHIDElementGetUsagePage(element);
+        u32 usage = IOHIDElementGetUsage(element);
+
+        if (usagePage == kHIDPage_Button) {
+            int pressed = IOHIDValueGetIntegerValue(event);
+            KeyCode mappedKey = getKeyCodeFromMacMouseVK(usage);
+            if (mappedKey == KeyCode::Invalid) return;
+
+            if (pressed == 1 && !console->m_keyStates[static_cast<size_t>(mappedKey)]) {
+                Event event;
+                event.setType<KeyPressEvent>();
+                event.key = mappedKey;
+                console->m_keyStates[static_cast<size_t>(mappedKey)] = true;
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_pendingEvents.push_back(event);
+            } else if (pressed == 0 && console->m_keyStates[static_cast<size_t>(mappedKey)]) {
+                Event event;
+                event.setType<KeyReleaseEvent>();
+                event.key = mappedKey;
+                console->m_keyStates[static_cast<size_t>(mappedKey)] = false;
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_pendingEvents.push_back(event);
+            }
+        } else if (usagePage == kHIDPage_GenericDesktop) {
+            int value = IOHIDValueGetIntegerValue(event);
+            if (usage == kHIDUsage_GD_X) {
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_currentMousePosition.x += value;
+            } else if (usage == kHIDUsage_GD_Y) {      
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_currentMousePosition.y += value;
+            } else if (usage == kHIDUsage_GD_Wheel) {
+                Event event;
+                event.setType<MouseScrollEvent>();
+                event.mouseScrollDelta = static_cast<i8>(value);
+                std::lock_guard<std::mutex> lock(console->m_pendingEventsMutex);
+                console->m_pendingEvents.push_back(event);
+            }
+        }
+    }
+
+    CFMutableDictionaryRef Console::setupMouseDictionary() {
+        CFMutableDictionaryRef mouseDictionary = CFDictionaryCreateMutable(
+            kCFAllocatorDefault,
+            0,
+            &kCFTypeDictionaryKeyCallBacks,
+            &kCFTypeDictionaryValueCallBacks
+        );
+
+        int page = kHIDPage_GenericDesktop;
+        CFDictionarySetValue(
+            mouseDictionary,
+            CFSTR(kIOHIDDeviceUsagePageKey),
+            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page)
+        );
+        int usage = kHIDUsage_GD_Mouse;
+        CFDictionarySetValue(
+            mouseDictionary,
+            CFSTR(kIOHIDDeviceUsageKey),
+            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage)
+        );
+
+        return mouseDictionary;
+    }
+
+    void Console::unifiedInputCallback(void *context, IOReturn result, void *sender, IOHIDValueRef event) {
+        Console *console = static_cast<Console *>(context);
+        IOHIDElementRef element = IOHIDValueGetElement(event);
+        u32 usagePage = IOHIDElementGetUsagePage(element);
+        u32 usage = IOHIDElementGetUsage(element);
+
+        if (usagePage == kHIDPage_KeyboardOrKeypad) {
+            Console::keyboardInputCallback(context, result, sender, event);
+        } else if (usagePage == kHIDPage_Button || usagePage == kHIDPage_GenericDesktop) {
+            Console::mouseInputCallback(context, result, sender, event);
+        }
+    }
+
+    void Console::inputThreadFunction() {
+        m_runLoop = CFRunLoopGetCurrent();
+
+        IOHIDManagerScheduleWithRunLoop(m_hidManager, m_runLoop, kCFRunLoopDefaultMode);
+        IOHIDManagerOpen(m_hidManager, kIOHIDOptionsTypeNone);
+        CFRunLoopRun();
+    }
+
+    void Console::setupInputThread() {
+        m_hidManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
+
+        auto mouseDictionary = setupMouseDictionary();
+        auto keyboardDictionary = setupKeyboardDictionary();
+
+        CFMutableArrayRef matchingArray = CFArrayCreateMutable(kCFAllocatorDefault, 0, &kCFTypeArrayCallBacks);
+        CFArrayAppendValue(matchingArray, mouseDictionary);
+        CFArrayAppendValue(matchingArray, keyboardDictionary);
+
+        IOHIDManagerSetDeviceMatchingMultiple(m_hidManager, matchingArray);
+
+        IOHIDManagerRegisterInputValueCallback(m_hidManager, Console::unifiedInputCallback, this);
+
+        IOHIDManagerScheduleWithRunLoop(m_hidManager, m_runLoop, kCFRunLoopDefaultMode);
+        IOHIDManagerOpen(m_hidManager, kIOHIDOptionsTypeNone);
+
+        m_inputThread = std::thread(&Console::inputThreadFunction, this);
+    }
+
+    void Console::stopInputThread() {
+        CFRunLoopStop(m_runLoop);
+        m_inputThread.join();
+        CFRelease(m_hidManager);
+    }
+#endif // __APPLE__
 
     void Console::clear() {
 #ifdef _WIN32
@@ -706,6 +901,19 @@ namespace cgl
             }
         }
 #endif // _WIN32
+
+#ifdef __APPLE__
+
+        if (m_currentMousePosition != m_lastMousePosition) {
+            Event event;
+            event.setType<MouseMoveEvent>();
+            event.mouseDelta = m_currentMousePosition - m_lastMousePosition;
+            m_lastMousePosition = m_currentMousePosition;
+            std::lock_guard<std::mutex> lock(m_pendingEventsMutex);
+            events.push_back(event);
+        }
+
+#endif // __APPLE__
     }
 
     void Console::getKeyboardEvents(std::vector<Event> &events) {
@@ -736,6 +944,16 @@ namespace cgl
             }
         }
 #endif // _WIN32
+
+#ifdef __APPLE__
+
+    std::lock_guard<std::mutex> lock(m_pendingEventsMutex);
+
+    std::copy(m_pendingEvents.begin(), m_pendingEvents.end(), std::back_inserter(events));
+
+    m_pendingEvents.clear();
+
+#endif // __APPLE__
     }
 
     void Console::getConsoleEvents(std::vector<Event> &events) {
@@ -749,7 +967,7 @@ namespace cgl
         }
 #endif // _WIN32
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
         Vector2<u32> size = getSize();
         if (size.x != m_currentConsoleSize.x || size.y != m_currentConsoleSize.y) {
             Event event;
@@ -758,7 +976,7 @@ namespace cgl
             events.push_back(event);
             m_currentConsoleSize = size;
         }
-#endif // __linux__
+#endif // __linux__ || __APPLE__
     }
 
 #ifdef _WIN32
