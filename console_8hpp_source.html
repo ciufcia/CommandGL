@@ -253,47 +253,46 @@ $(document).ready(function(){initNavTree('console_8hpp_source.html',''); initRes
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>       </div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">  213</a></span>        std::array&lt;bool, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cae93f994f01c537c4e2f7d8528c3eb5e9">KeyCode::Count</a>)&gt; <a class="code hl_variable" href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">m_keyStates</a> { <span class="keyword">false</span> }; </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">  214</a></span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;i32&gt;</a> <a class="code hl_variable" href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">m_lastMousePosition</a> { 0, 0 };</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        Handles m_handles;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        DWORD m_firstInputMode;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        DWORD m_firstOutputMode;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        DWORD m_lastMouseButtonState { 0u };</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        std::vector&lt;INPUT_RECORD&gt; m_mouseInputRecords;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        std::vector&lt;INPUT_RECORD&gt; m_keyboardInputRecords;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        std::vector&lt;INPUT_RECORD&gt; m_consoleInputRecords;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#ifdef __linux__</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        std::vector&lt;DeviceData&gt; m_keyboardDevices;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        std::vector&lt;DeviceData&gt; m_mouseDevices;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#ifdef __APPLE__</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>IOHIDManagerRef m_hidManager { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>CFRunLoopRef m_runLoop { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>std::thread m_inputThread;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>std::vector&lt;Event&gt; m_pendingEvents;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>std::mutex m_pendingEventsMutex;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="preprocessor">#if defined(__linux__) || defined(__APPLE__)</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        Vector2&lt;u32&gt; m_currentConsoleSize { 0, 0 };</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        Vector2&lt;i32&gt; m_currentMousePosition { 0, 0 };</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        Vector2&lt;i32&gt; m_relativeMouseMovement { 0, 0 };</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="preprocessor">#endif </span><span class="comment">// __linux__ || __APPLE__</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f">  249</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1EventManager.html">EventManager</a>;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816">  250</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1Framework.html">Framework</a>;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    };</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a8116e27e493ca220b71271ede99eb9cf">  215</a></span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;i32&gt;</a> <a class="code hl_variable" href="classcgl_1_1Console.html#a8116e27e493ca220b71271ede99eb9cf">m_currentMousePosition</a> { 0, 0 };</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#a2f204bdd6f0a8137df0c40e57b1221e8">  216</a></span>        <a class="code hl_class" href="classcgl_1_1Vector2.html">Vector2&lt;i32&gt;</a> <a class="code hl_variable" href="classcgl_1_1Console.html#a2f204bdd6f0a8137df0c40e57b1221e8">m_relativeMouseMovement</a> { 0, 0 };</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        Handles m_handles;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        DWORD m_firstInputMode;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        DWORD m_firstOutputMode;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        DWORD m_lastMouseButtonState { 0u };</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        std::vector&lt;INPUT_RECORD&gt; m_mouseInputRecords;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        std::vector&lt;INPUT_RECORD&gt; m_keyboardInputRecords;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        std::vector&lt;INPUT_RECORD&gt; m_consoleInputRecords;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#endif </span><span class="comment">// _WIN32</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">#ifdef __linux__</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        std::vector&lt;DeviceData&gt; m_keyboardDevices;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        std::vector&lt;DeviceData&gt; m_mouseDevices;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#endif </span><span class="comment">// __linux__</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>IOHIDManagerRef m_hidManager { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>CFRunLoopRef m_runLoop { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>std::thread m_inputThread;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>std::vector&lt;Event&gt; m_pendingEvents;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>std::mutex m_pendingEventsMutex;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="preprocessor">#if defined(__linux__) || defined(__APPLE__)</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        Vector2&lt;u32&gt; m_currentConsoleSize { 0, 0 };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">#endif </span><span class="comment">// __linux__ || __APPLE__</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f">  248</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1EventManager.html">EventManager</a>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816">  249</a></span>    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classcgl_1_1Framework.html">Framework</a>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    };</div>
 </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>}</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#endif </span><span class="comment">// CGL_CONSOLE_HPP</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">#endif </span><span class="comment">// CGL_CONSOLE_HPP</span></div>
 <div class="ttc" id="acharacter__buffer_8hpp_html"><div class="ttname"><a href="character__buffer_8hpp.html">character_buffer.hpp</a></div></div>
 <div class="ttc" id="aclasscgl_1_1ConsoleFont_html"><div class="ttname"><a href="classcgl_1_1ConsoleFont.html">cgl::ConsoleFont</a></div><div class="ttdoc">Represents a font configuration for the Windows console.</div><div class="ttdef"><b>Definition</b> console_font.hpp:46</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html"><div class="ttname"><a href="classcgl_1_1Console.html">cgl::Console</a></div><div class="ttdoc">Manages Windows console operations including display, input, and font configuration.</div><div class="ttdef"><b>Definition</b> console.hpp:33</div></div>
@@ -301,15 +300,17 @@ $(document).ready(function(){initNavTree('console_8hpp_source.html',''); initRes
 <div class="ttc" id="aclasscgl_1_1Console_html_a0e7be696dd2c54324b47d0efc071af53"><div class="ttname"><a href="classcgl_1_1Console.html#a0e7be696dd2c54324b47d0efc071af53">cgl::Console::operator=</a></div><div class="ttdeci">Console &amp; operator=(const Console &amp;)=delete</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a1ccdb11302740c2f4e546b2c10da5c06"><div class="ttname"><a href="classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06">cgl::Console::writeCharacterBuffer</a></div><div class="ttdeci">void writeCharacterBuffer(const CharacterBuffer &amp;buffer)</div><div class="ttdef"><b>Definition</b> console.cpp:330</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a26b42ae3b6a9ce2133703f2aa2263d03"><div class="ttname"><a href="classcgl_1_1Console.html#a26b42ae3b6a9ce2133703f2aa2263d03">cgl::Console::Console</a></div><div class="ttdeci">Console()</div><div class="ttdef"><b>Definition</b> console.cpp:24</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a2f204bdd6f0a8137df0c40e57b1221e8"><div class="ttname"><a href="classcgl_1_1Console.html#a2f204bdd6f0a8137df0c40e57b1221e8">cgl::Console::m_relativeMouseMovement</a></div><div class="ttdeci">Vector2&lt; i32 &gt; m_relativeMouseMovement</div><div class="ttdef"><b>Definition</b> console.hpp:216</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a32cf70eead35c0ed587908c7709c56b1"><div class="ttname"><a href="classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1">cgl::Console::~Console</a></div><div class="ttdeci">~Console()</div><div class="ttdef"><b>Definition</b> console.cpp:28</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a44251a24d2a86d910707542320b8ae73"><div class="ttname"><a href="classcgl_1_1Console.html#a44251a24d2a86d910707542320b8ae73">cgl::Console::Console</a></div><div class="ttdeci">Console(const Console &amp;)=delete</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a47f3333da2fbd52bd9e67b54b396973b"><div class="ttname"><a href="classcgl_1_1Console.html#a47f3333da2fbd52bd9e67b54b396973b">cgl::Console::getKeyboardEvents</a></div><div class="ttdeci">void getKeyboardEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:919</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_a59029e71ccf812f33102b0629558ad48"><div class="ttname"><a href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">cgl::Console::getKeyStates</a></div><div class="ttdeci">const std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; &amp; getKeyStates() const</div><div class="ttdef"><b>Definition</b> console.cpp:1002</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a47f3333da2fbd52bd9e67b54b396973b"><div class="ttname"><a href="classcgl_1_1Console.html#a47f3333da2fbd52bd9e67b54b396973b">cgl::Console::getKeyboardEvents</a></div><div class="ttdeci">void getKeyboardEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:927</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a59029e71ccf812f33102b0629558ad48"><div class="ttname"><a href="classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48">cgl::Console::getKeyStates</a></div><div class="ttdeci">const std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; &amp; getKeyStates() const</div><div class="ttdef"><b>Definition</b> console.cpp:1010</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a5eaacbe26a9e4b8c68aee0e584501fa9"><div class="ttname"><a href="classcgl_1_1Console.html#a5eaacbe26a9e4b8c68aee0e584501fa9">cgl::Console::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition</b> console.cpp:752</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_a8116e27e493ca220b71271ede99eb9cf"><div class="ttname"><a href="classcgl_1_1Console.html#a8116e27e493ca220b71271ede99eb9cf">cgl::Console::m_currentMousePosition</a></div><div class="ttdeci">Vector2&lt; i32 &gt; m_currentMousePosition</div><div class="ttdef"><b>Definition</b> console.hpp:215</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_a9efa70e1cf29a8c878b1f2faac0d9d28"><div class="ttname"><a href="classcgl_1_1Console.html#a9efa70e1cf29a8c878b1f2faac0d9d28">cgl::Console::init</a></div><div class="ttdeci">void init()</div><div class="ttdef"><b>Definition</b> console.cpp:356</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_aaf4396196ff02d0062a0a67f36903a60"><div class="ttname"><a href="classcgl_1_1Console.html#aaf4396196ff02d0062a0a67f36903a60">cgl::Console::getMouseEvents</a></div><div class="ttdeci">void getMouseEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:838</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_ac77a68a31c16491cdf850f27bceddd8f"><div class="ttname"><a href="classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f">cgl::Console::m_lastMousePosition</a></div><div class="ttdeci">Vector2&lt; i32 &gt; m_lastMousePosition</div><div class="ttdef"><b>Definition</b> console.hpp:214</div></div>
-<div class="ttc" id="aclasscgl_1_1Console_html_ad57ce31e2860c5b3e5a28786f3d1082c"><div class="ttname"><a href="classcgl_1_1Console.html#ad57ce31e2860c5b3e5a28786f3d1082c">cgl::Console::getConsoleEvents</a></div><div class="ttdeci">void getConsoleEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:959</div></div>
+<div class="ttc" id="aclasscgl_1_1Console_html_ad57ce31e2860c5b3e5a28786f3d1082c"><div class="ttname"><a href="classcgl_1_1Console.html#ad57ce31e2860c5b3e5a28786f3d1082c">cgl::Console::getConsoleEvents</a></div><div class="ttdeci">void getConsoleEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:967</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_ada44d2cac46807d906f283c4763afad3"><div class="ttname"><a href="classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3">cgl::Console::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> console.cpp:393</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_adfa07d03b6d6cc90486e38b1ea0ab3cd"><div class="ttname"><a href="classcgl_1_1Console.html#adfa07d03b6d6cc90486e38b1ea0ab3cd">cgl::Console::getEvents</a></div><div class="ttdeci">void getEvents(std::vector&lt; Event &gt; &amp;events)</div><div class="ttdef"><b>Definition</b> console.cpp:760</div></div>
 <div class="ttc" id="aclasscgl_1_1Console_html_af7a55c6930b16fb03587c13683fce380"><div class="ttname"><a href="classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380">cgl::Console::m_keyStates</a></div><div class="ttdeci">std::array&lt; bool, static_cast&lt; size_t &gt;(KeyCode::Count)&gt; m_keyStates</div><div class="ttdef"><b>Definition</b> console.hpp:213</div></div>

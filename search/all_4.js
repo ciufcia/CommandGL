@@ -13,7 +13,7 @@ var searchData=
   ['event_2ehpp_10',['event.hpp',['../event_8hpp.html',1,'']]],
   ['event_5fmanager_2ecpp_11',['event_manager.cpp',['../event__manager_8cpp.html',1,'']]],
   ['event_5fmanager_2ehpp_12',['event_manager.hpp',['../event__manager_8hpp.html',1,'']]],
-  ['eventmanager_13',['eventmanager',['../classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075',1,'cgl::Framework::eventManager'],['../classcgl_1_1EventManager.html#a642a9d40e88246ebf2d63b4444083e90',1,'cgl::EventManager::EventManager(Console &amp;console)'],['../classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c',1,'cgl::EventManager::EventManager(const EventManager &amp;)=delete'],['../classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f',1,'cgl::Console::EventManager'],['../classcgl_1_1EventManager.html',1,'cgl::EventManager']]],
+  ['eventmanager_13',['eventmanager',['../classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f',1,'cgl::Console::EventManager'],['../classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075',1,'cgl::Framework::eventManager'],['../classcgl_1_1EventManager.html#a642a9d40e88246ebf2d63b4444083e90',1,'cgl::EventManager::EventManager(Console &amp;console)'],['../classcgl_1_1EventManager.html#a4c9eec28d8929b580f0ca7982b1bbe6c',1,'cgl::EventManager::EventManager(const EventManager &amp;)=delete'],['../classcgl_1_1EventManager.html',1,'cgl::EventManager']]],
   ['eventtype_14',['EventType',['../structcgl_1_1EventType.html',1,'cgl']]],
   ['exception_15',['exception',['../classutf8_1_1exception.html',1,'utf8']]],
   ['exists_16',['exists',['../classcgl_1_1GlobalMemory.html#a8c869f375c30c8a389f3863573ff9b00',1,'cgl::GlobalMemory']]],

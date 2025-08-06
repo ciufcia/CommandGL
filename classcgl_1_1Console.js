@@ -16,6 +16,8 @@ var classcgl_1_1Console =
     [ "writeCharacterBuffer", "classcgl_1_1Console.html#a1ccdb11302740c2f4e546b2c10da5c06", null ],
     [ "EventManager", "classcgl_1_1Console.html#aba45a46c615e2683daffdae82e2d3b8f", null ],
     [ "Framework", "classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816", null ],
+    [ "m_currentMousePosition", "classcgl_1_1Console.html#a8116e27e493ca220b71271ede99eb9cf", null ],
     [ "m_keyStates", "classcgl_1_1Console.html#af7a55c6930b16fb03587c13683fce380", null ],
-    [ "m_lastMousePosition", "classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f", null ]
+    [ "m_lastMousePosition", "classcgl_1_1Console.html#ac77a68a31c16491cdf850f27bceddd8f", null ],
+    [ "m_relativeMouseMovement", "classcgl_1_1Console.html#a2f204bdd6f0a8137df0c40e57b1221e8", null ]
 ];
