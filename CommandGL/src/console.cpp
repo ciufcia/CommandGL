@@ -840,12 +840,12 @@ namespace cgl
         for (const auto &record : m_mouseInputRecords) {
             Event event;
             DWORD currentMouseButtonState = record.Event.MouseEvent.dwButtonState;
-            Vector2<i32> currentMousePosition{
+            m_currentMousePosition = {
                 static_cast<i32>(record.Event.MouseEvent.dwMousePosition.X),
                 static_cast<i32>(record.Event.MouseEvent.dwMousePosition.Y)
             };
-            Vector2<i32> mouseDelta = currentMousePosition - m_lastMousePosition;
-            m_lastMousePosition = currentMousePosition;
+            Vector2<i32> mouseDelta = m_currentMousePosition - m_lastMousePosition;
+            m_lastMousePosition = m_currentMousePosition;
 
             event.setType<KeyPressEvent>();
             if (currentMouseButtonState & FROM_LEFT_1ST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)]) {
@@ -855,12 +855,12 @@ namespace cgl
             }
             if (currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::RightMouseButton)]) {
                 event.key = KeyCode::RightMouseButton;
-                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
+                m_keyStates[static_cast<size_t>(KeyCode::RightMouseButton)] = true;
                 events.push_back(event);
             }
             if (currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED && !m_keyStates[static_cast<size_t>(KeyCode::MiddleMouseButton)]) {
                 event.key = KeyCode::MiddleMouseButton;
-                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = true;
+                m_keyStates[static_cast<size_t>(KeyCode::MiddleMouseButton)] = true;
                 events.push_back(event);
             }
 
@@ -872,21 +872,20 @@ namespace cgl
             }
             if (!(currentMouseButtonState & RIGHTMOST_BUTTON_PRESSED) && (m_lastMouseButtonState & RIGHTMOST_BUTTON_PRESSED)) {
                 event.key = KeyCode::RightMouseButton;
-                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
+                m_keyStates[static_cast<size_t>(KeyCode::RightMouseButton)] = false;
                 events.push_back(event);
             }
             if (!(currentMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED) && (m_lastMouseButtonState & FROM_LEFT_2ND_BUTTON_PRESSED)) {
                 event.key = KeyCode::MiddleMouseButton;
-                m_keyStates[static_cast<size_t>(KeyCode::LeftMouseButton)] = false;
+                m_keyStates[static_cast<size_t>(KeyCode::MiddleMouseButton)] = false;
                 events.push_back(event);
             }
 
             m_lastMouseButtonState = currentMouseButtonState;
 
             if (mouseDelta != Vector2<i32>{0, 0}) {
-                event.setType<MouseMoveEvent>();
-                event.mouseDelta = mouseDelta;
-                events.push_back(event);
+                m_relativeMouseMovement.x += mouseDelta.x;
+                m_relativeMouseMovement.y += mouseDelta.y;
             }
 
             if (record.Event.MouseEvent.dwEventFlags & MOUSE_WHEELED) {
@@ -899,6 +898,15 @@ namespace cgl
                 }
                 events.push_back(event);
             }
+        }
+
+        if (m_relativeMouseMovement != Vector2<i32>(0, 0)) {
+            Event event;
+            event.setType<MouseMoveEvent>();
+            event.mouseDelta = m_relativeMouseMovement;
+            events.push_back(event);
+
+            m_relativeMouseMovement = Vector2<i32>(0, 0);
         }
 #endif // _WIN32
 

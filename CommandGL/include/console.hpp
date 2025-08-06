@@ -212,6 +212,8 @@ namespace cgl
        
         std::array<bool, static_cast<size_t>(KeyCode::Count)> m_keyStates { false }; 
         Vector2<i32> m_lastMousePosition { 0, 0 };
+        Vector2<i32> m_currentMousePosition { 0, 0 };
+        Vector2<i32> m_relativeMouseMovement { 0, 0 };
 
 #ifdef _WIN32
         Handles m_handles;
@@ -241,9 +243,6 @@ std::mutex m_pendingEventsMutex;
 
 #if defined(__linux__) || defined(__APPLE__)
         Vector2<u32> m_currentConsoleSize { 0, 0 };
-
-        Vector2<i32> m_currentMousePosition { 0, 0 };
-        Vector2<i32> m_relativeMouseMovement { 0, 0 };
 #endif // __linux__ || __APPLE__
 
     friend class EventManager;
