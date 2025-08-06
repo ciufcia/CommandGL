@@ -574,6 +574,22 @@ namespace cgl
         }
     }
 
+    void Console::setupFds() {
+        FD_ZERO(&m_inputFds);
+        m_inputTimeval.tv_sec = 0;
+        m_inputTimeval.tv_usec = 0;
+
+        for (const auto &device : m_keyboardDevices) {
+            FD_SET(device.fd, &m_inputFds);
+            m_maxFd = std::max(m_maxFd, device.fd);
+        }
+
+        for (const auto &device : m_mouseDevices) {
+            FD_SET(device.fd, &m_inputFds);
+            m_maxFd = std::max(m_maxFd, device.fd);
+        }
+    }
+
 #endif // __linux__
 
 #ifdef __APPLE__
@@ -783,51 +799,9 @@ namespace cgl
 #endif // _WIN32
 
 #ifdef __linux__
-        struct input_event inputEvent;
+        setupFds();
 
-        fd_set fds;
-        FD_ZERO(&fds);
-
-        int maxFd = -1;
-        for (const auto &device : m_keyboardDevices) {
-            FD_SET(device.fd, &fds);
-            maxFd = std::max(maxFd, device.fd);
-        }
-        for (const auto &device : m_mouseDevices) {
-            FD_SET(device.fd, &fds);
-            maxFd = std::max(maxFd, device.fd);
-        }
-
-        struct timeval tv;
-        tv.tv_sec = 0;
-        tv.tv_usec = 0;
-        int ret = select(maxFd, &fds, nullptr, nullptr, &tv);
-
-        if (ret > 0) {
-            for (auto &device : m_mouseDevices) {
-                processMouseDeviceEvents(fds, device, events);
-            }
-
-            Event event;
-            event.setType<MouseMoveEvent>();
-
-            Vector2<i32> absoluteDelta = m_currentMousePosition - m_lastMousePosition;
-            if (absoluteDelta.magnitudeSquared() > m_relativeMouseMovement.magnitudeSquared()) {
-                event.mouseDelta = absoluteDelta;
-            } else {
-                event.mouseDelta = m_relativeMouseMovement;
-            }
-            if (event.mouseDelta != Vector2<i32>{0, 0}) {
-                events.push_back(event);
-            }
-
-            m_lastMousePosition = m_currentMousePosition;
-            m_relativeMouseMovement = {0, 0};
-
-            for (auto &device : m_keyboardDevices) {
-                processKeyboardDeviceEvents(fds, device, events);
-            }
-        }
+        m_selectReturn = select(m_maxFd + 1, &m_inputFds, nullptr, nullptr, &m_inputTimeval); 
 #endif // __linux__
 
         getMouseEvents(events);
@@ -910,6 +884,32 @@ namespace cgl
         }
 #endif // _WIN32
 
+#ifdef __linux__
+
+        if (m_selectReturn > 0) {
+            for (auto &device : m_mouseDevices) {
+                processMouseDeviceEvents(m_inputFds, device, events);
+            }
+
+            Event event;
+            event.setType<MouseMoveEvent>();
+
+            Vector2<i32> absoluteDelta = m_currentMousePosition - m_lastMousePosition;
+            if (absoluteDelta.magnitudeSquared() > m_relativeMouseMovement.magnitudeSquared()) {
+                event.mouseDelta = absoluteDelta;
+            } else {
+                event.mouseDelta = m_relativeMouseMovement;
+            }
+            if (event.mouseDelta != Vector2<i32>{0, 0}) {
+                events.push_back(event);
+            }
+
+            m_lastMousePosition = m_currentMousePosition;
+            m_relativeMouseMovement = {0, 0};
+        }
+
+#endif // __linux__
+
 #ifdef __APPLE__
 
         if (m_currentMousePosition != m_lastMousePosition) {
@@ -952,6 +952,16 @@ namespace cgl
             }
         }
 #endif // _WIN32
+
+#ifdef __linux__
+
+        if (m_selectReturn > 0) {
+            for (auto &device : m_keyboardDevices) {
+                processKeyboardDeviceEvents(m_inputFds, device, events);
+            }
+        }
+
+#endif // __linux__
 
 #ifdef __APPLE__
 

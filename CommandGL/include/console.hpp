@@ -187,6 +187,7 @@ namespace cgl
         void clearDevices();
         void processKeyboardDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
         void processMouseDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
+        void setupFds();
 #endif // __linux__
 
 #ifdef __APPLE__
@@ -231,6 +232,10 @@ namespace cgl
 #ifdef __linux__
         std::vector<DeviceData> m_keyboardDevices;
         std::vector<DeviceData> m_mouseDevices;
+        fd_set m_inputFds;
+        int m_maxFd = -1;
+        struct timeval m_inputTimeval;
+        int m_selectReturn = 0;
 #endif // __linux__
 
 #ifdef __APPLE__
