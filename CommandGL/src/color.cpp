@@ -28,6 +28,10 @@ namespace cgl
         return 0.2126f * rNorm + 0.7152f * gNorm + 0.0722f * bNorm;
     }
 
+    Color Color::inverted() const {
+        return Color(255 - r, 255 - g, 255 - b, a);
+    }
+
     bool Color::operator==(const Color& other) const {
         return r == other.r && g == other.g && b == other.b && a == other.a;
     }

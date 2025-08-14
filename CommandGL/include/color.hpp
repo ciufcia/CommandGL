@@ -87,6 +87,12 @@ namespace cgl
         f32 luminance() const;
 
         /**
+         * @brief Inverts the color (subtracts RGB from 255).
+         * @return The inverted color.
+         */
+        Color inverted() const;
+
+        /**
          * @brief Equality comparison operator.
          * @param other The color to compare with.
          * @return True if all RGBA components are equal, false otherwise.

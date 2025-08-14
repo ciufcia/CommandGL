@@ -2,6 +2,7 @@
 #define CGL_DRAWABLE_HPP
 
 #include "filters.hpp"
+#include "filter_pipeline.hpp"
 #include "transform.hpp"
 #include <list>
 
@@ -41,9 +42,7 @@ namespace cgl
          * This method must be implemented by derived classes to define
          * how the drawable's geometry is rasterized into pixels.
          */
-        virtual void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) = 0;
-
-        void applyFragmentPipeline(std::vector<filter_pass_data::PixelPass> &drawableBuffer, f32 time);
+        virtual void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) = 0;
 
         /**
          * @brief Clones the drawable object.
@@ -71,7 +70,7 @@ namespace cgl
         /**
          * @brief Pipeline of fragment shaders (filters) to apply to pixels.
          */
-        FilterPipeline fragmentPipeline;
+        FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> fragmentPipeline;
 
         /**
          * @brief Whether to copy the drawable into the drawQueue on a draw call, or use a reference.
@@ -138,7 +137,7 @@ namespace cgl
              */
             static bool isTopOrLeftEdge(const Vector2<f32>& v1, const Vector2<f32>& v2);
 
-            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+            void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) override;
         };
 
         /**
@@ -248,7 +247,7 @@ namespace cgl
 
         private:
 
-            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+            void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) override;
         };
 
         class Ellipse : public Drawable
@@ -272,8 +271,8 @@ namespace cgl
             Vector2<f32> radius { 1.f, 1.f };  ///< Radius in x and y directions.
 
         private:
-    
-            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+
+            void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) override;
         };
 
         class Line : public Drawable
@@ -298,7 +297,7 @@ namespace cgl
 
         private:
 
-            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+            void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) override;
         };
 
         /**
@@ -368,7 +367,7 @@ namespace cgl
 
         private:
 
-            void generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) override;
+            void generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) override;
 
             void triangulate();
 

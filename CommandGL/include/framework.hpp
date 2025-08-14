@@ -6,6 +6,7 @@
 #include "filters.hpp"
 #include "drawable.hpp"
 #include "timing.hpp"
+#include "character_cell.hpp"
 
 namespace cgl
 {
@@ -20,6 +21,11 @@ namespace cgl
     class Framework
     {
     public:
+
+        /**
+         * @brief Default constructor for the Framework class.
+         */
+        Framework() = default;
 
         /**
          * @brief Initializes the framework and sets up all internal systems.
@@ -108,7 +114,7 @@ namespace cgl
          * and handles input events from the user. It is the main output target
          * for the framework's rendering operations.
          */
-        Console console {};
+        Console console;
 
         /**
          * @brief Event manager for handling keyboard, mouse, and console events.
@@ -116,7 +122,7 @@ namespace cgl
          * Provides access to input event handling and polling functionality.
          * Use this to check key states, handle events, and respond to user input.
          */
-        EventManager eventManager { console };
+        EventManager eventManager;
 
         /**
          * @brief Whether to automatically scale drawables when console size differs from base size.
@@ -139,7 +145,7 @@ namespace cgl
          * 
          * This pipeline is used to apply global effects after all drawables have been rendered.
          */
-        FilterPipeline screenFilterPipeline {};
+        FilterPipeline<Color, Color> screenFilterPipeline;
 
         /**
          * @brief The pipeline that handles converting pixel data to character data
@@ -149,7 +155,7 @@ namespace cgl
          * dithering, color quantization, or other transformations to optimize the
          * character representation of the rendered scene.
          */
-        FilterPipeline characterFilterPipeline {};
+        FilterPipeline<Color, CharacterCell> characterFilterPipeline;
 
     private:
 
@@ -171,11 +177,8 @@ namespace cgl
         void initializeBuffers();
         void initializeFilterPipelines();
 
+        void applyDrawableFragmentOnDrawableBuffer(FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> &pipeline, std::vector<filters::GeometryElementData> &drawableBuffer, f32 time);
         void writeDrawableBuffer(BlendMode blendMode);
-
-        void runScreenFilterPipeline();
-        void runCharacterFilterPipeline();
-        void writeCharacterBuffer();
 
         void handleResizing(const Vector2<u32> &newSize);
 
@@ -184,12 +187,14 @@ namespace cgl
 
     private:
 
-        ScreenBuffer m_screenBuffer {};
-        CharacterBuffer m_characterBuffer {};
+        FilterableBuffer<Color> m_screenBuffer {};
+        FilterableBuffer<CharacterCell> m_characterBuffer {};
 
-        std::vector<filter_pass_data::PixelPass> m_drawableBuffer {};
+        std::vector<filters::GeometryElementData> m_drawableBuffer {};
+        FilterableBuffer<filters::GeometryElementData> m_filterableBuffer {};
         std::vector<DrawEntry> m_drawQueue {};
 
+        Vector2<u32> m_screenSize { 0u, 0u };
         Vector2<f32> m_screenScaleFactor { 1.f, 1.f };
 
         Clock m_clock;

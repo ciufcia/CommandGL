@@ -3,6 +3,8 @@
 
 #include <concepts>
 #include <cmath>
+#include "numeric_types.hpp"
+#include "color.hpp"
 
 namespace cgl
 {
@@ -134,6 +136,9 @@ namespace cgl
         template<arithmetic U>
         Vector2(const Vector2<U>& other);
     };
+
+    Vector2<f32> normalizeUV(const Vector2<f32> &uv);
+    Color sampleUVGradient(const Vector2<f32> &uv);
 
     template<arithmetic T>
     Vector2<T>::Vector2() : x(static_cast<T>(0)), y(static_cast<T>(0)) {}

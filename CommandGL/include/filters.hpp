@@ -2,382 +2,351 @@
 #define CGL_FILTERS_HPP
 
 #include "vector2.hpp"
-#include "numeric_types.hpp"
-#include <memory>
+#include <typeinfo>
+#include <typeindex>
+#include <future>
+#include <thread>
 #include <vector>
+#include "color.hpp"
+#include "character_cell.hpp"
+#include <random>
 #include "texture.hpp"
 
 namespace cgl
 {
-    /**
-     * @typedef FilterFunction
-     * @brief Function pointer type for filter implementations.
-     * 
-     * Filter functions take two void pointers: one for filter-specific data
-     * and one for pass-specific data that varies by filter type.
-     * 
-     * @param filterData Pointer to filter-specific configuration data.
-     * @param passData Pointer to pass-specific data (pixel, screen buffer, etc.).
-     */
-    using FilterFunction = void (*)(void *filterData, void *passData);
-
-    /**
-     * @enum FilterType
-     * @brief Enumeration of different filter execution modes.
-     */
-    enum class FilterType
-    {
-        SinglePass,   ///< Filter processes entire buffer at once
-        Sequential,   ///< Filter processes pixels one by one in sequence
-        Parallel,     ///< Filter processes pixels in parallel using OpenMP
-    };
-
-    /**
-     * @struct Filter
-     * @brief Represents a configurable filter that can be applied to rendering data.
-     * 
-     * Filters are the building blocks of the rendering pipeline, allowing for
-     * post-processing effects, color manipulation, and custom rendering logic.
-     * Each filter has a type that determines how it processes data, and can
-     * store custom configuration data.
-     */
-    struct Filter
-    {
-        virtual ~Filter() = default;
-
-        /**
-         * @brief Factory method to create a filter with typed data.
-         * @tparam T The type of the filter's configuration data.
-         * @param type The execution mode for this filter.
-         * @param function The function that implements the filter logic.
-         * @param Data The configuration data for this filter instance.
-         * @return A shared pointer to the created filter.
-         */
-        template<typename T>
-        static std::shared_ptr<Filter> create(FilterType type, FilterFunction function, T Data);
-
-        /**
-         * @brief The execution mode that determines how this filter processes data.
-         */
-        FilterType type;
-
-        /**
-         * @brief Pointer to the function that implements this filter's logic.
-         */
-        FilterFunction function = nullptr;
-        
-        /**
-         * @brief Shared pointer to filter-specific configuration data.
-         * 
-         * This data is passed to the filter function and can be any type
-         * that was specified when creating the filter.
-         */
-        std::shared_ptr<void> data = nullptr;
-
-        /**
-         * @brief Whether this filter is currently active in the pipeline.
-         */
-        bool isEnabled = true;
-        
-        /**
-         * @brief Human-readable name for this filter instance.
-         */
-        std::string name = "Unnamed Filter";
-        
-        /**
-         * @brief Description of what this filter does.
-         */
-        std::string description = "No description provided.";
-    };
-
-    /**
-     * @class FilterPipeline
-     * @brief Manages an ordered collection of filters for sequential processing.
-     * 
-     * FilterPipeline provides a way to chain multiple filters together and execute
-     * them in sequence. It supports adding, removing, and iterating through filters,
-     * as well as runtime enable/disable of individual filters.
-     */
-    class FilterPipeline
+    class BaseFilterableBuffer
     {
     public:
 
-        /**
-         * @brief Gets the total number of filters in the pipeline.
-         * @return The number of filters currently in the pipeline.
-         */
-        u32 getFilterCount() const;
+        virtual ~BaseFilterableBuffer() = default;
 
-        /**
-         * @brief Adds a filter to the pipeline at the specified position.
-         * @param filter The filter to add to the pipeline.
-         * @param position The position to insert the filter at.
-         */
-        void addFilter(std::shared_ptr<Filter> filter, u32 position);
-        
-        /**
-         * @brief Removes the filter at the specified position.
-         * @param position The position of the filter to remove.
-         */
-        void removeFilter(u32 position);
-        
-        /**
-         * @brief Removes all filters from the pipeline.
-         */
-        void clearFilters();
+        virtual u32 getSize() const;
 
-    private:
+        virtual void setSize(u32 size);
 
-        std::shared_ptr<Filter> getFilter(u32 position) const;
+        virtual void clear();
 
-        void start();
-        
-        std::shared_ptr<Filter> getCurrentFilter() const;
-        
-        bool step();
+    protected:
 
-        std::vector<std::shared_ptr<Filter>> m_filters;
-
-    private:
-
-        int m_currentFilterIndex = -1;
-        bool m_isActive = false;
-
-    friend class Drawable;
-    friend class Framework;
+        u32 m_size = 0;
     };
 
-    /**
-     * @namespace filter_pass_data
-     * @brief Contains data structures passed to filters during different rendering passes.
-     * 
-     * This namespace defines the various data structures that are passed to filter
-     * functions, providing context and data for different types of rendering operations.
-     */
-    namespace filter_pass_data
+    template<typename T>
+    class FilterableBuffer : public BaseFilterableBuffer
     {
-        /**
-         * @struct Base
-         * @brief Base structure for all filter pass data types.
-         *
-         * Provides common fields that are available to all filter types.
-         */
-        /**
-         * @struct Base
-         * @brief Base structure for all filter pass data types.
-         */
-        struct Base
+    public:
+
+        virtual ~FilterableBuffer();
+
+        virtual void setSize(u32 size) override;
+
+        virtual T &operator[](u32 index);
+
+        virtual const T &operator[](u32 index) const;
+
+        T *getData() const;
+
+        void setData(T *data, u32 size);
+
+        virtual void clear() override;
+
+    private:
+
+        T *m_data = nullptr;
+        bool m_ownsData = true;
+    };
+
+    class BaseFilter
+    {
+    public:
+
+        enum class ExecutionMode
         {
-            float time = 0.f;  ///< Current time value for time-based effects
+            Single,
+            Sequential,
+            Concurrent
         };
 
-        /**
-         * @struct ScreenBufferSinglePass
-         * @brief Pass data for filters that operate on the entire screen buffer at once.
-         */
-        /**
-         * @struct ScreenBufferSinglePass
-         * @brief Pass data for filters that operate on the entire screen buffer at once.
-         */
-        struct ScreenBufferSinglePass : public Base
-        {
-            ScreenBuffer *screenBuffer = nullptr;  ///< Pointer to the screen buffer to process
-        };
+    public:
 
-        /**
-         * @struct PixelPass
-         * @brief Pass data for filters that operate on individual pixels.
-         *
-         * Contains all the information needed to process a single pixel,
-         * including color, position, UV coordinates, and custom data.
-         */
-        /**
-         * @struct PixelPass
-         * @brief Pass data for filters that operate on individual pixels.
-         */
-        struct PixelPass : public Base
-        {
-            Color color { 255, 0, 255, 255 };  ///< Current pixel color (defaults to magenta)
+        ExecutionMode executionMode = ExecutionMode::Single;
 
-            Vector2<f32> position { 0.f, 0.f };     ///< Pixel position in screen coordinates
-            Vector2<f32> uv { 0.f, 0.f };           ///< UV texture coordinates (0-1 range)
-            Vector2<f32> size { 0.f, 0.f };         ///< Size of the drawable being rendered
-            Vector2<f32> inverseSize { 0.f, 0.f };  ///< Reciprocal of size for optimization
+        std::type_index inputType = std::type_index(typeid(int));
+        std::type_index outputType = std::type_index(typeid(int));
 
-            std::shared_ptr<void> custom = nullptr;  ///< Custom data for specialized filters
-        };
+    public:
 
-        /**
-         * @struct PixelSinglePass
-         * @brief Pass data for filters that operate on entire pixel buffers at once.
-         */
-        /**
-         * @struct PixelSinglePass
-         * @brief Pass data for filters that operate on entire pixel buffers at once.
-         */
-        struct PixelSinglePass : public Base
-        {
-            std::vector<PixelPass> *pixelBuffer = nullptr;  ///< Pointer to the pixel buffer to process
-        };
+        virtual ~BaseFilter() = default;
+        virtual void beforePipelineRun() = 0;
+        virtual void apply(BaseFilterableBuffer *input, BaseFilterableBuffer *output) = 0;
+        virtual void afterPipelineRun() = 0;
+        virtual void setTime(f32 time) = 0;
+    };
 
-        /**
-         * @struct CharacterBufferSinglePass
-         * @brief Pass data for filters that convert pixels to character representation.
-         */
-        /**
-         * @struct CharacterBufferSinglePass
-         * @brief Pass data for filters that convert pixels to character representation.
-         */
-        struct CharacterBufferSinglePass : public Base
-        {
-            CharacterBuffer *characterBuffer = nullptr;  ///< Pointer to the character buffer to write to
-            ScreenBuffer *screenBuffer = nullptr;        ///< Pointer to the source screen buffer
-        };
-    }
+    template<typename InputType, typename OutputType, typename FilterData = filters::BaseData>
+    class Filter : public BaseFilter
+    {
+    public:
 
-    /**
-     * @brief Samples a color from UV coordinates.
-     * @param uv The UV coordinates to sample (typically in 0-1 range).
-     * @return The sampled color at the given UV coordinates.
-     * 
-     * This utility function provides a way to sample colors based on UV coordinates,
-     * commonly used for texture mapping and procedural color generation.
-     */
-    Color sampleUVColor(const Vector2<f32> &uv);
+        using SingleFilterFunction = void (*)(FilterableBuffer<InputType>&, FilterableBuffer<OutputType>&, const FilterData&);
+        using MultiFilterFunction = void (*)(InputType&, OutputType&, const FilterData&);
 
-    /**
-     * @namespace filters
-     * @brief Contains built-in filter implementations and their associated data structures.
-     * 
-     * This namespace provides a collection of ready-to-use filters for common
-     * rendering operations, along with their configuration data structures.
-     */
+    public:
+
+        FilterData data;
+
+    public:
+
+        Filter();
+
+        virtual ~Filter() = default;
+
+        virtual void beforePipelineRun() override {}
+        virtual void apply(BaseFilterableBuffer *input, BaseFilterableBuffer *output) override final;
+        virtual void afterPipelineRun() override {}
+        virtual void setTime(f32 time) override final;
+
+        void setSingleFilterFunction(SingleFilterFunction func);
+        void setMultiFilterFunction(MultiFilterFunction func);
+
+    private:
+
+        std::pair<FilterableBuffer<InputType> *, FilterableBuffer<OutputType> *> getBufferPointers(BaseFilterableBuffer *input, BaseFilterableBuffer *output);
+
+        void applySingle(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer);
+        void applySequential(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer);
+        void applyConcurrent(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer);
+
+    private:
+
+        SingleFilterFunction m_singleFilterFunction = nullptr;
+        MultiFilterFunction m_multiFilterFunction = nullptr;
+    };
+
     namespace filters
     {
-        /**
-         * @brief Filter that sets all pixels to a single solid color.
-         * @param filterData Pointer to SingleColorData containing the color to use.
-         * @param passData Pointer to PixelPass data for the current pixel.
-         */
-        /**
-         * @brief Filter that sets all pixels to a single solid color.
-         * @param filterData Pointer to SingleColorData containing the color to use.
-         * @param passData Pointer to PixelPass data for the current pixel.
-         */
-        void singleColor(void *filterData, void *passData);
-
-        /**
-         * @struct SingleColorData
-         * @brief Configuration data for the singleColor filter.
-         */
-        /**
-         * @struct SingleColorData
-         * @brief Configuration data for the singleColor filter.
-         */
-        struct SingleColorData
+        struct BaseData
         {
-            Color color = { 255, 0, 255, 255 };  ///< The solid color to apply (defaults to magenta)
+            f32 time = 0.f;
         };
 
-        /**
-         * @brief Filter that sets pixel color based on UV coordinates.
-         * @param filterData Unused for this filter.
-         * @param passData Pointer to PixelPass data for the current pixel.
-         *
-         * Creates a visual representation of UV coordinates by mapping
-         * them to specific colors.
-         */
-        /**
-         * @brief Filter that sets pixel color based on UV coordinates.
-         * @param filterData Unused for this filter.
-         * @param passData Pointer to PixelPass data for the current pixel.
-         *
-         * Creates a visual representation of UV coordinates by mapping
-         * them to specific colors.
-         */
-        void uv(void *filterData, void *passData);
-
-        /**
-         * @brief Filter that samples a texture and applies it to the screen buffer.
-         * @param filterData Pointer to TextureData containing the texture and sampling mode.
-         * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
-         *
-         * This filter samples a texture and applies it to the screen buffer,
-         * allowing for texture-based rendering effects.
-         */
-        /**
-         * @brief Filter that samples a texture and applies it to the screen buffer.
-         * @param filterData Pointer to TextureData containing the texture and sampling mode.
-         * @param passData Pointer to ScreenBufferSinglePass data for the current screen buffer.
-         *
-         * This filter samples a texture and applies it to the screen buffer,
-         * allowing for texture-based rendering effects.
-         */
-        void texture(void *filterData, void *passData);
-
-        /**
-         * @struct TextureData
-         * @brief Configuration data for the texture filter.
-         *
-         * This structure holds the texture to sample from and the sampling mode
-         * to use when filtering the texture.
-         */
-        /**
-         * @struct TextureData
-         * @brief Configuration data for the texture filter.
-         *
-         * This structure holds the texture to sample from and the sampling mode
-         * to use when filtering the texture.
-         */
-        struct TextureData
+        struct GeometryElementData : public BaseData
         {
-            std::shared_ptr<Texture> texture = nullptr;  ///< The texture to sample from
-            Texture::SamplingMode sampling = Texture::SamplingMode::NearestNeighbor;  ///< Sampling mode for texture filtering
+            Color color { 255, 0, 255, 255 };
+
+            Vector2<f32> position { 0.f, 0.f };
+            Vector2<f32> uv { 0.f, 0.f };
+            Vector2<f32> size { 0.f, 0.f };
+            Vector2<f32> inverseSize { 0.f, 0.f };
+
+            std::shared_ptr<void> custom = nullptr;
         };
 
-        /**
-         * @brief Filter that converts RGB colors to character representation.
-         * @param filterData Pointer to RGBSingleCharacterData containing the character to use.
-         * @param passData Pointer to CharacterBufferSinglePass data.
-         *
-         * This filter converts pixel colors to character-based representation
-         * suitable for console output.
-         */
-        /**
-         * @brief Filter that converts RGB colors to character representation.
-         * @param filterData Pointer to RGBSingleCharacterData containing the character to use.
-         * @param passData Pointer to CharacterBufferSinglePass data.
-         *
-         * This filter converts pixel colors to character-based representation
-         * suitable for console output.
-         */
-        void rgbSingleCharacter(void *filterData, void *passData);
-
-        /**
-         * @struct RGBSingleCharacterData
-         * @brief Configuration data for the rgbSingleCharacter filter.
-         */
-        /**
-         * @struct RGBSingleCharacterData
-         * @brief Configuration data for the rgbSingleCharacter filter.
-         */
-        struct RGBSingleCharacterData
+        struct SingleCharacterColoredData : public BaseData
         {
-            std::string character = "@";  ///< The character to use for representation (defaults to "@")
+            u32 codepoint;
+        };
+
+        struct SingleCharacterColored : public Filter<Color, CharacterCell, SingleCharacterColoredData>
+        {
+            SingleCharacterColored(u32 codepoint);
+        };
+
+        class CharacterShuffleColoredData : public BaseData
+        {
+        public:
+
+            void setCodepoints(const std::vector<u32>& codepoints);
+            f32 shufflePeriod = 1.0f;
+
+        private:
+
+            std::vector<u32> m_codepoints;
+
+            mutable std::uniform_int_distribution<u32> m_distribution;
+
+            mutable bool m_firstShuffle = true;
+            mutable bool m_shuffle = false;
+            mutable f32 m_lastShuffleTime = 0.0f;
+
+        friend class CharacterShuffleColored;
+        };
+
+        struct CharacterShuffleColored : public Filter<Color, CharacterCell, CharacterShuffleColoredData>
+        {
+            CharacterShuffleColored();
+
+            virtual void beforePipelineRun() override;
+        };
+
+        struct SolidColorData : public BaseData
+        {
+            Color color;
+        };
+
+        struct SolidColor : public Filter<GeometryElementData, GeometryElementData, SolidColorData>
+        {
+            SolidColor(Color color);
+        };
+
+        struct UVGradient : public Filter<GeometryElementData, GeometryElementData>
+        {
+            UVGradient();
+        };
+
+        struct Grayscale : public Filter<GeometryElementData, GeometryElementData>
+        {
+            Grayscale();
+        };
+
+        struct Invert : public Filter<GeometryElementData, GeometryElementData>
+        {
+            Invert();
+        };
+
+        struct TextureSamplerData : public BaseData
+        {
+            Texture *texture;
+            Texture::SamplingMode samplingMode = Texture::SamplingMode::Bilinear;
+        };
+
+        struct TextureSampler : public Filter<GeometryElementData, GeometryElementData, TextureSamplerData>
+        {
+            TextureSampler(Texture *texture);
         };
     }
 
-    Vector2<f32> normalizeUV(const Vector2<f32> &uv);
+    template<typename T>
+    FilterableBuffer<T>::~FilterableBuffer() {
+        delete[] m_data;
+    }
 
     template<typename T>
-    std::shared_ptr<Filter> Filter::create(FilterType type, FilterFunction function, T data) {
-        auto filter = std::make_shared<Filter>();
+    void FilterableBuffer<T>::setSize(u32 size) {
+        if (m_data && m_ownsData) {
+            delete[] m_data;
+        }
+        m_ownsData = true;
+        m_size = size;
+        m_data = new T[m_size];
+    }
 
-        filter->type = type;
-        filter->function = function;
-        filter->data = std::make_shared<T>(data);
+    template<typename T>
+    T &FilterableBuffer<T>::operator[](u32 index) {
+        return m_data[index];
+    }
 
-        return filter;
+    template<typename T>
+    const T &FilterableBuffer<T>::operator[](u32 index) const {
+        return m_data[index];
+    }
+
+    template<typename T>
+    T *FilterableBuffer<T>::getData() const {
+        return m_data;
+    }
+
+    template<typename T>
+    void FilterableBuffer<T>::setData(T *data, u32 size) {
+        if (m_data && m_ownsData) {
+            delete[] m_data;
+        }
+        m_ownsData = false;
+        m_size = size;
+        m_data = data;
+    }
+
+    template<typename T>
+    void FilterableBuffer<T>::clear() {
+        setSize(0);
+        m_data = nullptr;
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    Filter<InputType, OutputType, FilterData>::Filter() {
+        inputType = std::type_index(typeid(InputType));
+        outputType = std::type_index(typeid(OutputType));
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::apply(BaseFilterableBuffer *input, BaseFilterableBuffer *output) {
+        auto [inputBuffer, outputBuffer] = getBufferPointers(input, output);
+
+        if (executionMode == ExecutionMode::Single) {
+            applySingle(inputBuffer, outputBuffer);
+        } else if (executionMode == ExecutionMode::Sequential) {
+            applySequential(inputBuffer, outputBuffer);
+        } else if (executionMode == ExecutionMode::Concurrent) {
+            applyConcurrent(inputBuffer, outputBuffer);
+        }
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::setTime(f32 time) {
+        data.time = time;
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::setSingleFilterFunction(SingleFilterFunction func) {
+        m_singleFilterFunction = func;
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::setMultiFilterFunction(MultiFilterFunction func) {
+        m_multiFilterFunction = func;
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    std::pair<FilterableBuffer<InputType> *, FilterableBuffer<OutputType> *> Filter<InputType, OutputType, FilterData>::getBufferPointers(BaseFilterableBuffer *input, BaseFilterableBuffer *output) {
+        return {
+            static_cast<FilterableBuffer<InputType> *>(input),
+            static_cast<FilterableBuffer<OutputType> *>(output)
+        };
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::applySingle(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer) {
+        if (!m_singleFilterFunction) return;
+
+        m_singleFilterFunction(*inputBuffer, *outputBuffer, data);
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::applySequential(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer) {
+        if (!m_multiFilterFunction) return;
+
+        for (u32 i = 0; i < inputBuffer->getSize(); ++i) {
+            m_multiFilterFunction(inputBuffer->operator[](i), outputBuffer->operator[](i), data);
+        }
+    }
+
+    template<typename InputType, typename OutputType, typename FilterData>
+    void Filter<InputType, OutputType, FilterData>::applyConcurrent(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer) {
+        if (!m_multiFilterFunction) return;
+
+        const u32 size = inputBuffer->getSize();
+        const u32 numThreads = std::thread::hardware_concurrency();
+        const u32 elementsPerThread = (size + numThreads - 1) / numThreads;
+
+        std::vector<std::future<void>> futures;
+        futures.reserve(numThreads);
+
+        for (u32 threadId = 0; threadId < numThreads; ++threadId) {
+            const u32 start = threadId * elementsPerThread;
+            const u32 end = std::min(start + elementsPerThread, size);
+
+            if (start < end) {
+                futures.push_back(std::async(std::launch::async, [&, start, end]() {
+                    for (u32 i = start; i < end; ++i) {
+                        m_multiFilterFunction(inputBuffer->operator[](i), outputBuffer->operator[](i), data);
+                    }
+                }));
+            }
+        }
+
+        for (auto& future : futures) {
+            future.wait();
+        }
     }
 }
 

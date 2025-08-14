@@ -3,47 +3,11 @@
 
 namespace cgl
 {
-    void Drawable::applyFragmentPipeline(std::vector<filter_pass_data::PixelPass> &drawableBuffer, f32 time) {
-        fragmentPipeline.start();
-
-        while (fragmentPipeline.step()) {
-            auto currentFilter = fragmentPipeline.getCurrentFilter();
-
-            if (!currentFilter->isEnabled)
-                continue;
-
-            if (currentFilter->type == FilterType::SinglePass) {
-                filter_pass_data::PixelSinglePass passData;
-                passData.pixelBuffer = &drawableBuffer;
-                passData.time = time;
-
-                currentFilter->function(currentFilter->data.get(), &passData);
-            } else if (currentFilter->type == FilterType::Sequential) {
-                filter_pass_data::PixelPass passData;
-
-                for (u32 i = 0; i < drawableBuffer.size(); ++i) {
-                    passData = drawableBuffer[i];
-                    passData.time = time;
-                    currentFilter->function(currentFilter->data.get(), &passData);
-                    drawableBuffer[i] = passData;
-                }
-            } else if (currentFilter->type == FilterType::Parallel) {
-                #pragma omp parallel for
-                for (int i = 0; i < static_cast<int>(drawableBuffer.size()); ++i) {
-                    filter_pass_data::PixelPass passData = drawableBuffer[i];
-                    passData.time = time;
-                    currentFilter->function(currentFilter->data.get(), &passData);
-                    drawableBuffer[i] = passData;
-                }
-            }
-        }
-    }
-
     std::shared_ptr<Drawable> Drawable::clone() const {
         return nullptr;
     }
 
-    void drawables::Mesh::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+    void drawables::Mesh::generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) {
         int triangleCount = static_cast<int>(points.size() / 3);
 
         if (triangleCount <= 0) {
@@ -99,7 +63,7 @@ namespace cgl
             triangle.inverseArea = (std::abs(area2) > 1e-6f) ? 1.f / area2 : 0.f;
         }
 
-        std::vector<filter_pass_data::PixelPass> triangleBuffer;
+        std::vector<filters::GeometryElementData> triangleBuffer;
 
         for (int ti = 0; ti < triangleCount; ++ti) {
             const auto &triangle = triangles[ti];
@@ -126,7 +90,7 @@ namespace cgl
                 
                 int index = (y - static_cast<int>(triangle.topLeft.y)) * size.x + (x - static_cast<int>(triangle.topLeft.x));
 
-                filter_pass_data::PixelPass &pixelData = triangleBuffer[index];
+                filters::GeometryElementData &pixelData = triangleBuffer[index];
 
                 if (inside) {
                     f32 w1 = e2 * triangle.inverseArea;
@@ -255,10 +219,10 @@ namespace cgl
         return m_size;
     }
 
-    void drawables::Point::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+    void drawables::Point::generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) {
         Vector2<f32> transformedPosition = transform.getMatrix() * position;
 
-        filter_pass_data::PixelPass pixelData;
+        filters::GeometryElementData pixelData;
         pixelData.position = transformedPosition;
         pixelData.uv = { 0.f, 0.f };
         pixelData.size = { 1.f, 1.f };
@@ -267,7 +231,7 @@ namespace cgl
         drawableBuffer.push_back(pixelData);
     }
 
-    void drawables::Ellipse::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+    void drawables::Ellipse::generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) {
         Matrix3<f32> transformMatrix = transform.getMatrix();
         Matrix3<f32> inverseMatrix = transformMatrix.inverse();
 
@@ -296,7 +260,7 @@ namespace cgl
 
         #pragma omp parallel
         {
-            std::vector<filter_pass_data::PixelPass> localBuffer;
+            std::vector<filters::GeometryElementData> localBuffer;
             localBuffer.reserve(256);
 
             #pragma omp for collapse(2) schedule(dynamic)
@@ -310,7 +274,7 @@ namespace cgl
                     f32 distanceSquared = (dx * dx) / (radius.x * radius.x) + (dy * dy) / (radius.y * radius.y);
 
                     if (distanceSquared <= 1.f) {
-                        filter_pass_data::PixelPass pixelData;
+                        filters::GeometryElementData pixelData;
                         
                         pixelData.position = pixelPos;
                         pixelData.uv = {
@@ -330,7 +294,7 @@ namespace cgl
         }
     }
 
-    void drawables::Line::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+    void drawables::Line::generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) {
         Matrix3<f32> transformMatrix = transform.getMatrix();
 
         Vector2<f32> startTransformed = transformMatrix * start;
@@ -340,7 +304,7 @@ namespace cgl
         Vector2<f32> inverseDifference = { 1.f / difference.x, 1.f / difference.y };
         float length = difference.magnitude();
 
-        filter_pass_data::PixelPass pixelData;
+        filters::GeometryElementData pixelData;
 
         if (length < 1e-6f) {
             pixelData.position = startTransformed;
@@ -409,7 +373,7 @@ namespace cgl
         return nonTriangulatedPoints;
     }
 
-    void drawables::Polygon::generateGeometry(std::vector<filter_pass_data::PixelPass> &drawableBuffer, Transform &transform) {
+    void drawables::Polygon::generateGeometry(std::vector<filters::GeometryElementData> &drawableBuffer, Transform &transform) {
         if (!triangulated) {
             triangulate();
         }

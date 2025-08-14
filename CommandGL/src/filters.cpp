@@ -1,157 +1,176 @@
-#include "cgl.hpp"
-
-#include <iostream>
-#include <cmath>
-#include <utf8.h>
+#include "filters.hpp"
 
 namespace cgl
 {
-    u32 FilterPipeline::getFilterCount() const {
-        return static_cast<u32>(m_filters.size());
+    u32 BaseFilterableBuffer::getSize() const {
+        return m_size;
     }
 
-    void FilterPipeline::addFilter(std::shared_ptr<Filter> filter, u32 position) {
-        if (position > m_filters.size())
-            throw std::out_of_range("Position out of range");
-
-        m_filters.insert(m_filters.begin() + position, filter);
+    void BaseFilterableBuffer::setSize(u32 size) {
+        m_size = size;
     }
 
-    void FilterPipeline::removeFilter(u32 position) {
-        if (position >= m_filters.size())
-            throw std::out_of_range("Position out of range");
-
-        m_filters.erase(m_filters.begin() + position);
-    }
-
-    void FilterPipeline::clearFilters() {
-        m_filters.clear();
-    }
-
-    std::shared_ptr<Filter> FilterPipeline::getFilter(u32 position) const {
-        if (position >= m_filters.size())
-            throw std::out_of_range("Position out of range");
-
-        return m_filters[position];
-    }
-
-    void FilterPipeline::start() {
-        m_currentFilterIndex = -1;
-        m_isActive = true;
-    }
-
-    std::shared_ptr<Filter> FilterPipeline::getCurrentFilter() const {
-        if (m_currentFilterIndex >= m_filters.size())
-            return nullptr;
-
-        return m_filters[m_currentFilterIndex];
-    }
-
-    bool FilterPipeline::step() {
-        if (!m_isActive) {
-            return false;
-        }
-
-        while (true) {
-            m_currentFilterIndex++;
-
-            if (m_currentFilterIndex >= m_filters.size()) {
-                m_isActive = false;
-                return false;
-            }
-
-            if (m_filters[m_currentFilterIndex] && m_filters[m_currentFilterIndex]->isEnabled) {
-                return true;
-            }
-        }
-    }
-
-    Color sampleUVColor(const Vector2<f32> &uv) {
-        Vector2<f32> normalizedUV = normalizeUV(uv);
-
-        return {
-            static_cast<u8>(std::lerp(0.f, 256.f, normalizedUV.y)),
-            static_cast<u8>(std::lerp(0.f, 256.f, normalizedUV.x)),
-            static_cast<u8>(std::lerp(256.f, 0.f, normalizedUV.x))
-        };
+    void BaseFilterableBuffer::clear() {
+        setSize(0);
     }
 
     namespace filters
     {
-        void singleColor(void *filterData, void *passData) {
-            auto castedFilterData = static_cast<SingleColorData *>(filterData);
-            auto castedPassData = static_cast<filter_pass_data::PixelPass *>(passData);
+        SingleCharacterColored::SingleCharacterColored(u32 codepoint) {
+            data.codepoint = codepoint;
 
-            castedPassData->color = castedFilterData->color;
-        }
+            executionMode = ExecutionMode::Concurrent;
 
-        void uv(void *filterData, void *passData) {
-            auto castedPassData = static_cast<filter_pass_data::PixelPass *>(passData);
-
-            castedPassData->color = sampleUVColor(castedPassData->uv);
-        }
-
-        void texture(void *filterData, void *passData) {
-            auto castedFilterData = static_cast<TextureData *>(filterData);
-            auto castedPassData = static_cast<filter_pass_data::PixelPass *>(passData);
-
-            castedPassData->color = castedFilterData->texture->sample(castedPassData->uv, castedFilterData->sampling);
-        }
-
-        void rgbSingleCharacter(void *filterData, void *passData) {
-            auto castedFilterData = static_cast<RGBSingleCharacterData *>(filterData);
-            auto castedPassData = static_cast<filter_pass_data::CharacterBufferSinglePass *>(passData);
-
-            std::string &characters = castedPassData->characterBuffer->getCharacters();
-            std::vector<Color> &colors = castedPassData->screenBuffer->getBuffer();
-            
-            characters.clear();
-
-            Color currentColor = colors[0];
-
-            characters += "\x1b[38;2;" +
-                          std::to_string(currentColor.r) +
-                          ";" +
-                          std::to_string(currentColor.g) +
-                          ";" +
-                          std::to_string(currentColor.b) +
-                          "m";
-
-            for (int y = 0; y < castedPassData->screenBuffer->getSize().y; y++) {
-                for (int x = 0; x < castedPassData->screenBuffer->getSize().x; x++) {
-                    if (colors[y * castedPassData->screenBuffer->getSize().x + x] != currentColor) {
-                        currentColor = colors[y * castedPassData->screenBuffer->getSize().x + x];
-                        characters += "\x1b[38;2;" +
-                                      std::to_string(currentColor.r) +
-                                      ";" +
-                                      std::to_string(currentColor.g) +
-                                      ";" +
-                                      std::to_string(currentColor.b) +
-                                      "m";
-                    }
-
-                    utf8::append(0x2588, std::back_inserter(characters));
+            setSingleFilterFunction([](FilterableBuffer<Color> &input, FilterableBuffer<CharacterCell> &output, const SingleCharacterColoredData &data) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = input[i];
+                    output[i].codepoint = data.codepoint;
                 }
+            });
 
-                characters += "\x1b[1E\x1b[0G";
+            setMultiFilterFunction([](Color &input, CharacterCell &output, const SingleCharacterColoredData &data) {
+                output.color = input;
+                output.codepoint = data.codepoint;
+            });
+        }
+
+        void CharacterShuffleColoredData::setCodepoints(const std::vector<u32>& codepoints) {
+            this->m_codepoints = codepoints;
+            m_distribution = std::uniform_int_distribution<u32>(0, m_codepoints.size() - 1);
+        }
+
+        CharacterShuffleColored::CharacterShuffleColored() {
+            data.setCodepoints({ 
+                65, 66, 67, 68, 69,
+                70, 71, 72, 73, 74,
+                75, 76, 77, 78, 79,
+                80, 81, 82, 83, 84,
+                85, 86, 87, 88, 89, 90,
+                97, 98, 99, 100, 101,
+                102, 103, 104, 105, 106,
+                107, 108, 109, 110, 111,
+                112, 113, 114, 115, 116,
+                117, 118, 119, 120, 121, 122,
+                33, 35, 36, 37, 38, 42, 64,
+                63, 47, 43, 45, 61, 94, 95,
+                60, 62, 124
+            });
+
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<Color> &input, FilterableBuffer<CharacterCell> &output, const CharacterShuffleColoredData &data) {
+                if (!data.m_shuffle) return;
+
+                std::mt19937 engine(std::random_device{}());
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = input[i];
+                    output[i].codepoint = data.m_codepoints[data.m_distribution(engine)];
+                }
+            });
+
+            setMultiFilterFunction([](Color &input, CharacterCell &output, const CharacterShuffleColoredData &data) {
+                if (!data.m_shuffle) return;
+
+                thread_local std::mt19937 engine(std::random_device{}());
+                output.color = input;
+                output.codepoint = data.m_codepoints[data.m_distribution(engine)];
+            });
+        }
+
+        void CharacterShuffleColored::beforePipelineRun() {
+            data.m_shuffle = false;
+
+            if (data.time - data.m_lastShuffleTime > data.shufflePeriod || data.m_firstShuffle) {
+                data.m_shuffle = true;
+                data.m_lastShuffleTime = data.time;
+                data.m_firstShuffle = false;
             }
-
-            characters += "\x1b[0m";
-        }
-    }
-
-    Vector2<f32> normalizeUV(const Vector2<f32> &uv) {
-        Vector2<f32> i;
-
-        Vector2<f32> normalizedUV = { std::modf(uv.x, &i.x), std::modf(uv.y, &i.y) };
-
-        if (i.x == 1.f) {
-            normalizedUV.x = 0.999f;
-        }
-        if (i.y == 1.f) {
-            normalizedUV.y = 0.999f;
         }
 
-        return normalizedUV;
+        SolidColor::SolidColor(Color color) {
+            data.color = color;
+
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const SolidColorData &data) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = data.color;
+                }
+            });
+
+            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const SolidColorData &data) {
+                output.color = data.color;
+            });
+        }
+
+        UVGradient::UVGradient() {
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = sampleUVGradient(input[i].uv);
+                }
+            });
+
+            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+                output.color = sampleUVGradient(input.uv);
+            });
+        }
+
+        Grayscale::Grayscale() {
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    f32 luminance = input[i].color.luminance();
+                    output[i].color = Color{
+                        static_cast<u8>(luminance * 255.f),
+                        static_cast<u8>(luminance * 255.f),
+                        static_cast<u8>(luminance * 255.f),
+                        255
+                    };
+                }
+            });
+
+            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+                f32 luminance = input.color.luminance();
+                output.color = Color{
+                    static_cast<u8>(luminance * 255.f),
+                    static_cast<u8>(luminance * 255.f),
+                    static_cast<u8>(luminance * 255.f),
+                    255
+                };
+            });
+        }
+
+        Invert::Invert() {
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = input[i].color.inverted();
+                }
+            });
+
+            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+                output.color = input.color.inverted();
+            });
+        }
+
+        TextureSampler::TextureSampler(Texture *texture) {
+            data.texture = texture;
+
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const TextureSamplerData &data) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    output[i].color = data.texture->sample(input[i].uv, data.samplingMode);
+                }
+            });
+
+            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const TextureSamplerData &data) {
+                output.color = data.texture->sample(input.uv, data.samplingMode);
+            });
+        }
     }
 }
