@@ -1,17 +1,48 @@
 var hierarchy =
 [
-    [ "cgl::filter_pass_data::Base", "structcgl_1_1filter__pass__data_1_1Base.html", [
-      [ "cgl::filter_pass_data::CharacterBufferSinglePass", "structcgl_1_1filter__pass__data_1_1CharacterBufferSinglePass.html", null ],
-      [ "cgl::filter_pass_data::PixelPass", "structcgl_1_1filter__pass__data_1_1PixelPass.html", null ],
-      [ "cgl::filter_pass_data::PixelSinglePass", "structcgl_1_1filter__pass__data_1_1PixelSinglePass.html", null ],
-      [ "cgl::filter_pass_data::ScreenBufferSinglePass", "structcgl_1_1filter__pass__data_1_1ScreenBufferSinglePass.html", null ]
+    [ "cgl::filters::BaseData", "structcgl_1_1filters_1_1BaseData.html", [
+      [ "cgl::filters::CharacterShuffleColoredData", "classcgl_1_1filters_1_1CharacterShuffleColoredData.html", null ],
+      [ "cgl::filters::GeometryElementData", "structcgl_1_1filters_1_1GeometryElementData.html", null ],
+      [ "cgl::filters::SingleCharacterColoredData", "structcgl_1_1filters_1_1SingleCharacterColoredData.html", null ],
+      [ "cgl::filters::SolidColorData", "structcgl_1_1filters_1_1SolidColorData.html", null ],
+      [ "cgl::filters::TextureSamplerData", "structcgl_1_1filters_1_1TextureSamplerData.html", null ]
+    ] ],
+    [ "cgl::BaseFilter", "classcgl_1_1BaseFilter.html", [
+      [ "cgl::Filter< Color, CharacterCell, CharacterShuffleColoredData >", "classcgl_1_1Filter.html", [
+        [ "cgl::filters::CharacterShuffleColored", "structcgl_1_1filters_1_1CharacterShuffleColored.html", null ]
+      ] ],
+      [ "cgl::Filter< GeometryElementData, GeometryElementData >", "classcgl_1_1Filter.html", [
+        [ "cgl::filters::Grayscale", "structcgl_1_1filters_1_1Grayscale.html", null ],
+        [ "cgl::filters::Invert", "structcgl_1_1filters_1_1Invert.html", null ],
+        [ "cgl::filters::UVGradient", "structcgl_1_1filters_1_1UVGradient.html", null ]
+      ] ],
+      [ "cgl::Filter< Color, CharacterCell, SingleCharacterColoredData >", "classcgl_1_1Filter.html", [
+        [ "cgl::filters::SingleCharacterColored", "structcgl_1_1filters_1_1SingleCharacterColored.html", null ]
+      ] ],
+      [ "cgl::Filter< GeometryElementData, GeometryElementData, SolidColorData >", "classcgl_1_1Filter.html", [
+        [ "cgl::filters::SolidColor", "structcgl_1_1filters_1_1SolidColor.html", null ]
+      ] ],
+      [ "cgl::Filter< GeometryElementData, GeometryElementData, TextureSamplerData >", "classcgl_1_1Filter.html", [
+        [ "cgl::filters::TextureSampler", "structcgl_1_1filters_1_1TextureSampler.html", null ]
+      ] ],
+      [ "cgl::Filter< InputType, OutputType, FilterData >", "classcgl_1_1Filter.html", null ]
+    ] ],
+    [ "cgl::BaseFilterableBuffer", "classcgl_1_1BaseFilterableBuffer.html", [
+      [ "cgl::FilterableBuffer< Color >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< GeometryElementData >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< InputType >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< cgl::Color >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< cgl::CharacterCell >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< cgl::filters::GeometryElementData >", "classcgl_1_1FilterableBuffer.html", null ],
+      [ "cgl::FilterableBuffer< T >", "classcgl_1_1FilterableBuffer.html", null ]
     ] ],
     [ "cgl::BitmapFont", "classcgl_1_1BitmapFont.html", null ],
-    [ "cgl::CharacterBuffer", "classcgl_1_1CharacterBuffer.html", null ],
+    [ "cgl::FilterPipeline< InputType, OutputType >::BufferRegistry", "classcgl_1_1FilterPipeline_1_1BufferRegistry.html", null ],
+    [ "cgl::FilterPipeline< InputType, OutputType >::BufferSlot", "structcgl_1_1FilterPipeline_1_1BufferSlot.html", null ],
+    [ "cgl::CharacterCell", "structcgl_1_1CharacterCell.html", null ],
     [ "cgl::Clock", "classcgl_1_1Clock.html", null ],
     [ "cgl::Color", "classcgl_1_1Color.html", null ],
     [ "cgl::Console", "classcgl_1_1Console.html", null ],
-    [ "cgl::ConsoleFont", "classcgl_1_1ConsoleFont.html", null ],
     [ "cgl::Framework::DrawEntry", "structcgl_1_1Framework_1_1DrawEntry.html", null ],
     [ "cgl::Event", "classcgl_1_1Event.html", null ],
     [ "cgl::EventManager", "classcgl_1_1EventManager.html", null ],
@@ -23,28 +54,15 @@ var hierarchy =
       [ "cgl::MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
       [ "cgl::MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ]
     ] ],
-    [ "std::exception", null, [
-      [ "utf8::exception", "classutf8_1_1exception.html", [
-        [ "utf8::invalid_code_point", "classutf8_1_1invalid__code__point.html", null ],
-        [ "utf8::invalid_utf16", "classutf8_1_1invalid__utf16.html", null ],
-        [ "utf8::invalid_utf8", "classutf8_1_1invalid__utf8.html", null ],
-        [ "utf8::not_enough_room", "classutf8_1_1not__enough__room.html", null ]
-      ] ]
-    ] ],
-    [ "cgl::Filter", "structcgl_1_1Filter.html", null ],
-    [ "cgl::FilterPipeline", "classcgl_1_1FilterPipeline.html", null ],
+    [ "cgl::FilterPipeline< InputType, OutputType >", "classcgl_1_1FilterPipeline.html", null ],
+    [ "cgl::FilterPipeline< cgl::Color, cgl::CharacterCell >", "classcgl_1_1FilterPipeline.html", null ],
+    [ "cgl::FilterPipeline< cgl::Color, cgl::Color >", "classcgl_1_1FilterPipeline.html", null ],
+    [ "cgl::FilterPipeline< cgl::filters::GeometryElementData, cgl::filters::GeometryElementData >", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
     [ "cgl::BitmapFont::Glyph", "structcgl_1_1BitmapFont_1_1Glyph.html", null ],
-    [ "utf8::iterator< octet_iterator >", "classutf8_1_1iterator.html", null ],
-    [ "utf8::unchecked::iterator< octet_iterator >", "classutf8_1_1unchecked_1_1iterator.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],
-    [ "cgl::filters::RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", null ],
-    [ "cgl::ScreenBuffer", "classcgl_1_1ScreenBuffer.html", null ],
-    [ "cgl::filters::SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", null ],
-    [ "stbi_io_callbacks", "structstbi__io__callbacks.html", null ],
     [ "cgl::Texture", "classcgl_1_1Texture.html", null ],
-    [ "cgl::filters::TextureData", "structcgl_1_1filters_1_1TextureData.html", null ],
     [ "cgl::Transform", "classcgl_1_1Transform.html", null ],
     [ "cgl::Transformable", "classcgl_1_1Transformable.html", [
       [ "cgl::Drawable", "classcgl_1_1Drawable.html", [

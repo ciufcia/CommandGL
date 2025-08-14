@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['name_0',['name',['../classcgl_1_1ConsoleFont.html#ab599aa161002f554652999ce00c1e720',1,'cgl::ConsoleFont::name'],['../structcgl_1_1Filter.html#ad905a062a71ac2e2dddefb8310711d05',1,'cgl::Filter::name']]],
-  ['newsize_1',['newSize',['../classcgl_1_1Event.html#abb5100a49511cb4703791d7b47908f33',1,'cgl::Event']]],
-  ['nontriangulatedpoints_2',['nonTriangulatedPoints',['../classcgl_1_1drawables_1_1Polygon.html#a28027d7fa4ba457379b17d10754c1785',1,'cgl::drawables::Polygon']]]
+  ['offset_0',['offset',['../structcgl_1_1BitmapFont_1_1Glyph.html#a5a86a9eb1259be7c10e82ed7f70393c8',1,'cgl::BitmapFont::Glyph']]],
+  ['outputtype_1',['outputType',['../classcgl_1_1BaseFilter.html#ae60ccbefd02e5fecb681eb6acc5d7840',1,'cgl::BaseFilter']]]
 ];

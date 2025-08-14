@@ -1,20 +1,21 @@
 var namespacecgl =
 [
     [ "drawables", "namespacecgl_1_1drawables.html", "namespacecgl_1_1drawables" ],
-    [ "filter_pass_data", "namespacecgl_1_1filter__pass__data.html", "namespacecgl_1_1filter__pass__data" ],
     [ "filters", "namespacecgl_1_1filters.html", "namespacecgl_1_1filters" ],
+    [ "BaseFilter", "classcgl_1_1BaseFilter.html", "classcgl_1_1BaseFilter" ],
+    [ "BaseFilterableBuffer", "classcgl_1_1BaseFilterableBuffer.html", "classcgl_1_1BaseFilterableBuffer" ],
     [ "BitmapFont", "classcgl_1_1BitmapFont.html", "classcgl_1_1BitmapFont" ],
-    [ "CharacterBuffer", "classcgl_1_1CharacterBuffer.html", "classcgl_1_1CharacterBuffer" ],
+    [ "CharacterCell", "structcgl_1_1CharacterCell.html", "structcgl_1_1CharacterCell" ],
     [ "Clock", "classcgl_1_1Clock.html", "classcgl_1_1Clock" ],
     [ "Color", "classcgl_1_1Color.html", "classcgl_1_1Color" ],
     [ "Console", "classcgl_1_1Console.html", "classcgl_1_1Console" ],
     [ "ConsoleEvent", "structcgl_1_1ConsoleEvent.html", null ],
-    [ "ConsoleFont", "classcgl_1_1ConsoleFont.html", "classcgl_1_1ConsoleFont" ],
     [ "Drawable", "classcgl_1_1Drawable.html", "classcgl_1_1Drawable" ],
     [ "Event", "classcgl_1_1Event.html", "classcgl_1_1Event" ],
     [ "EventManager", "classcgl_1_1EventManager.html", "classcgl_1_1EventManager" ],
     [ "EventType", "structcgl_1_1EventType.html", "structcgl_1_1EventType" ],
-    [ "Filter", "structcgl_1_1Filter.html", "structcgl_1_1Filter" ],
+    [ "Filter", "classcgl_1_1Filter.html", "classcgl_1_1Filter" ],
+    [ "FilterableBuffer", "classcgl_1_1FilterableBuffer.html", "classcgl_1_1FilterableBuffer" ],
     [ "FilterPipeline", "classcgl_1_1FilterPipeline.html", "classcgl_1_1FilterPipeline" ],
     [ "Framework", "classcgl_1_1Framework.html", "classcgl_1_1Framework" ],
     [ "GlobalMemory", "classcgl_1_1GlobalMemory.html", "classcgl_1_1GlobalMemory" ],
@@ -24,7 +25,6 @@ var namespacecgl =
     [ "Matrix3", "classcgl_1_1Matrix3.html", "classcgl_1_1Matrix3" ],
     [ "MouseMoveEvent", "structcgl_1_1MouseMoveEvent.html", null ],
     [ "MouseScrollEvent", "structcgl_1_1MouseScrollEvent.html", null ],
-    [ "ScreenBuffer", "classcgl_1_1ScreenBuffer.html", "classcgl_1_1ScreenBuffer" ],
     [ "Texture", "classcgl_1_1Texture.html", "classcgl_1_1Texture" ],
     [ "Transform", "classcgl_1_1Transform.html", "classcgl_1_1Transform" ],
     [ "Transformable", "classcgl_1_1Transformable.html", "classcgl_1_1Transformable" ],
@@ -32,7 +32,6 @@ var namespacecgl =
     [ "arithmetic", "conceptcgl_1_1arithmetic.html", null ],
     [ "f32", "namespacecgl.html#acfa438ef59a6a00192fb5fae71525066", null ],
     [ "f64", "namespacecgl.html#ab02a67c3a95c0ee104662667c8c4862e", null ],
-    [ "FilterFunction", "namespacecgl.html#a70c79705893837131c1e68e8fbe64d65", null ],
     [ "i16", "namespacecgl.html#a8751ba883ad6f0fd8df0ac0fcfc87afd", null ],
     [ "i32", "namespacecgl.html#a821cc525077ef98888b37836a777969f", null ],
     [ "i64", "namespacecgl.html#a4d3413bfdaee6e4cbe46a44af3dc9604", null ],
@@ -49,30 +48,6 @@ var namespacecgl =
       [ "Subtractive", "namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4a34d485a1469ebe369d365350a8c87e88", null ],
       [ "Screen", "namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4a2fc3359e12b2a9104121dcf04246f6a0", null ],
       [ "Overlay", "namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4a6b551379c3c0b59326abdaf3b4395bd3", null ]
-    ] ],
-    [ "ConsoleFontFamily", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977", [
-      [ "DontCare", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977a60a3629ef6a8f991f45d7a85f2458544", null ],
-      [ "Roman", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977ab5df36ac79aa6391ffb432b9e5ad7880", null ],
-      [ "Swiss", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977a020f758800fd8d186106ca324c700794", null ],
-      [ "Modern", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977aad1c9cd3e7b07e2c364c985f73188054", null ],
-      [ "Script", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977af907e651164789346ae0a1e257c462d8", null ],
-      [ "Decorative", "namespacecgl.html#a7d7288420437c74943ee079cd20e7977ac830fbfb2e5085792d8abe7553533b1e", null ]
-    ] ],
-    [ "ConsoleFontWeight", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7b", [
-      [ "Thin", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7baaedfcbf06fc92bafadf4527a2fcccc69", null ],
-      [ "ExtraLight", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7baeb4793acf002cfb9152cb297fd693d48", null ],
-      [ "Light", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba9914a0ce04a7b7b6a8e39bec55064b82", null ],
-      [ "Normal", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba960b44c579bc2f6818d2daaf9e4c16f0", null ],
-      [ "Medium", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba87f8a6ab85c9ced3702b4ea641ad4bb5", null ],
-      [ "SemiBold", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba57da4df095766e2b4e9012d34ae8e221", null ],
-      [ "Bold", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7ba114c3050111d8b8ddd830b99ccebd246", null ],
-      [ "ExtraBold", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7baabffa2b1cf03993b241ef26e73af386e", null ],
-      [ "Black", "namespacecgl.html#a84ec7045a124d6781431944b7e72eb7bae90dfb84e30edf611e326eeb04d680de", null ]
-    ] ],
-    [ "FilterType", "namespacecgl.html#a861ba869b50405c09261d6d47fd328b5", [
-      [ "SinglePass", "namespacecgl.html#a861ba869b50405c09261d6d47fd328b5afb4c9649ec491b503777cb90a6c37975", null ],
-      [ "Sequential", "namespacecgl.html#a861ba869b50405c09261d6d47fd328b5aa7e82daa7280af25afbaa076ac16eb1e", null ],
-      [ "Parallel", "namespacecgl.html#a861ba869b50405c09261d6d47fd328b5a98402eecfbcefc336954458a01752131", null ]
     ] ],
     [ "KeyCode", "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193c", [
       [ "Invalid", "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4bbb8f967da6d1a610596d7257179c2b", null ],
@@ -217,7 +192,7 @@ var namespacecgl =
     [ "isBitSet", "namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328", null ],
     [ "normalizeUV", "namespacecgl.html#a2b78454acba582b57b08e112e58f9f5e", null ],
     [ "reverseBits", "namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60", null ],
-    [ "sampleUVColor", "namespacecgl.html#a91f4f9e4e6f690ba7a4827856ebd3d99", null ],
+    [ "sampleUVGradient", "namespacecgl.html#a012d1f1b1ef84d47b7133923fabc7ddb", null ],
     [ "setBit", "namespacecgl.html#a28886765f62feba1622941c5d6e1f397", null ],
     [ "toggleBit", "namespacecgl.html#abc434f38af99a562d710c34c24495791", null ]
 ];

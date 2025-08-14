@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['not_5fenough_5froom_0',['not_enough_room',['../classutf8_1_1not__enough__room.html',1,'utf8']]]
+  ['point_0',['Point',['../classcgl_1_1drawables_1_1Point.html',1,'cgl::drawables']]],
+  ['polygon_1',['Polygon',['../classcgl_1_1drawables_1_1Polygon.html',1,'cgl::drawables']]]
 ];

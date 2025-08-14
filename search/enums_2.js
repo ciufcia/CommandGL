@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filtertype_0',['FilterType',['../namespacecgl.html#a861ba869b50405c09261d6d47fd328b5',1,'cgl']]]
+  ['keycode_0',['KeyCode',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193c',1,'cgl']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weight_0',['weight',['../classcgl_1_1ConsoleFont.html#a420a7e7fe19ee9fb2bab0f421579a5d2',1,'cgl::ConsoleFont']]]
+  ['y_0',['y',['../classcgl_1_1Vector2.html#a8a12525a47efe7736b592d626d7a9ff1',1,'cgl::Vector2']]]
 ];

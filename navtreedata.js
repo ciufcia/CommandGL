@@ -30,10 +30,8 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Concepts", "concepts.html", "concepts" ],
@@ -54,10 +52,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -67,12 +61,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classcgl_1_1EventManager.html#af09b01ba2055d25d5f992bcdf0dd8ac4",
-"classcgl_1_1Transform.html#ad3defef37a1222bb2b2a65577a6c4816",
-"classutf8_1_1unchecked_1_1iterator.html#aa2bb05a12c371c1cb105a66607159059",
-"event_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193cad93ecae0ca93243198fca3ea70ba1b8a",
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193caa2e92861b757ab878312dd57993d60cf",
-"stb__image__write_8h.html"
+"classcgl_1_1Filter.html#a892506b3a482bcc22f1ad0509bd7c643",
+"classcgl_1_1Texture.html#ab45907373df5cf3bb819f8ee80d71fb3",
+"framework_8cpp.html",
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca453fb623e752c5993f65bc410fd74fe5",
+"timing_8cpp.html#a303170301be8b53299617afc5b27114e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

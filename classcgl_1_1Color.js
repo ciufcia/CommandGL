@@ -7,6 +7,7 @@ var classcgl_1_1Color =
     [ "alphaBlend", "classcgl_1_1Color.html#a1050a8fd614e5551ca183b31d859c346", null ],
     [ "applyBlend", "classcgl_1_1Color.html#ab9b9c01b07db324f11b2d663287326e0", null ],
     [ "fromHex", "classcgl_1_1Color.html#a4f23da76d62611140c6bb7b1e5750910", null ],
+    [ "inverted", "classcgl_1_1Color.html#a1564c54289bdc769d4e096d24504e622", null ],
     [ "luminance", "classcgl_1_1Color.html#adeb66a9139ed63a7911b9f74be67d2e2", null ],
     [ "multiplicativeBlend", "classcgl_1_1Color.html#a0e7f1c671c5171bab6f01164a9d01caf", null ],
     [ "noBlend", "classcgl_1_1Color.html#a62dff16309bd003ab92bbd132816e162", null ],

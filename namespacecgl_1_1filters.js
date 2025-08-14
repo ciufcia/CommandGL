@@ -1,10 +1,16 @@
 var namespacecgl_1_1filters =
 [
-    [ "RGBSingleCharacterData", "structcgl_1_1filters_1_1RGBSingleCharacterData.html", "structcgl_1_1filters_1_1RGBSingleCharacterData" ],
-    [ "SingleColorData", "structcgl_1_1filters_1_1SingleColorData.html", "structcgl_1_1filters_1_1SingleColorData" ],
-    [ "TextureData", "structcgl_1_1filters_1_1TextureData.html", "structcgl_1_1filters_1_1TextureData" ],
-    [ "rgbSingleCharacter", "namespacecgl_1_1filters.html#a56a33b1a3a7ca9d692cbf4bd49c8d2ee", null ],
-    [ "singleColor", "namespacecgl_1_1filters.html#ace308d77c8bcf61290611c27e3f96e9c", null ],
-    [ "texture", "namespacecgl_1_1filters.html#ab5cb3d206d661c1bd8ea2ea6e23a679e", null ],
-    [ "uv", "namespacecgl_1_1filters.html#abe58b9522b275101f73258ef4564c847", null ]
+    [ "BaseData", "structcgl_1_1filters_1_1BaseData.html", "structcgl_1_1filters_1_1BaseData" ],
+    [ "CharacterShuffleColored", "structcgl_1_1filters_1_1CharacterShuffleColored.html", "structcgl_1_1filters_1_1CharacterShuffleColored" ],
+    [ "CharacterShuffleColoredData", "classcgl_1_1filters_1_1CharacterShuffleColoredData.html", "classcgl_1_1filters_1_1CharacterShuffleColoredData" ],
+    [ "GeometryElementData", "structcgl_1_1filters_1_1GeometryElementData.html", "structcgl_1_1filters_1_1GeometryElementData" ],
+    [ "Grayscale", "structcgl_1_1filters_1_1Grayscale.html", "structcgl_1_1filters_1_1Grayscale" ],
+    [ "Invert", "structcgl_1_1filters_1_1Invert.html", "structcgl_1_1filters_1_1Invert" ],
+    [ "SingleCharacterColored", "structcgl_1_1filters_1_1SingleCharacterColored.html", "structcgl_1_1filters_1_1SingleCharacterColored" ],
+    [ "SingleCharacterColoredData", "structcgl_1_1filters_1_1SingleCharacterColoredData.html", "structcgl_1_1filters_1_1SingleCharacterColoredData" ],
+    [ "SolidColor", "structcgl_1_1filters_1_1SolidColor.html", "structcgl_1_1filters_1_1SolidColor" ],
+    [ "SolidColorData", "structcgl_1_1filters_1_1SolidColorData.html", "structcgl_1_1filters_1_1SolidColorData" ],
+    [ "TextureSampler", "structcgl_1_1filters_1_1TextureSampler.html", "structcgl_1_1filters_1_1TextureSampler" ],
+    [ "TextureSamplerData", "structcgl_1_1filters_1_1TextureSamplerData.html", "structcgl_1_1filters_1_1TextureSamplerData" ],
+    [ "UVGradient", "structcgl_1_1filters_1_1UVGradient.html", "structcgl_1_1filters_1_1UVGradient" ]
 ];

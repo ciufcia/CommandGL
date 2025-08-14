@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keycode_0',['KeyCode',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193c',1,'cgl']]]
+  ['samplingmode_0',['SamplingMode',['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f',1,'cgl::Texture']]]
 ];

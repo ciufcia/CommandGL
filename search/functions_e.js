@@ -2,16 +2,15 @@ var searchData=
 [
   ['radianstodegrees_0',['radiansToDegrees',['../classcgl_1_1Transform.html#ad5aacdb59a715cf81104c85a16ae668b',1,'cgl::Transform']]],
   ['rectangle_1',['rectangle',['../classcgl_1_1drawables_1_1Rectangle.html#a1dcbb2fcd22a8e154d779cc57c3880da',1,'cgl::drawables::Rectangle::Rectangle()'],['../classcgl_1_1drawables_1_1Rectangle.html#a69723923fca9fef3b45a853c77553e29',1,'cgl::drawables::Rectangle::Rectangle(const Vector2&lt; f32 &gt; &amp;size)']]],
-  ['remove_2',['remove',['../classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb',1,'cgl::GlobalMemory']]],
-  ['removefilter_3',['removeFilter',['../classcgl_1_1FilterPipeline.html#a5fd5353a146d50973780c6091972cc2c',1,'cgl::FilterPipeline']]],
-  ['removepoint_4',['removePoint',['../classcgl_1_1drawables_1_1Polygon.html#ab7b04b3ea9458036c4f3c891464de775',1,'cgl::drawables::Polygon']]],
-  ['render_5',['render',['../classcgl_1_1Framework.html#aa3aa76b3294f510f07b6031427b1f793',1,'cgl::Framework']]],
-  ['rendertotexture_6',['renderToTexture',['../classcgl_1_1BitmapFont.html#aa3ebe4f5364d03e013a2e53f5429ef38',1,'cgl::BitmapFont']]],
-  ['replace_5finvalid_7',['replace_invalid',['../namespaceutf8.html#a2dc6cfe9e60271ce8cd7cf62e02dc399',1,'utf8::replace_invalid(std::string_view s, char32_t replacement)'],['../namespaceutf8.html#af6885fac54d2f7cd367b1ed422b0a2fc',1,'utf8::replace_invalid(octet_iterator start, octet_iterator end, output_iterator out, utfchar32_t replacement)'],['../namespaceutf8.html#a8bde8ca7ab05d80ae4a37ec46bc68672',1,'utf8::replace_invalid(std::string_view s)'],['../namespaceutf8.html#aa2a1f07cd35ceb09053d6362c1f0290f',1,'utf8::replace_invalid(const std::u8string &amp;s, char32_t replacement)'],['../namespaceutf8.html#acbb5df4b114c9af7b3183b166d00fdcd',1,'utf8::replace_invalid(const std::u8string &amp;s)'],['../namespaceutf8_1_1unchecked.html#ad8c71a7d354d4e000e12954361aaec5b',1,'utf8::unchecked::replace_invalid(octet_iterator start, octet_iterator end, output_iterator out, utfchar32_t replacement)'],['../namespaceutf8_1_1unchecked.html#ac27736bcb3aa508f6cf79784c23d4b5d',1,'utf8::unchecked::replace_invalid(octet_iterator start, octet_iterator end, output_iterator out)'],['../namespaceutf8_1_1unchecked.html#a64707440b0645a6338623fb78fed97b8',1,'utf8::unchecked::replace_invalid(const std::string &amp;s, utfchar32_t replacement)'],['../namespaceutf8_1_1unchecked.html#ae1d800d3209bc3503672e6902c642a46',1,'utf8::unchecked::replace_invalid(const std::string &amp;s)'],['../namespaceutf8.html#aec77c74e34421cc8e4b0fdaf3e0e023a',1,'utf8::replace_invalid(const std::string &amp;s)'],['../namespaceutf8.html#adb5bccce14fbf9e900af9bbe237cbc58',1,'utf8::replace_invalid(const std::string &amp;s, utfchar32_t replacement)'],['../namespaceutf8.html#a13db09b6629724205302c623b76db028',1,'utf8::replace_invalid(octet_iterator start, octet_iterator end, output_iterator out)']]],
-  ['reset_8',['reset',['../classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3',1,'cgl::Console']]],
-  ['reversebits_9',['reverseBits',['../namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60',1,'cgl']]],
-  ['rgbsinglecharacter_10',['rgbSingleCharacter',['../namespacecgl_1_1filters.html#a56a33b1a3a7ca9d692cbf4bd49c8d2ee',1,'cgl::filters']]],
-  ['rotate_11',['rotate',['../classcgl_1_1Transform.html#ad283e21062a06cc25c3feac079cdf47f',1,'cgl::Transform::rotate()'],['../classcgl_1_1Matrix3.html#a26f4aba8d199260855d50a8eb6f8b16f',1,'cgl::Matrix3::rotate()']]],
-  ['runcharacterfilterpipeline_12',['runCharacterFilterPipeline',['../classcgl_1_1Framework.html#a13aba452df67ef96521757d2a13d72da',1,'cgl::Framework']]],
-  ['runscreenfilterpipeline_13',['runScreenFilterPipeline',['../classcgl_1_1Framework.html#adb9aa1b62d591d4e21724346966d9a83',1,'cgl::Framework']]]
+  ['registerbuffer_2',['registerBuffer',['../classcgl_1_1FilterPipeline_1_1BufferRegistry.html#a02db7fbf13b195f905f9c3dc9384d841',1,'cgl::FilterPipeline::BufferRegistry']]],
+  ['remove_3',['remove',['../classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb',1,'cgl::GlobalMemory']]],
+  ['removebuffer_4',['removeBuffer',['../classcgl_1_1FilterPipeline.html#a8897750aeea3c61786777b15eb5fd526',1,'cgl::FilterPipeline']]],
+  ['removefilter_5',['removeFilter',['../classcgl_1_1FilterPipeline.html#ab7c19595c4cdc2898f1cc81679c9d847',1,'cgl::FilterPipeline']]],
+  ['removepoint_6',['removePoint',['../classcgl_1_1drawables_1_1Polygon.html#ab7b04b3ea9458036c4f3c891464de775',1,'cgl::drawables::Polygon']]],
+  ['render_7',['render',['../classcgl_1_1Framework.html#aa3aa76b3294f510f07b6031427b1f793',1,'cgl::Framework']]],
+  ['rendertotexture_8',['renderToTexture',['../classcgl_1_1BitmapFont.html#aa3ebe4f5364d03e013a2e53f5429ef38',1,'cgl::BitmapFont']]],
+  ['reset_9',['reset',['../classcgl_1_1Console.html#ada44d2cac46807d906f283c4763afad3',1,'cgl::Console']]],
+  ['reversebits_10',['reverseBits',['../namespacecgl.html#a0a2f6027a9f42ee4bf8c162fd50f7b60',1,'cgl']]],
+  ['rotate_11',['rotate',['../classcgl_1_1Matrix3.html#a26f4aba8d199260855d50a8eb6f8b16f',1,'cgl::Matrix3::rotate()'],['../classcgl_1_1Transform.html#ad283e21062a06cc25c3feac079cdf47f',1,'cgl::Transform::rotate()']]],
+  ['run_12',['run',['../classcgl_1_1FilterPipeline.html#aa785fb238bc54bfd1ee2513f9f648655',1,'cgl::FilterPipeline']]]
 ];

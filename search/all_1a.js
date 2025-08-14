@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['_7econsole_0',['~Console',['../classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1',1,'cgl::Console']]],
-  ['_7edrawable_1',['~Drawable',['../classcgl_1_1Drawable.html#a9472289cd5d209075a318048d169c483',1,'cgl::Drawable']]],
-  ['_7eeventtype_2',['~EventType',['../structcgl_1_1EventType.html#a61242b4040cc2d99c6e0b25b2c084719',1,'cgl::EventType']]],
-  ['_7efilter_3',['~Filter',['../structcgl_1_1Filter.html#afe5aaefe45b5219eb30f529054ef493d',1,'cgl::Filter']]],
-  ['_7eglobalmemory_4',['~GlobalMemory',['../classcgl_1_1GlobalMemory.html#a919e3b9a813f250bdee11bb50de7e940',1,'cgl::GlobalMemory']]],
-  ['_7etexture_5',['~Texture',['../classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e',1,'cgl::Texture']]]
+  ['_7ebasefilter_0',['~BaseFilter',['../classcgl_1_1BaseFilter.html#adf7c682e1d0f69dd61823a401bd0c91e',1,'cgl::BaseFilter']]],
+  ['_7ebasefilterablebuffer_1',['~BaseFilterableBuffer',['../classcgl_1_1BaseFilterableBuffer.html#aa181cad6432c59dd095d2a97fb1c2733',1,'cgl::BaseFilterableBuffer']]],
+  ['_7econsole_2',['~Console',['../classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1',1,'cgl::Console']]],
+  ['_7edrawable_3',['~Drawable',['../classcgl_1_1Drawable.html#a9472289cd5d209075a318048d169c483',1,'cgl::Drawable']]],
+  ['_7eeventtype_4',['~EventType',['../structcgl_1_1EventType.html#a61242b4040cc2d99c6e0b25b2c084719',1,'cgl::EventType']]],
+  ['_7efilter_5',['~Filter',['../classcgl_1_1Filter.html#ac89716a1f313f602e688b2ff3bcff827',1,'cgl::Filter']]],
+  ['_7efilterablebuffer_6',['~FilterableBuffer',['../classcgl_1_1FilterableBuffer.html#a8a96e14ec3a050abdfa6dcbe73ac8957',1,'cgl::FilterableBuffer']]],
+  ['_7eglobalmemory_7',['~GlobalMemory',['../classcgl_1_1GlobalMemory.html#a919e3b9a813f250bdee11bb50de7e940',1,'cgl::GlobalMemory']]],
+  ['_7etexture_8',['~Texture',['../classcgl_1_1Texture.html#a04d4a77dd72f120d2f8471f742347d8e',1,'cgl::Texture']]]
 ];

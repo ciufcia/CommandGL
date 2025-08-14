@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['f32_0',['f32',['../namespacecgl.html#acfa438ef59a6a00192fb5fae71525066',1,'cgl']]],
-  ['f64_1',['f64',['../namespacecgl.html#ab02a67c3a95c0ee104662667c8c4862e',1,'cgl']]],
-  ['filterfunction_2',['FilterFunction',['../namespacecgl.html#a70c79705893837131c1e68e8fbe64d65',1,'cgl']]]
+  ['i16_0',['i16',['../namespacecgl.html#a8751ba883ad6f0fd8df0ac0fcfc87afd',1,'cgl']]],
+  ['i32_1',['i32',['../namespacecgl.html#a821cc525077ef98888b37836a777969f',1,'cgl']]],
+  ['i64_2',['i64',['../namespacecgl.html#a4d3413bfdaee6e4cbe46a44af3dc9604',1,'cgl']]],
+  ['i8_3',['i8',['../namespacecgl.html#a4e4fdeaf1635f7ad75195e579929ab46',1,'cgl']]]
 ];
