@@ -8,6 +8,7 @@
 #include <optional>
 #include <array>
 #include "keycodes.hpp"
+#include <vector>
 
 namespace cgl
 {
@@ -215,7 +216,7 @@ namespace cgl
     }
 
     template<typename... Callbacks>
-    void EventManager::handleEvents(Callbacks&&... callbacks) {    
+    void EventManager::handleEvents(Callbacks&&... callbacks) { 
         std::vector<bool> handledEvents(m_events.size(), false);
         
         auto processCallback = [this, &handledEvents](auto&& callback) {

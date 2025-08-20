@@ -14,6 +14,15 @@
 
 namespace cgl
 {
+    namespace filters
+    {
+        struct BaseData
+        {
+            f32 time = 0.f;
+            bool buffer_resized = false;
+        };
+    }
+
     class BaseFilterableBuffer
     {
     public:
@@ -80,7 +89,7 @@ namespace cgl
         virtual void beforePipelineRun() = 0;
         virtual void apply(BaseFilterableBuffer *input, BaseFilterableBuffer *output) = 0;
         virtual void afterPipelineRun() = 0;
-        virtual void setTime(f32 time) = 0;
+        virtual void setBaseData(const filters::BaseData &baseData) = 0;
     };
 
     template<typename InputType, typename OutputType, typename FilterData = filters::BaseData>
@@ -104,7 +113,7 @@ namespace cgl
         virtual void beforePipelineRun() override {}
         virtual void apply(BaseFilterableBuffer *input, BaseFilterableBuffer *output) override final;
         virtual void afterPipelineRun() override {}
-        virtual void setTime(f32 time) override final;
+        virtual void setBaseData(const filters::BaseData &baseData) override final;
 
         void setSingleFilterFunction(SingleFilterFunction func);
         void setMultiFilterFunction(MultiFilterFunction func);
@@ -125,12 +134,7 @@ namespace cgl
 
     namespace filters
     {
-        struct BaseData
-        {
-            f32 time = 0.f;
-        };
-
-        struct GeometryElementData : public BaseData
+        struct GeometryElementData
         {
             Color color { 255, 0, 255, 255 };
 
@@ -214,11 +218,13 @@ namespace cgl
         {
             TextureSampler(Texture *texture);
         };
-    }
+    };
 
     template<typename T>
     FilterableBuffer<T>::~FilterableBuffer() {
-        delete[] m_data;
+        if (m_data && m_ownsData) {
+            delete[] m_data;
+        }
     }
 
     template<typename T>
@@ -282,8 +288,9 @@ namespace cgl
     }
 
     template<typename InputType, typename OutputType, typename FilterData>
-    void Filter<InputType, OutputType, FilterData>::setTime(f32 time) {
-        data.time = time;
+    void Filter<InputType, OutputType, FilterData>::setBaseData(const filters::BaseData &baseData) {
+        data.time = baseData.time;
+        data.buffer_resized = baseData.buffer_resized;
     }
 
     template<typename InputType, typename OutputType, typename FilterData>

@@ -17,10 +17,9 @@ int getWinapiVK(KeyCode key) {
 #ifdef __linux__
 
 KeyCode getKeyCodeFromLinuxKey(int key) {
-    for (const auto &pair : keyCodeToLinuxKey) {
-        if (pair.second == key) {
-            return pair.first;
-        }
+    auto it = linuxKeyToKeyCode.find(key);
+    if (it != linuxKeyToKeyCode.end()) {
+        return it->second;
     }
     return KeyCode::Invalid;
 }

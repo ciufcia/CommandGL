@@ -1,5 +1,7 @@
 #include "filters.hpp"
 
+#include <iostream>
+
 namespace cgl
 {
     u32 BaseFilterableBuffer::getSize() const {
@@ -80,7 +82,7 @@ namespace cgl
         void CharacterShuffleColored::beforePipelineRun() {
             data.m_shuffle = false;
 
-            if (data.time - data.m_lastShuffleTime > data.shufflePeriod || data.m_firstShuffle) {
+            if (data.buffer_resized || data.time - data.m_lastShuffleTime > data.shufflePeriod || data.m_firstShuffle) {
                 data.m_shuffle = true;
                 data.m_lastShuffleTime = data.time;
                 data.m_firstShuffle = false;

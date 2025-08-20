@@ -1,4 +1,5 @@
 #include <cgl.hpp>
+#include <iostream>
 
 int main() {
     cgl::Framework framework;
@@ -33,9 +34,9 @@ int main() {
             }
         );
 
-        framework.draw(triangle);
-
         framework.clearDisplay(cgl::Color{255, 255, 255, 255});
+
+        framework.draw(triangle);
 
         framework.update();
     }

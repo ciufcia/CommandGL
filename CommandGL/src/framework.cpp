@@ -13,6 +13,11 @@ namespace cgl
         initializeBuffers();
         initializeFilterPipelines();
 
+        console.getEvents(eventManager.getEvents());
+        eventManager.discardEvents();
+
+        m_resizedPreviousFrame = false;
+        
         m_clock.tick();
     }
 
@@ -51,12 +56,9 @@ namespace cgl
     }
 
     void Framework::update() {
-        m_screenScaleFactor = {
-            static_cast<f32>(console.getSize().x) / std::max(static_cast<f32>(baseConsoleSize.x), 1e-6f),
-            static_cast<f32>(console.getSize().y) / std::max(static_cast<f32>(baseConsoleSize.y), 1e-6f)
-        };
-
         render();
+
+        eventManager.discardEvents();
 
         console.getEvents(eventManager.getEvents());
 
@@ -110,7 +112,10 @@ namespace cgl
             }
         );
 
-        f32 time = getDurationInSeconds(m_clock.getRunningDuration());
+        filters::BaseData baseData;
+        baseData.time = getDurationInSeconds(m_clock.getRunningDuration());
+        baseData.buffer_resized = m_resizedPreviousFrame;
+        m_resizedPreviousFrame = false;
 
         for (auto &drawEntry : m_drawQueue) {
             m_drawableBuffer.clear();
@@ -119,23 +124,23 @@ namespace cgl
 
             drawEntry.drawable->generateGeometry(m_drawableBuffer, drawEntry.transform);
 
-            applyDrawableFragmentOnDrawableBuffer(drawEntry.drawable->fragmentPipeline, m_drawableBuffer, time);
+            applyDrawableFragmentOnDrawableBuffer(drawEntry.drawable->fragmentPipeline, m_drawableBuffer, baseData);
 
             writeDrawableBuffer(drawEntry.drawable->blendMode);
         }
 
         m_drawQueue.clear();
 
-        screenFilterPipeline.run(&m_screenBuffer, &m_screenBuffer, time);
-        characterFilterPipeline.run(&m_screenBuffer, &m_characterBuffer, time);
+        screenFilterPipeline.run(&m_screenBuffer, &m_screenBuffer, baseData);
+        characterFilterPipeline.run(&m_screenBuffer, &m_characterBuffer, baseData);
 
         console.writeCharacterBuffer(m_characterBuffer, m_screenSize);
     }
 
-    void Framework::applyDrawableFragmentOnDrawableBuffer(FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> &pipeline, std::vector<filters::GeometryElementData> &drawableBuffer, f32 time) {
+    void Framework::applyDrawableFragmentOnDrawableBuffer(FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> &pipeline, std::vector<filters::GeometryElementData> &drawableBuffer, const filters::BaseData &baseData) {
         m_filterableBuffer.setData(drawableBuffer.data(), static_cast<u32>(drawableBuffer.size()));
 
-        pipeline.run(&m_filterableBuffer, &m_filterableBuffer, time);
+        pipeline.run(&m_filterableBuffer, &m_filterableBuffer, baseData);
     }
 
     void Framework::writeDrawableBuffer(BlendMode blendMode) {
@@ -160,5 +165,12 @@ namespace cgl
 
         m_characterBuffer.setSize(m_screenSize.x * m_screenSize.y);
         m_screenBuffer.setSize(m_screenSize.x * m_screenSize.y);
+
+        m_screenScaleFactor = {
+            static_cast<f32>(console.getSize().x) / std::max(static_cast<f32>(baseConsoleSize.x), 1e-6f),
+            static_cast<f32>(console.getSize().y) / std::max(static_cast<f32>(baseConsoleSize.y), 1e-6f)
+        };
+
+        m_resizedPreviousFrame = true;
     }
 }

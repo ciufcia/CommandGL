@@ -106,7 +106,7 @@ namespace cgl
 
         void getHandles();
         void setInputMode();
-	    void setOutputMode();
+	void setOutputMode();
         void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords);
         std::wstring stringToWideString(const std::string &str) const;
         std::string wideStringToString(const std::wstring &wstr) const;

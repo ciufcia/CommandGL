@@ -177,7 +177,7 @@ namespace cgl
         void initializeBuffers();
         void initializeFilterPipelines();
 
-        void applyDrawableFragmentOnDrawableBuffer(FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> &pipeline, std::vector<filters::GeometryElementData> &drawableBuffer, f32 time);
+        void applyDrawableFragmentOnDrawableBuffer(FilterPipeline<filters::GeometryElementData, filters::GeometryElementData> &pipeline, std::vector<filters::GeometryElementData> &drawableBuffer, const filters::BaseData &baseData);
         void writeDrawableBuffer(BlendMode blendMode);
 
         void handleResizing(const Vector2<u32> &newSize);
@@ -196,6 +196,7 @@ namespace cgl
 
         Vector2<u32> m_screenSize { 0u, 0u };
         Vector2<f32> m_screenScaleFactor { 1.f, 1.f };
+        bool m_resizedPreviousFrame = false;
 
         Clock m_clock;
 

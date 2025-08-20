@@ -61,7 +61,7 @@ namespace cgl
 
         void assignBufferToSlot(u32 slotIndex, u32 bufferId);
 
-        void run(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer, f32 time);
+        void run(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer, const filters::BaseData &baseData);
 
     private:
 
@@ -195,7 +195,7 @@ namespace cgl
     }
 
     template<typename InputType, typename OutputType>
-    void FilterPipeline<InputType, OutputType>::run(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer, f32 time) {
+    void FilterPipeline<InputType, OutputType>::run(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer, const filters::BaseData &baseData) {
         if (!built) {
             throw std::runtime_error("Pipeline is not built");
         }
@@ -205,7 +205,7 @@ namespace cgl
         }
 
         for (const auto &filter : m_filters) {
-            filter->setTime(time);
+            filter->setBaseData(baseData);
             filter->beforePipelineRun();
         }
 
