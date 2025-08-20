@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4314bbf1a297c4b03a5246a71c9c93b6":[0,0,0,41,64],
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca44c29edb103a2872f519ad0c9a0fdaaa":[0,0,0,41,96],
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca453fb623e752c5993f65bc410fd74fe5":[0,0,0,41,48],
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca47489eb597b7db34caa24b1fc78fc839":[0,0,0,41,113],
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4787509ad9f9d747a81a30e9dde3d4a7":[0,0,0,41,114],
@@ -143,8 +145,8 @@ var NAVTREEINDEX4 =
 "structcgl_1_1BitmapFont_1_1Glyph.html#aa3e46a0a703fa56e600cd32606999744":[2,0,0,4,0,0],
 "structcgl_1_1BitmapFont_1_1Glyph.html#aadb762f311ce594fe253df90433d85db":[0,0,0,4,0,2],
 "structcgl_1_1BitmapFont_1_1Glyph.html#aadb762f311ce594fe253df90433d85db":[2,0,0,4,0,2],
-"structcgl_1_1BitmapFont_1_1Glyph.html#adbf42111cf64e32c47e101d34f47c642":[2,0,0,4,0,1],
 "structcgl_1_1BitmapFont_1_1Glyph.html#adbf42111cf64e32c47e101d34f47c642":[0,0,0,4,0,1],
+"structcgl_1_1BitmapFont_1_1Glyph.html#adbf42111cf64e32c47e101d34f47c642":[2,0,0,4,0,1],
 "structcgl_1_1CharacterCell.html":[2,0,0,5],
 "structcgl_1_1CharacterCell.html":[0,0,0,5],
 "structcgl_1_1CharacterCell.html#a08ef74117659709eecf829c834c7e610":[0,0,0,5,0],
@@ -181,8 +183,10 @@ var NAVTREEINDEX4 =
 "structcgl_1_1MouseScrollEvent.html":[2,0,0,24],
 "structcgl_1_1filters_1_1BaseData.html":[2,0,0,1,0],
 "structcgl_1_1filters_1_1BaseData.html":[0,0,0,1,0],
-"structcgl_1_1filters_1_1BaseData.html#a3ef9b71cf0b4ef8f85de32bac9465641":[2,0,0,1,0,0],
-"structcgl_1_1filters_1_1BaseData.html#a3ef9b71cf0b4ef8f85de32bac9465641":[0,0,0,1,0,0],
+"structcgl_1_1filters_1_1BaseData.html#a3ef9b71cf0b4ef8f85de32bac9465641":[2,0,0,1,0,1],
+"structcgl_1_1filters_1_1BaseData.html#a3ef9b71cf0b4ef8f85de32bac9465641":[0,0,0,1,0,1],
+"structcgl_1_1filters_1_1BaseData.html#a932af5b31681c89544ac6946f7c611e2":[2,0,0,1,0,0],
+"structcgl_1_1filters_1_1BaseData.html#a932af5b31681c89544ac6946f7c611e2":[0,0,0,1,0,0],
 "structcgl_1_1filters_1_1CharacterShuffleColored.html":[0,0,0,1,1],
 "structcgl_1_1filters_1_1CharacterShuffleColored.html":[2,0,0,1,1],
 "structcgl_1_1filters_1_1CharacterShuffleColored.html#a6c3748a74ef36457ba0c8ded168adf8b":[2,0,0,1,1,0],
@@ -193,8 +197,8 @@ var NAVTREEINDEX4 =
 "structcgl_1_1filters_1_1GeometryElementData.html":[2,0,0,1,3],
 "structcgl_1_1filters_1_1GeometryElementData.html#a2295a3c0001283ede2cf8fba99c57c0f":[0,0,0,1,3,2],
 "structcgl_1_1filters_1_1GeometryElementData.html#a2295a3c0001283ede2cf8fba99c57c0f":[2,0,0,1,3,2],
-"structcgl_1_1filters_1_1GeometryElementData.html#a43d5c79c822126a36ab7ad6a7c6285a4":[2,0,0,1,3,5],
 "structcgl_1_1filters_1_1GeometryElementData.html#a43d5c79c822126a36ab7ad6a7c6285a4":[0,0,0,1,3,5],
+"structcgl_1_1filters_1_1GeometryElementData.html#a43d5c79c822126a36ab7ad6a7c6285a4":[2,0,0,1,3,5],
 "structcgl_1_1filters_1_1GeometryElementData.html#a82ae85b552c62b56cfb7aa5b8ef8e86b":[2,0,0,1,3,4],
 "structcgl_1_1filters_1_1GeometryElementData.html#a82ae85b552c62b56cfb7aa5b8ef8e86b":[0,0,0,1,3,4],
 "structcgl_1_1filters_1_1GeometryElementData.html#ab641aee20c1bd2a5f845e26478e33877":[0,0,0,1,3,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX4 =
 "text_8hpp.html":[3,0,0,0,14],
 "text_8hpp_source.html":[3,0,0,0,14],
 "texture_8cpp.html":[3,0,0,1,10],
-"texture_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78":[3,0,0,1,10,0],
-"texture_8cpp.html#aefe397a94e8feddc652f92ef40ce9597":[3,0,0,1,10,1],
-"texture_8hpp.html":[3,0,0,0,15],
-"texture_8hpp_source.html":[3,0,0,0,15],
-"timing_8cpp.html":[3,0,0,1,11]
+"texture_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78":[3,0,0,1,10,0]
 };

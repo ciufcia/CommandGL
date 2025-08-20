@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"filters_8hpp.html":[3,0,0,0,8],
+"filters_8hpp_source.html":[3,0,0,0,8],
 "framework_8cpp.html":[3,0,0,1,6],
 "framework_8hpp.html":[3,0,0,0,9],
 "framework_8hpp_source.html":[3,0,0,0,9],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca32ba78fe43257d3e7f88e3935a8ea0d4":[0,0,0,41,46],
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca36346483e4fb65520720adc40f0a753d":[0,0,0,41,54],
 "namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca37f438df6a6d5ba4c17ef8ca58562f00":[0,0,0,41,111],
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca3a3ea00cfc35332cedf6e5e9a32e94da":[0,0,0,41,85],
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca4314bbf1a297c4b03a5246a71c9c93b6":[0,0,0,41,64],
-"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca44c29edb103a2872f519ad0c9a0fdaaa":[0,0,0,41,96]
+"namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca3a3ea00cfc35332cedf6e5e9a32e94da":[0,0,0,41,85]
 };

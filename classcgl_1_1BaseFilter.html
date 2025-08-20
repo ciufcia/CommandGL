@@ -154,8 +154,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab675fc9dce4d7c6f139db319b0ddb7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5969b952c5ced126310de4a9c7d4626c" id="r_a5969b952c5ced126310de4a9c7d4626c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BaseFilter.html#a5969b952c5ced126310de4a9c7d4626c">afterPipelineRun</a> ()=0</td></tr>
 <tr class="separator:a5969b952c5ced126310de4a9c7d4626c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03dc92fe6a077fedca244e519196f105" id="r_a03dc92fe6a077fedca244e519196f105"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BaseFilter.html#a03dc92fe6a077fedca244e519196f105">setTime</a> (<a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> time)=0</td></tr>
-<tr class="separator:a03dc92fe6a077fedca244e519196f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e67ece2cf40ef7104ada3aa36d56dfb" id="r_a3e67ece2cf40ef7104ada3aa36d56dfb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BaseFilter.html#a3e67ece2cf40ef7104ada3aa36d56dfb">setBaseData</a> (const <a class="el" href="structcgl_1_1filters_1_1BaseData.html">filters::BaseData</a> &amp;baseData)=0</td></tr>
+<tr class="separator:a3e67ece2cf40ef7104ada3aa36d56dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -313,8 +313,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a03dc92fe6a077fedca244e519196f105" name="a03dc92fe6a077fedca244e519196f105"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03dc92fe6a077fedca244e519196f105">&#9670;&#160;</a></span>setTime()</h2>
+<a id="a3e67ece2cf40ef7104ada3aa36d56dfb" name="a3e67ece2cf40ef7104ada3aa36d56dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e67ece2cf40ef7104ada3aa36d56dfb">&#9670;&#160;</a></span>setBaseData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,10 +323,10 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void cgl::BaseFilter::setTime </td>
+          <td class="memname">virtual void cgl::BaseFilter::setBaseData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a>&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structcgl_1_1filters_1_1BaseData.html">filters::BaseData</a> &amp;&#160;</td>
+          <td class="paramname"><em>baseData</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -337,7 +337,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; InputType, OutputType, FilterData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; Color, CharacterCell, CharacterShuffleColoredData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; Color, CharacterCell, SingleCharacterColoredData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; GeometryElementData, GeometryElementData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; GeometryElementData, GeometryElementData, SolidColorData &gt;</a>, and <a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">cgl::Filter&lt; GeometryElementData, GeometryElementData, TextureSamplerData &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; InputType, OutputType, FilterData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; Color, CharacterCell, CharacterShuffleColoredData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; Color, CharacterCell, SingleCharacterColoredData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; GeometryElementData, GeometryElementData &gt;</a>, <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; GeometryElementData, GeometryElementData, SolidColorData &gt;</a>, and <a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">cgl::Filter&lt; GeometryElementData, GeometryElementData, TextureSamplerData &gt;</a>.</p>
 
 </div>
 </div>

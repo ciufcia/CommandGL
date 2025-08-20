@@ -9,7 +9,7 @@ var classcgl_1_1BaseFilter =
     [ "afterPipelineRun", "classcgl_1_1BaseFilter.html#a5969b952c5ced126310de4a9c7d4626c", null ],
     [ "apply", "classcgl_1_1BaseFilter.html#ab675fc9dce4d7c6f139db319b0ddb7ac", null ],
     [ "beforePipelineRun", "classcgl_1_1BaseFilter.html#ae2b93f7f3d4bf01df9df1a8abcd88589", null ],
-    [ "setTime", "classcgl_1_1BaseFilter.html#a03dc92fe6a077fedca244e519196f105", null ],
+    [ "setBaseData", "classcgl_1_1BaseFilter.html#a3e67ece2cf40ef7104ada3aa36d56dfb", null ],
     [ "executionMode", "classcgl_1_1BaseFilter.html#ac9092607ef1689c63b43ff000acbdfad", null ],
     [ "inputType", "classcgl_1_1BaseFilter.html#a777fdd51fae0e6303f7d519ca3e5cbd0", null ],
     [ "outputType", "classcgl_1_1BaseFilter.html#ae60ccbefd02e5fecb681eb6acc5d7840", null ]

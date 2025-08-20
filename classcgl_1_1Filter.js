@@ -11,9 +11,9 @@ var classcgl_1_1Filter =
     [ "applySingle", "classcgl_1_1Filter.html#aad1f565eb2c80e30248dedfbcedc42f3", null ],
     [ "beforePipelineRun", "classcgl_1_1Filter.html#aceb82998d2c7e210ed71393eca7cbd6a", null ],
     [ "getBufferPointers", "classcgl_1_1Filter.html#a276e323776a0d59110d5e8395f81a140", null ],
+    [ "setBaseData", "classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615", null ],
     [ "setMultiFilterFunction", "classcgl_1_1Filter.html#adcbb1bad8c8a1c31b5aba834b413a621", null ],
     [ "setSingleFilterFunction", "classcgl_1_1Filter.html#ae65c6942c3bdab62cc4f7fe4db62eca6", null ],
-    [ "setTime", "classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287", null ],
     [ "data", "classcgl_1_1Filter.html#a7109a0e567e3a09f774169755e0e04f2", null ],
     [ "m_multiFilterFunction", "classcgl_1_1Filter.html#afe87ade410943ca2eac4ecf2bfcd2805", null ],
     [ "m_singleFilterFunction", "classcgl_1_1Filter.html#a57410c5f20586de7bde3f6698e3b36bd", null ]

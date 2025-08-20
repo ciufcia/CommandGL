@@ -17,7 +17,7 @@ var searchData=
   ['apply_14',['apply',['../classcgl_1_1Filter.html#ae920c2324e5d2d4e02602df4f5bfe57a',1,'cgl::Filter::apply()'],['../classcgl_1_1BaseFilter.html#ab675fc9dce4d7c6f139db319b0ddb7ac',1,'cgl::BaseFilter::apply()']]],
   ['applyblend_15',['applyBlend',['../classcgl_1_1Color.html#ab9b9c01b07db324f11b2d663287326e0',1,'cgl::Color']]],
   ['applyconcurrent_16',['applyConcurrent',['../classcgl_1_1Filter.html#afcd3a92dbe019be5cd59af30ba0a957a',1,'cgl::Filter']]],
-  ['applydrawablefragmentondrawablebuffer_17',['applyDrawableFragmentOnDrawableBuffer',['../classcgl_1_1Framework.html#a8aa86d98268112b9065a9a9e992b1680',1,'cgl::Framework']]],
+  ['applydrawablefragmentondrawablebuffer_17',['applyDrawableFragmentOnDrawableBuffer',['../classcgl_1_1Framework.html#aa8e03b209c720fb63dfb65465d73ae9f',1,'cgl::Framework']]],
   ['applysequential_18',['applySequential',['../classcgl_1_1Filter.html#a25b6db5776a123b2cc8730238eb6e3eb',1,'cgl::Filter']]],
   ['applysingle_19',['applySingle',['../classcgl_1_1Filter.html#aad1f565eb2c80e30248dedfbcedc42f3',1,'cgl::Filter']]],
   ['assignbuffertoslot_20',['assignBufferToSlot',['../classcgl_1_1FilterPipeline.html#af16560094ae011264a38ed6b01ce9ca1',1,'cgl::FilterPipeline']]]

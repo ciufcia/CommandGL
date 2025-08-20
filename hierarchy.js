@@ -2,7 +2,6 @@ var hierarchy =
 [
     [ "cgl::filters::BaseData", "structcgl_1_1filters_1_1BaseData.html", [
       [ "cgl::filters::CharacterShuffleColoredData", "classcgl_1_1filters_1_1CharacterShuffleColoredData.html", null ],
-      [ "cgl::filters::GeometryElementData", "structcgl_1_1filters_1_1GeometryElementData.html", null ],
       [ "cgl::filters::SingleCharacterColoredData", "structcgl_1_1filters_1_1SingleCharacterColoredData.html", null ],
       [ "cgl::filters::SolidColorData", "structcgl_1_1filters_1_1SolidColorData.html", null ],
       [ "cgl::filters::TextureSamplerData", "structcgl_1_1filters_1_1TextureSamplerData.html", null ]
@@ -59,6 +58,7 @@ var hierarchy =
     [ "cgl::FilterPipeline< cgl::Color, cgl::Color >", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::FilterPipeline< cgl::filters::GeometryElementData, cgl::filters::GeometryElementData >", "classcgl_1_1FilterPipeline.html", null ],
     [ "cgl::Framework", "classcgl_1_1Framework.html", null ],
+    [ "cgl::filters::GeometryElementData", "structcgl_1_1filters_1_1GeometryElementData.html", null ],
     [ "cgl::GlobalMemory", "classcgl_1_1GlobalMemory.html", null ],
     [ "cgl::BitmapFont::Glyph", "structcgl_1_1BitmapFont_1_1Glyph.html", null ],
     [ "cgl::Matrix3< T >", "classcgl_1_1Matrix3.html", null ],

@@ -1,10 +1,10 @@
 var filters_8hpp =
 [
+    [ "cgl::filters::BaseData", "structcgl_1_1filters_1_1BaseData.html", "structcgl_1_1filters_1_1BaseData" ],
     [ "cgl::BaseFilterableBuffer", "classcgl_1_1BaseFilterableBuffer.html", "classcgl_1_1BaseFilterableBuffer" ],
     [ "cgl::FilterableBuffer< T >", "classcgl_1_1FilterableBuffer.html", "classcgl_1_1FilterableBuffer" ],
     [ "cgl::BaseFilter", "classcgl_1_1BaseFilter.html", "classcgl_1_1BaseFilter" ],
     [ "cgl::Filter< InputType, OutputType, FilterData >", "classcgl_1_1Filter.html", "classcgl_1_1Filter" ],
-    [ "cgl::filters::BaseData", "structcgl_1_1filters_1_1BaseData.html", "structcgl_1_1filters_1_1BaseData" ],
     [ "cgl::filters::GeometryElementData", "structcgl_1_1filters_1_1GeometryElementData.html", "structcgl_1_1filters_1_1GeometryElementData" ],
     [ "cgl::filters::SingleCharacterColoredData", "structcgl_1_1filters_1_1SingleCharacterColoredData.html", "structcgl_1_1filters_1_1SingleCharacterColoredData" ],
     [ "cgl::filters::SingleCharacterColored", "structcgl_1_1filters_1_1SingleCharacterColored.html", "structcgl_1_1filters_1_1SingleCharacterColored" ],

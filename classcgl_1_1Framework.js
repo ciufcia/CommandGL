@@ -2,7 +2,7 @@ var classcgl_1_1Framework =
 [
     [ "DrawEntry", "structcgl_1_1Framework_1_1DrawEntry.html", "structcgl_1_1Framework_1_1DrawEntry" ],
     [ "Framework", "classcgl_1_1Framework.html#a71f7dfbcbb28999494aeb68a9250d050", null ],
-    [ "applyDrawableFragmentOnDrawableBuffer", "classcgl_1_1Framework.html#a8aa86d98268112b9065a9a9e992b1680", null ],
+    [ "applyDrawableFragmentOnDrawableBuffer", "classcgl_1_1Framework.html#aa8e03b209c720fb63dfb65465d73ae9f", null ],
     [ "clearDisplay", "classcgl_1_1Framework.html#a1459d3f47302231d729d45125c12accc", null ],
     [ "draw", "classcgl_1_1Framework.html#a3a352845a3525e5b24772119a02792bb", null ],
     [ "getFPSTarget", "classcgl_1_1Framework.html#a2d338e12d8c6bd01640d80b4ab689ebc", null ],
@@ -29,6 +29,7 @@ var classcgl_1_1Framework =
     [ "m_drawQueue", "classcgl_1_1Framework.html#a79f05df406650b3e2831c5895037e69b", null ],
     [ "m_filterableBuffer", "classcgl_1_1Framework.html#a5e9c99df3d7b4f23609bd2809d2adeba", null ],
     [ "m_lastFrameTime", "classcgl_1_1Framework.html#a657ca6d87d2e74ce9808f5ac3dd78111", null ],
+    [ "m_resizedPreviousFrame", "classcgl_1_1Framework.html#afb901e90c9857ec9f55af159be73c385", null ],
     [ "m_screenBuffer", "classcgl_1_1Framework.html#acbf8fe87c18c4f5ac002c640b1bcac4f", null ],
     [ "m_screenScaleFactor", "classcgl_1_1Framework.html#ae14ec2631006e8ef495fcd4b4f7dcc7f", null ],
     [ "m_screenSize", "classcgl_1_1Framework.html#a6a9b59632c3766c5fe7be1850c74b837", null ],

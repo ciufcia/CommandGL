@@ -151,8 +151,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae920c2324e5d2d4e02602df4f5bfe57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab631803b8435f59ac32aff250af97eda" id="r_ab631803b8435f59ac32aff250af97eda"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Filter.html#ab631803b8435f59ac32aff250af97eda">afterPipelineRun</a> () override</td></tr>
 <tr class="separator:ab631803b8435f59ac32aff250af97eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc922f2fb1cc8d8e6f044bf15e99287" id="r_a9bc922f2fb1cc8d8e6f044bf15e99287"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Filter.html#a9bc922f2fb1cc8d8e6f044bf15e99287">setTime</a> (<a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> time) override final</td></tr>
-<tr class="separator:a9bc922f2fb1cc8d8e6f044bf15e99287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73969a1153864198968fc3c1d8f86615" id="r_a73969a1153864198968fc3c1d8f86615"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Filter.html#a73969a1153864198968fc3c1d8f86615">setBaseData</a> (const <a class="el" href="structcgl_1_1filters_1_1BaseData.html">filters::BaseData</a> &amp;baseData) override final</td></tr>
+<tr class="separator:a73969a1153864198968fc3c1d8f86615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae65c6942c3bdab62cc4f7fe4db62eca6" id="r_ae65c6942c3bdab62cc4f7fe4db62eca6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Filter.html#ae65c6942c3bdab62cc4f7fe4db62eca6">setSingleFilterFunction</a> (<a class="el" href="classcgl_1_1Filter.html#a892506b3a482bcc22f1ad0509bd7c643">SingleFilterFunction</a> func)</td></tr>
 <tr class="separator:ae65c6942c3bdab62cc4f7fe4db62eca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcbb1bad8c8a1c31b5aba834b413a621" id="r_adcbb1bad8c8a1c31b5aba834b413a621"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Filter.html#adcbb1bad8c8a1c31b5aba834b413a621">setMultiFilterFunction</a> (<a class="el" href="classcgl_1_1Filter.html#a2a6f2da64795df4988ea6868e1c13dc8">MultiFilterFunction</a> func)</td></tr>
@@ -524,6 +524,36 @@ template&lt;typename InputType , typename OutputType , typename FilterData &gt; 
 
 </div>
 </div>
+<a id="a73969a1153864198968fc3c1d8f86615" name="a73969a1153864198968fc3c1d8f86615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73969a1153864198968fc3c1d8f86615">&#9670;&#160;</a></span>setBaseData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InputType , typename OutputType , typename FilterData &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classcgl_1_1Filter.html">cgl::Filter</a>&lt; InputType, OutputType, FilterData &gt;::setBaseData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structcgl_1_1filters_1_1BaseData.html">filters::BaseData</a> &amp;&#160;</td>
+          <td class="paramname"><em>baseData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classcgl_1_1BaseFilter.html#a3e67ece2cf40ef7104ada3aa36d56dfb">cgl::BaseFilter</a>.</p>
+
+</div>
+</div>
 <a id="adcbb1bad8c8a1c31b5aba834b413a621" name="adcbb1bad8c8a1c31b5aba834b413a621"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adcbb1bad8c8a1c31b5aba834b413a621">&#9670;&#160;</a></span>setMultiFilterFunction()</h2>
 
@@ -561,36 +591,6 @@ template&lt;typename InputType , typename OutputType , typename FilterData &gt; 
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9bc922f2fb1cc8d8e6f044bf15e99287" name="a9bc922f2fb1cc8d8e6f044bf15e99287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bc922f2fb1cc8d8e6f044bf15e99287">&#9670;&#160;</a></span>setTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename InputType , typename OutputType , typename FilterData &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classcgl_1_1Filter.html">cgl::Filter</a>&lt; InputType, OutputType, FilterData &gt;::setTime </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a>&#160;</td>
-          <td class="paramname"><em>time</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="classcgl_1_1BaseFilter.html#a03dc92fe6a077fedca244e519196f105">cgl::BaseFilter</a>.</p>
 
 </div>
 </div>

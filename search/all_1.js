@@ -8,15 +8,16 @@ var searchData=
   ['basedata_5',['BaseData',['../structcgl_1_1filters_1_1BaseData.html',1,'cgl::filters']]],
   ['basefilter_6',['BaseFilter',['../classcgl_1_1BaseFilter.html',1,'cgl']]],
   ['basefilterablebuffer_7',['BaseFilterableBuffer',['../classcgl_1_1BaseFilterableBuffer.html',1,'cgl']]],
-  ['beforepipelinerun_8',['beforepipelinerun',['../structcgl_1_1filters_1_1CharacterShuffleColored.html#ab599bf4ddf65bbc83f183a509d5f68bd',1,'cgl::filters::CharacterShuffleColored::beforePipelineRun()'],['../classcgl_1_1Filter.html#aceb82998d2c7e210ed71393eca7cbd6a',1,'cgl::Filter::beforePipelineRun()'],['../classcgl_1_1BaseFilter.html#ae2b93f7f3d4bf01df9df1a8abcd88589',1,'cgl::BaseFilter::beforePipelineRun()']]],
+  ['beforepipelinerun_8',['beforepipelinerun',['../classcgl_1_1BaseFilter.html#ae2b93f7f3d4bf01df9df1a8abcd88589',1,'cgl::BaseFilter::beforePipelineRun()'],['../classcgl_1_1Filter.html#aceb82998d2c7e210ed71393eca7cbd6a',1,'cgl::Filter::beforePipelineRun()'],['../structcgl_1_1filters_1_1CharacterShuffleColored.html#ab599bf4ddf65bbc83f183a509d5f68bd',1,'cgl::filters::CharacterShuffleColored::beforePipelineRun()']]],
   ['bilinear_9',['Bilinear',['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556faaf17c98bbd83c27d6426d2ff3fa81d7f',1,'cgl::Texture']]],
   ['bit_5fmanipulation_2ehpp_10',['bit_manipulation.hpp',['../bit__manipulation_8hpp.html',1,'']]],
   ['bitmap_11',['bitmap',['../structcgl_1_1BitmapFont_1_1Glyph.html#adbf42111cf64e32c47e101d34f47c642',1,'cgl::BitmapFont::Glyph']]],
   ['bitmapfont_12',['BitmapFont',['../classcgl_1_1BitmapFont.html',1,'cgl']]],
   ['blendmode_13',['blendmode',['../classcgl_1_1Drawable.html#aa8c4f946583cb6378be8f9d9d7bfa862',1,'cgl::Drawable::blendMode'],['../namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4',1,'cgl::BlendMode']]],
   ['buffer_14',['buffer',['../structcgl_1_1FilterPipeline_1_1BufferSlot.html#aa69f6ed239f4cf015cbf129f9f91522f',1,'cgl::FilterPipeline::BufferSlot']]],
-  ['bufferregistry_15',['BufferRegistry',['../classcgl_1_1FilterPipeline_1_1BufferRegistry.html',1,'cgl::FilterPipeline']]],
-  ['bufferslot_16',['BufferSlot',['../structcgl_1_1FilterPipeline_1_1BufferSlot.html',1,'cgl::FilterPipeline']]],
-  ['build_17',['build',['../classcgl_1_1FilterPipeline.html#ab80fc6ac34208609cb4bcaa124b36b82',1,'cgl::FilterPipeline']]],
-  ['built_18',['built',['../classcgl_1_1FilterPipeline.html#a7466a42fb8122231a7e9d238ca81e2b8',1,'cgl::FilterPipeline']]]
+  ['buffer_5fresized_15',['buffer_resized',['../structcgl_1_1filters_1_1BaseData.html#a932af5b31681c89544ac6946f7c611e2',1,'cgl::filters::BaseData']]],
+  ['bufferregistry_16',['BufferRegistry',['../classcgl_1_1FilterPipeline_1_1BufferRegistry.html',1,'cgl::FilterPipeline']]],
+  ['bufferslot_17',['BufferSlot',['../structcgl_1_1FilterPipeline_1_1BufferSlot.html',1,'cgl::FilterPipeline']]],
+  ['build_18',['build',['../classcgl_1_1FilterPipeline.html#ab80fc6ac34208609cb4bcaa124b36b82',1,'cgl::FilterPipeline']]],
+  ['built_19',['built',['../classcgl_1_1FilterPipeline.html#a7466a42fb8122231a7e9d238ca81e2b8',1,'cgl::FilterPipeline']]]
 ];
