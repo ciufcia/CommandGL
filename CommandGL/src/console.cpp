@@ -32,12 +32,12 @@ namespace cgl
         if (!GetConsoleScreenBufferInfo(
             m_handles.output,
             &consoleScreenBufferInfo
-        )) throw std::runtime_error("Failed to get console screen buffer info");
+        )) invokeError<WinapiError>("Failed to get console screen buffer info");
 
         return { static_cast<u32>(consoleScreenBufferInfo.dwSize.X), static_cast<u32>(consoleScreenBufferInfo.dwSize.Y) };
 #elif defined(__linux__) || defined(__APPLE__)
         struct winsize w;
-        if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == -1) throw std::runtime_error("Failed to get console size");
+        if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == -1) invokeError<TermiosError>("Failed to get console size");
         return { static_cast<u32>(w.ws_col), static_cast<u32>(w.ws_row) };
 #endif // _WIN32
     }
@@ -111,7 +111,7 @@ namespace cgl
     void Console::addKeyboardDevice(const std::string &devicePath) {
         for (auto &device : m_keyboardDevices) {
             if (device.path == devicePath) {
-                throw std::runtime_error("Keyboard device already added: " + devicePath);
+                invokeError<InvalidArgumentError>("Keyboard device already added: " + devicePath);
             }
         }
 
@@ -120,12 +120,12 @@ namespace cgl
 
         deviceData.fd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
         if (deviceData.fd < 0) {
-            throw std::runtime_error("Failed to open keyboard device: " + devicePath);
+            invokeError<DeviceError>("Failed to open keyboard device: " + devicePath);
         }
 
         if (libevdev_new_from_fd(deviceData.fd, &deviceData.device) < 0) {
             close(deviceData.fd);
-            throw std::runtime_error("Failed to initialize libevdev for keyboard");
+            invokeError<DeviceError>("Failed to initialize libevdev for keyboard");
         }
 
         m_keyboardDevices.push_back(deviceData);
@@ -134,7 +134,7 @@ namespace cgl
     void Console::addMouseDevice(const std::string &devicePath) {
         for (auto &device : m_mouseDevices) {
             if (device.path == devicePath) {
-                throw std::runtime_error("Mouse device already added: " + devicePath);
+                invokeError<InvalidArgumentError>("Mouse device already added: " + devicePath);
             }
         }
 
@@ -143,12 +143,12 @@ namespace cgl
 
         deviceData.fd = open(devicePath.c_str(), O_RDONLY | O_NONBLOCK);
         if (deviceData.fd < 0) {
-            throw std::runtime_error("Failed to open mouse device: " + devicePath);
+            invokeError<DeviceError>("Failed to open mouse device: " + devicePath);
         }
 
         if (libevdev_new_from_fd(deviceData.fd, &deviceData.device) < 0) {
             close(deviceData.fd);
-            throw std::runtime_error("Failed to initialize libevdev for mouse");
+            invokeError<DeviceError>("Failed to initialize libevdev for mouse");
         }
 
         m_mouseDevices.push_back(deviceData);
@@ -163,7 +163,7 @@ namespace cgl
                 return;
             }
         }
-        throw std::runtime_error("Keyboard device not found: " + devicePath);
+        invokeError<InvalidArgumentError>("Keyboard device not found: " + devicePath);
     }
 
     void Console::removeMouseDevice(const std::string &devicePath) {
@@ -175,7 +175,7 @@ namespace cgl
                 return;
             }
         }
-        throw std::runtime_error("Mouse device not found: " + devicePath);
+        invokeError<InvalidArgumentError>("Mouse device not found: " + devicePath);
     }
 
 #endif // __linux__
@@ -240,7 +240,7 @@ namespace cgl
             &characters_written,
             NULL
         )) {
-            throw std::runtime_error("WriteConsole failed. Error code: " + std::to_string(GetLastError()));
+            invokeError<WinapiError>("WriteConsole failed");
         }
 #endif // _WIN32
 #if defined(__linux__) || defined(__APPLE__)
@@ -254,10 +254,10 @@ namespace cgl
         getHandles();
 
         if (!GetConsoleMode(m_handles.input, &m_firstInputMode))
-            throw std::runtime_error("Failed to get initial console input mode");
+            invokeError<WinapiError>("Failed to get initial console input mode");
 
         if (!GetConsoleMode(m_handles.output, &m_firstOutputMode))
-            throw std::runtime_error("Failed to get initial console output mode");
+            invokeError<WinapiError>("Failed to get initial console output mode");
 
         setInputMode();
         setOutputMode();
@@ -321,7 +321,7 @@ namespace cgl
         if (
             m_handles.input == INVALID_HANDLE_VALUE || m_handles.input == nullptr ||
             m_handles.output == INVALID_HANDLE_VALUE || m_handles.output == nullptr
-        ) throw std::runtime_error("Failed to get console handles");
+        ) invokeError<WinapiError>("Failed to get console handles");
     }
     
     void Console::setInputMode() {
@@ -334,19 +334,19 @@ namespace cgl
         if (!SetConsoleMode(
             m_handles.input,
             mode
-        )) throw std::runtime_error("Failed to set console input mode");  
+        )) invokeError<WinapiError>("Failed to set console input mode");
     }
 
     void Console::setOutputMode() {
         DWORD mode = 0;
         if (!GetConsoleMode(m_handles.output, &mode))
-            throw std::runtime_error("GetConsoleMode failed");
+            invokeError<WinapiError>("GetConsoleMode failed");
 
         mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING
             | ENABLE_PROCESSED_OUTPUT
             | ENABLE_WRAP_AT_EOL_OUTPUT;
         if (!SetConsoleMode(m_handles.output, mode))
-            throw std::runtime_error("SetConsoleMode failed");
+            invokeError<WinapiError>("SetConsoleMode failed");
 
         SetConsoleOutputCP(CP_UTF8);
     }
@@ -358,26 +358,26 @@ namespace cgl
     void Console::setTerminalRawMode() {
         struct termios raw;
         if (tcgetattr(STDIN_FILENO, &raw) == -1) {
-            throw std::runtime_error("Failed to get terminal attributes");
+            invokeError<TermiosError>("Failed to get terminal attributes");
         }
 
         raw.c_lflag &= ~(ICANON | ECHO); // Disable canonical mode and echo
 
         if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) == -1) {
-            throw std::runtime_error("Failed to set terminal to raw mode");
+            invokeError<TermiosError>("Failed to set terminal to raw mode");
         }
     }
 
     void Console::resetTerminalMode() {
         struct termios raw;
         if (tcgetattr(STDIN_FILENO, &raw) == -1) {
-            throw std::runtime_error("Failed to get terminal attributes");
+            invokeError<TermiosError>("Failed to get terminal attributes");
         }
 
         raw.c_lflag |= (ICANON | ECHO);
 
         if (tcsetattr(STDIN_FILENO, TCSANOW, &raw) == -1) {
-            throw std::runtime_error("Failed to reset terminal mode");
+            invokeError<TermiosError>("Failed to reset terminal mode");
         }
     }
 
@@ -676,7 +676,7 @@ namespace cgl
         if (!GetNumberOfConsoleInputEvents(
             m_handles.input,
             &numberOfEvents
-        )) throw std::runtime_error("Failed to get number of console input events");
+        )) invokeError<WinapiError>("Failed to get number of console input events");
 
         std::vector<INPUT_RECORD> inputRecords(numberOfEvents);
 

@@ -11,7 +11,7 @@ namespace cgl
         int triangleCount = static_cast<int>(points.size() / 3);
 
         if (triangleCount <= 0) {
-            throw std::runtime_error("Not enough points to form a mesh.");
+            invokeError<InvalidArgumentError>("Not enough points to form a mesh.");
         }
 
         std::vector<Vector2<f32>> transformedPoints(points.size());
@@ -152,7 +152,7 @@ namespace cgl
 
     void drawables::Triangle::setPoint(u8 index, const Vector2<f32> &point) {
         if (index >= 3) {
-            throw std::out_of_range("Index out of range");
+            invokeError<InvalidArgumentError>("Index out of range");
         }
 
         points[index] = point;
@@ -166,7 +166,7 @@ namespace cgl
 
     Vector2<f32> drawables::Triangle::getPoint(u8 index) const {
         if (index >= 3) {
-            throw std::out_of_range("Index out of range");
+            invokeError<InvalidArgumentError>("Index out of range");
         }
 
         return points[index];
@@ -354,7 +354,7 @@ namespace cgl
 
     Vector2<f32> drawables::Polygon::getPoint(u32 index) const {
         if (index >= nonTriangulatedPoints.size()) {
-            throw std::out_of_range("Index out of range");
+            invokeError<InvalidArgumentError>("Index out of range");
         }
 
         return nonTriangulatedPoints[index];
@@ -362,7 +362,7 @@ namespace cgl
 
     void drawables::Polygon::setPoint(u32 index, const Vector2<f32> &point) {
         if (index >= nonTriangulatedPoints.size()) {
-            throw std::out_of_range("Index out of range");
+            invokeError<InvalidArgumentError>("Index out of range");
         }
 
         nonTriangulatedPoints[index] = point;
@@ -383,7 +383,7 @@ namespace cgl
 
     void drawables::Polygon::triangulate() {
         if (nonTriangulatedPoints.size() < 3) {
-            throw std::runtime_error("Not enough points to form a polygon.");
+            invokeError<InvalidArgumentError>("Not enough points to form a polygon.");
         }
 
         auto nonTriangulatedPointsList = std::list<Vector2<f32>>(nonTriangulatedPoints.begin(), nonTriangulatedPoints.end());
@@ -424,7 +424,7 @@ namespace cgl
 
         while (nonTriangulatedPointsList.size() > 3) {
             if (count >= nonTriangulatedPointsList.size()) {
-                throw std::runtime_error("Couldn't triangulate polygon");
+                invokeError<LogicError>("Couldn't triangulate polygon");
             }
 
             count++;

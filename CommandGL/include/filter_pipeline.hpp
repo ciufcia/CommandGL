@@ -190,14 +190,14 @@ namespace cgl
         if (it != m_bufferRegistries.end()) {
             m_buffers[slotIndex].buffer = it->second.getBuffer(bufferId);
         } else {
-            throw std::runtime_error("No buffer available for slot");
+            invokeError<InvalidArgumentError>("No buffer available for slot");
         }
     }
 
     template<typename InputType, typename OutputType>
     void FilterPipeline<InputType, OutputType>::run(FilterableBuffer<InputType> *inputBuffer, FilterableBuffer<OutputType> *outputBuffer, const filters::BaseData &baseData) {
         if (!built) {
-            throw std::runtime_error("Pipeline is not built");
+            invokeError<LogicError>("Pipeline is not built");
         }
 
         if (m_filters.size() == 0) {
@@ -226,7 +226,7 @@ namespace cgl
                 } else if (m_buffers[i].type == std::type_index(typeid(OutputType))) {
                     currentOutput = outputBuffer;
                 } else {
-                    throw std::runtime_error("No buffer available for slot");
+                    invokeError<LogicError>("Could not find a matching buffer");
                 }
             }
 
@@ -247,12 +247,12 @@ namespace cgl
         for (const auto &filter : m_filters) {
             std::type_index actualInput = filter->inputType;
             if (actualInput != expectedInput) {
-                throw std::runtime_error("Incompatible filter types");
+                invokeError<LogicError>("Incompatible filter types");
             }
             expectedInput = filter->outputType;
         }
         if (expectedInput != std::type_index(typeid(OutputType))) {
-            throw std::runtime_error("Incompatible filter types");
+            invokeError<LogicError>("Incompatible filter types");
         }
     }
 
@@ -278,7 +278,7 @@ namespace cgl
                 slot.type != std::type_index(typeid(InputType)) &&
                 slot.type != std::type_index(typeid(OutputType))
             ) {
-                throw std::runtime_error("No buffer available for slot");
+                invokeError<LogicError>("No buffer available for slot");
             }
         }
     }

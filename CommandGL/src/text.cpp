@@ -11,7 +11,7 @@ namespace cgl
     {
         std::ifstream file(filepath);
         if (!file.is_open()) {
-            throw std::runtime_error("Failed to open BDF file: " + filepath);
+            invokeError<InvalidArgumentError>("Failed to open BDF file: " + filepath);
         }
 
         std::string line;
@@ -61,7 +61,7 @@ namespace cgl
                             } else if (hexChar >= 'a' && hexChar <= 'f') {
                                 byte = hexChar - 'a' + 10;
                             } else {
-                                throw std::runtime_error("Invalid hex character: " + std::string(1, hexChar));
+                                invokeError<InvalidArgumentError>("Invalid hex character: " + std::string(1, hexChar));
                             }
                             
                             for (int b = 3; b >= 0; --b) {
@@ -210,7 +210,8 @@ namespace cgl
         if (it != m_glyphMap.end()) {
             return m_glyphs[it->second];
         } else {
-            throw std::runtime_error("Glyph not found for codepoint: " + std::to_string(codepoint));
+            invokeError<InvalidArgumentError>("Glyph not found for codepoint: " + std::to_string(codepoint));
+            return m_glyphs[0]; // Return a default glyph to avoid compiler warning
         }
     }
 } // namespace cgl

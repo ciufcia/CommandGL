@@ -38,7 +38,7 @@ namespace cgl
 
     void Texture::setRawData(const Vector2<u32> &size, const std::vector<Color> &data) {
         if (size.x * size.y != data.size()) {
-            throw std::invalid_argument("Size does not match data length");
+            invokeError<InvalidArgumentError>("Size does not match data length");
         }
 
         m_size = size;
@@ -47,7 +47,7 @@ namespace cgl
 
     void Texture::setRawData(const Vector2<u32> &size, const std::vector<Color> &&data) {
         if (size.x * size.y != data.size()) {
-            throw std::invalid_argument("Size does not match data length");
+            invokeError<InvalidArgumentError>("Size does not match data length");
         }
 
         m_size = size;
@@ -59,7 +59,7 @@ namespace cgl
         unsigned char *imageData = stbi_load(filepath.c_str(), &width, &height, &channels, 4);
 
         if (!imageData) {
-            throw std::runtime_error("Failed to load texture from file: " + filepath);
+            invokeError<InvalidArgumentError>("Failed to load texture from file: " + filepath);
         }
 
         m_size = { static_cast<u32>(width), static_cast<u32>(height) };
@@ -83,7 +83,7 @@ namespace cgl
 
     void Texture::save(const std::string &filepath) const {
         if (m_data.empty()) {
-            throw std::runtime_error("Texture data is empty, cannot save");
+            invokeError<InvalidArgumentError>("Texture data is empty, cannot save");
         }
 
         int width = static_cast<int>(m_size.x);
@@ -103,7 +103,7 @@ namespace cgl
         }
 
         if (!stbi_write_png(filepath.c_str(), width, height, 4, imageData.data(), width * 4)) {
-            throw std::runtime_error("Failed to save texture to file: " + filepath);
+            invokeError<LogicError>("Failed to save texture to file: " + filepath);
         }
     }
 
@@ -122,7 +122,8 @@ namespace cgl
             case SamplingMode::Bilinear:
                 return sampleBilinear(uv);
             default:
-                throw std::invalid_argument("Unsupported sampling mode");
+                invokeError<InvalidArgumentError>("Unsupported sampling mode");
+                return Color(); // This line will never be reached, but added to avoid compiler warning
         }
     }
 

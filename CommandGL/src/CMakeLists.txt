@@ -14,6 +14,7 @@ add_library(
     texture.cpp
     text.cpp
     events.cpp
+    errors.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

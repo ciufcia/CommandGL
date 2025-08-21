@@ -21,14 +21,6 @@
 
 namespace cgl
 {
-    /**
-     * @class Console
-     * @brief Manages Windows console operations including display, input, and font configuration.
-     * 
-     * The Console class provides a high-level interface for interacting with the Windows console,
-     * including resizing the window, changing fonts, writing character buffers, and handling
-     * input events. It automatically saves and restores the original console state.
-     */
     class Console
     {
     public:
@@ -38,16 +30,6 @@ namespace cgl
 
         ~Console();
 
-        /**
-         * @brief Gets the current size of the console window in character cells.
-         *
-         * This function queries the console screen buffer to determine the current
-         * width and height of the console window, in character cells. The result
-         * is returned as a reference to a Vector2<u32> where x is the width and y is the height.
-         * 
-         * @return Reference to a Vector2<u32> containing the console's width (x) and height (y).
-         * @throws std::runtime_error if unable to get console screen buffer info.
-         */
         Vector2<u32> getSize() const;
 
 #ifdef __linux__

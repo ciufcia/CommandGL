@@ -62,7 +62,7 @@ namespace cgl
                 m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
 
         if (det == 0) {
-            throw std::runtime_error("Matrix is singular and cannot be inverted.");
+            invokeError<LogicError>("Matrix is singular and cannot be inverted.");
         }
 
         Matrix3<T> result;

@@ -20,5 +20,6 @@
 #include "text.hpp"
 #include "character_cell.hpp"
 #include "keycodes.hpp"
+#include "errors.hpp"
 
 #endif // CGL_CGL_HPP

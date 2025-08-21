@@ -48,7 +48,7 @@ namespace cgl
             drawable = drawable->clone();
 
             if (!drawable) {
-                throw std::runtime_error("Failed to clone drawable object.");
+                invokeError<InvalidArgumentError>("Failed to clone drawable object.");
             }
         }
 

@@ -21,7 +21,7 @@ int main() {
     cgl::filters::UVGradient uvGradientFilter;
     cgl::filters::Grayscale grayscaleFilter;
     cgl::filters::Invert invertFilter;
-    triangle->fragmentPipeline.addFilter(&uvGradientFilter).addFilter(&grayscaleFilter).addFilter(&invertFilter).build();
+    triangle->fragmentPipeline.addFilter(&uvGradientFilter).addFilter(&invertFilter).build();
 
     bool running = true;
 
