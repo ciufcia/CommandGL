@@ -112,9 +112,6 @@ $(document).ready(function(){initNavTree('classcgl_1_1EventManager.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Manages input events from the console and provides event handling capabilities.  
- <a href="classcgl_1_1EventManager.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -126,14 +123,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af09b01ba2055d25d5f992bcdf0dd8ac4" id="r_af09b01ba2055d25d5f992bcdf0dd8ac4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#af09b01ba2055d25d5f992bcdf0dd8ac4">operator=</a> (const <a class="el" href="classcgl_1_1EventManager.html">EventManager</a> &amp;)=delete</td></tr>
 <tr class="separator:af09b01ba2055d25d5f992bcdf0dd8ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eb5e4490cb85f88163db6937467c59d" id="r_a0eb5e4490cb85f88163db6937467c59d"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classcgl_1_1Event.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#a0eb5e4490cb85f88163db6937467c59d">pollEvent</a> ()</td></tr>
-<tr class="memdesc:a0eb5e4490cb85f88163db6937467c59d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for the next available event.  <br /></td></tr>
 <tr class="separator:a0eb5e4490cb85f88163db6937467c59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff2d917c7c742130925ed681524ec64" id="r_adff2d917c7c742130925ed681524ec64"><td class="memTemplParams" colspan="2">template&lt;typename... Callbacks&gt; </td></tr>
 <tr class="memitem:adff2d917c7c742130925ed681524ec64"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#adff2d917c7c742130925ed681524ec64">handleEvents</a> (Callbacks &amp;&amp;... callbacks)</td></tr>
-<tr class="memdesc:adff2d917c7c742130925ed681524ec64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes events using multiple type-specific callbacks.  <br /></td></tr>
 <tr class="separator:adff2d917c7c742130925ed681524ec64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655254fcac0bc0e24809de06c3da970b" id="r_a655254fcac0bc0e24809de06c3da970b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#a655254fcac0bc0e24809de06c3da970b">discardEvents</a> ()</td></tr>
-<tr class="memdesc:a655254fcac0bc0e24809de06c3da970b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards all events in the event queue.  <br /></td></tr>
 <tr class="separator:a655254fcac0bc0e24809de06c3da970b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e1afd97218c83d272c6107a564537b9" id="r_a3e1afd97218c83d272c6107a564537b9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Event.html">Event</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#a3e1afd97218c83d272c6107a564537b9">getEvents</a> ()</td></tr>
 <tr class="separator:a3e1afd97218c83d272c6107a564537b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,10 +139,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a246b87c4b7c1dd8b4a509e11c1ac81e8" id="r_a246b87c4b7c1dd8b4a509e11c1ac81e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Event.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1EventManager.html#a246b87c4b7c1dd8b4a509e11c1ac81e8">m_events</a></td></tr>
 <tr class="separator:a246b87c4b7c1dd8b4a509e11c1ac81e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages input events from the console and provides event handling capabilities. </p>
-<p>The <a class="el" href="classcgl_1_1EventManager.html" title="Manages input events from the console and provides event handling capabilities.">EventManager</a> class acts as an interface between the <a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> and application code, polling for input events, maintaining an event queue, and providing flexible event handling through type-specific callbacks. It supports keyboard and mouse events, as well as console resize events. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a532c4e8fc60a57320a4684ea84c30307" name="a532c4e8fc60a57320a4684ea84c30307"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a532c4e8fc60a57320a4684ea84c30307">&#9670;&#160;</a></span>EventManager() <span class="overload">[1/2]</span></h2>
 
@@ -216,9 +207,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Discards all events in the event queue. </p>
-<p>This method clears the internal event queue, removing all pending events. It can be useful to reset the event state without processing them. </p>
-
 </div>
 </div>
 <a id="a3e1afd97218c83d272c6107a564537b9" name="a3e1afd97218c83d272c6107a564537b9"></a>
@@ -256,45 +244,6 @@ template&lt;typename... Callbacks&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Processes events using multiple type-specific callbacks. </p>
-<p>This is the main event processing method that allows you to register multiple callbacks for different event types. Each callback will only be called for events it can handle based on its signature.</p>
-<p>Supported callback signatures:</p><ul>
-<li>(<a class="el" href="structcgl_1_1KeyPressEvent.html" title="Event type marker for keyboard key press events.">KeyPressEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void</li>
-<li>(<a class="el" href="structcgl_1_1KeyReleaseEvent.html" title="Event type marker for keyboard key release events.">KeyReleaseEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void <br  />
-</li>
-<li>(<a class="el" href="structcgl_1_1MouseMoveEvent.html" title="Event type marker for mouse movement events.">MouseMoveEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void</li>
-<li>(<a class="el" href="structcgl_1_1MouseScrollEvent.html" title="Event type marker for mouse scroll wheel events.">MouseScrollEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void</li>
-<li>(<a class="el" href="structcgl_1_1ConsoleEvent.html" title="Event type marker for console window events (such as resize).">ConsoleEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void</li>
-<li>(<a class="el" href="structcgl_1_1InvalidEvent.html" title="Event type marker for invalid or uninitialized events.">InvalidEvent</a>, const <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a>&amp;) -&gt; void</li>
-</ul>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Callbacks</td><td>Variadic template for multiple callback types </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callbacks</td><td>One or more callback functions/lambdas to process events</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Events are automatically removed from the queue after being processed </dd>
-<dd>
-Each event can be handled by multiple callbacks if their signatures match</dd></dl>
-<p>Example usage: </p><div class="fragment"><div class="line">eventManager.handleEvents(</div>
-<div class="line">    [](<a class="code hl_struct" href="structcgl_1_1KeyPressEvent.html">KeyPressEvent</a>, <span class="keyword">const</span> <a class="code hl_class" href="classcgl_1_1Event.html">Event</a>&amp; e) { </div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Key pressed: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(e.<a class="code hl_variable" href="classcgl_1_1Event.html#a6210c7d9d7989fcce239d65dbfd7cf20">key</a>) &lt;&lt; std::endl; </div>
-<div class="line">    },</div>
-<div class="line">    [](<a class="code hl_struct" href="structcgl_1_1MouseMoveEvent.html">MouseMoveEvent</a>, <span class="keyword">const</span> <a class="code hl_class" href="classcgl_1_1Event.html">Event</a>&amp; e) { </div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Mouse moved to: &quot;</span> &lt;&lt; e.mousePosition.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; e.mousePosition.y &lt;&lt; std::endl; </div>
-<div class="line">    }</div>
-<div class="line">);</div>
-<div class="ttc" id="aclasscgl_1_1Event_html"><div class="ttname"><a href="classcgl_1_1Event.html">cgl::Event</a></div><div class="ttdoc">Represents an input event with type-safe event classification.</div><div class="ttdef"><b>Definition</b> event.hpp:66</div></div>
-<div class="ttc" id="aclasscgl_1_1Event_html_a6210c7d9d7989fcce239d65dbfd7cf20"><div class="ttname"><a href="classcgl_1_1Event.html#a6210c7d9d7989fcce239d65dbfd7cf20">cgl::Event::key</a></div><div class="ttdeci">KeyCode key</div><div class="ttdoc">The key code associated with keyboard and mouse button events.</div><div class="ttdef"><b>Definition</b> event.hpp:92</div></div>
-<div class="ttc" id="astructcgl_1_1KeyPressEvent_html"><div class="ttname"><a href="structcgl_1_1KeyPressEvent.html">cgl::KeyPressEvent</a></div><div class="ttdoc">Event type marker for keyboard key press events.</div><div class="ttdef"><b>Definition</b> event.hpp:31</div></div>
-<div class="ttc" id="astructcgl_1_1MouseMoveEvent_html"><div class="ttname"><a href="structcgl_1_1MouseMoveEvent.html">cgl::MouseMoveEvent</a></div><div class="ttdoc">Event type marker for mouse movement events.</div><div class="ttdef"><b>Definition</b> event.hpp:43</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="af09b01ba2055d25d5f992bcdf0dd8ac4" name="af09b01ba2055d25d5f992bcdf0dd8ac4"></a>
@@ -354,11 +303,6 @@ Each event can be handled by multiple callbacks if their signatures match</dd></
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Polls for the next available event. </p>
-<p>Retrieves and removes the next event from the internal event queue. If no events are available, it will attempt to fetch new events from the console.</p>
-<dl class="section return"><dt>Returns</dt><dd>Optional containing the next <a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a> if available, std::nullopt if no events</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This method consumes events from the queue </dd></dl>
 
 </div>
 </div>

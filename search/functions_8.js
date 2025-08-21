@@ -7,12 +7,15 @@ var searchData=
   ['initializefilterpipelines_4',['initializeFilterPipelines',['../classcgl_1_1Framework.html#a8d7806fdfa37b6613acb8898eda2c302',1,'cgl::Framework']]],
   ['insertfilter_5',['insertFilter',['../classcgl_1_1FilterPipeline.html#ad61e016f0bd8c82a8ae7b60e497ec967',1,'cgl::FilterPipeline']]],
   ['insertpoint_6',['insertPoint',['../classcgl_1_1drawables_1_1Polygon.html#a020e24027a6cf26b2540915e6ed8e1e6',1,'cgl::drawables::Polygon']]],
-  ['inverse_7',['inverse',['../classcgl_1_1Matrix3.html#a64e4bc727af597c318b8dd1d91c56191',1,'cgl::Matrix3']]],
-  ['invert_8',['Invert',['../structcgl_1_1filters_1_1Invert.html#a47f3b6ae516745de6391fe3d86567591',1,'cgl::filters::Invert']]],
-  ['inverted_9',['inverted',['../classcgl_1_1Color.html#a1564c54289bdc769d4e096d24504e622',1,'cgl::Color']]],
-  ['isbitset_10',['isBitSet',['../namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328',1,'cgl']]],
-  ['isleftedge_11',['isLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#ae9898292161f4540505222840a34862c',1,'cgl::drawables::Mesh']]],
-  ['isoftype_12',['isOfType',['../classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149',1,'cgl::Event']]],
-  ['istopedge_13',['isTopEdge',['../classcgl_1_1drawables_1_1Mesh.html#a685a4f485948eed07d0a8ed450e82825',1,'cgl::drawables::Mesh']]],
-  ['istoporleftedge_14',['isTopOrLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#a2ad0d94e0158acbd43b75eb27020dde4',1,'cgl::drawables::Mesh']]]
+  ['invalidargumenterror_7',['InvalidArgumentError',['../classcgl_1_1InvalidArgumentError.html#a9bae4047d538bfbae8dfe433971b27d1',1,'cgl::InvalidArgumentError']]],
+  ['inverse_8',['inverse',['../classcgl_1_1Matrix3.html#a64e4bc727af597c318b8dd1d91c56191',1,'cgl::Matrix3']]],
+  ['invert_9',['Invert',['../structcgl_1_1filters_1_1Invert.html#a47f3b6ae516745de6391fe3d86567591',1,'cgl::filters::Invert']]],
+  ['inverted_10',['inverted',['../classcgl_1_1Color.html#a1564c54289bdc769d4e096d24504e622',1,'cgl::Color']]],
+  ['invoke_11',['invoke',['../classcgl_1_1Error.html#ac04bddc064d08b817ad65e0707b4a01e',1,'cgl::Error']]],
+  ['invokeerror_12',['invokeError',['../namespacecgl.html#acd400322a14ef957eed9df58eb0eb999',1,'cgl']]],
+  ['isbitset_13',['isBitSet',['../namespacecgl.html#a9da3221e7bcaa5db759ab4bc62962328',1,'cgl']]],
+  ['isleftedge_14',['isLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#ae9898292161f4540505222840a34862c',1,'cgl::drawables::Mesh']]],
+  ['isoftype_15',['isOfType',['../classcgl_1_1Event.html#adf774f7b3efe3d917a8db35477376149',1,'cgl::Event']]],
+  ['istopedge_16',['isTopEdge',['../classcgl_1_1drawables_1_1Mesh.html#a685a4f485948eed07d0a8ed450e82825',1,'cgl::drawables::Mesh']]],
+  ['istoporleftedge_17',['isTopOrLeftEdge',['../classcgl_1_1drawables_1_1Mesh.html#a2ad0d94e0158acbd43b75eb27020dde4',1,'cgl::drawables::Mesh']]]
 ];

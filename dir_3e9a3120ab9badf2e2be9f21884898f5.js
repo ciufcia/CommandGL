@@ -6,6 +6,7 @@ var dir_3e9a3120ab9badf2e2be9f21884898f5 =
     [ "color.hpp", "color_8hpp.html", "color_8hpp" ],
     [ "console.hpp", "console_8hpp.html", "console_8hpp" ],
     [ "drawable.hpp", "drawable_8hpp.html", "drawable_8hpp" ],
+    [ "errors.hpp", "errors_8hpp.html", "errors_8hpp" ],
     [ "event.hpp", "event_8hpp.html", "event_8hpp" ],
     [ "filter_pipeline.hpp", "filter__pipeline_8hpp.html", "filter__pipeline_8hpp" ],
     [ "filters.hpp", "filters_8hpp.html", "filters_8hpp" ],

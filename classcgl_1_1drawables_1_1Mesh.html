@@ -114,9 +114,6 @@ $(document).ready(function(){initNavTree('classcgl_1_1drawables_1_1Mesh.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for drawable objects defined by vertex geometry.  
- <a href="classcgl_1_1drawables_1_1Mesh.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="drawable_8hpp_source.html">drawable.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for cgl::drawables::Mesh:</div>
@@ -124,11 +121,11 @@ Inheritance diagram for cgl::drawables::Mesh:</div>
  <div class="center">
   <img src="classcgl_1_1drawables_1_1Mesh.png" usemap="#cgl::drawables::Mesh_map" alt=""/>
   <map id="cgl::drawables::Mesh_map" name="cgl::drawables::Mesh_map">
-<area href="classcgl_1_1Drawable.html" title="Abstract base class for all drawable objects in the graphics framework." alt="cgl::Drawable" shape="rect" coords="165,56,320,80"/>
+<area href="classcgl_1_1Drawable.html" alt="cgl::Drawable" shape="rect" coords="165,56,320,80"/>
 <area href="classcgl_1_1Transformable.html" alt="cgl::Transformable" shape="rect" coords="165,0,320,24"/>
-<area href="classcgl_1_1drawables_1_1Polygon.html" title="A drawable polygon defined by a list of 2D points." alt="cgl::drawables::Polygon" shape="rect" coords="0,168,155,192"/>
-<area href="classcgl_1_1drawables_1_1Rectangle.html" title="A drawable rectangle composed of two triangles." alt="cgl::drawables::Rectangle" shape="rect" coords="165,168,320,192"/>
-<area href="classcgl_1_1drawables_1_1Triangle.html" title="A drawable triangle defined by three vertices." alt="cgl::drawables::Triangle" shape="rect" coords="330,168,485,192"/>
+<area href="classcgl_1_1drawables_1_1Polygon.html" alt="cgl::drawables::Polygon" shape="rect" coords="0,168,155,192"/>
+<area href="classcgl_1_1drawables_1_1Rectangle.html" alt="cgl::drawables::Rectangle" shape="rect" coords="165,168,320,192"/>
+<area href="classcgl_1_1drawables_1_1Triangle.html" alt="cgl::drawables::Triangle" shape="rect" coords="330,168,485,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -143,23 +140,17 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a58d196c94b8da211de9015248f6a9756" id="r_a58d196c94b8da211de9015248f6a9756"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#a58d196c94b8da211de9015248f6a9756">points</a></td></tr>
-<tr class="memdesc:a58d196c94b8da211de9015248f6a9756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of 2D vertices defining the mesh geometry.  <br /></td></tr>
 <tr class="separator:a58d196c94b8da211de9015248f6a9756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfdd784ba914768b53ab4aed7903d0fd" id="r_abfdd784ba914768b53ab4aed7903d0fd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#abfdd784ba914768b53ab4aed7903d0fd">uvs</a></td></tr>
-<tr class="memdesc:abfdd784ba914768b53ab4aed7903d0fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">UV texture coordinates corresponding to each vertex.  <br /></td></tr>
 <tr class="separator:abfdd784ba914768b53ab4aed7903d0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classcgl_1_1Drawable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classcgl_1_1Drawable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classcgl_1_1Drawable.html">cgl::Drawable</a></td></tr>
 <tr class="memitem:aa8c4f946583cb6378be8f9d9d7bfa862 inherit pub_attribs_classcgl_1_1Drawable" id="r_aa8c4f946583cb6378be8f9d9d7bfa862"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Drawable.html#aa8c4f946583cb6378be8f9d9d7bfa862">blendMode</a> = <a class="el" href="namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4a6132295fcf5570fb8b0a944ef322a598">BlendMode::Alpha</a></td></tr>
-<tr class="memdesc:aa8c4f946583cb6378be8f9d9d7bfa862 inherit pub_attribs_classcgl_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The blending mode to use when compositing this drawable.  <br /></td></tr>
 <tr class="separator:aa8c4f946583cb6378be8f9d9d7bfa862 inherit pub_attribs_classcgl_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0198a882310243c34d8968feb689997 inherit pub_attribs_classcgl_1_1Drawable" id="r_ac0198a882310243c34d8968feb689997"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Drawable.html#ac0198a882310243c34d8968feb689997">depth</a> = 0.f</td></tr>
-<tr class="memdesc:ac0198a882310243c34d8968feb689997 inherit pub_attribs_classcgl_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth value for sorting (higher values are rendered earlier).  <br /></td></tr>
 <tr class="separator:ac0198a882310243c34d8968feb689997 inherit pub_attribs_classcgl_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabad7b9aa94736e4b6b379f7f2d45577 inherit pub_attribs_classcgl_1_1Drawable" id="r_aabad7b9aa94736e4b6b379f7f2d45577"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a>&lt; <a class="el" href="structcgl_1_1filters_1_1GeometryElementData.html">filters::GeometryElementData</a>, <a class="el" href="structcgl_1_1filters_1_1GeometryElementData.html">filters::GeometryElementData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Drawable.html#aabad7b9aa94736e4b6b379f7f2d45577">fragmentPipeline</a></td></tr>
-<tr class="memdesc:aabad7b9aa94736e4b6b379f7f2d45577 inherit pub_attribs_classcgl_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pipeline of fragment shaders (filters) to apply to pixels.  <br /></td></tr>
 <tr class="separator:aabad7b9aa94736e4b6b379f7f2d45577 inherit pub_attribs_classcgl_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80cfe2d08be024bd0b66244f9efdd10b inherit pub_attribs_classcgl_1_1Drawable" id="r_a80cfe2d08be024bd0b66244f9efdd10b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Drawable.html#a80cfe2d08be024bd0b66244f9efdd10b">cloneOnDraw</a> = false</td></tr>
-<tr class="memdesc:a80cfe2d08be024bd0b66244f9efdd10b inherit pub_attribs_classcgl_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to copy the drawable into the drawQueue on a draw call, or use a reference.  <br /></td></tr>
 <tr class="separator:a80cfe2d08be024bd0b66244f9efdd10b inherit pub_attribs_classcgl_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classcgl_1_1Transformable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classcgl_1_1Transformable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classcgl_1_1Transformable.html">cgl::Transformable</a></td></tr>
 <tr class="memitem:ad4e82127d2ff2e25955a670bbd623224 inherit pub_attribs_classcgl_1_1Transformable" id="r_ad4e82127d2ff2e25955a670bbd623224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a></td></tr>
@@ -168,19 +159,15 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad45347630950fd101e789e455ed9872d" id="r_ad45347630950fd101e789e455ed9872d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#ad45347630950fd101e789e455ed9872d">generateGeometry</a> (std::vector&lt; <a class="el" href="structcgl_1_1filters_1_1GeometryElementData.html">filters::GeometryElementData</a> &gt; &amp;drawableBuffer, <a class="el" href="classcgl_1_1Transform.html">Transform</a> &amp;<a class="el" href="classcgl_1_1Transformable.html#ad4e82127d2ff2e25955a670bbd623224">transform</a>) override</td></tr>
-<tr class="memdesc:ad45347630950fd101e789e455ed9872d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to generate geometry for rendering.  <br /></td></tr>
 <tr class="separator:ad45347630950fd101e789e455ed9872d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a685a4f485948eed07d0a8ed450e82825" id="r_a685a4f485948eed07d0a8ed450e82825"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#a685a4f485948eed07d0a8ed450e82825">isTopEdge</a> (const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v1, const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a685a4f485948eed07d0a8ed450e82825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if an edge is a "top edge" for the top-left fill rule.  <br /></td></tr>
 <tr class="separator:a685a4f485948eed07d0a8ed450e82825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9898292161f4540505222840a34862c" id="r_ae9898292161f4540505222840a34862c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#ae9898292161f4540505222840a34862c">isLeftEdge</a> (const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v1, const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v2)</td></tr>
-<tr class="memdesc:ae9898292161f4540505222840a34862c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if an edge is a "left edge" for the top-left fill rule.  <br /></td></tr>
 <tr class="separator:ae9898292161f4540505222840a34862c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ad0d94e0158acbd43b75eb27020dde4" id="r_a2ad0d94e0158acbd43b75eb27020dde4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1drawables_1_1Mesh.html#a2ad0d94e0158acbd43b75eb27020dde4">isTopOrLeftEdge</a> (const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v1, const <a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a> &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a2ad0d94e0158acbd43b75eb27020dde4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if an edge should be filled according to the top-left rule.  <br /></td></tr>
 <tr class="separator:a2ad0d94e0158acbd43b75eb27020dde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -188,13 +175,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classcgl_1_1Drawable"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classcgl_1_1Drawable')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classcgl_1_1Drawable.html">cgl::Drawable</a></td></tr>
 <tr class="memitem:a1fe02546be8ce10a3c2a4e39f3c5d205 inherit pub_static_methods_classcgl_1_1Drawable" id="r_a1fe02546be8ce10a3c2a4e39f3c5d205"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> , typename... Args&gt; </td></tr>
 <tr class="memitem:a1fe02546be8ce10a3c2a4e39f3c5d205 inherit pub_static_methods_classcgl_1_1Drawable"><td class="memTemplItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1Drawable.html#a1fe02546be8ce10a3c2a4e39f3c5d205">create</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a1fe02546be8ce10a3c2a4e39f3c5d205 inherit pub_static_methods_classcgl_1_1Drawable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method to create shared pointers to drawable objects.  <br /></td></tr>
 <tr class="separator:a1fe02546be8ce10a3c2a4e39f3c5d205 inherit pub_static_methods_classcgl_1_1Drawable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for drawable objects defined by vertex geometry. </p>
-<p><a class="el" href="classcgl_1_1drawables_1_1Mesh.html" title="Base class for drawable objects defined by vertex geometry.">Mesh</a> objects are defined by a collection of 2D points and UV coordinates, and use triangle rasterization with a top-left fill rule. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0b18dadcdbbf2b452255467bef308c1a" name="a0b18dadcdbbf2b452255467bef308c1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b18dadcdbbf2b452255467bef308c1a">&#9670;&#160;</a></span>Mesh()</h2>
 
@@ -255,15 +238,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pure virtual method to generate geometry for rendering. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">drawableBuffer</td><td>Buffer to fill with pixel data for rendering.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This method must be implemented by derived classes to define how the drawable's geometry is rasterized into pixels. </p>
-
 <p>Implements <a class="el" href="classcgl_1_1Drawable.html#a1e1ccfb801106bdac7e1bdee43cf2c0c">cgl::Drawable</a>.</p>
 
 <p>Reimplemented in <a class="el" href="classcgl_1_1drawables_1_1Polygon.html#a3a49a8b21a28f6e3882eab9ab1b2d03f">cgl::drawables::Polygon</a>.</p>
@@ -304,16 +278,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines if an edge is a "left edge" for the top-left fill rule. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v1</td><td>First vertex of the edge. </td></tr>
-    <tr><td class="paramname">v2</td><td>Second vertex of the edge. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if this is a left edge (going downward). </dd></dl>
-
 </div>
 </div>
 <a id="a685a4f485948eed07d0a8ed450e82825" name="a685a4f485948eed07d0a8ed450e82825"></a>
@@ -349,16 +313,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Determines if an edge is a "top edge" for the top-left fill rule. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v1</td><td>First vertex of the edge. </td></tr>
-    <tr><td class="paramname">v2</td><td>Second vertex of the edge. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if this is a top edge (horizontal, left-to-right). </dd></dl>
 
 </div>
 </div>
@@ -396,16 +350,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines if an edge should be filled according to the top-left rule. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v1</td><td>First vertex of the edge. </td></tr>
-    <tr><td class="paramname">v2</td><td>Second vertex of the edge. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if pixels on this edge should be filled. </dd></dl>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -421,9 +365,6 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Collection of 2D vertices defining the mesh geometry. </p>
-<p>Points are grouped in sets of 3 to form triangles. </p>
-
 </div>
 </div>
 <a id="abfdd784ba914768b53ab4aed7903d0fd" name="abfdd784ba914768b53ab4aed7903d0fd"></a>
@@ -437,9 +378,6 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>UV texture coordinates corresponding to each vertex. </p>
-<p>Must have the same size as the points vector. </p>
 
 </div>
 </div>

@@ -16,5 +16,6 @@ var searchData=
   ['position_13',['position',['../structcgl_1_1filters_1_1GeometryElementData.html#ac6cd289084517f4975a58951e1e37bb8',1,'cgl::filters::GeometryElementData::position'],['../classcgl_1_1drawables_1_1Point.html#a81b76e0bb49f3d21601f9b1b04d3a7ed',1,'cgl::drawables::Point::position']]],
   ['previoustrack_14',['PreviousTrack',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca978f2d1824e2b007ee5fcbd56d196f4f',1,'cgl']]],
   ['print_15',['Print',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193ca13dba24862cf9128167a59100e154c8d',1,'cgl']]],
-  ['printscreen_16',['PrintScreen',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cabf54024481cd2ad6bbb9ae44b7312472',1,'cgl']]]
+  ['printerrormessage_16',['printErrorMessage',['../classcgl_1_1Error.html#a2cee26cbe9abbd58f5ac9a6e9f08f5af',1,'cgl::Error']]],
+  ['printscreen_17',['PrintScreen',['../namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cabf54024481cd2ad6bbb9ae44b7312472',1,'cgl']]]
 ];

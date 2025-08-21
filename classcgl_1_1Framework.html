@@ -115,69 +115,49 @@ $(document).ready(function(){initNavTree('classcgl_1_1Framework.html',''); initR
 </div><!--header-->
 <div class="contents">
 
-<p>Main framework class that manages the graphics rendering pipeline and application lifecycle.  
- <a href="classcgl_1_1Framework.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="framework_8hpp_source.html">framework.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcgl_1_1Framework_1_1DrawEntry.html">DrawEntry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure representing a single drawable entry in the render queue.  <a href="structcgl_1_1Framework_1_1DrawEntry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a71f7dfbcbb28999494aeb68a9250d050" id="r_a71f7dfbcbb28999494aeb68a9250d050"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a71f7dfbcbb28999494aeb68a9250d050">Framework</a> ()=default</td></tr>
-<tr class="memdesc:a71f7dfbcbb28999494aeb68a9250d050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the <a class="el" href="classcgl_1_1Framework.html" title="Main framework class that manages the graphics rendering pipeline and application lifecycle.">Framework</a> class.  <br /></td></tr>
 <tr class="separator:a71f7dfbcbb28999494aeb68a9250d050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74f775a1367c5f0611b3e166c0166f00" id="r_a74f775a1367c5f0611b3e166c0166f00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a74f775a1367c5f0611b3e166c0166f00">initialize</a> ()</td></tr>
-<tr class="memdesc:a74f775a1367c5f0611b3e166c0166f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the framework and sets up all internal systems.  <br /></td></tr>
 <tr class="separator:a74f775a1367c5f0611b3e166c0166f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1459d3f47302231d729d45125c12accc" id="r_a1459d3f47302231d729d45125c12accc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a1459d3f47302231d729d45125c12accc">clearDisplay</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> color={0, 0, 0, 255})</td></tr>
-<tr class="memdesc:a1459d3f47302231d729d45125c12accc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the display with the specified color.  <br /></td></tr>
 <tr class="separator:a1459d3f47302231d729d45125c12accc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a352845a3525e5b24772119a02792bb" id="r_a3a352845a3525e5b24772119a02792bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a3a352845a3525e5b24772119a02792bb">draw</a> (std::shared_ptr&lt; <a class="el" href="classcgl_1_1Drawable.html">Drawable</a> &gt; drawable)</td></tr>
-<tr class="memdesc:a3a352845a3525e5b24772119a02792bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a drawable object to the render queue.  <br /></td></tr>
 <tr class="separator:a3a352845a3525e5b24772119a02792bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdef5741356bd589fb2f146057357a7b" id="r_acdef5741356bd589fb2f146057357a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#acdef5741356bd589fb2f146057357a7b">update</a> ()</td></tr>
-<tr class="memdesc:acdef5741356bd589fb2f146057357a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the framework and renders all queued drawables.  <br /></td></tr>
 <tr class="separator:acdef5741356bd589fb2f146057357a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d338e12d8c6bd01640d80b4ab689ebc" id="r_a2d338e12d8c6bd01640d80b4ab689ebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a2d338e12d8c6bd01640d80b4ab689ebc">getFPSTarget</a> () const</td></tr>
-<tr class="memdesc:a2d338e12d8c6bd01640d80b4ab689ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the target FPS for the framework.  <br /></td></tr>
 <tr class="separator:a2d338e12d8c6bd01640d80b4ab689ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdcefc6e6642d7df0b621c484918ade1" id="r_abdcefc6e6642d7df0b621c484918ade1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#abdcefc6e6642d7df0b621c484918ade1">setFPSTarget</a> (<a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> target)</td></tr>
-<tr class="memdesc:abdcefc6e6642d7df0b621c484918ade1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target FPS for the framework.  <br /></td></tr>
 <tr class="separator:abdcefc6e6642d7df0b621c484918ade1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06bc02cb2d318037f7ac376eb9374e25" id="r_a06bc02cb2d318037f7ac376eb9374e25"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a06bc02cb2d318037f7ac376eb9374e25">getTargetFrameTime</a> () const</td></tr>
-<tr class="memdesc:a06bc02cb2d318037f7ac376eb9374e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the target frame time for the framework.  <br /></td></tr>
 <tr class="separator:a06bc02cb2d318037f7ac376eb9374e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28343c052177d15c66536429102f5fba" id="r_a28343c052177d15c66536429102f5fba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a28343c052177d15c66536429102f5fba">setTargetFrameTime</a> (std::chrono::steady_clock::duration targetFrameTime)</td></tr>
-<tr class="memdesc:a28343c052177d15c66536429102f5fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target frame time for the framework.  <br /></td></tr>
 <tr class="separator:a28343c052177d15c66536429102f5fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ef6c93aae9988330e2f15bce3ac8672" id="r_a9ef6c93aae9988330e2f15bce3ac8672"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a9ef6c93aae9988330e2f15bce3ac8672">getLastFrameTime</a> () const</td></tr>
-<tr class="memdesc:a9ef6c93aae9988330e2f15bce3ac8672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the last frame.  <br /></td></tr>
 <tr class="separator:a9ef6c93aae9988330e2f15bce3ac8672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5938a118e28c4a2e323c75da5a53c2c3" id="r_a5938a118e28c4a2e323c75da5a53c2c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Console.html">Console</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a5938a118e28c4a2e323c75da5a53c2c3">console</a></td></tr>
-<tr class="memdesc:a5938a118e28c4a2e323c75da5a53c2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> used for rendering graphics and handling input.  <br /></td></tr>
 <tr class="separator:a5938a118e28c4a2e323c75da5a53c2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a623d8d4ca4c8b159081841813146c075" id="r_a623d8d4ca4c8b159081841813146c075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1EventManager.html">EventManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a623d8d4ca4c8b159081841813146c075">eventManager</a></td></tr>
-<tr class="memdesc:a623d8d4ca4c8b159081841813146c075"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a> manager for handling keyboard, mouse, and console events.  <br /></td></tr>
 <tr class="separator:a623d8d4ca4c8b159081841813146c075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedfa55a31d0300060413599723e85d1a" id="r_aedfa55a31d0300060413599723e85d1a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#aedfa55a31d0300060413599723e85d1a">scaleOnBaseSizeDeviation</a> = false</td></tr>
-<tr class="memdesc:aedfa55a31d0300060413599723e85d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to automatically scale drawables when console size differs from base size.  <br /></td></tr>
 <tr class="separator:aedfa55a31d0300060413599723e85d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b851f5c3533d8d0dbfb7a54e621e00a" id="r_a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a4b851f5c3533d8d0dbfb7a54e621e00a">baseConsoleSize</a> { 1u, 1u }</td></tr>
-<tr class="memdesc:a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference console size used for automatic scaling calculations.  <br /></td></tr>
 <tr class="separator:a4b851f5c3533d8d0dbfb7a54e621e00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe6e51a6ff1373b2f54de16e6f1e8b8" id="r_a1fe6e51a6ff1373b2f54de16e6f1e8b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a>&lt; <a class="el" href="classcgl_1_1Color.html">Color</a>, <a class="el" href="classcgl_1_1Color.html">Color</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a1fe6e51a6ff1373b2f54de16e6f1e8b8">screenFilterPipeline</a></td></tr>
-<tr class="memdesc:a1fe6e51a6ff1373b2f54de16e6f1e8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen filter pipeline for post-processing effects applied to the entire screen.  <br /></td></tr>
 <tr class="separator:a1fe6e51a6ff1373b2f54de16e6f1e8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2e01b1a54c59f3494a935c248eb24dd" id="r_ad2e01b1a54c59f3494a935c248eb24dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1FilterPipeline.html">FilterPipeline</a>&lt; <a class="el" href="classcgl_1_1Color.html">Color</a>, <a class="el" href="structcgl_1_1CharacterCell.html">CharacterCell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#ad2e01b1a54c59f3494a935c248eb24dd">characterFilterPipeline</a></td></tr>
-<tr class="memdesc:ad2e01b1a54c59f3494a935c248eb24dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pipeline that handles converting pixel data to character data.  <br /></td></tr>
 <tr class="separator:ad2e01b1a54c59f3494a935c248eb24dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -224,10 +204,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a657ca6d87d2e74ce9808f5ac3dd78111" id="r_a657ca6d87d2e74ce9808f5ac3dd78111"><td class="memItemLeft" align="right" valign="top">std::chrono::steady_clock::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Framework.html#a657ca6d87d2e74ce9808f5ac3dd78111">m_lastFrameTime</a> { std::chrono::steady_clock::duration::zero() }</td></tr>
 <tr class="separator:a657ca6d87d2e74ce9808f5ac3dd78111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Main framework class that manages the graphics rendering pipeline and application lifecycle. </p>
-<p>The <a class="el" href="classcgl_1_1Framework.html" title="Main framework class that manages the graphics rendering pipeline and application lifecycle.">Framework</a> class serves as the central coordinator for the CommandGL graphics library, managing console output, event handling, timing, drawable objects, and the rendering pipeline. It provides a high-level interface for creating console-based graphics applications. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a71f7dfbcbb28999494aeb68a9250d050" name="a71f7dfbcbb28999494aeb68a9250d050"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71f7dfbcbb28999494aeb68a9250d050">&#9670;&#160;</a></span>Framework()</h2>
 
@@ -250,8 +227,6 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Default constructor for the <a class="el" href="classcgl_1_1Framework.html" title="Main framework class that manages the graphics rendering pipeline and application lifecycle.">Framework</a> class. </p>
 
 </div>
 </div>
@@ -314,15 +289,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears the display with the specified color. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">color</td><td>The color to clear the screen with (defaults to black).</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This method fills the entire screen buffer with the specified color, effectively clearing any previously rendered content. </p>
-
 </div>
 </div>
 <a id="a3a352845a3525e5b24772119a02792bb" name="a3a352845a3525e5b24772119a02792bb"></a>
@@ -341,15 +307,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a drawable object to the render queue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">drawable</td><td>A shared pointer to the drawable object to render.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>The drawable will be rendered in the next <a class="el" href="classcgl_1_1Framework.html#acdef5741356bd589fb2f146057357a7b" title="Updates the framework and renders all queued drawables.">update()</a> call. Drawables are sorted by their depth value before rendering, with higher depth values rendered earlier. </p>
-
 </div>
 </div>
 <a id="a2d338e12d8c6bd01640d80b4ab689ebc" name="a2d338e12d8c6bd01640d80b4ab689ebc"></a>
@@ -366,9 +323,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the target FPS for the framework. </p>
-<dl class="section return"><dt>Returns</dt><dd>The target FPS as an unsigned 32-bit integer. </dd></dl>
 
 </div>
 </div>
@@ -387,10 +341,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the duration of the last frame. </p>
-<dl class="section return"><dt>Returns</dt><dd>The duration of the last frame as a steady clock duration.</dd></dl>
-<p>This can be used for performance monitoring or debugging purposes, allowing you to see how long the last frame took to render. </p>
-
 </div>
 </div>
 <a id="a06bc02cb2d318037f7ac376eb9374e25" name="a06bc02cb2d318037f7ac376eb9374e25"></a>
@@ -407,10 +357,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the target frame time for the framework. </p>
-<dl class="section return"><dt>Returns</dt><dd>The target frame time as a duration in steady clock ticks.</dd></dl>
-<p>This represents the duration that each frame should ideally take to maintain the desired frame rate. </p>
 
 </div>
 </div>
@@ -454,9 +400,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initializes the framework and sets up all internal systems. </p>
-<p>This method must be called before using any other framework functionality. It initializes buffers, filter pipelines, and prepares the console for rendering. </p>
 
 </div>
 </div>
@@ -602,15 +545,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the target FPS for the framework. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>The target FPS as an unsigned 32-bit integer.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This sets the desired frames per second for the rendering loop. The framework will attempt to maintain this frame rate by adjusting the timing of each frame. </p>
-
 </div>
 </div>
 <a id="a28343c052177d15c66536429102f5fba" name="a28343c052177d15c66536429102f5fba"></a>
@@ -629,15 +563,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the target frame time for the framework. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">targetFrameTime</td><td>The target frame time as a duration in steady clock ticks.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This allows you to specify a custom frame time, which can be useful for fine-tuning performance or implementing variable frame rates. </p>
-
 </div>
 </div>
 <a id="acdef5741356bd589fb2f146057357a7b" name="acdef5741356bd589fb2f146057357a7b"></a>
@@ -654,9 +579,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Updates the framework and renders all queued drawables. </p>
-<p>This method should be called once per frame. It processes events, renders all queued drawables, applies post-processing filters, and outputs the final result to the console. </p>
 
 </div>
 </div>
@@ -699,9 +621,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The reference console size used for automatic scaling calculations. </p>
-<p>When scaleOnBaseSizeDeviation is true, this size is used as the reference to calculate scaling factors for maintaining consistent drawable sizes. </p>
-
 </div>
 </div>
 <a id="ad2e01b1a54c59f3494a935c248eb24dd" name="ad2e01b1a54c59f3494a935c248eb24dd"></a>
@@ -715,9 +634,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The pipeline that handles converting pixel data to character data. </p>
-<p>This pipeline processes the rendered pixel data and converts it into character data for display in the console. It can apply effects like dithering, color quantization, or other transformations to optimize the character representation of the rendered scene. </p>
 
 </div>
 </div>
@@ -733,9 +649,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> used for rendering graphics and handling input. </p>
-<p>This console provides the screen buffer where all graphics are drawn, and handles input events from the user. It is the main output target for the framework's rendering operations. </p>
-
 </div>
 </div>
 <a id="a623d8d4ca4c8b159081841813146c075" name="a623d8d4ca4c8b159081841813146c075"></a>
@@ -749,9 +662,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p><a class="el" href="classcgl_1_1Event.html" title="Represents an input event with type-safe event classification.">Event</a> manager for handling keyboard, mouse, and console events. </p>
-<p>Provides access to input event handling and polling functionality. Use this to check key states, handle events, and respond to user input. </p>
 
 </div>
 </div>
@@ -1009,9 +919,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Whether to automatically scale drawables when console size differs from base size. </p>
-<p>When true, drawables will be scaled to maintain consistent appearance across different console window sizes relative to the baseConsoleSize. </p>
-
 </div>
 </div>
 <a id="a1fe6e51a6ff1373b2f54de16e6f1e8b8" name="a1fe6e51a6ff1373b2f54de16e6f1e8b8"></a>
@@ -1025,9 +932,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The screen filter pipeline for post-processing effects applied to the entire screen. </p>
-<p>This pipeline is used to apply global effects after all drawables have been rendered. </p>
 
 </div>
 </div>

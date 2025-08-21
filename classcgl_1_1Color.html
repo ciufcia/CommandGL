@@ -113,86 +113,60 @@ $(document).ready(function(){initNavTree('classcgl_1_1Color.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
-<p>Represents an RGBA color with 8-bit channels and blending operations.  
- <a href="classcgl_1_1Color.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="color_8hpp_source.html">color.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4361b7b8c52c6a564f0370d2d1d38de2" id="r_a4361b7b8c52c6a564f0370d2d1d38de2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a4361b7b8c52c6a564f0370d2d1d38de2">Color</a> ()=default</td></tr>
-<tr class="memdesc:a4361b7b8c52c6a564f0370d2d1d38de2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor creates a magenta color (255, 0, 255, 255).  <br /></td></tr>
 <tr class="separator:a4361b7b8c52c6a564f0370d2d1d38de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fecac45d931c333d68bccdfef673e79" id="r_a5fecac45d931c333d68bccdfef673e79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a5fecac45d931c333d68bccdfef673e79">Color</a> (<a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a> red, <a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a> green, <a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a> blue, <a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a> alpha=255)</td></tr>
-<tr class="memdesc:a5fecac45d931c333d68bccdfef673e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes the color with given RGBA values.  <br /></td></tr>
 <tr class="separator:a5fecac45d931c333d68bccdfef673e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e396d29ab770139f59c4817d182fd26" id="r_a7e396d29ab770139f59c4817d182fd26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a7e396d29ab770139f59c4817d182fd26">Color</a> (<a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> hex)</td></tr>
-<tr class="memdesc:a7e396d29ab770139f59c4817d182fd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes the color from a 32-bit hexadecimal value.  <br /></td></tr>
 <tr class="separator:a7e396d29ab770139f59c4817d182fd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92a709d9d76d56c1b21472da6ec35137" id="r_a92a709d9d76d56c1b21472da6ec35137"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a92a709d9d76d56c1b21472da6ec35137">toHex</a> () const</td></tr>
-<tr class="memdesc:a92a709d9d76d56c1b21472da6ec35137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the color to a 32-bit hexadecimal value.  <br /></td></tr>
 <tr class="separator:a92a709d9d76d56c1b21472da6ec35137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f23da76d62611140c6bb7b1e5750910" id="r_a4f23da76d62611140c6bb7b1e5750910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a4f23da76d62611140c6bb7b1e5750910">fromHex</a> (<a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> hex)</td></tr>
-<tr class="memdesc:a4f23da76d62611140c6bb7b1e5750910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color from a 32-bit hexadecimal value.  <br /></td></tr>
 <tr class="separator:a4f23da76d62611140c6bb7b1e5750910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeb66a9139ed63a7911b9f74be67d2e2" id="r_adeb66a9139ed63a7911b9f74be67d2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#acfa438ef59a6a00192fb5fae71525066">f32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#adeb66a9139ed63a7911b9f74be67d2e2">luminance</a> () const</td></tr>
-<tr class="memdesc:adeb66a9139ed63a7911b9f74be67d2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the luminance (perceived brightness) of the color.  <br /></td></tr>
 <tr class="separator:adeb66a9139ed63a7911b9f74be67d2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1564c54289bdc769d4e096d24504e622" id="r_a1564c54289bdc769d4e096d24504e622"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a1564c54289bdc769d4e096d24504e622">inverted</a> () const</td></tr>
-<tr class="memdesc:a1564c54289bdc769d4e096d24504e622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverts the color (subtracts RGB from 255).  <br /></td></tr>
 <tr class="separator:a1564c54289bdc769d4e096d24504e622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5746fbf72d9d742dc44542820ddbd14c" id="r_a5746fbf72d9d742dc44542820ddbd14c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a5746fbf72d9d742dc44542820ddbd14c">operator==</a> (const <a class="el" href="classcgl_1_1Color.html">Color</a> &amp;other) const</td></tr>
-<tr class="memdesc:a5746fbf72d9d742dc44542820ddbd14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
 <tr class="separator:a5746fbf72d9d742dc44542820ddbd14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a559bee8f00b7aad60661a7a3b6b4d382" id="r_a559bee8f00b7aad60661a7a3b6b4d382"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a559bee8f00b7aad60661a7a3b6b4d382">operator!=</a> (const <a class="el" href="classcgl_1_1Color.html">Color</a> &amp;other) const</td></tr>
-<tr class="memdesc:a559bee8f00b7aad60661a7a3b6b4d382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality comparison operator.  <br /></td></tr>
 <tr class="separator:a559bee8f00b7aad60661a7a3b6b4d382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9b9c01b07db324f11b2d663287326e0" id="r_ab9b9c01b07db324f11b2d663287326e0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#ab9b9c01b07db324f11b2d663287326e0">applyBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source, <a class="el" href="namespacecgl.html#a1df9f59090edabbfa8570918b713c4b4">BlendMode</a> blendMode)</td></tr>
-<tr class="memdesc:ab9b9c01b07db324f11b2d663287326e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the specified blend mode to combine two colors.  <br /></td></tr>
 <tr class="separator:ab9b9c01b07db324f11b2d663287326e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62dff16309bd003ab92bbd132816e162" id="r_a62dff16309bd003ab92bbd132816e162"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a62dff16309bd003ab92bbd132816e162">noBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:a62dff16309bd003ab92bbd132816e162"><td class="mdescLeft">&#160;</td><td class="mdescRight">No blending - returns the source color unchanged.  <br /></td></tr>
 <tr class="separator:a62dff16309bd003ab92bbd132816e162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1050a8fd614e5551ca183b31d859c346" id="r_a1050a8fd614e5551ca183b31d859c346"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a1050a8fd614e5551ca183b31d859c346">alphaBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:a1050a8fd614e5551ca183b31d859c346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alpha blending using the source color's alpha channel.  <br /></td></tr>
 <tr class="separator:a1050a8fd614e5551ca183b31d859c346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67974abda850e54bd58c2c6d19fa53f2" id="r_a67974abda850e54bd58c2c6d19fa53f2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a67974abda850e54bd58c2c6d19fa53f2">additiveBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:a67974abda850e54bd58c2c6d19fa53f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additive blending - adds color values together (clamped to 255).  <br /></td></tr>
 <tr class="separator:a67974abda850e54bd58c2c6d19fa53f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e7f1c671c5171bab6f01164a9d01caf" id="r_a0e7f1c671c5171bab6f01164a9d01caf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a0e7f1c671c5171bab6f01164a9d01caf">multiplicativeBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:a0e7f1c671c5171bab6f01164a9d01caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicative blending - multiplies color values together.  <br /></td></tr>
 <tr class="separator:a0e7f1c671c5171bab6f01164a9d01caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa75af9b4c7fef53dde85eff553cfea59" id="r_aa75af9b4c7fef53dde85eff553cfea59"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#aa75af9b4c7fef53dde85eff553cfea59">subtractiveBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:aa75af9b4c7fef53dde85eff553cfea59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtractive blending - subtracts source from destination (clamped to 0).  <br /></td></tr>
 <tr class="separator:aa75af9b4c7fef53dde85eff553cfea59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a155b1256eca9764d6fe3ae9e4177fd53" id="r_a155b1256eca9764d6fe3ae9e4177fd53"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a155b1256eca9764d6fe3ae9e4177fd53">screenBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:a155b1256eca9764d6fe3ae9e4177fd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Screen blending - always produces a brighter result than either input.  <br /></td></tr>
 <tr class="separator:a155b1256eca9764d6fe3ae9e4177fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebe05b87e74e6b95e1872a10881ef120" id="r_aebe05b87e74e6b95e1872a10881ef120"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcgl_1_1Color.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#aebe05b87e74e6b95e1872a10881ef120">overlayBlend</a> (<a class="el" href="classcgl_1_1Color.html">Color</a> destination, <a class="el" href="classcgl_1_1Color.html">Color</a> source)</td></tr>
-<tr class="memdesc:aebe05b87e74e6b95e1872a10881ef120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overlay blending - combines multiply and screen modes based on destination brightness.  <br /></td></tr>
 <tr class="separator:aebe05b87e74e6b95e1872a10881ef120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2b0f88eee96a4b513ebf849086bdc545" id="r_a2b0f88eee96a4b513ebf849086bdc545"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a2b0f88eee96a4b513ebf849086bdc545">r</a> = 255</td></tr>
-<tr class="memdesc:a2b0f88eee96a4b513ebf849086bdc545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Red color component (0-255).  <br /></td></tr>
 <tr class="separator:a2b0f88eee96a4b513ebf849086bdc545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f0ff5ecdee1e8ef6945627c1a9ad7f6" id="r_a8f0ff5ecdee1e8ef6945627c1a9ad7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a8f0ff5ecdee1e8ef6945627c1a9ad7f6">g</a> = 0</td></tr>
-<tr class="memdesc:a8f0ff5ecdee1e8ef6945627c1a9ad7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Green color component (0-255).  <br /></td></tr>
 <tr class="separator:a8f0ff5ecdee1e8ef6945627c1a9ad7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aba48fe304183f51c54a0735447f15d" id="r_a1aba48fe304183f51c54a0735447f15d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a1aba48fe304183f51c54a0735447f15d">b</a> = 255</td></tr>
-<tr class="memdesc:a1aba48fe304183f51c54a0735447f15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blue color component (0-255).  <br /></td></tr>
 <tr class="separator:a1aba48fe304183f51c54a0735447f15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40cefcb750c5ac080c13046585d82d27" id="r_a40cefcb750c5ac080c13046585d82d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a41dc02fea9f33cf81b5e9363243408b9">u8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Color.html#a40cefcb750c5ac080c13046585d82d27">a</a> = 255</td></tr>
-<tr class="memdesc:a40cefcb750c5ac080c13046585d82d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alpha (transparency) component (0-255, where 0 is fully transparent).  <br /></td></tr>
 <tr class="separator:a40cefcb750c5ac080c13046585d82d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents an RGBA color with 8-bit channels and blending operations. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4361b7b8c52c6a564f0370d2d1d38de2" name="a4361b7b8c52c6a564f0370d2d1d38de2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4361b7b8c52c6a564f0370d2d1d38de2">&#9670;&#160;</a></span>Color() <span class="overload">[1/3]</span></h2>
 
@@ -215,8 +189,6 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Default constructor creates a magenta color (255, 0, 255, 255). </p>
 
 </div>
 </div>
@@ -266,17 +238,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor that initializes the color with given RGBA values. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">red</td><td>The red component (0-255). </td></tr>
-    <tr><td class="paramname">green</td><td>The green component (0-255). </td></tr>
-    <tr><td class="paramname">blue</td><td>The blue component (0-255). </td></tr>
-    <tr><td class="paramname">alpha</td><td>The alpha component (0-255), defaults to 255 (fully opaque). </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
 <a id="a7e396d29ab770139f59c4817d182fd26" name="a7e396d29ab770139f59c4817d182fd26"></a>
@@ -294,14 +255,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Constructor that initializes the color from a 32-bit hexadecimal value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hex</td><td>The hexadecimal color value (e.g., 0xRRGGBBAA). </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -340,16 +293,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Additive blending - adds color values together (clamped to 255). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The additive blend result. </dd></dl>
-
 </div>
 </div>
 <a id="a1050a8fd614e5551ca183b31d859c346" name="a1050a8fd614e5551ca183b31d859c346"></a>
@@ -385,16 +328,6 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Alpha blending using the source color's alpha channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The alpha-blended result. </dd></dl>
 
 </div>
 </div>
@@ -438,17 +371,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Applies the specified blend mode to combine two colors. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination (background) color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source (foreground) color. </td></tr>
-    <tr><td class="paramname">blendMode</td><td>The blending mode to apply. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The resulting blended color. </dd></dl>
-
 </div>
 </div>
 <a id="a4f23da76d62611140c6bb7b1e5750910" name="a4f23da76d62611140c6bb7b1e5750910"></a>
@@ -467,14 +389,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the color from a 32-bit hexadecimal value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hex</td><td>The hexadecimal color value to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
 <a id="a1564c54289bdc769d4e096d24504e622" name="a1564c54289bdc769d4e096d24504e622"></a>
@@ -492,9 +406,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inverts the color (subtracts RGB from 255). </p>
-<dl class="section return"><dt>Returns</dt><dd>The inverted color. </dd></dl>
-
 </div>
 </div>
 <a id="adeb66a9139ed63a7911b9f74be67d2e2" name="adeb66a9139ed63a7911b9f74be67d2e2"></a>
@@ -511,9 +422,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Calculates the luminance (perceived brightness) of the color. </p>
-<dl class="section return"><dt>Returns</dt><dd>The luminance value as a floating-point number (0.0-1.0). </dd></dl>
 
 </div>
 </div>
@@ -551,16 +459,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Multiplicative blending - multiplies color values together. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The multiplicative blend result. </dd></dl>
-
 </div>
 </div>
 <a id="a62dff16309bd003ab92bbd132816e162" name="a62dff16309bd003ab92bbd132816e162"></a>
@@ -597,16 +495,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>No blending - returns the source color unchanged. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color (ignored). </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The source color. </dd></dl>
-
 </div>
 </div>
 <a id="a559bee8f00b7aad60661a7a3b6b4d382" name="a559bee8f00b7aad60661a7a3b6b4d382"></a>
@@ -625,15 +513,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inequality comparison operator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The color to compare with. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if any RGBA component differs, false otherwise. </dd></dl>
-
 </div>
 </div>
 <a id="a5746fbf72d9d742dc44542820ddbd14c" name="a5746fbf72d9d742dc44542820ddbd14c"></a>
@@ -651,15 +530,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Equality comparison operator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The color to compare with. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if all RGBA components are equal, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -697,16 +567,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overlay blending - combines multiply and screen modes based on destination brightness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The overlay blend result. </dd></dl>
-
 </div>
 </div>
 <a id="a155b1256eca9764d6fe3ae9e4177fd53" name="a155b1256eca9764d6fe3ae9e4177fd53"></a>
@@ -742,16 +602,6 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Screen blending - always produces a brighter result than either input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The screen blend result. </dd></dl>
 
 </div>
 </div>
@@ -789,16 +639,6 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Subtractive blending - subtracts source from destination (clamped to 0). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>The destination color. </td></tr>
-    <tr><td class="paramname">source</td><td>The source color. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The subtractive blend result. </dd></dl>
-
 </div>
 </div>
 <a id="a92a709d9d76d56c1b21472da6ec35137" name="a92a709d9d76d56c1b21472da6ec35137"></a>
@@ -816,9 +656,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Converts the color to a 32-bit hexadecimal value. </p>
-<dl class="section return"><dt>Returns</dt><dd>The color as a hexadecimal value (0xRRGGBBAA format). </dd></dl>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -834,8 +671,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alpha (transparency) component (0-255, where 0 is fully transparent). </p>
-
 </div>
 </div>
 <a id="a1aba48fe304183f51c54a0735447f15d" name="a1aba48fe304183f51c54a0735447f15d"></a>
@@ -849,8 +684,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Blue color component (0-255). </p>
 
 </div>
 </div>
@@ -866,8 +699,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Green color component (0-255). </p>
-
 </div>
 </div>
 <a id="a2b0f88eee96a4b513ebf849086bdc545" name="a2b0f88eee96a4b513ebf849086bdc545"></a>
@@ -881,8 +712,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Red color component (0-255). </p>
 
 </div>
 </div>

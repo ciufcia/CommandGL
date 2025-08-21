@@ -43,6 +43,14 @@ var hierarchy =
     [ "cgl::Color", "classcgl_1_1Color.html", null ],
     [ "cgl::Console", "classcgl_1_1Console.html", null ],
     [ "cgl::Framework::DrawEntry", "structcgl_1_1Framework_1_1DrawEntry.html", null ],
+    [ "cgl::Error", "classcgl_1_1Error.html", [
+      [ "cgl::DeviceError", "classcgl_1_1DeviceError.html", null ],
+      [ "cgl::InvalidArgumentError", "classcgl_1_1InvalidArgumentError.html", null ],
+      [ "cgl::LogicError", "classcgl_1_1LogicError.html", null ],
+      [ "cgl::TermiosError", "classcgl_1_1TermiosError.html", null ],
+      [ "cgl::WinapiError", "classcgl_1_1WinapiError.html", null ]
+    ] ],
+    [ "cgl::ErrorSettings", "classcgl_1_1ErrorSettings.html", null ],
     [ "cgl::Event", "classcgl_1_1Event.html", null ],
     [ "cgl::EventManager", "classcgl_1_1EventManager.html", null ],
     [ "cgl::EventType", "structcgl_1_1EventType.html", [

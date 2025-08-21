@@ -114,9 +114,6 @@ $(document).ready(function(){initNavTree('classcgl_1_1Console.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>Manages Windows console operations including display, input, and font configuration.  
- <a href="classcgl_1_1Console.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="console_8hpp_source.html">console.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -128,7 +125,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a32cf70eead35c0ed587908c7709c56b1" id="r_a32cf70eead35c0ed587908c7709c56b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a32cf70eead35c0ed587908c7709c56b1">~Console</a> ()</td></tr>
 <tr class="separator:a32cf70eead35c0ed587908c7709c56b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c4eff67afd3b0b62ead8e1d7ca23011" id="r_a0c4eff67afd3b0b62ead8e1d7ca23011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#a0c4eff67afd3b0b62ead8e1d7ca23011">getSize</a> () const</td></tr>
-<tr class="memdesc:a0c4eff67afd3b0b62ead8e1d7ca23011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current size of the console window in character cells.  <br /></td></tr>
 <tr class="separator:a0c4eff67afd3b0b62ead8e1d7ca23011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -176,10 +172,7 @@ Friends</h2></td></tr>
 <tr class="memitem:ad3defef37a1222bb2b2a65577a6c4816" id="r_ad3defef37a1222bb2b2a65577a6c4816"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1Console.html#ad3defef37a1222bb2b2a65577a6c4816">Framework</a></td></tr>
 <tr class="separator:ad3defef37a1222bb2b2a65577a6c4816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages Windows console operations including display, input, and font configuration. </p>
-<p>The <a class="el" href="classcgl_1_1Console.html" title="Manages Windows console operations including display, input, and font configuration.">Console</a> class provides a high-level interface for interacting with the Windows console, including resizing the window, changing fonts, writing character buffers, and handling input events. It automatically saves and restores the original console state. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a44251a24d2a86d910707542320b8ae73" name="a44251a24d2a86d910707542320b8ae73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44251a24d2a86d910707542320b8ae73">&#9670;&#160;</a></span>Console() <span class="overload">[1/2]</span></h2>
 
@@ -453,16 +446,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Gets the current size of the console window in character cells. </p>
-<p>This function queries the console screen buffer to determine the current width and height of the console window, in character cells. The result is returned as a reference to a <a class="el" href="classcgl_1_1Vector2.html">Vector2&lt;u32&gt;</a> where x is the width and y is the height.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to a <a class="el" href="classcgl_1_1Vector2.html">Vector2&lt;u32&gt;</a> containing the console's width (x) and height (y). </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if unable to get console screen buffer info. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

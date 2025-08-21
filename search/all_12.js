@@ -5,7 +5,7 @@ var searchData=
   ['samplebilinear_2',['sampleBilinear',['../classcgl_1_1Texture.html#ab6686dab5c0daf310e33157f8e0a68f8',1,'cgl::Texture']]],
   ['samplenearestneighbor_3',['sampleNearestNeighbor',['../classcgl_1_1Texture.html#ad57fe806fbb09889880deb967791bdb7',1,'cgl::Texture']]],
   ['sampleuvgradient_4',['sampleUVGradient',['../namespacecgl.html#a012d1f1b1ef84d47b7133923fabc7ddb',1,'cgl']]],
-  ['samplingmode_5',['samplingmode',['../structcgl_1_1filters_1_1TextureSamplerData.html#abe6a4c486a0993513ac571cda6f86416',1,'cgl::filters::TextureSamplerData::samplingMode'],['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f',1,'cgl::Texture::SamplingMode']]],
+  ['samplingmode_5',['samplingmode',['../classcgl_1_1Texture.html#a14184195d3709892cbf5e8f422fd556f',1,'cgl::Texture::SamplingMode'],['../structcgl_1_1filters_1_1TextureSamplerData.html#abe6a4c486a0993513ac571cda6f86416',1,'cgl::filters::TextureSamplerData::samplingMode']]],
   ['save_6',['save',['../classcgl_1_1Texture.html#a4700fd31041dc293ad6cfafbd9dfe735',1,'cgl::Texture']]],
   ['scale_7',['scale',['../classcgl_1_1Matrix3.html#a2d2e801304c9e755e2ad49e2a399cb24',1,'cgl::Matrix3']]],
   ['scaleonbasesizedeviation_8',['scaleOnBaseSizeDeviation',['../classcgl_1_1Framework.html#aedfa55a31d0300060413599723e85d1a',1,'cgl::Framework']]],

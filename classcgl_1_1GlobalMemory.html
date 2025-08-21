@@ -114,9 +114,6 @@ $(document).ready(function(){initNavTree('classcgl_1_1GlobalMemory.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Thread-safe singleton for global data storage across the application.  
- <a href="classcgl_1_1GlobalMemory.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="global__memory_8hpp_source.html">global_memory.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -127,31 +124,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a17014c18681aa95adb1702b79ae3b21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada74ff4d0afba09c3f66b524f203c7ad" id="r_ada74ff4d0afba09c3f66b524f203c7ad"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">typename</a> <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </td></tr>
 <tr class="memitem:ada74ff4d0afba09c3f66b524f203c7ad"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#ada74ff4d0afba09c3f66b524f203c7ad">add</a> (<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> std::string &amp;key, <a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">value</a>)</td></tr>
-<tr class="memdesc:ada74ff4d0afba09c3f66b524f203c7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new key-value pair to the global memory.  <br /></td></tr>
 <tr class="separator:ada74ff4d0afba09c3f66b524f203c7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b89434ffc9029af25453b750ade1639" id="r_a4b89434ffc9029af25453b750ade1639"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </td></tr>
 <tr class="memitem:a4b89434ffc9029af25453b750ade1639"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">set</a> (const std::string &amp;key, const <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;value)</td></tr>
-<tr class="memdesc:a4b89434ffc9029af25453b750ade1639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates an existing key-value pair in the global memory.  <br /></td></tr>
 <tr class="separator:a4b89434ffc9029af25453b750ade1639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfcd9d2ff09af78a84f87f7aad467147" id="r_abfcd9d2ff09af78a84f87f7aad467147"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">typename</a> <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </td></tr>
 <tr class="memitem:abfcd9d2ff09af78a84f87f7aad467147"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#abfcd9d2ff09af78a84f87f7aad467147">access</a> (<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> std::string &amp;key) <a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a></td></tr>
-<tr class="memdesc:abfcd9d2ff09af78a84f87f7aad467147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides read-only access to a value in the global memory.  <br /></td></tr>
 <tr class="separator:abfcd9d2ff09af78a84f87f7aad467147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a660d676eac58c50a8861738e92da702d" id="r_a660d676eac58c50a8861738e92da702d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">typename</a> <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &gt; </td></tr>
 <tr class="memitem:a660d676eac58c50a8861738e92da702d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0dfaf188f90193cab9ece18c950afbfa6b0fdbfa4ff731d3">T</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#a660d676eac58c50a8861738e92da702d">get</a> (<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> std::string &amp;key)</td></tr>
-<tr class="memdesc:a660d676eac58c50a8861738e92da702d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides read-write access to a value in the global memory.  <br /></td></tr>
 <tr class="separator:a660d676eac58c50a8861738e92da702d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c869f375c30c8a389f3863573ff9b00" id="r_a8c869f375c30c8a389f3863573ff9b00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#a8c869f375c30c8a389f3863573ff9b00">exists</a> (<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> std::string &amp;key) <a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a></td></tr>
-<tr class="memdesc:a8c869f375c30c8a389f3863573ff9b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a key exists in the global memory.  <br /></td></tr>
 <tr class="separator:a8c869f375c30c8a389f3863573ff9b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a286185ac69e55cbe863f0802a5a90adb" id="r_a286185ac69e55cbe863f0802a5a90adb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#a286185ac69e55cbe863f0802a5a90adb">remove</a> (<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">const</a> std::string &amp;key)</td></tr>
-<tr class="memdesc:a286185ac69e55cbe863f0802a5a90adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a key-value pair from the global memory.  <br /></td></tr>
 <tr class="separator:a286185ac69e55cbe863f0802a5a90adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ada661a03b41b05fb19bd25e5c9c9c831" id="r_ada661a03b41b05fb19bd25e5c9c9c831"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af25453b750ade1639">static</a> <a class="el" href="classcgl_1_1GlobalMemory.html">GlobalMemory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#ada661a03b41b05fb19bd25e5c9c9c831">getInstance</a> ()</td></tr>
-<tr class="memdesc:ada661a03b41b05fb19bd25e5c9c9c831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of <a class="el" href="classcgl_1_1GlobalMemory.html" title="Thread-safe singleton for global data storage across the application.">GlobalMemory</a>.  <br /></td></tr>
 <tr class="separator:ada661a03b41b05fb19bd25e5c9c9c831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -168,12 +158,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a044cec4029cce87665998162874968bc" id="r_a044cec4029cce87665998162874968bc"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::any &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1GlobalMemory.html#a044cec4029cce87665998162874968bc">m_storage</a></td></tr>
 <tr class="separator:a044cec4029cce87665998162874968bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Thread-safe singleton for global data storage across the application. </p>
-<p>The <a class="el" href="classcgl_1_1GlobalMemory.html" title="Thread-safe singleton for global data storage across the application.">GlobalMemory</a> class provides a centralized, thread-safe storage mechanism for sharing data across different parts of the application. It uses std::any for type-erased storage, allowing storage of any type of data with string keys.</p>
-<p>This class implements the singleton pattern and is thread-safe through the use of mutexes. All operations are atomic and can be safely called from multiple threads.</p>
-<dl class="section note"><dt>Note</dt><dd>This class is non-copyable and non-assignable. </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0c8f87b4e068ec4a19fbad65a10526f3" name="a0c8f87b4e068ec4a19fbad65a10526f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c8f87b4e068ec4a19fbad65a10526f3">&#9670;&#160;</a></span>GlobalMemory() <span class="overload">[1/2]</span></h2>
 
@@ -269,30 +254,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
       </table>
 </div><div class="memdoc">
 
-<p>Provides read-only access to a value in the global memory. </p>
-<p>Returns a const reference to the value associated with the given key. This method is preferred for read-only access as it prevents accidental modification of the stored value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value to retrieve </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to look up </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the stored value</dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the key is not found </td></tr>
-    <tr><td class="paramname">std::bad_any_cast</td><td>if the stored type doesn't match the requested type</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@thread_safety This method is thread-safe. </p>
-
 </div>
 </div>
 <a id="ada74ff4d0afba09c3f66b524f203c7ad" name="ada74ff4d0afba09c3f66b524f203c7ad"></a>
@@ -323,24 +284,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
       </table>
 </div><div class="memdoc">
 
-<p>Adds a new key-value pair to the global memory. </p>
-<p>Stores a value of type T with the given key. If the key already exists, this will overwrite the existing value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to associate with the value </td></tr>
-    <tr><td class="paramname">value</td><td>The value to store</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@thread_safety This method is thread-safe.</p>
-<dl class="section note"><dt>Note</dt><dd>This method will overwrite existing values with the same key. </dd></dl>
-
 </div>
 </div>
 <a id="a8c869f375c30c8a389f3863573ff9b00" name="a8c869f375c30c8a389f3863573ff9b00"></a>
@@ -358,17 +301,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Checks if a key exists in the global memory. </p>
-<p>Determines whether a value is stored with the given key.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to check for existence </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the key exists, false otherwise</dd></dl>
-<p>@thread_safety This method is thread-safe. </p>
 
 </div>
 </div>
@@ -389,30 +321,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Provides read-write access to a value in the global memory. </p>
-<p>Returns a mutable reference to the value associated with the given key. This allows both reading and modifying the stored value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value to retrieve </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to look up </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Mutable reference to the stored value</dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the key is not found </td></tr>
-    <tr><td class="paramname">std::bad_any_cast</td><td>if the stored type doesn't match the requested type</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@thread_safety This method is thread-safe. </p>
 
 </div>
 </div>
@@ -438,11 +346,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Gets the singleton instance of <a class="el" href="classcgl_1_1GlobalMemory.html" title="Thread-safe singleton for global data storage across the application.">GlobalMemory</a>. </p>
-<p>Returns a reference to the single instance of <a class="el" href="classcgl_1_1GlobalMemory.html" title="Thread-safe singleton for global data storage across the application.">GlobalMemory</a>. This method is thread-safe and will create the instance on first call.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton <a class="el" href="classcgl_1_1GlobalMemory.html" title="Thread-safe singleton for global data storage across the application.">GlobalMemory</a> instance</dd></dl>
-<p>@thread_safety This method is thread-safe. </p>
 
 </div>
 </div>
@@ -488,16 +391,6 @@ template&lt;<a class="el" href="classcgl_1_1GlobalMemory.html#a4b89434ffc9029af2
       </table>
 </div><div class="memdoc">
 
-<p>Removes a key-value pair from the global memory. </p>
-<p>Deletes the entry associated with the given key from the storage. If the key does not exist, this method does nothing.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to remove</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@thread_safety This method is thread-safe. </p>
-
 </div>
 </div>
 <a id="a4b89434ffc9029af25453b750ade1639" name="a4b89434ffc9029af25453b750ade1639"></a>
@@ -527,29 +420,6 @@ template&lt;typename <a class="el" href="namespacecgl.html#a94a91c82f37e45d8b0df
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Updates an existing key-value pair in the global memory. </p>
-<p>Updates the value associated with the given key. Unlike <a class="el" href="classcgl_1_1GlobalMemory.html#ada74ff4d0afba09c3f66b524f203c7ad" title="Adds a new key-value pair to the global memory.">add()</a>, this method will throw an exception if the key does not exist.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The string key to update </td></tr>
-    <tr><td class="paramname">value</td><td>The new value to store</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the key is not found</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@thread_safety This method is thread-safe. </p>
 
 </div>
 </div>

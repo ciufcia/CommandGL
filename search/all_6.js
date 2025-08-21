@@ -18,7 +18,7 @@ var searchData=
   ['getfirstbuffer_15',['getFirstBuffer',['../classcgl_1_1FilterPipeline_1_1BufferRegistry.html#a3d98549b5db142518bce3c3b0a787ff0',1,'cgl::FilterPipeline::BufferRegistry']]],
   ['getfpstarget_16',['getFPSTarget',['../classcgl_1_1Framework.html#a2d338e12d8c6bd01640d80b4ab689ebc',1,'cgl::Framework']]],
   ['getglyph_17',['getGlyph',['../classcgl_1_1BitmapFont.html#a9715852ac0dfb6babb58db440a4b1d18',1,'cgl::BitmapFont']]],
-  ['getinstance_18',['getInstance',['../classcgl_1_1GlobalMemory.html#ada661a03b41b05fb19bd25e5c9c9c831',1,'cgl::GlobalMemory']]],
+  ['getinstance_18',['getinstance',['../classcgl_1_1ErrorSettings.html#a906dbe50fde6967735421833e2e3a33d',1,'cgl::ErrorSettings::getInstance()'],['../classcgl_1_1GlobalMemory.html#ada661a03b41b05fb19bd25e5c9c9c831',1,'cgl::GlobalMemory::getInstance()']]],
   ['getkeyboardevents_19',['getKeyboardEvents',['../classcgl_1_1Console.html#a47f3333da2fbd52bd9e67b54b396973b',1,'cgl::Console']]],
   ['getkeystates_20',['getKeyStates',['../classcgl_1_1Console.html#a59029e71ccf812f33102b0629558ad48',1,'cgl::Console']]],
   ['getlastframetime_21',['getLastFrameTime',['../classcgl_1_1Framework.html#a9ef6c93aae9988330e2f15bce3ac8672',1,'cgl::Framework']]],

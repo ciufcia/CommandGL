@@ -114,27 +114,20 @@ $(document).ready(function(){initNavTree('classcgl_1_1BitmapFont.html',''); init
 </div><!--header-->
 <div class="contents">
 
-<p>A bitmap font class for loading and rendering monospaced or proportional fonts from BDF files.  
- <a href="classcgl_1_1BitmapFont.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="text_8hpp_source.html">text.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcgl_1_1BitmapFont_1_1Glyph.html">Glyph</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single glyph in the font, including metrics and bitmap data.  <a href="structcgl_1_1BitmapFont_1_1Glyph.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a387b8d815a41892be66b2f1e6fc6fb73" id="r_a387b8d815a41892be66b2f1e6fc6fb73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BitmapFont.html#a387b8d815a41892be66b2f1e6fc6fb73">loadFromBDF</a> (const std::string &amp;filepath)</td></tr>
-<tr class="memdesc:a387b8d815a41892be66b2f1e6fc6fb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap font from a BDF file.  <br /></td></tr>
 <tr class="separator:a387b8d815a41892be66b2f1e6fc6fb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ebe4f5364d03e013a2e53f5429ef38" id="r_aa3ebe4f5364d03e013a2e53f5429ef38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BitmapFont.html#aa3ebe4f5364d03e013a2e53f5429ef38">renderToTexture</a> (const std::string &amp;text, <a class="el" href="classcgl_1_1Texture.html">Texture</a> &amp;texture, <a class="el" href="classcgl_1_1Color.html">Color</a> color=<a class="el" href="classcgl_1_1Color.html">Color</a>(255, 255, 255, 255), <a class="el" href="classcgl_1_1Color.html">Color</a> backgroundColor=<a class="el" href="classcgl_1_1Color.html">Color</a>(0, 0, 0, 0))</td></tr>
-<tr class="memdesc:aa3ebe4f5364d03e013a2e53f5429ef38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a UTF-8 string to a texture using this font.  <br /></td></tr>
 <tr class="separator:aa3ebe4f5364d03e013a2e53f5429ef38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9715852ac0dfb6babb58db440a4b1d18" id="r_a9715852ac0dfb6babb58db440a4b1d18"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcgl_1_1BitmapFont_1_1Glyph.html">Glyph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BitmapFont.html#a9715852ac0dfb6babb58db440a4b1d18">getGlyph</a> (<a class="el" href="namespacecgl.html#a49334542f48e831ce744c76bc33da894">u32</a> codepoint) const</td></tr>
-<tr class="memdesc:a9715852ac0dfb6babb58db440a4b1d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the glyph for a given Unicode codepoint.  <br /></td></tr>
 <tr class="separator:a9715852ac0dfb6babb58db440a4b1d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -153,11 +146,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a79e67f5cdf0852a8f12ae543e4eb7f1d" id="r_a79e67f5cdf0852a8f12ae543e4eb7f1d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="namespacecgl.html#a821cc525077ef98888b37836a777969f">i32</a>, <a class="el" href="namespacecgl.html#a821cc525077ef98888b37836a777969f">i32</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcgl_1_1BitmapFont.html#a79e67f5cdf0852a8f12ae543e4eb7f1d">m_ascentDescentPrepassBuffer</a></td></tr>
 <tr class="separator:a79e67f5cdf0852a8f12ae543e4eb7f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A bitmap font class for loading and rendering monospaced or proportional fonts from BDF files. </p>
-<p>Supports Unicode codepoints, per-glyph metrics, and rendering text to a texture with color and background. Handles multi-line text, baseline alignment, and correct glyph placement using font metrics.</p>
-<p>Doesn't support escape sequences, except for newline characters. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9715852ac0dfb6babb58db440a4b1d18" name="a9715852ac0dfb6babb58db440a4b1d18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9715852ac0dfb6babb58db440a4b1d18">&#9670;&#160;</a></span>getGlyph()</h2>
 
@@ -173,21 +162,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Returns the glyph for a given Unicode codepoint. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">codepoint</td><td>The Unicode codepoint to look up. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the corresponding <a class="el" href="structcgl_1_1BitmapFont_1_1Glyph.html" title="Represents a single glyph in the font, including metrics and bitmap data.">Glyph</a>. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the glyph is not found. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -206,20 +180,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Loads a bitmap font from a BDF file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filepath</td><td>Path to the BDF font file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the file cannot be opened or parsed. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -260,17 +220,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Renders a UTF-8 string to a texture using this font. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">text</td><td>The text to render (UTF-8 encoded). </td></tr>
-    <tr><td class="paramname">texture</td><td>The target texture to render into (resized as needed). </td></tr>
-    <tr><td class="paramname">color</td><td>The foreground color for glyph pixels (default: white). </td></tr>
-    <tr><td class="paramname">backgroundColor</td><td>The background color for empty pixels (default: transparent). </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
