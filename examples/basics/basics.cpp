@@ -15,7 +15,7 @@ int main() {
 
     // You can use other filters provided by the library or create your own.
     // As reference you can see how pre-implemented filters work
-    til::filters::SingleCharacterColored characterFilter { static_cast<til::u32>('@') };
+    til::filters::SingleColoredDithered characterFilter { til::Color(255, 255, 255) };
     framework.characterFilterPipeline.addFilter(&characterFilter).build();
 
 
@@ -86,7 +86,7 @@ int main() {
         triangle->transform.rotate(180.f * til::getDurationInSeconds(framework.getLastFrameTime()));
 
         // Make the screen white
-        framework.clearDisplay(til::Color{255, 255, 255, 255});
+        framework.clearDisplay(til::Color{0, 0, 0, 255});
 
         // Draw the drawable
         framework.draw(triangle);

@@ -156,6 +156,17 @@ namespace til
             SingleCharacterColored(u32 codepoint);
         };
 
+        struct SingleColoredDitheredData : public BaseData
+        {
+            Color color;
+            std::vector<u32> ditheringPalette;
+        };
+
+        struct SingleColoredDithered : public Filter<Color, CharacterCell, SingleColoredDitheredData>
+        {
+            SingleColoredDithered(Color color);
+        };
+
         class CharacterShuffleColoredData : public BaseData
         {
         public:

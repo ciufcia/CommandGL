@@ -79,6 +79,50 @@ namespace til
             });
         }
 
+        SingleColoredDithered::SingleColoredDithered(Color color) {
+            data.color = color;
+
+            data.ditheringPalette = {
+                0x20,   // space — no coverage
+                0x2591, // ░ Light Shade (~25%)  -> move shades earlier
+                0x2592, // ▒ Medium Shade (~50%)
+                0x2593, // ▓ Dark Shade (~75%)
+                0x258F, // ▏ Left One Eighth Block
+                0x2595, // ▕ Right One Eighth Block
+                0x2581, // ▁ Lower One Eighth Block
+                0x2594, // ▔ Upper One Eighth Block
+                0x258E, // ▎ Left One Quarter Block
+                0x2596, // ▖ Quadrant Lower Left
+                0x258C, // ▌ Left Half Block
+                0x2584, // ▄ Lower Half Block
+                0x258A, // ▊ Left Three Quarters Block
+                0x2586, // ▆ Lower Three Quarters Block
+                0x2589, // ▉ Left Seven Eighths Block
+                0x2587, // ▇ Lower Seven Eighths Block
+                0x2588  // █ Full Block (full coverage)
+            };
+
+            executionMode = ExecutionMode::Concurrent;
+
+            setSingleFilterFunction([](FilterableBuffer<Color> &input, FilterableBuffer<CharacterCell> &output, const SingleColoredDitheredData &data) {
+                for (u32 i = 0; i < input.getSize(); ++i) {
+                    f32 luminance = input[i].luminance();
+                    u32 index = static_cast<u32>(luminance * (data.ditheringPalette.size() - 1));
+
+                    output[i].color = data.color;
+                    output[i].codepoint = data.ditheringPalette[index];
+                }
+            });
+
+            setMultiFilterFunction([](Color &input, CharacterCell &output, const SingleColoredDitheredData &data) {
+                f32 luminance = input.luminance();
+                u32 index = static_cast<u32>(luminance * (data.ditheringPalette.size() - 1));
+
+                output.color = data.color;
+                output.codepoint = data.ditheringPalette[index];
+            });
+        }
+
         void CharacterShuffleColored::beforePipelineRun() {
             data.m_shuffle = false;
 
