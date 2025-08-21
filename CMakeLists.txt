@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.26)
 
 project(
-    CommandGL
+    Textil
     VERSION 1.0.0
     DESCRIPTION "Command line graphics library for Windows written in C++."
     LANGUAGES CXX
@@ -31,7 +31,7 @@ else()
     message(FATAL_ERROR "OpenMP not found. Please install OpenMP support for your compiler.")
 endif()
 
-add_subdirectory(CommandGL)
+add_subdirectory(Textil)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()

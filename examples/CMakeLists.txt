@@ -1,1 +1,1 @@
-add_subdirectory(tour)
+add_subdirectory(basics)
