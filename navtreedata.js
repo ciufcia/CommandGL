@@ -24,48 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "CommandGL", "index.html", [
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
-    ] ],
-    [ "Concepts", "concepts.html", "concepts" ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ]
-  ] ]
+  [ "CommandGL", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classcgl_1_1Event.html#abb5100a49511cb4703791d7b47908f33",
-"classcgl_1_1Matrix3.html#a26f4aba8d199260855d50a8eb6f8b16f",
-"classcgl_1_1drawables_1_1Rectangle.html",
-"keycodes_8hpp.html#a94a91c82f37e45d8b0dfaf188f90193cae1e1d3d40573127e9ee0480caf1283d6",
-"structcgl_1_1KeyPressEvent.html"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
