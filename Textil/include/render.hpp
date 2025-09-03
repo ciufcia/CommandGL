@@ -139,6 +139,8 @@ namespace til
 
         u32 addMesh(primitives::Vertex *vertices, u32 vertexCount);
 
+        void clearMeshes();
+
     private:
 
         bool clipLineToRect(Vector2<f32>& start, Vector2<f32>& end, const Vector2<u32>& rectSize) const;

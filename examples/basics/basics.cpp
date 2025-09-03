@@ -1,5 +1,4 @@
 #include <til.hpp>
-#include <iostream>
 
 int main() {
     til::Framework framework;
@@ -24,12 +23,25 @@ int main() {
     til::Transform transform;
 
     til::FilterPipeline<til::filters::VertexData, til::filters::VertexData> filterPipeline;
-    til::filters::SolidColor solidColorFilter({255, 0, 0, 255});
+    til::filters::SolidColor solidColorFilter({255, 0, 0, 64});
     filterPipeline.addFilter(&solidColorFilter).build();
 
-    til::primitives::Ellipse ellipse;
-    ellipse.center = {15.f, 15.f};
-    ellipse.radii = {5.f, 5.f};
+    til::primitives::Vertex triangleVertices[6] = {
+        // First triangle (clockwise): bottom-left -> top-left -> top-right
+        {{5.f, 15.f}, {0.f, 1.f}},   // bottom-left
+        {{5.f, 5.f}, {0.f, 0.f}},    // top-left
+        {{15.f, 5.f}, {1.f, 0.f}},   // top-right
+        
+        // Second triangle (clockwise): bottom-left -> top-right -> bottom-right  
+        {{5.f, 15.f}, {0.f, 1.f}},   // bottom-left
+        {{15.f, 5.f}, {1.f, 0.f}},   // top-right
+        {{15.f, 15.f}, {1.f, 1.f}}   // bottom-right
+    };
+
+    til::u32 meshId = framework.renderer.addMesh(triangleVertices, 6);
+    
+    til::primitives::TriangleMesh mesh;
+    mesh.vertexCount = 6;
 
     while (true) {
         while (auto event = framework.eventManager.pollEvent()) {
@@ -42,10 +54,13 @@ int main() {
 
         transform.rotate(0.05f);
 
+        til::u32 meshId = framework.renderer.addMesh(triangleVertices, mesh.vertexCount);
+        mesh.firstVertex = meshId;
+
         defaultWindow.fill({255, 255, 255});
         secondWindow.fill({0, 0, 255});
 
-        framework.renderer.drawImmediate(defaultWindow, ellipse, transform, filterPipeline);
+        framework.renderer.drawImmediate(defaultWindow, mesh, transform, filterPipeline);
 
         framework.display();
         framework.update();

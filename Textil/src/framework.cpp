@@ -24,5 +24,7 @@ namespace til
 
     void Framework::update() {
         console.getEvents(eventManager.m_events);
+
+        renderer.clearMeshes();
     }
 }

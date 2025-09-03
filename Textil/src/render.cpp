@@ -315,7 +315,7 @@ namespace til
         u32 meshStart = mesh.firstVertex;
         u32 meshEnd = mesh.firstVertex + mesh.vertexCount;
 
-        if (meshEnd >= m_meshVertices.size()) {
+        if (meshEnd > m_meshVertices.size()) {
             invokeError<InvalidArgumentError>("Renderer couldn't find the specified mesh vertices");
         }
 
@@ -331,6 +331,7 @@ namespace til
 
         Matrix3<f32> transformMatrix = transform.getMatrix();
 
+        #pragma omp parallel for
         for (u32 i = meshStart; i < meshEnd; ++i) {
             m_meshVertices[i].position = transformMatrix * m_meshVertices[i].position;
         }
@@ -349,7 +350,7 @@ namespace til
         };
 
         auto isTopOrLeftEdge = [](const Vector2<f32> &p1, const Vector2<f32> &p2) {
-            return (p1.y == p2.y) ? (p1.x > p2.x) : (p1.y > p2.y);
+            return (p1.y == p2.y) ? (p1.x < p2.x) : (p1.y > p2.y);
         };
 
         std::vector<TriangleParams> triangles(triangleCount);
@@ -384,21 +385,33 @@ namespace til
             triangle.inverseArea = (std::abs(area2) > 1e-6f) ? 1.f / area2 : 0.f;
         }
 
+        m_fragmentInputBuffer.clear();
+
+        Vector2<u32> renderTargetSize = renderTarget.getBufferSize();
         std::vector<filters::VertexData> triangleBuffer;
 
         for (int ti = 0; ti < triangleCount; ++ti) {
             const auto &triangle = triangles[ti];
 
+            i32 clippedLeft = std::max(static_cast<i32>(std::floor(triangle.topLeft.x)), 0);
+            i32 clippedTop = std::max(static_cast<i32>(std::floor(triangle.topLeft.y)), 0);
+            i32 clippedRight = std::min(static_cast<i32>(std::ceil(triangle.bottomRight.x)), static_cast<i32>(renderTargetSize.x) - 1);
+            i32 clippedBottom = std::min(static_cast<i32>(std::ceil(triangle.bottomRight.y)), static_cast<i32>(renderTargetSize.y) - 1);
+
+            if (clippedLeft > clippedRight || clippedTop > clippedBottom) {
+                continue;
+            }
+
             Vector2<i32> size = {
-                static_cast<i32>(std::ceil(triangle.size.x)),
-                static_cast<i32>(std::ceil(triangle.size.y))
+                clippedRight - clippedLeft + 1,
+                clippedBottom - clippedTop + 1
             };
 
             triangleBuffer.resize(size.x * size.y);
 
             #pragma omp parallel for collapse(2) schedule(dynamic)
-            for (int y = static_cast<int>(triangle.topLeft.y); y < size.y + static_cast<int>(triangle.topLeft.y); ++y)
-            for (int x = static_cast<int>(triangle.topLeft.x); x < size.x + static_cast<int>(triangle.topLeft.x); ++x) {
+            for (int y = clippedTop; y <= clippedBottom; ++y)
+            for (int x = clippedLeft; x <= clippedRight; ++x) {
                 f32 e1 = triangle.e1a * x + triangle.e1b * y + triangle.e1c;
                 f32 e2 = triangle.e2a * x + triangle.e2b * y + triangle.e2c;
                 f32 e3 = triangle.e3a * x + triangle.e3b * y + triangle.e3c;
@@ -409,7 +422,7 @@ namespace til
                     (e3 > 0 || (e3 == 0 && triangle.e3_topLeft))
                 );
                 
-                int index = (y - static_cast<int>(triangle.topLeft.y)) * size.x + (x - static_cast<int>(triangle.topLeft.x));
+                int index = (y - clippedTop) * size.x + (x - clippedLeft);
 
                 filters::VertexData &pixelData = triangleBuffer[index];
 
@@ -540,5 +553,18 @@ namespace til
                 }
             }
         }
+    }
+
+    u32 Renderer::addMesh(primitives::Vertex *vertices, u32 vertexCount) {
+        u32 firstVertex = static_cast<u32>(m_meshVertices.size());
+        m_meshVertices.reserve(m_meshVertices.size() + vertexCount);
+        for (u32 i = 0; i < vertexCount; ++i) {
+            m_meshVertices.push_back(vertices[i]);
+        }
+        return firstVertex;
+    }
+
+    void Renderer::clearMeshes() {
+        m_meshVertices.clear();
     }
 }
