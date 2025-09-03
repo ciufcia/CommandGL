@@ -18,6 +18,7 @@
 #include <vector>
 #include "filters.hpp"
 #include "character_cell.hpp"
+#include "window.hpp"
 
 namespace til
 {
@@ -74,8 +75,10 @@ namespace til
 
         void init();
         void reset();
-
         void clear();
+        void fit(Vector2<u32> newSize);
+        void drawWindow(const Window &window);
+        void writeBuffer();
         void constructOutputString(const FilterableBuffer<CharacterCell> &buffer, const Vector2<u32> &size);
         void writeCharacterBuffer(const FilterableBuffer<CharacterCell> &buffer, const Vector2<u32> &size);
         void getEvents(std::vector<Event> &events);
@@ -92,6 +95,7 @@ namespace til
         void parseInputRecords(const std::vector<INPUT_RECORD> &inputRecords);
         std::wstring stringToWideString(const std::string &str) const;
         std::string wideStringToString(const std::wstring &wstr) const;
+        
 #endif // _WIN32
 
 
@@ -103,6 +107,7 @@ namespace til
         void processKeyboardDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
         void processMouseDeviceEvents(fd_set &fds, DeviceData &deviceData, std::vector<Event> &events);
         void setupFds();
+
 #endif // __linux__
 
 
@@ -134,6 +139,8 @@ namespace til
         Vector2<i32> m_currentMousePosition { 0, 0 };
         Vector2<i32> m_relativeMouseMovement { 0, 0 };
 
+        Vector2<u32> m_screenSize { 0, 0 };
+        FilterableBuffer<CharacterCell> m_characterBuffer {};
         std::string m_outputString = "";
 
 #ifdef _WIN32
@@ -166,9 +173,7 @@ std::vector<Event> m_pendingEvents;
 std::mutex m_pendingEventsMutex;
 #endif
 
-#if defined(__linux__) || defined(__APPLE__)
-        Vector2<u32> m_currentConsoleSize { 0, 0 };
-#endif // __linux__ || __APPLE__
+        Vector2<u32> m_eventCurrentConsoleSize { 0, 0 };
 
     friend class EventManager;
     friend class Framework;

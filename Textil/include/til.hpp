@@ -15,12 +15,15 @@
 #include "filter_pipeline.hpp"
 #include "matrix3.hpp"
 #include "transform.hpp"
-#include "drawable.hpp"
 #include "timing.hpp"
 #include "texture.hpp"
 #include "text.hpp"
 #include "character_cell.hpp"
 #include "keycodes.hpp"
 #include "errors.hpp"
+#include "render.hpp"
+#include "window.hpp"
+#include "window_manager.hpp"
+#include "event_manager.hpp"
 
 #endif // TIL_TIL_HPP

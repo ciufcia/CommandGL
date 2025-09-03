@@ -6,7 +6,6 @@
 #include <unordered_map>
 #include "color.hpp"
 #include "texture.hpp"
-#include "drawable.hpp"
 
 namespace til
 {

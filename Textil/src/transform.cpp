@@ -23,9 +23,8 @@ namespace til
         Matrix3<f32> rotation = Matrix3<f32>::rotate(m_rotation);
         Matrix3<f32> scale = Matrix3<f32>::scale(m_scale);
         Matrix3<f32> inverseOrigin = Matrix3<f32>::translate({-m_origin.x, -m_origin.y});
-        Matrix3<f32> postScale = Matrix3<f32>::scale(m_postScale);
 
-        return postScale * translation * rotation * scale * inverseOrigin;
+        return translation * rotation * scale * inverseOrigin;
     }
 
     Vector2<f32> Transform::getPosition() const {

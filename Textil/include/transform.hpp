@@ -36,20 +36,12 @@ namespace til
 
     private:
 
-        Vector2<f32> m_position;
-        Vector2<f32> m_scale;
-        f32          m_rotation;
-        Vector2<f32> m_origin;
-        Vector2<f32> m_postScale { 1.f, 1.f };
+        Vector2<f32> m_position { 0.f, 0.f };
+        Vector2<f32> m_scale { 1.f, 1.f };
+        f32          m_rotation { 0.f };
+        Vector2<f32> m_origin { 0.f, 0.f };
 
     friend class Framework;
-    };
-
-    class Transformable
-    {
-    public:
-
-        Transform transform;
     };
 }
 

@@ -30,14 +30,8 @@ namespace til
         virtual ~BaseFilterableBuffer() = default;
 
         virtual u32 getSize() const;
-
         virtual void setSize(u32 size);
-
         virtual void clear();
-
-    protected:
-
-        u32 m_size = 0;
     };
 
     template<typename T>
@@ -45,24 +39,20 @@ namespace til
     {
     public:
 
-        virtual ~FilterableBuffer();
+        virtual u32 getSize() const override;
 
         virtual void setSize(u32 size) override;
 
-        virtual T &operator[](u32 index);
-
-        virtual const T &operator[](u32 index) const;
-
-        T *getData() const;
-
-        void setData(T *data, u32 size);
-
         virtual void clear() override;
+
+        std::vector<T> &getBuffer();
+
+        T &operator[](u32 index);
+        const T &operator[](u32 index) const;
 
     private:
 
-        T *m_data = nullptr;
-        bool m_ownsData = true;
+        std::vector<T> m_buffer;
     };
 
     class BaseFilter
@@ -134,7 +124,7 @@ namespace til
 
     namespace filters
     {
-        struct GeometryElementData
+        struct VertexData
         {
             Color color { 255, 0, 255, 255 };
 
@@ -199,22 +189,22 @@ namespace til
             Color color;
         };
 
-        struct SolidColor : public Filter<GeometryElementData, GeometryElementData, SolidColorData>
+        struct SolidColor : public Filter<VertexData, VertexData, SolidColorData>
         {
             SolidColor(Color color);
         };
 
-        struct UVGradient : public Filter<GeometryElementData, GeometryElementData>
+        struct UVGradient : public Filter<VertexData, VertexData>
         {
             UVGradient();
         };
 
-        struct Grayscale : public Filter<GeometryElementData, GeometryElementData>
+        struct Grayscale : public Filter<VertexData, VertexData>
         {
             Grayscale();
         };
 
-        struct Invert : public Filter<GeometryElementData, GeometryElementData>
+        struct Invert : public Filter<VertexData, VertexData>
         {
             Invert();
         };
@@ -225,58 +215,40 @@ namespace til
             Texture::SamplingMode samplingMode = Texture::SamplingMode::Bilinear;
         };
 
-        struct TextureSampler : public Filter<GeometryElementData, GeometryElementData, TextureSamplerData>
+        struct TextureSampler : public Filter<VertexData, VertexData, TextureSamplerData>
         {
             TextureSampler(Texture *texture);
         };
     };
 
     template<typename T>
-    FilterableBuffer<T>::~FilterableBuffer() {
-        if (m_data && m_ownsData) {
-            delete[] m_data;
-        }
+    u32 FilterableBuffer<T>::getSize() const {
+        return m_buffer.size();
     }
 
     template<typename T>
     void FilterableBuffer<T>::setSize(u32 size) {
-        if (m_data && m_ownsData) {
-            delete[] m_data;
-        }
-        m_ownsData = true;
-        m_size = size;
-        m_data = new T[m_size];
-    }
-
-    template<typename T>
-    T &FilterableBuffer<T>::operator[](u32 index) {
-        return m_data[index];
-    }
-
-    template<typename T>
-    const T &FilterableBuffer<T>::operator[](u32 index) const {
-        return m_data[index];
-    }
-
-    template<typename T>
-    T *FilterableBuffer<T>::getData() const {
-        return m_data;
-    }
-
-    template<typename T>
-    void FilterableBuffer<T>::setData(T *data, u32 size) {
-        if (m_data && m_ownsData) {
-            delete[] m_data;
-        }
-        m_ownsData = false;
-        m_size = size;
-        m_data = data;
+        m_buffer.resize(size);
     }
 
     template<typename T>
     void FilterableBuffer<T>::clear() {
-        setSize(0);
-        m_data = nullptr;
+        m_buffer.clear();
+    }
+
+    template<typename T>
+    std::vector<T> &FilterableBuffer<T>::getBuffer() {
+        return m_buffer;
+    }
+
+    template<typename T>
+    T &FilterableBuffer<T>::operator[](u32 index) {
+        return m_buffer[index];
+    }
+
+    template<typename T>
+    const T &FilterableBuffer<T>::operator[](u32 index) const {
+        return m_buffer[index];
     }
 
     template<typename InputType, typename OutputType, typename FilterData>
@@ -334,7 +306,7 @@ namespace til
         if (!m_multiFilterFunction) return;
 
         for (u32 i = 0; i < inputBuffer->getSize(); ++i) {
-            m_multiFilterFunction(inputBuffer->operator[](i), outputBuffer->operator[](i), data);
+            m_multiFilterFunction((*inputBuffer)[i], (*outputBuffer)[i], data);
         }
     }
 
@@ -356,7 +328,7 @@ namespace til
             if (start < end) {
                 futures.push_back(std::async(std::launch::async, [&, start, end]() {
                     for (u32 i = start; i < end; ++i) {
-                        m_multiFilterFunction(inputBuffer->operator[](i), outputBuffer->operator[](i), data);
+                        m_multiFilterFunction((*inputBuffer)[i], (*outputBuffer)[i], data);
                     }
                 }));
             }

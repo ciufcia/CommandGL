@@ -2,96 +2,52 @@
 #include <iostream>
 
 int main() {
-
-
-    /* Framework Initialization */
-
-    // Initialize the framework
     til::Framework framework;
+
     framework.initialize();
 
+    til::Window &defaultWindow = framework.windowManager.createWindow();
+    defaultWindow.setSize({30, 30});
+    defaultWindow.setRenderer(&framework.renderer);
 
-    /* Set the way in which pixels will be represented in the console */
+    til::Window &secondWindow = framework.windowManager.createWindow();
+    secondWindow.setSize({40, 40});
+    secondWindow.setPosition({50, 10});
+    secondWindow.setRenderer(&framework.renderer);
 
-    // You can use other filters provided by the library or create your own.
-    // As reference you can see how pre-implemented filters work
-    til::filters::SingleColoredDithered characterFilter { til::Color(255, 255, 255) };
-    framework.characterFilterPipeline.addFilter(&characterFilter).build();
+    til::filters::CharacterShuffleColored charShuffleFilter;
+    defaultWindow.characterPipeline.addFilter(&charShuffleFilter).build();
 
+    til::filters::SingleCharacterColored singleCharFilter(64);
+    secondWindow.characterPipeline.addFilter(&singleCharFilter).build();
 
-    /* Creating a drawable */
+    til::Transform transform;
 
-    // Create a drawable triangle
-    std::shared_ptr<til::drawables::Triangle> triangle = til::Drawable::create<til::drawables::Triangle>(
-        til::Vector2<til::f32>(0.f, 0.f),
-        til::Vector2<til::f32>(1.0f, 0.f),
-        til::Vector2<til::f32>(0.5f, 1.0f)
-    );
+    til::FilterPipeline<til::filters::VertexData, til::filters::VertexData> filterPipeline;
+    til::filters::SolidColor solidColorFilter({255, 0, 0, 255});
+    filterPipeline.addFilter(&solidColorFilter).build();
 
+    til::primitives::Ellipse ellipse;
+    ellipse.center = {15.f, 15.f};
+    ellipse.radii = {5.f, 5.f};
 
-    /* Modifying a drawable's Transform */
-
-    // Calculate the centroid of the triangle
-    til::Vector2<til::f32> centre;
-    for (auto &point : triangle->points) {
-        centre += point;
-    }
-    centre /= 3;
-
-    // Set the triangle's transformation origin to its centroid
-    triangle->transform.setOrigin(centre);
-
-    // Set the triangle's scale
-    triangle->transform.setScale({ 20.f, 20.f });
-
-    // Set the triangle's position to the middle of the screen
-    triangle->transform.setPosition(framework.console.getSize() / 2.f);
-
-    /* Modify the way the drawable is displayed */
-
-    // Let's display a gradient on the triangle and then invert the color of each pixel
-    til::filters::UVGradient uvGradientFilter;
-    til::filters::Invert invertFilter;
-    triangle->fragmentPipeline.addFilter(&uvGradientFilter).addFilter(&invertFilter).build();
-
-
-    /* Run the app */
-
-    // Set the target frames per second
-    framework.setFPSTarget(60);
-
-    // Flag that indicates whether the application is running
-    bool running = true;
-
-    // Main app loop
-    while (running) {
-        // Handle framework events via callbacks
-        framework.eventManager.handleEvents(
-            // Handle key presses
-            [&](til::KeyPressEvent, const til::Event &event) {
-                // stop the app if Escape was pressed
-                if (event.key == til::KeyCode::Escape) {
-                    running = false;
+    while (true) {
+        while (auto event = framework.eventManager.pollEvent()) {
+            if (event->isOfType<til::KeyPressEvent>()) {
+                if (event->key == til::KeyCode::Escape) {
+                    return 0;
                 }
-            },
-            // Handle mouse movement
-            [&](til::MouseMoveEvent, const til::Event &event) {
-                // Make the triangle move with the mouse
-                til::f32 sensitivity = 0.1f;
-                triangle->transform.move(static_cast<til::Vector2<til::f32>>(event.mouseDelta) * sensitivity);
             }
-        );
+        }
 
-        // Rotate the triangle taking deltaTime into consideration
-        triangle->transform.rotate(180.f * til::getDurationInSeconds(framework.getLastFrameTime()));
+        transform.rotate(0.05f);
 
-        // Make the screen white
-        framework.clearDisplay(til::Color{0, 0, 0, 255});
+        defaultWindow.fill({255, 255, 255});
+        secondWindow.fill({0, 0, 255});
 
-        // Draw the drawable
-        framework.draw(triangle);
+        framework.renderer.drawImmediate(defaultWindow, ellipse, transform, filterPipeline);
 
-        // Conclude application frame
+        framework.display();
         framework.update();
     }
 

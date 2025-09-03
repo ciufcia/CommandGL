@@ -9,12 +9,14 @@ add_library(
     color.cpp
     framework.cpp
     transform.cpp
-    drawable.cpp
     timing.cpp
     texture.cpp
     text.cpp
-    events.cpp
     errors.cpp
+    render.cpp
+    window.cpp
+    window_manager.cpp
+    event_manager.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

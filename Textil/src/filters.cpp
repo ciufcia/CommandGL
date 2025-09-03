@@ -5,15 +5,15 @@
 namespace til
 {
     u32 BaseFilterableBuffer::getSize() const {
-        return m_size;
+        return 0;
     }
 
     void BaseFilterableBuffer::setSize(u32 size) {
-        m_size = size;
+        
     }
 
     void BaseFilterableBuffer::clear() {
-        setSize(0);
+        
     }
 
     namespace filters
@@ -61,20 +61,20 @@ namespace til
             executionMode = ExecutionMode::Concurrent;
 
             setSingleFilterFunction([](FilterableBuffer<Color> &input, FilterableBuffer<CharacterCell> &output, const CharacterShuffleColoredData &data) {
-                if (!data.m_shuffle) return;
-
                 std::mt19937 engine(std::random_device{}());
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     output[i].color = input[i];
+                    if (!data.m_shuffle) break;
                     output[i].codepoint = data.m_codepoints[data.m_distribution(engine)];
                 }
             });
 
             setMultiFilterFunction([](Color &input, CharacterCell &output, const CharacterShuffleColoredData &data) {
+                output.color = input;
+                
                 if (!data.m_shuffle) return;
 
                 thread_local std::mt19937 engine(std::random_device{}());
-                output.color = input;
                 output.codepoint = data.m_codepoints[data.m_distribution(engine)];
             });
         }
@@ -138,13 +138,13 @@ namespace til
 
             executionMode = ExecutionMode::Concurrent;
 
-            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const SolidColorData &data) {
+            setSingleFilterFunction([](FilterableBuffer<VertexData> &input, FilterableBuffer<VertexData> &output, const SolidColorData &data) {
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     output[i].color = data.color;
                 }
             });
 
-            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const SolidColorData &data) {
+            setMultiFilterFunction([](VertexData &input, VertexData &output, const SolidColorData &data) {
                 output.color = data.color;
             });
         }
@@ -152,13 +152,13 @@ namespace til
         UVGradient::UVGradient() {
             executionMode = ExecutionMode::Concurrent;
 
-            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+            setSingleFilterFunction([](FilterableBuffer<VertexData> &input, FilterableBuffer<VertexData> &output, const BaseData &) {
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     output[i].color = sampleUVGradient(input[i].uv);
                 }
             });
 
-            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+            setMultiFilterFunction([](VertexData &input, VertexData &output, const BaseData &) {
                 output.color = sampleUVGradient(input.uv);
             });
         }
@@ -166,7 +166,7 @@ namespace til
         Grayscale::Grayscale() {
             executionMode = ExecutionMode::Concurrent;
 
-            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+            setSingleFilterFunction([](FilterableBuffer<VertexData> &input, FilterableBuffer<VertexData> &output, const BaseData &) {
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     f32 luminance = input[i].color.luminance();
                     output[i].color = Color{
@@ -178,7 +178,7 @@ namespace til
                 }
             });
 
-            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+            setMultiFilterFunction([](VertexData &input, VertexData &output, const BaseData &) {
                 f32 luminance = input.color.luminance();
                 output.color = Color{
                     static_cast<u8>(luminance * 255.f),
@@ -192,13 +192,13 @@ namespace til
         Invert::Invert() {
             executionMode = ExecutionMode::Concurrent;
 
-            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const BaseData &) {
+            setSingleFilterFunction([](FilterableBuffer<VertexData> &input, FilterableBuffer<VertexData> &output, const BaseData &) {
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     output[i].color = input[i].color.inverted();
                 }
             });
 
-            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const BaseData &) {
+            setMultiFilterFunction([](VertexData &input, VertexData &output, const BaseData &) {
                 output.color = input.color.inverted();
             });
         }
@@ -208,13 +208,13 @@ namespace til
 
             executionMode = ExecutionMode::Concurrent;
 
-            setSingleFilterFunction([](FilterableBuffer<GeometryElementData> &input, FilterableBuffer<GeometryElementData> &output, const TextureSamplerData &data) {
+            setSingleFilterFunction([](FilterableBuffer<VertexData> &input, FilterableBuffer<VertexData> &output, const TextureSamplerData &data) {
                 for (u32 i = 0; i < input.getSize(); ++i) {
                     output[i].color = data.texture->sample(input[i].uv, data.samplingMode);
                 }
             });
 
-            setMultiFilterFunction([](GeometryElementData &input, GeometryElementData &output, const TextureSamplerData &data) {
+            setMultiFilterFunction([](VertexData &input, VertexData &output, const TextureSamplerData &data) {
                 output.color = data.texture->sample(input.uv, data.samplingMode);
             });
         }

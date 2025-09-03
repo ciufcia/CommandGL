@@ -180,15 +180,67 @@ namespace til
 
 #endif // __linux__
 
-    void Console::constructOutputString(const FilterableBuffer<CharacterCell> &buffer, const Vector2<u32> &size) {
-        m_outputString.clear();
-        m_outputString.reserve(buffer.getSize() * 4);
+    void Console::fit(Vector2<u32> newSize) {
+        if (newSize != m_screenSize) {
+            m_screenSize = newSize;
+            m_characterBuffer.getBuffer().resize(newSize.x * newSize.y);
+            for (auto &cell : m_characterBuffer.getBuffer()) {
+                cell = CharacterCell(32, {255, 255, 255, 255});
+            }
+        }
+    }
 
-        if (buffer.getSize() == 0) {
+    void Console::drawWindow(const Window &window) {
+        Vector2<u32> windowSize = window.getSize();
+        Vector2<i32> windowPosition = window.getPosition();
+        u32 windowArea = windowSize.x * windowSize.y;
+
+        if (windowArea == 0) {
             return;
         }
 
-        Color currentColor = buffer[0].color;
+        Vector2<i32> displayTopLeft = windowPosition;
+        Vector2<i32> displayBottomRight = windowPosition + Vector2<i32>(static_cast<i32>(windowSize.x), static_cast<i32>(windowSize.y));
+
+        if (displayTopLeft.x < 0) {
+            displayTopLeft.x = 0;
+        }
+
+        if (displayTopLeft.y < 0) {
+            displayTopLeft.y = 0;
+        }
+
+        if (displayBottomRight.x > static_cast<i32>(m_screenSize.x)) {
+            displayBottomRight.x = static_cast<i32>(m_screenSize.x);
+        }
+
+        if (displayBottomRight.y > static_cast<i32>(m_screenSize.y)) {
+            displayBottomRight.y = static_cast<i32>(m_screenSize.y);
+        }
+
+        Vector2<i32> displaySize = displayBottomRight - displayTopLeft;
+        Vector2<i32> displayShift = displayTopLeft - windowPosition;
+
+        for (i32 y = 0; y < displaySize.y; ++y) {
+            for (i32 x = 0; x < displaySize.x; ++x) {
+                Vector2<i32> consoleCoordinates = displayTopLeft + Vector2<i32>(x, y);
+                Vector2<i32> windowCoordinates = displayShift + Vector2<i32>(x, y);
+
+                const CharacterCell &cell = window.getCharacterCell(windowCoordinates.y * windowSize.x + windowCoordinates.x);
+                m_characterBuffer[consoleCoordinates.y * m_screenSize.x + consoleCoordinates.x] = cell;
+            }
+        }
+    }
+
+    void Console::writeBuffer() {
+        m_outputString.clear();
+        m_outputString.reserve(m_characterBuffer.getSize() * 4);
+
+        if (m_characterBuffer.getSize() == 0) {
+            return;
+        }
+
+        Color currentColor = m_characterBuffer[0].color;
 
         m_outputString += "\x1b[38;2;" +
                           std::to_string(currentColor.r) +
@@ -198,9 +250,9 @@ namespace til
                           std::to_string(currentColor.b) +
                           "m";
 
-        for (u32 y = 0; y < size.y; ++y) {
-            for (u32 x = 0; x < size.x; ++x) {
-                const CharacterCell &cell = buffer[y * size.x + x];
+        for (u32 y = 0; y < m_screenSize.y; ++y) {
+            for (u32 x = 0; x < m_screenSize.x; ++x) {
+                const CharacterCell &cell = m_characterBuffer[y * m_screenSize.x + x];
 
                 if (cell.color != currentColor) {
                     currentColor = cell.color;
@@ -220,10 +272,6 @@ namespace til
         }
 
         m_outputString += "\x1b[0m";
-    }
-
-    void Console::writeCharacterBuffer(const FilterableBuffer<CharacterCell> &buffer, const Vector2<u32> &size) {
-        constructOutputString(buffer, size);
 
 #ifdef _WIN32
         SetConsoleCursorPosition(
@@ -247,6 +295,8 @@ namespace til
         std::cout << "\033[H";
         std::cout << m_outputString;
 #endif // __linux__ || __APPLE__
+
+        m_characterBuffer.getBuffer().resize(m_screenSize.x * m_screenSize.y, CharacterCell(32, {255, 255, 255, 255}));
     }
     
     void Console::init() {
@@ -283,7 +333,7 @@ namespace til
 
 #endif // __APPLE__
 
-        //clear();
+        fit(getSize());
     }
 
     void Console::reset() {
@@ -662,11 +712,7 @@ namespace til
 #endif // __APPLE__
 
     void Console::clear() {
-#ifdef _WIN32
-        std::system("cls");
-#elif defined(__linux__) || defined(__APPLE__)
-        std::system("clear");
-#endif // _WIN32
+        std::cout << "\x1b[2J\x1b[H" << std::flush;
     }
 
     void Console::getEvents(std::vector<Event> &events) {
@@ -876,17 +922,24 @@ namespace til
             event.newSize.x = record.Event.WindowBufferSizeEvent.dwSize.X;
             event.newSize.y = record.Event.WindowBufferSizeEvent.dwSize.Y;
             events.push_back(event);
+
+            m_eventCurrentConsoleSize = event.newSize;
+
+            fit(m_eventCurrentConsoleSize);
         }
 #endif // _WIN32
 
 #if defined(__linux__) || defined(__APPLE__)
         Vector2<u32> size = getSize();
-        if (size.x != m_currentConsoleSize.x || size.y != m_currentConsoleSize.y) {
+        if (size.x != m_eventCurrentConsoleSize.x || size.y != m_eventCurrentConsoleSize.y) {
             Event event;
             event.setType<ConsoleEvent>();
             event.newSize = size;
             events.push_back(event);
-            m_currentConsoleSize = size;
+
+            m_eventCurrentConsoleSize = size;
+
+            fit(m_eventCurrentConsoleSize);
         }
 #endif // __linux__ || __APPLE__
     }
