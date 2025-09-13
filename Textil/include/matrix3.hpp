@@ -1,3 +1,11 @@
+/**
+ * @file matrix3.hpp
+ * @brief 3x3 matrix class for 2D transformations in Textil library
+ * @details Provides a templated 3x3 matrix implementation optimized for 2D graphics transformations.
+ *          Supports standard matrix operations and transformation generation (translate, rotate, scale).
+ *          Uses homogeneous coordinates to represent 2D transformations in 3D matrix space.
+ */
+
 #ifndef TIL_MATRIX3_HPP
 #define TIL_MATRIX3_HPP
 
@@ -6,31 +14,152 @@
 
 namespace til
 {
+    /**
+     * @brief 3x3 matrix class template for 2D transformations
+     * @tparam T Numeric type for matrix elements (typically f32 or f64)
+     * @details Represents a 3x3 matrix using homogeneous coordinates for 2D transformations.
+     *          The matrix layout is row-major, where matrix[row][column] accesses elements.
+     *          Commonly used for combining translation, rotation, and scaling operations
+     *          in a single transformation matrix that can be applied to Vector2 points.
+     * 
+     * Matrix layout for 2D transformations:
+     * ```
+     * | sx  shx  tx |   where: sx/sy = scale, shx/shy = shear/rotation,
+     * | shy sy   ty |          tx/ty = translation
+     * | 0   0    1  |
+     * ```
+     */
     template<typename T>
     class Matrix3
     {
     public:
-
+        /**
+         * @brief Default constructor creating uninitialized matrix
+         * @details Matrix elements are not initialized and contain garbage values.
+         *          Use identity() or explicit initialization for predictable behavior.
+         */
         Matrix3() = default;
+        
+        /**
+         * @brief Constructor initializing all elements to a single value
+         * @param value Value to set for all matrix elements
+         * @details Useful for creating zero matrices: Matrix3<f32>(0.0f)
+         */
         Matrix3(T value);
+        
+        /**
+         * @brief Constructor from array of 9 values in row-major order
+         * @param values Array of 9 values: [m00, m01, m02, m10, m11, m12, m20, m21, m22]
+         * @details Values are arranged in row-major order where index i*3+j corresponds to matrix[i][j].
+         */
         Matrix3(const T values[9]);
 
+        /**
+         * @brief Transform a 2D vector using this matrix
+         * @param vec 2D vector to transform (treated as homogeneous coordinate [x, y, 1])
+         * @return Transformed 2D vector
+         * @details Multiplies the matrix by the vector in homogeneous coordinates.
+         *          Only returns the x,y components of the result, effectively performing:
+         *          result.x = m[0][0]*vec.x + m[0][1]*vec.y + m[0][2]
+         *          result.y = m[1][0]*vec.x + m[1][1]*vec.y + m[1][2]
+         */
         Vector2<T> operator*(const Vector2<T>& vec) const;
+        
+        /**
+         * @brief Matrix multiplication operator
+         * @param other Matrix to multiply with (on the right)
+         * @return New matrix representing the composition of transformations
+         * @details Performs standard matrix multiplication. Order matters: A*B ≠ B*A in general.
+         *          The result represents applying transformation 'other' first, then 'this'.
+         */
         Matrix3<T> operator*(const Matrix3<T>& other) const;
         
+        /**
+         * @brief Calculate matrix inverse
+         * @return Inverse matrix that undoes this transformation
+         * @throws LogicError if matrix is singular (determinant is zero)
+         * @details Computes the mathematical inverse using cofactor expansion.
+         *          The inverse matrix satisfies: M * M^(-1) = Identity.
+         *          Useful for converting from transformed coordinates back to original space.
+         */
         Matrix3<T> inverse() const;
 
+        /**
+         * @brief Create translation transformation matrix
+         * @param v Translation vector (offset to apply)
+         * @return Translation matrix that moves points by vector v
+         * @details Creates matrix that translates points: new_point = old_point + v
+         *          Matrix form:
+         *          ```
+         *          | 1  0  v.x |
+         *          | 0  1  v.y |
+         *          | 0  0   1  |
+         *          ```
+         */
         static Matrix3<T> translate(const Vector2<T>& v);
+        
+        /**
+         * @brief Create rotation transformation matrix
+         * @param radians Rotation angle in radians (positive = counterclockwise)
+         * @return Rotation matrix that rotates points around origin
+         * @details Creates matrix that rotates points around the origin (0,0).
+         *          For rotation around different points, combine with translation matrices.
+         *          Matrix form:
+         *          ```
+         *          |  cos(θ)  -sin(θ)  0 |
+         *          |  sin(θ)   cos(θ)  0 |
+         *          |    0        0     1 |
+         *          ```
+         */
         static Matrix3<T> rotate(T radians);
+        
+        /**
+         * @brief Create scaling transformation matrix
+         * @param v Scale factors for x and y axes
+         * @return Scale matrix that resizes objects by specified factors
+         * @details Creates matrix that scales points: new_point = old_point * scale_factors
+         *          Scaling is applied relative to the origin (0,0).
+         *          Matrix form:
+         *          ```
+         *          | v.x  0   0 |
+         *          |  0  v.y  0 |
+         *          |  0   0   1 |
+         *          ```
+         */
         static Matrix3<T> scale(const Vector2<T>& v);
+        
+        /**
+         * @brief Create identity transformation matrix
+         * @return Identity matrix (no transformation applied)
+         * @details Creates the multiplicative identity matrix where A * I = I * A = A.
+         *          Points transformed by identity matrix remain unchanged.
+         *          Matrix form:
+         *          ```
+         *          | 1  0  0 |
+         *          | 0  1  0 |
+         *          | 0  0  1 |
+         *          ```
+         */
         static Matrix3<T> identity();
 
+        /**
+         * @brief Access matrix row for modification
+         * @param row Row index (0-2)
+         * @return Pointer to the first element of the specified row
+         * @details Allows direct modification of matrix elements: matrix[row][col] = value
+         */
         T* operator[](std::size_t row) { return m[row]; }
+        
+        /**
+         * @brief Access matrix row for reading (const version)
+         * @param row Row index (0-2) 
+         * @return Const pointer to the first element of the specified row
+         * @details Allows read-only access to matrix elements: value = matrix[row][col]
+         */
         const T* operator[](std::size_t row) const { return m[row]; }
 
     private:
-
-        T m[3][3];
+        T m[3][3]; ///< Matrix data stored in row-major order [row][column]
     };
 
     template<typename T>

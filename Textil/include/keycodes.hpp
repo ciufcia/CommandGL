@@ -1,3 +1,12 @@
+/**
+ * @file keycodes.hpp
+ * @brief Cross-platform keyboard and mouse input key code definitions
+ * @details Provides a unified key code enumeration and platform-specific mapping functions
+ *          for Windows (WinAPI), Linux (evdev), and macOS (HID). Enables consistent
+ *          input handling across different operating systems with automatic translation
+ *          between platform-specific key representations and Textil's unified key codes.
+ */
+
 #ifndef TIL_KEYCODES_HPP
 #define TIL_KEYCODES_HPP
 
@@ -6,153 +15,145 @@
 
 namespace til
 {
+    /**
+     * @brief Unified enumeration of all supported keyboard and mouse input codes
+     * @details Comprehensive key code enumeration covering:
+     *          - Mouse buttons (left, right, middle)
+     *          - Standard keyboard keys (letters, numbers, function keys)
+     *          - Modifier keys (shift, ctrl, alt with left/right variants)
+     *          - Navigation keys (arrows, home, end, page up/down)
+     *          - Numpad keys with separate enumeration from main numbers
+     *          - Special keys (escape, space, enter, backspace, etc.)
+     *          - Media control keys (volume, play/pause, track navigation)
+     *          - Punctuation and symbol keys
+     * 
+     *          The enumeration provides platform-independent key identification,
+     *          allowing applications to handle input consistently across Windows, Linux, and macOS.
+     *          Key codes are mapped to platform-specific values using lookup tables.
+     */
     enum class KeyCode
     {
-        Invalid,
+        Invalid,                ///< Invalid or unrecognized key code
 
-        LeftMouseButton,
-        RightMouseButton,
-        MiddleMouseButton,
+        // Mouse buttons
+        LeftMouseButton,        ///< Primary mouse button (usually left)
+        RightMouseButton,       ///< Secondary mouse button (usually right)
+        MiddleMouseButton,      ///< Middle mouse button or scroll wheel click
 
-        BackSpace,
-        Tab,
-        Clear,
-        Enter,
-        Shift,
-        Ctrl,
-        Alt,
-        Pause,
-        CapsLock,
-        Spacebar,
-        PageUp,
-        PageDown,
-        End,
-        Home,
-        Select,
-        Print,
-        PrintScreen,
-        Insert,
-        Delete,
-        Help,
-        Multiply,
-        Add,
-        Separator,
-        Subtract,
-        Decimal,
-        Divide,
-        NumLock,
-        ScrollLock,
-        LeftShift,
-        RightShift,
-        LeftControl,
-        RightControl,
-        LeftAlt,
-        RightAlt,
-        VolumeMute,
-        VolumeDown,
-        VolumeUp,
-        NextTrack,
-        PreviousTrack,
-        Stop,
-        PlayPause,
-        Semicolon,
-        Plus,
-        Comma,
-        Minus,
-        Period,
-        ForwardSlash,
-        Backquote,
-        SquareBracketOpen,
-        BackwardSlash,
-        SquareBracketClose,
-        Apostrophe,
-        Escape,
+        // Control and navigation keys
+        BackSpace,              ///< Backspace key for deleting characters
+        Tab,                    ///< Tab key for advancing focus or inserting tabs
+        Clear,                  ///< Clear key (platform-specific functionality)
+        Enter,                  ///< Enter/Return key for confirming input
+        Shift,                  ///< Generic shift key (use LeftShift/RightShift for specificity)
+        Ctrl,                   ///< Generic control key (use LeftControl/RightControl for specificity)
+        Alt,                    ///< Generic alt key (use LeftAlt/RightAlt for specificity)
+        Pause,                  ///< Pause/Break key
+        CapsLock,               ///< Caps Lock toggle key
+        Spacebar,               ///< Space bar for inserting spaces
+        PageUp,                 ///< Page Up navigation key
+        PageDown,               ///< Page Down navigation key
+        End,                    ///< End key for jumping to end of line/document
+        Home,                   ///< Home key for jumping to beginning of line/document
+        Select,                 ///< Select key (platform-specific)
+        Print,                  ///< Print key
+        PrintScreen,            ///< Print Screen key for capturing screenshots
+        Insert,                 ///< Insert key for toggling insert/overwrite mode
+        Delete,                 ///< Delete key for removing characters
+        Help,                   ///< Help key (platform-specific)
+        
+        // Numpad arithmetic operators
+        Multiply,               ///< Numpad multiply (*) key
+        Add,                    ///< Numpad plus (+) key
+        Separator,              ///< Numpad separator key (platform-specific)
+        Subtract,               ///< Numpad minus (-) key
+        Decimal,                ///< Numpad decimal point (.) key
+        Divide,                 ///< Numpad divide (/) key
+        
+        // Lock keys
+        NumLock,                ///< Num Lock toggle key
+        ScrollLock,             ///< Scroll Lock toggle key
+        
+        // Specific modifier keys (left/right variants)
+        LeftShift,              ///< Left Shift modifier key
+        RightShift,             ///< Right Shift modifier key
+        LeftControl,            ///< Left Control modifier key
+        RightControl,           ///< Right Control modifier key
+        LeftAlt,                ///< Left Alt modifier key
+        RightAlt,               ///< Right Alt modifier key (AltGr on some keyboards)
+        
+        // Media control keys
+        VolumeMute,             ///< Volume mute toggle key
+        VolumeDown,             ///< Volume decrease key
+        VolumeUp,               ///< Volume increase key
+        NextTrack,              ///< Next track/forward media key
+        PreviousTrack,          ///< Previous track/backward media key
+        Stop,                   ///< Stop media playback key
+        PlayPause,              ///< Play/Pause media toggle key
+        
+        // Punctuation and symbol keys
+        Semicolon,              ///< Semicolon (;) key
+        Plus,                   ///< Plus/Equals (+/=) key
+        Comma,                  ///< Comma (,) key
+        Minus,                  ///< Minus/Underscore (-/_) key
+        Period,                 ///< Period/Greater than (./>) key
+        ForwardSlash,           ///< Forward slash/Question mark (/?) key
+        Backquote,              ///< Backquote/Tilde (`/~) key
+        SquareBracketOpen,      ///< Opening square bracket ([) key
+        BackwardSlash,          ///< Backslash/Pipe (\/|) key
+        SquareBracketClose,     ///< Closing square bracket (]) key
+        Apostrophe,             ///< Apostrophe/Quote ('/") key
+        Escape,                 ///< Escape key
 
-        Numpad0,
-        Numpad1,
-        Numpad2,
-        Numpad3,
-        Numpad4,
-        Numpad5,
-        Numpad6,
-        Numpad7,
-        Numpad8,
-        Numpad9,
+        // Numpad number keys (0-9)
+        Numpad0,                ///< Numpad 0 key
+        Numpad1,                ///< Numpad 1 key
+        Numpad2,                ///< Numpad 2 key
+        Numpad3,                ///< Numpad 3 key
+        Numpad4,                ///< Numpad 4 key
+        Numpad5,                ///< Numpad 5 key
+        Numpad6,                ///< Numpad 6 key
+        Numpad7,                ///< Numpad 7 key
+        Numpad8,                ///< Numpad 8 key
+        Numpad9,                ///< Numpad 9 key
 
-        Left,
-        Up,
-        Right,
-        Down,
+        // Arrow navigation keys
+        Left,                   ///< Left arrow key
+        Up,                     ///< Up arrow key
+        Right,                  ///< Right arrow key
+        Down,                   ///< Down arrow key
 
-        Zero,
-        One,
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Nine,
+        // Main number keys (0-9)
+        Zero,                   ///< Main keyboard 0 key
+        One,                    ///< Main keyboard 1 key
+        Two,                    ///< Main keyboard 2 key
+        Three,                  ///< Main keyboard 3 key
+        Four,                   ///< Main keyboard 4 key
+        Five,                   ///< Main keyboard 5 key
+        Six,                    ///< Main keyboard 6 key
+        Seven,                  ///< Main keyboard 7 key
+        Eight,                  ///< Main keyboard 8 key
+        Nine,                   ///< Main keyboard 9 key
 
-        A,
-        B,
-        C,
-        D,
-        E,
-        F,
-        G,
-        H,
-        I,
-        J,
-        K,
-        L,
-        M,
-        N,
-        O,
-        P,
-        Q,
-        R,
-        S,
-        T,
-        U,
-        V,
-        W,
-        X,
-        Y,
-        Z,
+        // Letter keys (A-Z)
+        A, B, C, D, E, F, G, H, I, J, K, L, M,
+        N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
 
-        F1,
-        F2,
-        F3,
-        F4,
-        F5,
-        F6,
-        F7,
-        F8,
-        F9,
-        F10,
-        F11,
-        F12,
-        F13,
-        F14,
-        F15,
-        F16,
-        F17,
-        F18,
-        F19,
-        F20,
-        F21,
-        F22,
-        F23,
-        F24,
+        // Function keys (F1-F24)
+        F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+        F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
 
-        Count
+        Count                   ///< Total number of key codes (not a valid key)
     };
 
 #ifdef _WIN32
-
-    const std::unordered_map<KeyCode, u32> keyCodeToWinapiVK = {
+    /**
+     * @brief Mapping from Textil key codes to Windows Virtual Key codes
+     * @details Lookup table for converting unified KeyCode values to Windows-specific
+     *          VK_* constants used by the WinAPI. Enables input processing on Windows
+     *          systems by translating platform events to unified key codes.
+     */
+    const std::unordered_map<KeyCode, u32> keyCodeToWinapiVK {
         { KeyCode::LeftMouseButton, VK_LBUTTON },
         { KeyCode::RightMouseButton, VK_RBUTTON },
         { KeyCode::MiddleMouseButton, VK_MBUTTON },
@@ -290,13 +291,25 @@ namespace til
         { KeyCode::F24, VK_F24 }
     };
 
+    /**
+     * @brief Convert Textil key code to Windows Virtual Key code
+     * @param key Textil KeyCode to convert
+     * @return Corresponding Windows VK_* constant
+     * @details Converts unified KeyCode to Windows-specific virtual key code for use with WinAPI functions.
+     *          Returns 0 for unmapped keys. Used internally by Windows input processing.
+     */
     int getWinapiVK(KeyCode key);
 
 #endif // _WIN32
 
 #ifdef __linux__
 
-    const std::unordered_map<int, KeyCode> linuxKeyToKeyCode = {
+    /**
+     * @brief Mapping from Linux evdev key codes to Textil key codes
+     * @details Lookup table for converting Linux input event key codes (from linux/input.h)
+     *          to unified KeyCode values. Handles both keyboard keys (KEY_*) and mouse buttons (BTN_*).
+     */
+    const std::unordered_map<int, KeyCode> linuxKeyToKeyCode {
         { BTN_LEFT, KeyCode::LeftMouseButton },
         { BTN_RIGHT, KeyCode::RightMouseButton },
         { BTN_MIDDLE, KeyCode::MiddleMouseButton },
@@ -426,13 +439,25 @@ namespace til
         { KEY_F24, KeyCode::F24 }
     };
 
+    /**
+     * @brief Convert Linux evdev key code to Textil key code
+     * @param key Linux input event key code (KEY_* or BTN_* constants)
+     * @return Corresponding Textil KeyCode value
+     * @details Converts Linux-specific input event codes to unified KeyCode values.
+     *          Returns KeyCode::Invalid for unmapped keys. Used internally by Linux input processing.
+     */
     KeyCode getKeyCodeFromLinuxKey(int key);
 
 #endif // __linux__
 
 #ifdef __APPLE__
 
-    static const std::unordered_map<u32, KeyCode> hidUsageToKeyCode = {
+    /**
+     * @brief Mapping from macOS HID Usage codes to Textil key codes
+     * @details Lookup table for converting macOS Human Interface Device (HID) usage codes
+     *          to unified KeyCode values. Maps kHIDUsage_* constants to Textil key codes.
+     */
+    static const std::unordered_map<u32, KeyCode> hidUsageToKeyCode {
         { kHIDUsage_KeyboardDeleteOrBackspace, KeyCode::BackSpace },
         { kHIDUsage_KeyboardTab,                KeyCode::Tab },
         { kHIDUsage_KeyboardClear,              KeyCode::Clear },
@@ -542,14 +567,33 @@ namespace til
         { kHIDUsage_KeyboardF24,                KeyCode::F24 }
     };
 
+    /**
+     * @brief Convert macOS HID usage code to Textil key code
+     * @param key macOS HID usage code
+     * @return Corresponding Textil KeyCode value
+     * @details Converts macOS-specific HID usage codes to unified KeyCode values.
+     *          Returns KeyCode::Invalid for unmapped keys. Used internally by macOS input processing.
+     */
     KeyCode getKeyCodeFromMacVK(u32 key);
 
-    const std::unordered_map<u32, KeyCode> macMouseVKToKeyCode = {
+    /**
+     * @brief Mapping from macOS mouse button codes to Textil key codes
+     * @details Lookup table for converting macOS-specific mouse button identifiers
+     *          to unified KeyCode values for mouse input processing.
+     */
+    const std::unordered_map<u32, KeyCode> macMouseVKToKeyCode {
         { 0x01, KeyCode::LeftMouseButton },
         { 0x02, KeyCode::RightMouseButton },
         { 0x03, KeyCode::MiddleMouseButton }
     };
 
+    /**
+     * @brief Convert macOS mouse button code to Textil key code
+     * @param key macOS mouse button identifier
+     * @return Corresponding Textil KeyCode value for mouse button
+     * @details Converts macOS-specific mouse button codes to unified KeyCode values.
+     *          Used internally by macOS mouse input processing.
+     */
     KeyCode getKeyCodeFromMacMouseVK(u32 key);
 
 #endif // __APPLE__
