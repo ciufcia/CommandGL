@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: Main Page</title>
+<title>CommandGL: Textil - Terminal Graphics Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,10 +103,157 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">CommandGL Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Textil - Terminal Graphics Library </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
+Introduction</h1>
+<p>Textil is a comprehensive C++ library for creating graphics applications that run in terminal environments. It provides a modern, object-oriented interface for terminal manipulation, 2D graphics rendering, input handling, and window management. The library is designed to work across Windows, Linux, and macOS platforms, offering a unified API that abstracts platform-specific terminal operations.</p>
+<h1><a class="anchor" id="features_sec"></a>
+Key Features</h1>
+<ul>
+<li><b>Cross-platform terminal graphics</b>: Unified API works on Windows, Linux, and macOS</li>
+<li><b>2D rendering pipeline</b>: Hardware-accelerated-style rendering with software implementation</li>
+<li><b>Advanced color support</b>: RGBA colors with multiple blending modes and gradients <br  />
+</li>
+<li><b>Flexible input handling</b>: Keyboard, mouse, and console event processing</li>
+<li><b>Window management</b>: Multi-layered window system with depth sorting</li>
+<li><b>Bitmap font rendering</b>: BDF font support for pixel-perfect text rendering</li>
+<li><b>Texture system</b>: Image loading, manipulation, and sampling with filtering</li>
+<li><b>Filter pipeline</b>: Customizable rendering effects and post-processing</li>
+<li><b>High-precision timing</b>: Frame rate control and performance monitoring</li>
+<li><b>Comprehensive error handling</b>: Structured error system with detailed reporting</li>
+</ul>
+<h1><a class="anchor" id="getting_started_sec"></a>
+Getting Started</h1>
+<h2><a class="anchor" id="basic_usage"></a>
+Basic Usage Pattern</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="til_8hpp.html">til.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <a class="code hl_class" href="classtil_1_1Framework.html">til::Framework</a> framework;</div>
+<div class="line">    framework.<a class="code hl_function" href="classtil_1_1Framework.html#a1fefe4d7e9d539bc07ddee4c558f7c37">initialize</a>();</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Create a window</span></div>
+<div class="line">    <span class="keyword">auto</span> window = framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">windowManager</a>.<a class="code hl_function" href="classtil_1_1WindowManager.html#ab380b7942f5c4c3654f0b2b4db4af70b">createWindow</a>({0, 0}, {80, 24});</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Main application loop</span></div>
+<div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
+<div class="line">    <span class="keywordflow">while</span> (running) {</div>
+<div class="line">        framework.<a class="code hl_function" href="classtil_1_1Framework.html#af12eff17a9347531270763982a447732">update</a>();</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Process events</span></div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; event : framework.eventManager.getEvents()) {</div>
+<div class="line">            <span class="keywordflow">if</span> (event.isOfType&lt;<a class="code hl_struct" href="structtil_1_1KeyPressEvent.html">til::KeyPressEvent</a>&gt;() &amp;&amp; event.key == <a class="code hl_enumvalue" href="namespacetil.html#abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224">til::KeyCode::Escape</a>) {</div>
+<div class="line">                running = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Render graphics</span></div>
+<div class="line">        window-&gt;clear();</div>
+<div class="line">        <span class="comment">// ... your rendering code here ...</span></div>
+<div class="line">        </div>
+<div class="line">        framework.<a class="code hl_function" href="classtil_1_1Framework.html#a68728eae1211788eb1207cca65a44985">display</a>();</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclasstil_1_1Framework_html"><div class="ttname"><a href="classtil_1_1Framework.html">til::Framework</a></div><div class="ttdoc">Central framework class coordinating all Textil subsystems.</div><div class="ttdef"><b>Definition</b> framework.hpp:41</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a0668e54e9141c74a5e12014923fbca6f"><div class="ttname"><a href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">til::Framework::windowManager</a></div><div class="ttdeci">WindowManager windowManager</div><div class="ttdoc">Manager for UI windows and layering.</div><div class="ttdef"><b>Definition</b> framework.hpp:116</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a1fefe4d7e9d539bc07ddee4c558f7c37"><div class="ttname"><a href="classtil_1_1Framework.html#a1fefe4d7e9d539bc07ddee4c558f7c37">til::Framework::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initialize all framework subsystems.</div><div class="ttdef"><b>Definition</b> framework.cpp:5</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a68728eae1211788eb1207cca65a44985"><div class="ttname"><a href="classtil_1_1Framework.html#a68728eae1211788eb1207cca65a44985">til::Framework::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Render and display the current frame.</div><div class="ttdef"><b>Definition</b> framework.cpp:18</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_af12eff17a9347531270763982a447732"><div class="ttname"><a href="classtil_1_1Framework.html#af12eff17a9347531270763982a447732">til::Framework::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Update framework state for next frame.</div><div class="ttdef"><b>Definition</b> framework.cpp:34</div></div>
+<div class="ttc" id="aclasstil_1_1WindowManager_html_ab380b7942f5c4c3654f0b2b4db4af70b"><div class="ttname"><a href="classtil_1_1WindowManager.html#ab380b7942f5c4c3654f0b2b4db4af70b">til::WindowManager::createWindow</a></div><div class="ttdeci">Window &amp; createWindow()</div><div class="ttdoc">Create a new window with automatic ID assignment.</div><div class="ttdef"><b>Definition</b> window_manager.cpp:5</div></div>
+<div class="ttc" id="anamespacetil_html_abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224"><div class="ttname"><a href="namespacetil.html#abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224">til::KeyCode::Escape</a></div><div class="ttdeci">@ Escape</div><div class="ttdoc">Escape key.</div></div>
+<div class="ttc" id="astructtil_1_1KeyPressEvent_html"><div class="ttname"><a href="structtil_1_1KeyPressEvent.html">til::KeyPressEvent</a></div><div class="ttdoc">Marker type for keyboard key press events.</div><div class="ttdef"><b>Definition</b> event.hpp:43</div></div>
+<div class="ttc" id="atil_8hpp_html"><div class="ttname"><a href="til_8hpp.html">til.hpp</a></div><div class="ttdoc">Primary aggregate header for the Textil terminal graphics library.</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="key_concepts"></a>
+Key Concepts</h2>
+<ul>
+<li><b>Framework</b>: Central coordinator managing all subsystems</li>
+<li><b>Windows</b>: Rendering targets with independent coordinate systems</li>
+<li><b>Events</b>: Type-safe input event handling with unified key codes</li>
+<li><b>Textures</b>: 2D image containers with filtering and sampling</li>
+<li><b>Colors</b>: RGBA representation with advanced blending operations</li>
+<li><b>Vectors/Matrices</b>: Mathematical primitives for 2D transformations</li>
+<li><b>Filters</b>: Rendering pipeline effects for visual enhancements</li>
+</ul>
+<h1><a class="anchor" id="architecture_sec"></a>
+Architecture Overview</h1>
+<p>Textil is organized into several key subsystems:</p>
+<h2><a class="anchor" id="core_types"></a>
+Core Mathematical Types</h2>
+<ul>
+<li><code>Vector2&lt;T&gt;</code>: 2D vector operations and transformations</li>
+<li><code>Matrix3&lt;T&gt;</code>: 3x3 matrices for 2D transformations <br  />
+</li>
+<li><code>Color</code>: RGBA color with blending operations</li>
+<li>Type aliases in <code><a class="el" href="numeric__types_8hpp.html" title="Type aliases for common numeric types used throughout the Textil library.">numeric_types.hpp</a></code> for consistent numeric types</li>
+</ul>
+<h2><a class="anchor" id="rendering_subsystem"></a>
+Rendering Subsystem</h2>
+<ul>
+<li><code>Renderer</code>: Core graphics pipeline and primitive rendering</li>
+<li><code>Texture</code>: Image storage, loading, and sampling</li>
+<li><code>RenderTarget</code>: Configurable rendering destinations</li>
+<li>Filter pipeline for customizable visual effects</li>
+</ul>
+<h2><a class="anchor" id="input_subsystem"></a>
+Input Subsystem  &lt;br&gt;</h2>
+<ul>
+<li><code>Event</code>: Unified input event representation</li>
+<li><code>EventManager</code>: Event queue processing and distribution</li>
+<li><code>KeyCode</code>: Cross-platform key code enumeration</li>
+<li>Platform-specific input device integration</li>
+</ul>
+<h2><a class="anchor" id="windowing_subsystem"></a>
+Windowing Subsystem</h2>
+<ul>
+<li><code>Window</code>: Independent rendering contexts with transforms</li>
+<li><code>WindowManager</code>: Multi-window coordination and depth sorting</li>
+<li><code>Console</code>: Low-level terminal interface abstraction</li>
+</ul>
+<h2><a class="anchor" id="text_subsystem"></a>
+Text Rendering</h2>
+<ul>
+<li><code>BitmapFont</code>: BDF font loading and glyph management</li>
+<li>Unicode support via UTF-8 text processing</li>
+<li>Texture-based text rendering for high quality output</li>
+</ul>
+<h2><a class="anchor" id="timing_subsystem"></a>
+Timing and Performance</h2>
+<ul>
+<li><code>Clock</code>: High-precision timing measurements</li>
+<li>Frame rate limiting and performance monitoring</li>
+<li>Duration conversion utilities for different time units</li>
+</ul>
+<h1><a class="anchor" id="platform_support"></a>
+Platform Support</h1>
+<p>Textil provides full cross-platform compatibility:</p>
+<ul>
+<li><b>Windows</b>: Uses WinAPI for console and input handling</li>
+<li><b>Linux</b>: Uses termios and evdev for terminal and input control</li>
+<li><b>macOS</b>: Uses HID framework for input and terminal manipulation</li>
+</ul>
+<p>Platform-specific code is isolated and abstracted through unified interfaces, allowing applications to run unchanged across different operating systems.</p>
+<h1><a class="anchor" id="performance_considerations"></a>
+Performance Considerations</h1>
+<ul>
+<li><b>Frame rate limiting</b>: Use <code>Framework::setTargetUpdateRate()</code> for consistent timing</li>
+<li><b>Texture memory</b>: Large textures consume significant memory; consider atlasing</li>
+<li><b>Filter pipeline</b>: Complex filter chains can impact rendering performance <br  />
+</li>
+<li><b>Event processing</b>: Process events efficiently to maintain responsiveness</li>
+<li><b>Window count</b>: Minimize active windows for optimal performance</li>
+</ul>
+<h1><a class="anchor" id="thread_safety"></a>
+Thread Safety</h1>
+<p>Textil is generally not thread-safe and should be used from a single thread. The error handling system provides thread-safe configuration through atomic operations. For multi-threaded applications, coordinate access to Textil objects externally.</p>
+<h1><a class="anchor" id="license_sec"></a>
+License</h1>
+<p>[Add your license information here] </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
