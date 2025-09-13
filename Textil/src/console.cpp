@@ -221,6 +221,7 @@ namespace til
         Vector2<i32> displaySize = displayBottomRight - displayTopLeft;
         Vector2<i32> displayShift = displayTopLeft - windowPosition;
 
+        #pragma omp parallel for
         for (i32 y = 0; y < displaySize.y; ++y) {
             for (i32 x = 0; x < displaySize.x; ++x) {
                 Vector2<i32> consoleCoordinates = displayTopLeft + Vector2<i32>(x, y);

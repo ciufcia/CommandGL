@@ -5,6 +5,8 @@ int main() {
 
     framework.initialize();
 
+    framework.setTargetUpdateRate(10);
+
     til::Window &defaultWindow = framework.windowManager.createWindow();
     defaultWindow.setSize({30, 30});
     defaultWindow.setRenderer(&framework.renderer);
@@ -14,8 +16,8 @@ int main() {
     secondWindow.setPosition({50, 10});
     secondWindow.setRenderer(&framework.renderer);
 
-    til::filters::CharacterShuffleColored charShuffleFilter;
-    defaultWindow.characterPipeline.addFilter(&charShuffleFilter).build();
+    til::filters::SingleColoredDithered singleColoredDitheredFilter({255, 255, 255, 255});
+    defaultWindow.characterPipeline.addFilter(&singleColoredDitheredFilter).build();
 
     til::filters::SingleCharacterColored singleCharFilter(64);
     secondWindow.characterPipeline.addFilter(&singleCharFilter).build();

@@ -567,4 +567,10 @@ namespace til
     void Renderer::clearMeshes() {
         m_meshVertices.clear();
     }
+
+    Renderer::MeshAllocation Renderer::allocateMesh(u32 vertexCount) {
+        u32 firstVertex = static_cast<u32>(m_meshVertices.size());
+        m_meshVertices.resize(firstVertex + vertexCount);
+        return { firstVertex, std::span<primitives::Vertex>(&m_meshVertices[firstVertex], vertexCount) };
+    }
 }

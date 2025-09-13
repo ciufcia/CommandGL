@@ -30,6 +30,8 @@ namespace til
 
         u32 getNextId();
 
+        std::list<Window>& getWindows();
+
     private:
 
         std::list<Window> m_windows {};

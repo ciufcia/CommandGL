@@ -24,6 +24,10 @@ namespace til
         void display();
         void update();
 
+        void setTargetUpdateRate(u32 updatesPerSecond);
+        void setTargetUpdateDuration(std::chrono::steady_clock::duration duration);
+        std::chrono::steady_clock::duration getLastUpdateDuration() const;
+
     public:
 
         Console console;
@@ -33,7 +37,12 @@ namespace til
 
     private:
 
+        Clock m_clock;
+
         bool initialized = false;
+
+        std::chrono::steady_clock::duration m_targetUpdateDuration = std::chrono::steady_clock::duration::zero();
+        std::chrono::steady_clock::duration m_lastUpdateDuration = std::chrono::steady_clock::duration::zero();
     };
 }
 

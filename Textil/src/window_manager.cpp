@@ -35,6 +35,10 @@ namespace til
         return m_windows;
     }
 
+    std::list<Window>& WindowManager::getWindows() {
+        return m_windows;
+    }
+
     void WindowManager::renderWindows() {
         for (auto &window : m_windows) {
             window.render();

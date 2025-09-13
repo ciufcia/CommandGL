@@ -5,6 +5,7 @@
 #include "vector2.hpp"
 #include <vector>
 #include <variant>
+#include <span>
 #include "filters.hpp"
 #include "transform.hpp"
 #include "filter_pipeline.hpp"
@@ -118,11 +119,17 @@ namespace til
         Renderer *m_renderer = nullptr;
 
     friend class Renderer;
+    friend class Framework;
     };
 
     class Renderer
     {
     public:
+
+        struct MeshAllocation {
+            u32 firstVertex;
+            std::span<primitives::Vertex> vertices;
+        };
 
         void draw(RenderTarget &renderTarget, const primitives::Vertex &vertex, const Transform &transform, FilterPipeline<filters::VertexData, filters::VertexData> &fragmentPipeline, f32 depth = 0.f, BlendMode blendMode = BlendMode::Alpha);
         void draw(RenderTarget &renderTarget, const primitives::Line &line, const Transform &transform, FilterPipeline<filters::VertexData, filters::VertexData> &fragmentPipeline, f32 depth = 0.f, BlendMode blendMode = BlendMode::Alpha);
@@ -138,6 +145,8 @@ namespace til
         void drawImmediateLine(RenderTarget &renderTarget, const Vector2<u32> &start, const Vector2<u32> &end, const Color &color, BlendMode blendMode = BlendMode::Alpha);
 
         u32 addMesh(primitives::Vertex *vertices, u32 vertexCount);
+
+        MeshAllocation allocateMesh(u32 vertexCount);
 
         void clearMeshes();
 

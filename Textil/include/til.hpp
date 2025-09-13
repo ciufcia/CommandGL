@@ -25,5 +25,6 @@
 #include "window.hpp"
 #include "window_manager.hpp"
 #include "event_manager.hpp"
+#include "drawables.hpp"
 
 #endif // TIL_TIL_HPP

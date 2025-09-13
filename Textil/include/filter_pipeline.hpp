@@ -49,7 +49,7 @@ namespace til
 
         FilterPipeline &addFilter(BaseFilter *filter);
         FilterPipeline &insertFilter(u32 index, BaseFilter *filter);
-        FilterPipeline &removeFilter(BaseFilter *filter);
+    FilterPipeline &removeFilter(u32 index);
         FilterPipeline &clearFilters();
 
         template<typename T>
@@ -141,8 +141,11 @@ namespace til
     }
 
     template<typename InputType, typename OutputType>
-    FilterPipeline<InputType, OutputType> &FilterPipeline<InputType, OutputType>::removeFilter(BaseFilter *filter) {
-        m_filters.erase(std::remove(m_filters.begin(), m_filters.end(), filter), m_filters.end());
+    FilterPipeline<InputType, OutputType> &FilterPipeline<InputType, OutputType>::removeFilter(u32 index) {
+        if (index >= static_cast<u32>(m_filters.size())) {
+            invokeError<InvalidArgumentError>("Filter index out of range");
+        }
+        m_filters.erase(m_filters.begin() + index);
         built = false;
         return *this;
     }

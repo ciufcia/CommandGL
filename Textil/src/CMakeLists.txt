@@ -17,7 +17,10 @@ add_library(
     window.cpp
     window_manager.cpp
     event_manager.cpp
+    drawables.cpp
 )
+
+set_source_files_properties(texture.cpp PROPERTIES COMPILE_FLAGS "-Wno-stringop-overflow")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     POSITION_INDEPENDENT_CODE ${BUILD_SHARED_LIBS}
