@@ -24,16 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "CommandGL", "index.html", [
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ]
-  ] ]
+  [ "CommandGL", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"dir_3e9a3120ab9badf2e2be9f21884898f5.html"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
