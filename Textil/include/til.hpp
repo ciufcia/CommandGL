@@ -135,7 +135,7 @@
  * 
  * @section license_sec License
  * 
- * [Add your license information here]
+ * MIT License
  * 
  * @namespace til
  * @brief Main namespace containing all Textil library functionality
