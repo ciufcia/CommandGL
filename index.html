@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: Textil - Terminal Graphics Library</title>
+<title>Textil: Textil - Terminal Graphics Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -134,39 +135,51 @@ Basic Usage Pattern</h2>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line">    <a class="code hl_class" href="classtil_1_1Framework.html">til::Framework</a> framework;</div>
 <div class="line">    framework.<a class="code hl_function" href="classtil_1_1Framework.html#a1fefe4d7e9d539bc07ddee4c558f7c37">initialize</a>();</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// Create a window</span></div>
-<div class="line">    <span class="keyword">auto</span> window = framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">windowManager</a>.<a class="code hl_function" href="classtil_1_1WindowManager.html#ab380b7942f5c4c3654f0b2b4db4af70b">createWindow</a>({0, 0}, {80, 24});</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// Main application loop</span></div>
+<div class="line">    framework.<a class="code hl_function" href="classtil_1_1Framework.html#a663b80b1cd300a0e3f5b375ef12de76e">setTargetUpdateRate</a>(30);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="classtil_1_1Window.html">til::Window</a> &amp;window = framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">windowManager</a>.<a class="code hl_function" href="classtil_1_1WindowManager.html#ab380b7942f5c4c3654f0b2b4db4af70b">createWindow</a>();</div>
+<div class="line">    window.<a class="code hl_function" href="classtil_1_1Window.html#a0bcf9e74b151c98ce9c89bec7ce937c9">setSize</a>({80, 24});</div>
+<div class="line">    window.<a class="code hl_function" href="classtil_1_1RenderTarget.html#a3ae4fcfdea1808f7c154aac29c13348a">setRenderer</a>(&amp;framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a854749bc66f667c8665fd854c65b9e31">renderer</a>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_struct" href="structtil_1_1filters_1_1SingleCharacterColored.html">til::filters::SingleCharacterColored</a> glyph(<span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line">    window.<a class="code hl_variable" href="classtil_1_1Window.html#a2b028e4b246c5c7cdeef335574a3d2e4">characterPipeline</a>.addFilter(&amp;glyph).build();</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordtype">bool</span> running = <span class="keyword">true</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> (running) {</div>
-<div class="line">        framework.<a class="code hl_function" href="classtil_1_1Framework.html#af12eff17a9347531270763982a447732">update</a>();</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// Process events</span></div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; event : framework.eventManager.getEvents()) {</div>
-<div class="line">            <span class="keywordflow">if</span> (event.isOfType&lt;<a class="code hl_struct" href="structtil_1_1KeyPressEvent.html">til::KeyPressEvent</a>&gt;() &amp;&amp; event.key == <a class="code hl_enumvalue" href="namespacetil.html#abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224">til::KeyCode::Escape</a>) {</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">auto</span> event = framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a662c25ba77866462bcaaade6e9368bfd">eventManager</a>.<a class="code hl_function" href="classtil_1_1EventManager.html#a14e50e58f120a21545d53f5b19665377">pollEvent</a>()) {</div>
+<div class="line">            <span class="keywordflow">if</span> (event-&gt;isOfType&lt;<a class="code hl_struct" href="structtil_1_1KeyPressEvent.html">til::KeyPressEvent</a>&gt;() &amp;&amp; event-&gt;key == <a class="code hl_enumvalue" href="namespacetil.html#abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224">til::KeyCode::Escape</a>) {</div>
 <div class="line">                running = <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// Render graphics</span></div>
-<div class="line">        window-&gt;clear();</div>
-<div class="line">        <span class="comment">// ... your rendering code here ...</span></div>
-<div class="line">        </div>
+<div class="line"> </div>
+<div class="line">        window.<a class="code hl_function" href="classtil_1_1RenderTarget.html#a7df66c673448333b63d55682349f56de">fill</a>({0, 0, 0, 255});</div>
+<div class="line">        framework.<a class="code hl_variable" href="classtil_1_1Framework.html#a854749bc66f667c8665fd854c65b9e31">renderer</a>.<a class="code hl_function" href="classtil_1_1Renderer.html#a25623013451718eb7e6f577a1de08080">drawImmediatePixel</a>(window, {40, 12}, {255, 60, 60, 255});</div>
+<div class="line"> </div>
 <div class="line">        framework.<a class="code hl_function" href="classtil_1_1Framework.html#a68728eae1211788eb1207cca65a44985">display</a>();</div>
+<div class="line">        framework.<a class="code hl_function" href="classtil_1_1Framework.html#af12eff17a9347531270763982a447732">update</a>();</div>
 <div class="line">    }</div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aclasstil_1_1EventManager_html_a14e50e58f120a21545d53f5b19665377"><div class="ttname"><a href="classtil_1_1EventManager.html#a14e50e58f120a21545d53f5b19665377">til::EventManager::pollEvent</a></div><div class="ttdeci">std::optional&lt; Event &gt; pollEvent()</div><div class="ttdoc">Poll and consume next event from queue.</div><div class="ttdef"><b>Definition</b> event_manager.cpp:5</div></div>
 <div class="ttc" id="aclasstil_1_1Framework_html"><div class="ttname"><a href="classtil_1_1Framework.html">til::Framework</a></div><div class="ttdoc">Central framework class coordinating all Textil subsystems.</div><div class="ttdef"><b>Definition</b> framework.hpp:41</div></div>
-<div class="ttc" id="aclasstil_1_1Framework_html_a0668e54e9141c74a5e12014923fbca6f"><div class="ttname"><a href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">til::Framework::windowManager</a></div><div class="ttdeci">WindowManager windowManager</div><div class="ttdoc">Manager for UI windows and layering.</div><div class="ttdef"><b>Definition</b> framework.hpp:116</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a0668e54e9141c74a5e12014923fbca6f"><div class="ttname"><a href="classtil_1_1Framework.html#a0668e54e9141c74a5e12014923fbca6f">til::Framework::windowManager</a></div><div class="ttdeci">WindowManager windowManager</div><div class="ttdoc">Manager for UI windows and layering.</div><div class="ttdef"><b>Definition</b> framework.hpp:117</div></div>
 <div class="ttc" id="aclasstil_1_1Framework_html_a1fefe4d7e9d539bc07ddee4c558f7c37"><div class="ttname"><a href="classtil_1_1Framework.html#a1fefe4d7e9d539bc07ddee4c558f7c37">til::Framework::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initialize all framework subsystems.</div><div class="ttdef"><b>Definition</b> framework.cpp:5</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a662c25ba77866462bcaaade6e9368bfd"><div class="ttname"><a href="classtil_1_1Framework.html#a662c25ba77866462bcaaade6e9368bfd">til::Framework::eventManager</a></div><div class="ttdeci">EventManager eventManager</div><div class="ttdoc">Input event processing and distribution.</div><div class="ttdef"><b>Definition</b> framework.hpp:118</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a663b80b1cd300a0e3f5b375ef12de76e"><div class="ttname"><a href="classtil_1_1Framework.html#a663b80b1cd300a0e3f5b375ef12de76e">til::Framework::setTargetUpdateRate</a></div><div class="ttdeci">void setTargetUpdateRate(u32 updatesPerSecond)</div><div class="ttdoc">Set target update rate in updates per second.</div><div class="ttdef"><b>Definition</b> framework.cpp:56</div></div>
 <div class="ttc" id="aclasstil_1_1Framework_html_a68728eae1211788eb1207cca65a44985"><div class="ttname"><a href="classtil_1_1Framework.html#a68728eae1211788eb1207cca65a44985">til::Framework::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">Render and display the current frame.</div><div class="ttdef"><b>Definition</b> framework.cpp:18</div></div>
+<div class="ttc" id="aclasstil_1_1Framework_html_a854749bc66f667c8665fd854c65b9e31"><div class="ttname"><a href="classtil_1_1Framework.html#a854749bc66f667c8665fd854c65b9e31">til::Framework::renderer</a></div><div class="ttdeci">Renderer renderer</div><div class="ttdoc">Graphics rendering system for drawing operations</div><div class="ttdef"><b>Definition</b> framework.hpp:116</div></div>
 <div class="ttc" id="aclasstil_1_1Framework_html_af12eff17a9347531270763982a447732"><div class="ttname"><a href="classtil_1_1Framework.html#af12eff17a9347531270763982a447732">til::Framework::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Update framework state for next frame.</div><div class="ttdef"><b>Definition</b> framework.cpp:34</div></div>
+<div class="ttc" id="aclasstil_1_1RenderTarget_html_a3ae4fcfdea1808f7c154aac29c13348a"><div class="ttname"><a href="classtil_1_1RenderTarget.html#a3ae4fcfdea1808f7c154aac29c13348a">til::RenderTarget::setRenderer</a></div><div class="ttdeci">void setRenderer(Renderer *renderer)</div><div class="ttdoc">Assign a renderer for processing draw calls.</div><div class="ttdef"><b>Definition</b> render.cpp:87</div></div>
+<div class="ttc" id="aclasstil_1_1RenderTarget_html_a7df66c673448333b63d55682349f56de"><div class="ttname"><a href="classtil_1_1RenderTarget.html#a7df66c673448333b63d55682349f56de">til::RenderTarget::fill</a></div><div class="ttdeci">void fill(const Color &amp;color)</div><div class="ttdoc">Fill the entire pixel buffer with a solid color.</div><div class="ttdef"><b>Definition</b> render.cpp:35</div></div>
+<div class="ttc" id="aclasstil_1_1Renderer_html_a25623013451718eb7e6f577a1de08080"><div class="ttname"><a href="classtil_1_1Renderer.html#a25623013451718eb7e6f577a1de08080">til::Renderer::drawImmediatePixel</a></div><div class="ttdeci">void drawImmediatePixel(RenderTarget &amp;renderTarget, const Vector2&lt; u32 &gt; &amp;position, const Color &amp;color, BlendMode blendMode=BlendMode::Alpha)</div><div class="ttdoc">Draw a single pixel immediately.</div><div class="ttdef"><b>Definition</b> render.cpp:97</div></div>
 <div class="ttc" id="aclasstil_1_1WindowManager_html_ab380b7942f5c4c3654f0b2b4db4af70b"><div class="ttname"><a href="classtil_1_1WindowManager.html#ab380b7942f5c4c3654f0b2b4db4af70b">til::WindowManager::createWindow</a></div><div class="ttdeci">Window &amp; createWindow()</div><div class="ttdoc">Create a new window with automatic ID assignment.</div><div class="ttdef"><b>Definition</b> window_manager.cpp:5</div></div>
+<div class="ttc" id="aclasstil_1_1Window_html"><div class="ttname"><a href="classtil_1_1Window.html">til::Window</a></div><div class="ttdoc">Independent rendering context with position, size, and filter pipelines.</div><div class="ttdef"><b>Definition</b> window.hpp:36</div></div>
+<div class="ttc" id="aclasstil_1_1Window_html_a0bcf9e74b151c98ce9c89bec7ce937c9"><div class="ttname"><a href="classtil_1_1Window.html#a0bcf9e74b151c98ce9c89bec7ce937c9">til::Window::setSize</a></div><div class="ttdeci">void setSize(const Vector2&lt; u32 &gt; &amp;size)</div><div class="ttdoc">Set window dimensions.</div><div class="ttdef"><b>Definition</b> window.cpp:17</div></div>
+<div class="ttc" id="aclasstil_1_1Window_html_a2b028e4b246c5c7cdeef335574a3d2e4"><div class="ttname"><a href="classtil_1_1Window.html#a2b028e4b246c5c7cdeef335574a3d2e4">til::Window::characterPipeline</a></div><div class="ttdeci">FilterPipeline&lt; Color, CharacterCell &gt; characterPipeline</div><div class="ttdoc">Character conversion pipeline for transforming graphics to terminal characters.</div><div class="ttdef"><b>Definition</b> window.hpp:109</div></div>
 <div class="ttc" id="anamespacetil_html_abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224"><div class="ttname"><a href="namespacetil.html#abbe84c2db44b82790012cfa919c87a3ca013ec032d3460d4be4431c6ab1f8f224">til::KeyCode::Escape</a></div><div class="ttdeci">@ Escape</div><div class="ttdoc">Escape key.</div></div>
 <div class="ttc" id="astructtil_1_1KeyPressEvent_html"><div class="ttname"><a href="structtil_1_1KeyPressEvent.html">til::KeyPressEvent</a></div><div class="ttdoc">Marker type for keyboard key press events.</div><div class="ttdef"><b>Definition</b> event.hpp:43</div></div>
+<div class="ttc" id="astructtil_1_1filters_1_1SingleCharacterColored_html"><div class="ttname"><a href="structtil_1_1filters_1_1SingleCharacterColored.html">til::filters::SingleCharacterColored</a></div><div class="ttdoc">Filter that converts colors to colored character cells.</div><div class="ttdef"><b>Definition</b> filters.hpp:618</div></div>
 <div class="ttc" id="atil_8hpp_html"><div class="ttname"><a href="til_8hpp.html">til.hpp</a></div><div class="ttdoc">Primary aggregate header for the Textil terminal graphics library.</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="key_concepts"></a>
 Key Concepts</h2>

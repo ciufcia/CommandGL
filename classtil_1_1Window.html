@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: til::Window Class Reference</title>
+<title>Textil: til::Window Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -170,7 +171,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a72fb46de0cf42307d4e7d7026b92f534"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtil_1_1Window.html" title="Independent rendering context with position, size, and filter pipelines.">Window</a> position in screen coordinates.  <br /></td></tr>
 <tr class="separator:a72fb46de0cf42307d4e7d7026b92f534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08dda68aabafadf9b0be394c9cc7cf8f" id="r_a08dda68aabafadf9b0be394c9cc7cf8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetil.html#ad9be87b0ee7ff27e3ebf026a496f59f7">f32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Window.html#a08dda68aabafadf9b0be394c9cc7cf8f">depth</a> = 0.f</td></tr>
-<tr class="memdesc:a08dda68aabafadf9b0be394c9cc7cf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth value for layering (higher values render on top)  <br /></td></tr>
+<tr class="memdesc:a08dda68aabafadf9b0be394c9cc7cf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth value for layering (smaller values render on top)  <br /></td></tr>
 <tr class="separator:a08dda68aabafadf9b0be394c9cc7cf8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6d1430e4690f18f032d2e03746b872c" id="r_ac6d1430e4690f18f032d2e03746b872c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Window.html#ac6d1430e4690f18f032d2e03746b872c">id</a> = 0</td></tr>
 <tr class="memdesc:ac6d1430e4690f18f032d2e03746b872c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for this window.  <br /></td></tr>
@@ -214,7 +215,7 @@ Additional Inherited Members</h2></td></tr>
 <li>Character conversion pipeline for terminal output</li>
 <li>Independent character buffer for terminal rendering</li>
 </ul>
-<p>Windows are managed by <a class="el" href="classtil_1_1WindowManager.html" title="Centralized manager for window creation, organization, and rendering.">WindowManager</a> and can overlap, with depth values determining rendering order. Each window maintains its own coordinate system where (0,0) represents the window's top-left corner. </p>
+<p>Windows are managed by <a class="el" href="classtil_1_1WindowManager.html" title="Centralized manager for window creation, organization, and rendering.">WindowManager</a> and can overlap, with depth values determining rendering order. Lower depth values render in front of higher depth values. Each window maintains its own coordinate system where (0,0) represents the window's top-left corner. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7f7acfc6006ac3217ea1dfa8b49fb3ec" name="a7f7acfc6006ac3217ea1dfa8b49fb3ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f7acfc6006ac3217ea1dfa8b49fb3ec">&#9670;&#160;</a></span>getCharacterCell()</h2>
@@ -409,7 +410,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Depth value for layering (higher values render on top) </p>
+<p>Depth value for layering (smaller values render on top) </p>
 
 </div>
 </div>

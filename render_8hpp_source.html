@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: /home/runner/work/CommandGL/CommandGL/Textil/include/render.hpp Source File</title>
+<title>Textil: /home/runner/work/CommandGL/CommandGL/Textil/include/render.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -347,7 +348,7 @@ $(document).ready(function(){initNavTree('render_8hpp_source.html',''); initResi
 <div class="ttc" id="aclasstil_1_1Renderer_html_ab689df2a713a990221f57aabe3a47986"><div class="ttname"><a href="classtil_1_1Renderer.html#ab689df2a713a990221f57aabe3a47986">til::Renderer::addMesh</a></div><div class="ttdeci">u32 addMesh(primitives::Vertex *vertices, u32 vertexCount)</div><div class="ttdoc">Add a triangle mesh to the vertex buffer.</div><div class="ttdef"><b>Definition</b> render.cpp:558</div></div>
 <div class="ttc" id="aclasstil_1_1Renderer_html_ac00f665831cbe3329ce120b7b4b66e6f"><div class="ttname"><a href="classtil_1_1Renderer.html#ac00f665831cbe3329ce120b7b4b66e6f">til::Renderer::m_fragmentInputBuffer</a></div><div class="ttdeci">FilterableBuffer&lt; filters::VertexData &gt; m_fragmentInputBuffer</div><div class="ttdoc">Input buffer for filter pipelines.</div><div class="ttdef"><b>Definition</b> render.hpp:674</div></div>
 <div class="ttc" id="aclasstil_1_1Renderer_html_af7bd422e712d271e75a3575f14942c22"><div class="ttname"><a href="classtil_1_1Renderer.html#af7bd422e712d271e75a3575f14942c22">til::Renderer::drawImmediateLine</a></div><div class="ttdeci">void drawImmediateLine(RenderTarget &amp;renderTarget, const Vector2&lt; u32 &gt; &amp;start, const Vector2&lt; u32 &gt; &amp;end, const Color &amp;color, BlendMode blendMode=BlendMode::Alpha)</div><div class="ttdoc">Draw a simple line immediately.</div><div class="ttdef"><b>Definition</b> render.cpp:104</div></div>
-<div class="ttc" id="aclasstil_1_1Transform_html"><div class="ttname"><a href="classtil_1_1Transform.html">til::Transform</a></div><div class="ttdoc">2D transformation class for position, rotation, and scale operations</div><div class="ttdef"><b>Definition</b> transform.hpp:38</div></div>
+<div class="ttc" id="aclasstil_1_1Transform_html"><div class="ttname"><a href="classtil_1_1Transform.html">til::Transform</a></div><div class="ttdoc">2D transformation class for position, rotation, and scale operations</div><div class="ttdef"><b>Definition</b> transform.hpp:39</div></div>
 <div class="ttc" id="aclasstil_1_1Vector2_html"><div class="ttname"><a href="classtil_1_1Vector2.html">til::Vector2</a></div><div class="ttdoc">A 2D vector class template supporting various arithmetic operations.</div><div class="ttdef"><b>Definition</b> vector2.hpp:37</div></div>
 <div class="ttc" id="afilter__pipeline_8hpp_html"><div class="ttname"><a href="filter__pipeline_8hpp.html">filter_pipeline.hpp</a></div><div class="ttdoc">Graphics processing pipeline system for applying filters to data buffers.</div></div>
 <div class="ttc" id="afilters_8hpp_html"><div class="ttname"><a href="filters_8hpp.html">filters.hpp</a></div><div class="ttdoc">Graphics filter system for data processing and visual effects.</div></div>
@@ -372,7 +373,7 @@ $(document).ready(function(){initNavTree('render_8hpp_source.html',''); initResi
 <div class="ttc" id="astructtil_1_1DrawCallData_html_ae50bb8af98310bac43385e2eeb5396cb"><div class="ttname"><a href="structtil_1_1DrawCallData.html#ae50bb8af98310bac43385e2eeb5396cb">til::DrawCallData::payload</a></div><div class="ttdeci">DrawPayload payload</div><div class="ttdoc">Geometry data for the primitive.</div><div class="ttdef"><b>Definition</b> render.hpp:164</div></div>
 <div class="ttc" id="astructtil_1_1DrawCall_html"><div class="ttname"><a href="structtil_1_1DrawCall.html">til::DrawCall</a></div><div class="ttdoc">Lightweight draw call reference with depth information.</div><div class="ttdef"><b>Definition</b> render.hpp:181</div></div>
 <div class="ttc" id="astructtil_1_1DrawCall_html_ad3f292e092e1640d2f3e739e714a0e60"><div class="ttname"><a href="structtil_1_1DrawCall.html#ad3f292e092e1640d2f3e739e714a0e60">til::DrawCall::data_index</a></div><div class="ttdeci">u32 data_index</div><div class="ttdoc">Index into the draw call data pool.</div><div class="ttdef"><b>Definition</b> render.hpp:183</div></div>
-<div class="ttc" id="astructtil_1_1DrawCall_html_af55344dcd1dc39f1f5216915d823b29f"><div class="ttname"><a href="structtil_1_1DrawCall.html#af55344dcd1dc39f1f5216915d823b29f">til::DrawCall::depth</a></div><div class="ttdeci">f32 depth</div><div class="ttdoc">Depth value for sorting (lower values rendered first)</div><div class="ttdef"><b>Definition</b> render.hpp:182</div></div>
+<div class="ttc" id="astructtil_1_1DrawCall_html_af55344dcd1dc39f1f5216915d823b29f"><div class="ttname"><a href="structtil_1_1DrawCall.html#af55344dcd1dc39f1f5216915d823b29f">til::DrawCall::depth</a></div><div class="ttdeci">f32 depth</div><div class="ttdoc">Depth value used for sorting (higher values processed first during rendering)</div><div class="ttdef"><b>Definition</b> render.hpp:182</div></div>
 <div class="ttc" id="astructtil_1_1Renderer_1_1MeshAllocation_html"><div class="ttname"><a href="structtil_1_1Renderer_1_1MeshAllocation.html">til::Renderer::MeshAllocation</a></div><div class="ttdoc">Mesh allocation result containing vertex access.</div><div class="ttdef"><b>Definition</b> render.hpp:459</div></div>
 <div class="ttc" id="astructtil_1_1Renderer_1_1MeshAllocation_html_a89b87cf5ee8f3749c6a7ee685e85c268"><div class="ttname"><a href="structtil_1_1Renderer_1_1MeshAllocation.html#a89b87cf5ee8f3749c6a7ee685e85c268">til::Renderer::MeshAllocation::firstVertex</a></div><div class="ttdeci">u32 firstVertex</div><div class="ttdoc">Index of first vertex in allocation.</div><div class="ttdef"><b>Definition</b> render.hpp:460</div></div>
 <div class="ttc" id="astructtil_1_1Renderer_1_1MeshAllocation_html_ab4f79241c1b75974ed7bae2c459d68a5"><div class="ttname"><a href="structtil_1_1Renderer_1_1MeshAllocation.html#ab4f79241c1b75974ed7bae2c459d68a5">til::Renderer::MeshAllocation::vertices</a></div><div class="ttdeci">std::span&lt; primitives::Vertex &gt; vertices</div><div class="ttdoc">Direct access to allocated vertex range.</div><div class="ttdef"><b>Definition</b> render.hpp:461</div></div>

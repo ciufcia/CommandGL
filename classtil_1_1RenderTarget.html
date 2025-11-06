@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: til::RenderTarget Class Reference</title>
+<title>Textil: til::RenderTarget Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -745,7 +746,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sort all draw calls by depth value. </p>
-<p>Sorts the draw call list to ensure proper rendering order with correct depth testing and transparency handling. Called automatically during <a class="el" href="classtil_1_1RenderTarget.html#ad3293c7a38922890baab7fa2229adfaf" title="Process all submitted draw calls and render to pixel buffer.">render()</a>. </p>
+<p>Sorts the draw call list in descending depth order. Higher depth values are processed first, so draw calls with smaller depth values are blended last and therefore appear in front. </p>
 
 </div>
 </div>

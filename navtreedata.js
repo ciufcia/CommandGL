@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CommandGL", "index.html", [
+  [ "Textil", "index.html", [
     [ "Textil - Terminal Graphics Library", "index.html", "index" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

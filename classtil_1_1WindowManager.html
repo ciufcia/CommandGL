@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: til::WindowManager Class Reference</title>
+<title>Textil: til::WindowManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -188,7 +189,7 @@ Friends</h2></td></tr>
 <li>Coordinated rendering pipeline execution</li>
 <li>Character buffer management for terminal output</li>
 </ul>
-<p>Windows are stored in a list and can be accessed by their unique IDs. The manager ensures proper layering by sorting windows by depth before rendering, with higher depth values appearing on top.</p>
+<p>Windows are stored in a list and can be accessed by their unique IDs. The manager ensures proper layering by sorting windows by depth before rendering. Lower depth values are drawn last, making them appear on top.</p>
 <p>This class is typically used by the <a class="el" href="classtil_1_1Framework.html" title="Central framework class coordinating all Textil subsystems.">Framework</a> and not directly by applications, though it provides the public interface for window operations. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a16a18a49b576141b049c4af192e36a00" name="a16a18a49b576141b049c4af192e36a00"></a>
@@ -294,7 +295,12 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Removes the window from management and releases its resources. After destruction, the window ID becomes available for reuse. Attempting to destroy a non-existent window ID is safe (no-op). </p>
+<p>Removes the window from management and releases its resources. After destruction, the window ID becomes available for reuse. </p><dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classtil_1_1InvalidArgumentError.html" title="Error for invalid function arguments or parameters.">InvalidArgumentError</a></td><td>if the ID does not reference a managed window </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -353,7 +359,7 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the specified window </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if window ID is not found</td></tr>
+    <tr><td class="paramname"><a class="el" href="classtil_1_1InvalidArgumentError.html" title="Error for invalid function arguments or parameters.">InvalidArgumentError</a></td><td>if the ID is not found</td></tr>
   </table>
   </dd>
 </dl>
@@ -407,7 +413,7 @@ Friends</h2></td></tr>
 
 <p>Get read-only access to all managed windows. </p>
 <dl class="section return"><dt>Returns</dt><dd>Const reference to internal window list</dd></dl>
-<p>Provides iteration access to all windows for inspection or read-only operations. Windows are stored in creation order, not rendering order. </p>
+<p>Provides iteration access to all windows for inspection or read-only operations. Windows retain the ordering established by the most recent call to <a class="el" href="classtil_1_1WindowManager.html#a8826e45f2312e7078a0e4674cda32422" title="Sort windows by depth for proper layering.">sortByDepth()</a>, so the list typically reflects current rendering order (highest depth first). </p>
 
 </div>
 </div>
@@ -492,7 +498,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sort windows by depth for proper layering. </p>
-<p>Arranges windows in rendering order with higher depth values appearing on top. Called before rendering to ensure correct visual layering of overlapping windows. </p>
+<p>Arranges windows so that lower depth values are processed last, allowing them to appear in front of higher depth windows. Called before rendering to ensure consistent overlap behaviour. </p>
 
 </div>
 </div>

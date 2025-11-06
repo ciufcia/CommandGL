@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CommandGL: til::Texture Class Reference</title>
+<title>Textil: til::Texture Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CommandGL
+   <div id="projectname">Textil
    </div>
+   <div id="projectbrief">Cross-platform terminal graphics for modern C++</div>
   </td>
  </tr>
  </tbody>
@@ -150,9 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a8e2be20620703be258179ce9768229" id="r_a8a8e2be20620703be258179ce9768229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Texture.html#a8a8e2be20620703be258179ce9768229">setRawData</a> (const <a class="el" href="classtil_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a> &gt; &amp;size, const std::vector&lt; <a class="el" href="classtil_1_1Color.html">Color</a> &gt; &amp;data)</td></tr>
 <tr class="memdesc:a8a8e2be20620703be258179ce9768229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set texture data from external color array (copy)  <br /></td></tr>
 <tr class="separator:a8a8e2be20620703be258179ce9768229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aca6fac06fa372557f229350db602cc" id="r_a3aca6fac06fa372557f229350db602cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Texture.html#a3aca6fac06fa372557f229350db602cc">setRawData</a> (const <a class="el" href="classtil_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a> &gt; &amp;size, const std::vector&lt; <a class="el" href="classtil_1_1Color.html">Color</a> &gt; &amp;&amp;data)</td></tr>
-<tr class="memdesc:a3aca6fac06fa372557f229350db602cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set texture data from external color array (move)  <br /></td></tr>
-<tr class="separator:a3aca6fac06fa372557f229350db602cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cdc6237ab8d27751d243a694a728da7" id="r_a0cdc6237ab8d27751d243a694a728da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Texture.html#a0cdc6237ab8d27751d243a694a728da7">setRawData</a> (const <a class="el" href="classtil_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a> &gt; &amp;size, std::vector&lt; <a class="el" href="classtil_1_1Color.html">Color</a> &gt; &amp;&amp;data)</td></tr>
+<tr class="memdesc:a0cdc6237ab8d27751d243a694a728da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set texture data from external color array (move)  <br /></td></tr>
+<tr class="separator:a0cdc6237ab8d27751d243a694a728da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3afa74cc45a36f2729d56dccf77dc39" id="r_ae3afa74cc45a36f2729d56dccf77dc39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtil_1_1Texture.html#ae3afa74cc45a36f2729d56dccf77dc39">load</a> (const std::string &amp;filepath)</td></tr>
 <tr class="memdesc:ae3afa74cc45a36f2729d56dccf77dc39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load texture from image file.  <br /></td></tr>
 <tr class="separator:ae3afa74cc45a36f2729d56dccf77dc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -551,7 +552,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Interpolated color at the specified UV position</dd></dl>
-<p>Primary texture sampling method supporting multiple filtering modes. UV coordinates outside [0,1] are clamped to texture edges. </p>
+<p>Primary texture sampling method supporting multiple filtering modes. Coordinates outside [0,1] return the default Color() value (no wrapping or clamping). </p>
 
 </div>
 </div>
@@ -580,7 +581,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Bilinearly interpolated color at UV position</dd></dl>
-<p>High-quality sampling method that interpolates between the 4 nearest pixels. Produces smooth, filtered appearance when scaling textures. More computationally expensive than nearest neighbor. </p>
+<p>High-quality sampling method that interpolates between the 4 nearest pixels. Produces smooth, filtered appearance when scaling textures. More computationally expensive than nearest neighbor. Coordinates outside the texture bounds return the default color. </p>
 
 </div>
 </div>
@@ -608,7 +609,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classtil_1_1Color.html" title="RGBA color representation with blending operations.">Color</a> of the nearest pixel to UV position</dd></dl>
-<p>Fast sampling method that selects the closest pixel without interpolation. Produces sharp, pixelated appearance when scaling textures. </p>
+<p>Fast sampling method that selects the closest pixel without interpolation. Produces sharp, pixelated appearance when scaling textures. Returns the default color when coordinates fall outside the texture. </p>
 
 </div>
 </div>
@@ -680,51 +681,12 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Direct pixel access for texture modification. Position must be within texture bounds [0, width) × [0, height). No bounds checking performed. </p>
-
-</div>
-</div>
-<a id="a3aca6fac06fa372557f229350db602cc" name="a3aca6fac06fa372557f229350db602cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aca6fac06fa372557f229350db602cc">&#9670;&#160;</a></span>setRawData() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void til::Texture::setRawData </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtil_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classtil_1_1Color.html">Color</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set texture data from external color array (move) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size</td><td>Dimensions of the source data <br  />
- </td></tr>
-    <tr><td class="paramname">data</td><td>Vector of <a class="el" href="classtil_1_1Color.html" title="RGBA color representation with blending operations.">Color</a> values to move from</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Moves provided color data into texture for optimal performance. Source vector is left in valid but unspecified state after move. </p>
+<p>Direct pixel access for texture modification. Positions outside the texture bounds are ignored. </p>
 
 </div>
 </div>
 <a id="a8a8e2be20620703be258179ce9768229" name="a8a8e2be20620703be258179ce9768229"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a8e2be20620703be258179ce9768229">&#9670;&#160;</a></span>setRawData() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8e2be20620703be258179ce9768229">&#9670;&#160;</a></span>setRawData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -761,6 +723,45 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0cdc6237ab8d27751d243a694a728da7" name="a0cdc6237ab8d27751d243a694a728da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cdc6237ab8d27751d243a694a728da7">&#9670;&#160;</a></span>setRawData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void til::Texture::setRawData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtil_1_1Vector2.html">Vector2</a>&lt; <a class="el" href="namespacetil.html#a67e52836fceb3eeb0585be91f8a12eb5">u32</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classtil_1_1Color.html">Color</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set texture data from external color array (move) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Dimensions of the source data <br  />
+ </td></tr>
+    <tr><td class="paramname">data</td><td>Vector of <a class="el" href="classtil_1_1Color.html" title="RGBA color representation with blending operations.">Color</a> values to move from</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Moves provided color data into texture for optimal performance. Source vector is left in valid but unspecified state after move. </p>
+
+</div>
+</div>
 <a id="af3b3afa95a42c6ba87c9fa9fd9c1744a" name="af3b3afa95a42c6ba87c9fa9fd9c1744a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3b3afa95a42c6ba87c9fa9fd9c1744a">&#9670;&#160;</a></span>setSize()</h2>
 
@@ -785,7 +786,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Previous size before resize</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Updated size after resize</dd></dl>
 <p>Reallocates internal data array and fills with default <a class="el" href="classtil_1_1Color.html" title="RGBA color representation with blending operations.">Color</a> values. Previous texture content is lost during resize operation. </p>
 
 </div>

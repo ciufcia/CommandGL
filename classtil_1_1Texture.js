@@ -18,8 +18,8 @@ var classtil_1_1Texture =
     [ "sampleNearestNeighbor", "classtil_1_1Texture.html#afed809c59ea6fb068be062e44daaa3c2", null ],
     [ "save", "classtil_1_1Texture.html#a26f70f306a8e694a88a6d7d33f63492b", null ],
     [ "setPixel", "classtil_1_1Texture.html#a50f7021345a07060a6dd5cb4d7b7312a", null ],
-    [ "setRawData", "classtil_1_1Texture.html#a3aca6fac06fa372557f229350db602cc", null ],
     [ "setRawData", "classtil_1_1Texture.html#a8a8e2be20620703be258179ce9768229", null ],
+    [ "setRawData", "classtil_1_1Texture.html#a0cdc6237ab8d27751d243a694a728da7", null ],
     [ "setSize", "classtil_1_1Texture.html#af3b3afa95a42c6ba87c9fa9fd9c1744a", null ],
     [ "m_data", "classtil_1_1Texture.html#a2a1d4b13267e0a47dbf16b197f1db937", null ],
     [ "m_size", "classtil_1_1Texture.html#af043593146abf2e057b7bb06ccbe3abd", null ]

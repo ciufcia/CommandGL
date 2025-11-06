@@ -19,7 +19,7 @@ var searchData=
   ['setpoints_16',['setPoints',['../classtil_1_1Polygon.html#a5d6211834903898937423dc20c2b3b37',1,'til::Polygon']]],
   ['setpointuv_17',['setPointUV',['../classtil_1_1Polygon.html#adbb2ffc3642e8675bb0fb3d60d9b73fc',1,'til::Polygon']]],
   ['setposition_18',['setposition',['../classtil_1_1Transform.html#a1ea67d9eafabf26bd5048fe658176cb1',1,'til::Transform::setPosition()'],['../classtil_1_1Window.html#ab6a9e75cf7f798fdd7b1f68a4c4343a1',1,'til::Window::setPosition()']]],
-  ['setrawdata_19',['setrawdata',['../classtil_1_1Texture.html#a3aca6fac06fa372557f229350db602cc',1,'til::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, const std::vector&lt; Color &gt; &amp;&amp;data)'],['../classtil_1_1Texture.html#a8a8e2be20620703be258179ce9768229',1,'til::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, const std::vector&lt; Color &gt; &amp;data)']]],
+  ['setrawdata_19',['setrawdata',['../classtil_1_1Texture.html#a0cdc6237ab8d27751d243a694a728da7',1,'til::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, std::vector&lt; Color &gt; &amp;&amp;data)'],['../classtil_1_1Texture.html#a8a8e2be20620703be258179ce9768229',1,'til::Texture::setRawData(const Vector2&lt; u32 &gt; &amp;size, const std::vector&lt; Color &gt; &amp;data)']]],
   ['setrenderer_20',['setRenderer',['../classtil_1_1RenderTarget.html#a3ae4fcfdea1808f7c154aac29c13348a',1,'til::RenderTarget']]],
   ['setrotation_21',['setRotation',['../classtil_1_1Transform.html#a03908aec07903899a25d77d894995f62',1,'til::Transform']]],
   ['setscale_22',['setScale',['../classtil_1_1Transform.html#a9f41474625f6e163201b7c0e630163be',1,'til::Transform']]],
