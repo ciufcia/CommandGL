@@ -27,9 +27,10 @@ namespace til
      *          - Character conversion pipeline for terminal output
      *          - Independent character buffer for terminal rendering
      * 
-     *          Windows are managed by WindowManager and can overlap, with depth
-     *          values determining rendering order. Each window maintains its own
-     *          coordinate system where (0,0) represents the window's top-left corner.
+    *          Windows are managed by WindowManager and can overlap, with depth
+    *          values determining rendering order. Lower depth values render in
+    *          front of higher depth values. Each window maintains its own
+    *          coordinate system where (0,0) represents the window's top-left corner.
      */
     class Window : public RenderTarget
     {
@@ -97,7 +98,7 @@ namespace til
     public:
         Vector2<i32> m_position { 0, 0 }; ///< Window position in screen coordinates
 
-        f32 depth = 0.f; ///< Depth value for layering (higher values render on top)
+    f32 depth = 0.f; ///< Depth value for layering (smaller values render on top)
 
         u32 id = 0; ///< Unique identifier for this window
 

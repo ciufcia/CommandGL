@@ -34,29 +34,30 @@
  * int main() {
  *     til::Framework framework;
  *     framework.initialize();
- *     
- *     // Create a window
- *     auto window = framework.windowManager.createWindow({0, 0}, {80, 24});
- *     
- *     // Main application loop
+ *     framework.setTargetUpdateRate(30);
+ * 
+ *     til::Window &window = framework.windowManager.createWindow();
+ *     window.setSize({80, 24});
+ *     window.setRenderer(&framework.renderer);
+ * 
+ *     til::filters::SingleCharacterColored glyph('#');
+ *     window.characterPipeline.addFilter(&glyph).build();
+ * 
  *     bool running = true;
  *     while (running) {
- *         framework.update();
- *         
- *         // Process events
- *         for (const auto& event : framework.eventManager.getEvents()) {
- *             if (event.isOfType<til::KeyPressEvent>() && event.key == til::KeyCode::Escape) {
+ *         while (auto event = framework.eventManager.pollEvent()) {
+ *             if (event->isOfType<til::KeyPressEvent>() && event->key == til::KeyCode::Escape) {
  *                 running = false;
  *             }
  *         }
- *         
- *         // Render graphics
- *         window->clear();
- *         // ... your rendering code here ...
- *         
+ * 
+ *         window.fill({0, 0, 0, 255});
+ *         framework.renderer.drawImmediatePixel(window, {40, 12}, {255, 60, 60, 255});
+ * 
  *         framework.display();
+ *         framework.update();
  *     }
- *     
+ * 
  *     return 0;
  * }
  * ```

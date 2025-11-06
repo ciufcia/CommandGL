@@ -45,7 +45,7 @@ namespace til
         m_data = data;
     }
 
-    void Texture::setRawData(const Vector2<u32> &size, const std::vector<Color> &&data) {
+    void Texture::setRawData(const Vector2<u32> &size, std::vector<Color> &&data) {
         if (size.x * size.y != data.size()) {
             invokeError<InvalidArgumentError>("Size does not match data length");
         }

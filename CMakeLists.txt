@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.26)
 project(
     Textil
     VERSION 1.0.0
-    DESCRIPTION "Command line graphics library for Windows written in C++."
+    DESCRIPTION "Cross-platform terminal graphics library for modern C++."
     LANGUAGES CXX
 )
 

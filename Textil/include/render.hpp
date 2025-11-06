@@ -179,7 +179,7 @@ namespace til
      */
     struct DrawCall
     {
-        f32 depth = 0.f;        ///< Depth value for sorting (lower values rendered first)
+        f32 depth = 0.f;        ///< Depth value used for sorting (higher values processed first during rendering)
         u32 data_index = 0;     ///< Index into the draw call data pool
     };
 
@@ -365,13 +365,13 @@ namespace til
          */
         void setPixelWithBlend(const Vector2<u32> &position, const Color &color, BlendMode blendMode);
 
-        /**
-         * @brief Sort all draw calls by depth value
-         * 
-         * @details Sorts the draw call list to ensure proper rendering
-         * order with correct depth testing and transparency handling.
-         * Called automatically during render().
-         */
+    /**
+     * @brief Sort all draw calls by depth value
+     * 
+      * @details Sorts the draw call list in descending depth order. Higher
+      * depth values are processed first, so draw calls with smaller depth
+      * values are blended last and therefore appear in front.
+     */
         void sortDrawCalls();
 
         /**

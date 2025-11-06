@@ -24,9 +24,9 @@ namespace til
      *          - Coordinated rendering pipeline execution
      *          - Character buffer management for terminal output
      * 
-     *          Windows are stored in a list and can be accessed by their unique IDs.
-     *          The manager ensures proper layering by sorting windows by depth before
-     *          rendering, with higher depth values appearing on top.
+    *          Windows are stored in a list and can be accessed by their unique IDs.
+    *          The manager ensures proper layering by sorting windows by depth before
+    *          rendering. Lower depth values are drawn last, making them appear on top.
      * 
      *          This class is typically used by the Framework and not directly by
      *          applications, though it provides the public interface for window operations.
@@ -68,31 +68,32 @@ namespace til
          */
         Window &createWindow();
         
-        /**
-         * @brief Destroy window with specified ID
-         * @param id Unique identifier of window to destroy
-         * @details Removes the window from management and releases its resources.
-         *          After destruction, the window ID becomes available for reuse.
-         *          Attempting to destroy a non-existent window ID is safe (no-op).
-         */
+    /**
+     * @brief Destroy window with specified ID
+     * @param id Unique identifier of window to destroy
+     * @details Removes the window from management and releases its resources.
+     *          After destruction, the window ID becomes available for reuse.
+     * @throws InvalidArgumentError if the ID does not reference a managed window
+     */
         void destroyWindow(u32 id);
         
-        /**
-         * @brief Get reference to window by ID
-         * @param id Unique identifier of window to retrieve
-         * @return Reference to the specified window
-         * @throws std::runtime_error if window ID is not found
-         * @details Provides access to existing windows for modification or rendering.
-         *          The returned reference remains valid until the window is destroyed.
-         */
+    /**
+     * @brief Get reference to window by ID
+     * @param id Unique identifier of window to retrieve
+     * @return Reference to the specified window
+     * @throws InvalidArgumentError if the ID is not found
+     * @details Provides access to existing windows for modification or rendering.
+     *          The returned reference remains valid until the window is destroyed.
+     */
         Window &getWindow(u32 id);
 
         /**
          * @brief Get read-only access to all managed windows
          * @return Const reference to internal window list
          * @details Provides iteration access to all windows for inspection or
-         *          read-only operations. Windows are stored in creation order,
-         *          not rendering order.
+         *          read-only operations. Windows retain the ordering established
+         *          by the most recent call to sortByDepth(), so the list typically
+         *          reflects current rendering order (highest depth first).
          */
         const std::list<Window>& getWindows() const;
 
@@ -104,12 +105,12 @@ namespace til
          */
         void renderWindows();
 
-        /**
-         * @brief Sort windows by depth for proper layering
-         * @details Arranges windows in rendering order with higher depth values
-         *          appearing on top. Called before rendering to ensure correct
-         *          visual layering of overlapping windows.
-         */
+    /**
+     * @brief Sort windows by depth for proper layering
+     * @details Arranges windows so that lower depth values are processed last,
+     *          allowing them to appear in front of higher depth windows. Called
+     *          before rendering to ensure consistent overlap behaviour.
+     */
         void sortByDepth();
 
         /**

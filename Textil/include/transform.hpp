@@ -24,15 +24,16 @@ namespace til
      *          application to geometry. Supports hierarchical transformations and
      *          origin-based operations for intuitive object manipulation.
      * 
-     *          The transformation order is: Scale → Rotate → Translate, applied relative
-     *          to the specified origin point. This order ensures predictable behavior
-     *          for most graphics operations.
-     * 
-     *          Coordinate system conventions:
-     *          - Positive X points right
-     *          - Positive Y points down (screen coordinates)
-     *          - Rotation is in radians, positive values rotate clockwise
-     *          - Origin (0,0) is typically top-left corner
+    *          The transformation order is: Scale → Rotate → Translate, applied relative
+    *          to the specified origin point. This order ensures predictable behavior
+    *          for most graphics operations.
+    * 
+    *          Coordinate system conventions:
+    *          - Positive X points right
+    *          - Positive Y points down (screen coordinates)
+    *          - Rotation is stored internally in radians (positive values rotate clockwise)
+    *            but `setRotation()` expects degrees for convenience
+    *          - Origin (0,0) is typically top-left corner
      */
     class Transform
     {
@@ -81,10 +82,10 @@ namespace til
          */
         Vector2<f32> getScale() const;
         
-        /**
-         * @brief Get current rotation angle
-         * @return Rotation in radians (positive = clockwise)
-         */
+    /**
+     * @brief Get current rotation angle
+     * @return Rotation in radians (positive = clockwise)
+     */
         f32 getRotation() const;
         
         /**
@@ -110,12 +111,12 @@ namespace til
          */
         void setScale(const Vector2<f32>& scale);
         
-        /**
-         * @brief Set absolute rotation angle
-         * @param rotation New rotation in radians (positive = clockwise)
-         * @details Sets object orientation. Rotation occurs around the origin point.
-         *          Full rotation is 2π radians (360 degrees).
-         */
+    /**
+     * @brief Set absolute rotation angle
+     * @param rotation New rotation in degrees (positive = clockwise)
+     * @details Sets object orientation. Rotation occurs around the origin point.
+     *          The value is converted to radians internally. Full rotation is 360 degrees.
+     */
         void setRotation(f32 rotation);
         
         /**

@@ -1,1 +1,3 @@
-add_subdirectory(basics)
+add_subdirectory(minimal_loop)
+add_subdirectory(interactive_canvas)
+add_subdirectory(raycast_demo)

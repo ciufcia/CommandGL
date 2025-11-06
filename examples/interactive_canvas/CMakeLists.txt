@@ -1,0 +1,2 @@
+add_executable(interactive_canvas interactive_canvas.cpp)
+target_link_libraries(interactive_canvas PRIVATE Textil)

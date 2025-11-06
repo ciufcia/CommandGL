@@ -1,92 +1,95 @@
-<div align="center">
+# Textil
 
-# CommandGL
+Textil is a modern C++20 framework for building rich, animated graphics directly in the terminal. It wraps console configuration, rendering, window management, timing, and input into a single, cohesive API that works the same on Windows, Linux, and macOS.
 
-## Command line graphics library for Windows written in C++.
+## Highlights
+- Cross-platform console backends built on WinAPI, termios/libevdev, and macOS HID
+- Immediate-mode renderer with primitives, meshes, textures, and blend modes
+- Filter pipelines for post-processing and character conversion
+- Window manager for layered composition and z-ordered layout
+- Event system covering keyboard, mouse, and console notifications
+- MIT licensed and ready to embed in existing CMake projects
 
-### [About ❔](#about)
-### [Building ⚒️](#building)
-### [Tour 🗺️](examples/tour/table_of_contents.md)
-### [Showcase](#showcase) ⭐
-### [Documentation 📘](https://ciufcia.github.io/CommandGL/)
+## Platform Support and Dependencies
+- Windows: Visual Studio 2022 or newer with OpenMP support enabled
+- Linux: GCC or Clang with OpenMP; requires `libevdev` headers for raw input
+- macOS: Clang with OpenMP (`brew install libomp`), HID permissions enabled
+- All platforms: CMake 3.26+, a compiler with full C++20 support, and a terminal capable of 24-bit color escape codes
 
-</div>
+## Quick Start
 
-## About
-
-CommandGL (cgl) is a modern C++ 20 framework for high-performance rasterization and interactive graphics directly in the Windows console. It provides efficient rendering, robust input handling, and a flexible architecture designed for both customization and ease of use. CommandGL empowers developers to create advanced console-based graphical applications with minimal overhead and maximum control.
-
-## Building
-
-### Prerequisites:
-
-- **Windows** as the operating system
-- **CMake** (version 3.26 or higher)
-- **C++ 20 compatible compiler**
-- **OpenMP**
-
-### Option 1 - use FetchContent
-
-You can add CommandGL as a dependency to your own CMake project using [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html):
-
+### FetchContent
 ```cmake
 include(FetchContent)
 
 FetchContent_Declare(
-    CommandGL
+    Textil
     GIT_REPOSITORY https://github.com/ciufcia/CommandGL.git
-    GIT_TAG        v1.0
+    GIT_TAG        main
 )
 
-FetchContent_MakeAvailable(CommandGL)
+FetchContent_MakeAvailable(Textil)
 
-target_link_libraries(your_target PRIVATE CommandGL)
+target_link_libraries(your_target PRIVATE Textil)
 ```
-### Option 2 - build manually
 
-#### 1. Clone the repository.
-
+### Build from Source
 ```sh
-git clone https://github.com/ciufcia/CommandGL.git && cd CommandGL
+git clone https://github.com/ciufcia/CommandGL.git
+cd CommandGL
+cmake -S . -B build
+cmake --build build
+cmake --install build --prefix "${PWD}/dist"
 ```
 
-#### 2. Create a build directory.
+### Minimal Program
+```cpp
+#include <til.hpp>
 
-```sh
-mkdir build && cd build
+int main() {
+    til::Framework framework;
+    framework.initialize();
+    framework.setTargetUpdateRate(30);
+
+    auto &window = framework.windowManager.createWindow();
+    window.setSize({64, 24});
+    window.setRenderer(&framework.renderer);
+
+    til::filters::SingleCharacterColored glyph('#');
+    window.characterPipeline.addFilter(&glyph).build();
+
+    bool running = true;
+    while (running) {
+        while (auto event = framework.eventManager.pollEvent()) {
+            if (event->isOfType<til::KeyPressEvent>() && event->key == til::KeyCode::Escape) {
+                running = false;
+            }
+        }
+
+        window.fill({20, 20, 40, 255});
+        framework.renderer.drawImmediatePixel(window, {10, 10}, {255, 120, 0, 255});
+
+        framework.display();
+        framework.update();
+    }
+
+    return 0;
+}
 ```
 
-#### 3. Generate project files using CMake.
+## Examples
+- `examples/minimal_loop`: color sweep and event loop boilerplate (`cmake --build build --target minimal_loop`)
+- `examples/interactive_canvas`: arrow-key controlled ellipse demonstrating filter pipelines (`cmake --build build --target interactive_canvas`)
+- `examples/basics`: rotating mesh with character and fragment filters (`cmake --build build --target basics`)
+- `examples/raycast_demo`: pseudo-3D raycaster with WASD + QE/arrow rotation controls (`cmake --build build --target raycast_demo`)
 
-```sh
-cmake ..
-```
+See `docs/examples.md` for usage notes and expected behaviour.
 
-#### 4. Build the project using CMake.
+## Documentation
+- Header-based API reference is generated with Doxygen: `doxygen docs/Doxyfile`
+- `docs/getting_started.md` covers architecture, frame flow, and integration tips
+- Prebuilt documentation is published at https://ciufcia.github.io/CommandGL/
 
-```sh
-cmake --build .
-```
-
-#### 5. Install.
-
-```sh
-cmake --install .
-```
-
-#### 6. You can now link to CommandGL via:
-
-```cmake
-find_package(CommandGL REQUIRED)
-
-target_link_libraries(your_target PRIVATE CommandGL::CommandGL)
-```
-
-## Showcase
-
-## ⭐ [Asteroids](https://github.com/ciufcia/Asteroids?tab=readme-ov-file)
-
-### 🎬
-
-[![Video](https://img.youtube.com/vi/_tC4R2s1Evk/0.jpg)](https://youtu.be/_tC4R2s1Evk?si=tbBk5HRBGwbJfX2_)
+## License
+Textil is released under the MIT License. See `LICENSE` for details.
 

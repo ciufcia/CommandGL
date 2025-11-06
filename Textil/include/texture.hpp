@@ -103,7 +103,7 @@ namespace til
         /**
          * @brief Resize texture and clear contents
          * @param size New dimensions in pixels  
-         * @return Previous size before resize
+         * @return Updated size after resize
          * @details Reallocates internal data array and fills with default Color values.
          *          Previous texture content is lost during resize operation.
          */
@@ -125,7 +125,7 @@ namespace til
          * @details Moves provided color data into texture for optimal performance.
          *          Source vector is left in valid but unspecified state after move.
          */
-        void setRawData(const Vector2<u32> &size, const std::vector<Color> &&data);
+        void setRawData(const Vector2<u32> &size, std::vector<Color> &&data);
 
         /**
          * @brief Load texture from image file
@@ -145,13 +145,13 @@ namespace til
          */
         void save(const std::string &filepath) const;
 
-        /**
-         * @brief Set color of specific pixel
-         * @param position Pixel coordinates (x, y) in texture space
-         * @param color New color value for the pixel
-         * @details Direct pixel access for texture modification. Position must be within
-         *          texture bounds [0, width) × [0, height). No bounds checking performed.
-         */
+    /**
+     * @brief Set color of specific pixel
+     * @param position Pixel coordinates (x, y) in texture space
+     * @param color New color value for the pixel
+     * @details Direct pixel access for texture modification. Positions outside the
+     *          texture bounds are ignored.
+     */
         void setPixel(const Vector2<u32> &position, const Color &color);
 
         /**
@@ -160,7 +160,7 @@ namespace til
          * @param mode Sampling method to use for interpolation
          * @return Interpolated color at the specified UV position
          * @details Primary texture sampling method supporting multiple filtering modes.
-         *          UV coordinates outside [0,1] are clamped to texture edges.
+         *          Coordinates outside [0,1] return the default Color() value (no wrapping or clamping).
          */
         Color sample(const Vector2<f32> &uv, SamplingMode mode) const;
 
@@ -169,7 +169,8 @@ namespace til
          * @param uv Normalized coordinates (0.0-1.0 range)
          * @return Color of the nearest pixel to UV position
          * @details Fast sampling method that selects the closest pixel without interpolation.
-         *          Produces sharp, pixelated appearance when scaling textures.
+         *          Produces sharp, pixelated appearance when scaling textures. Returns the
+         *          default color when coordinates fall outside the texture.
          */
         Color sampleNearestNeighbor(const Vector2<f32> &uv) const;
 
@@ -179,7 +180,8 @@ namespace til
          * @return Bilinearly interpolated color at UV position
          * @details High-quality sampling method that interpolates between the 4 nearest pixels.
          *          Produces smooth, filtered appearance when scaling textures.
-         *          More computationally expensive than nearest neighbor.
+         *          More computationally expensive than nearest neighbor. Coordinates outside
+         *          the texture bounds return the default color.
          */
         Color sampleBilinear(const Vector2<f32> &uv) const;
 

@@ -67,7 +67,7 @@ namespace til
          * @brief Render and display the current frame
          * @details Coordinates the rendering pipeline:
          *          1. Renders all managed windows
-         *          2. Sorts windows by depth for proper layering
+         *          2. Sorts windows by depth so lower depth values render on top
          *          3. Draws windows to console buffer
          *          4. Flushes buffer to terminal display
          * @throws LogicError if called before initialize()
@@ -90,7 +90,8 @@ namespace til
          * @param updatesPerSecond Desired update frequency (e.g., 60 for 60 FPS)
          * @details Configures frame rate limiting to maintain consistent timing.
          *          The framework will sleep between updates to match this rate.
-         *          Setting to 0 disables rate limiting (run as fast as possible).
+         *          Value must be greater than zero; use setTargetUpdateDuration(
+         *          std::chrono::steady_clock::duration::zero()) to disable rate limiting.
          */
         void setTargetUpdateRate(u32 updatesPerSecond);
         
