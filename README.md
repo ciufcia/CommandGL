@@ -24,7 +24,7 @@ include(FetchContent)
 
 FetchContent_Declare(
     Textil
-    GIT_REPOSITORY https://github.com/ciufcia/CommandGL.git
+    GIT_REPOSITORY https://github.com/ciufcia/Textil.git
     GIT_TAG        main
 )
 
@@ -35,8 +35,8 @@ target_link_libraries(your_target PRIVATE Textil)
 
 ### Build from Source
 ```sh
-git clone https://github.com/ciufcia/CommandGL.git
-cd CommandGL
+git clone https://github.com/ciufcia/Textil.git
+cd Textil
 cmake -S . -B build
 cmake --build build
 cmake --install build --prefix "${PWD}/dist"
@@ -88,7 +88,7 @@ See `docs/examples.md` for usage notes and expected behaviour.
 ## Documentation
 - Header-based API reference is generated with Doxygen: `doxygen docs/Doxyfile`
 - `docs/getting_started.md` covers architecture, frame flow, and integration tips
-- Prebuilt documentation is published at https://ciufcia.github.io/CommandGL/
+- Prebuilt documentation is published at https://ciufcia.github.io/Textil/
 
 ## License
 Textil is released under the MIT License. See `LICENSE` for details.
