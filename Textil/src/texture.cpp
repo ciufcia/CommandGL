@@ -67,7 +67,7 @@ namespace til
 
         for (u32 y = 0; y < m_size.y; ++y) {
             for (u32 x = 0; x < m_size.x; ++x) {
-                int index = (y * m_size.x + x) * 4;
+                size_t index = (static_cast<size_t>(y) * m_size.x + x) * 4;
 
                 u8 r = imageData[index];
                 u8 g = imageData[index + 1];
@@ -92,7 +92,7 @@ namespace til
 
         for (u32 y = 0; y < m_size.y; ++y) {
             for (u32 x = 0; x < m_size.x; ++x) {
-                int index = (y * m_size.x + x) * 4;
+                size_t index = (static_cast<size_t>(y) * m_size.x + x) * 4;
                 const Color &color = m_data[y * m_size.x + x];
 
                 imageData[index] = color.r;
@@ -114,8 +114,6 @@ namespace til
     }
 
     Color Texture::sample(const Vector2<f32> &uv, SamplingMode mode) const {
-        Vector2<u32> normalizedUV = normalizeUV(uv);
-
         switch (mode) {
             case SamplingMode::NearestNeighbor:
                 return sampleNearestNeighbor(uv);

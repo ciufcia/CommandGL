@@ -95,7 +95,7 @@ namespace til
     }
 
     void Renderer::drawImmediatePixel(RenderTarget &renderTarget, const Vector2<u32> &position, const Color &color, BlendMode blendMode) {
-        if (position.x > renderTarget.getBufferSize().x || position.y > renderTarget.getBufferSize().y) {
+        if (position.x >= renderTarget.getBufferSize().x || position.y >= renderTarget.getBufferSize().y) {
             return;
         }
         renderTarget.setPixelWithBlend(position, color, blendMode);
@@ -251,8 +251,14 @@ namespace til
         }
 
         Vector2<f32> size = bottomRight - topLeft;
-        Vector2<f32> inverseSize = { 1.f / size.x, 1.f / size.y };
-        Vector2<f32> inverseDiameter = { 1.f / (2.f * ellipse.radii.x), 1.f / (2.f * ellipse.radii.y) };
+        Vector2<f32> inverseSize = {
+            (size.x > 1e-6f) ? 1.f / size.x : 0.f,
+            (size.y > 1e-6f) ? 1.f / size.y : 0.f
+        };
+        Vector2<f32> inverseDiameter = {
+            (ellipse.radii.x > 1e-6f) ? 1.f / (2.f * ellipse.radii.x) : 0.f,
+            (ellipse.radii.y > 1e-6f) ? 1.f / (2.f * ellipse.radii.y) : 0.f
+        };
 
         Vector2<u32> renderTargetSize = renderTarget.getBufferSize();
         
@@ -371,7 +377,10 @@ namespace til
             triangle.bottomRight = { std::max({ p1.x, p2.x, p3.x }), std::max({ p1.y, p2.y, p3.y }) };
 
             triangle.size = triangle.bottomRight - triangle.topLeft;
-            triangle.inverseSize = { 1.f / triangle.size.x, 1.f / triangle.size.y };
+            triangle.inverseSize = {
+                (triangle.size.x > 1e-6f) ? 1.f / triangle.size.x : 0.f,
+                (triangle.size.y > 1e-6f) ? 1.f / triangle.size.y : 0.f
+            };
 
             triangle.e1a = p1.y - p2.y; triangle.e1b = p2.x - p1.x; triangle.e1c = p1.x * p2.y - p2.x * p1.y;
             triangle.e2a = p2.y - p3.y; triangle.e2b = p3.x - p2.x; triangle.e2c = p2.x * p3.y - p3.x * p2.y;

@@ -580,17 +580,22 @@ namespace til
         );
 
         int page = kHIDPage_GenericDesktop;
+        CFNumberRef pageNumber = CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page);
         CFDictionarySetValue(
             keyboardDictionary,
             CFSTR(kIOHIDDeviceUsagePageKey),
-            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page)
+            pageNumber
         );
+        CFRelease(pageNumber);
+        
         int usage = kHIDUsage_GD_Keyboard;
+        CFNumberRef usageNumber = CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage);
         CFDictionarySetValue(
             keyboardDictionary,
             CFSTR(kIOHIDDeviceUsageKey),
-            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage)
+            usageNumber
         );
+        CFRelease(usageNumber);
 
         return keyboardDictionary;
     }
@@ -649,17 +654,22 @@ namespace til
         );
 
         int page = kHIDPage_GenericDesktop;
+        CFNumberRef pageNumber = CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page);
         CFDictionarySetValue(
             mouseDictionary,
             CFSTR(kIOHIDDeviceUsagePageKey),
-            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &page)
+            pageNumber
         );
+        CFRelease(pageNumber);
+        
         int usage = kHIDUsage_GD_Mouse;
+        CFNumberRef usageNumber = CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage);
         CFDictionarySetValue(
             mouseDictionary,
             CFSTR(kIOHIDDeviceUsageKey),
-            CFNumberCreate(kCFAllocatorDefault, kCFNumberIntType, &usage)
+            usageNumber
         );
+        CFRelease(usageNumber);
 
         return mouseDictionary;
     }
@@ -699,10 +709,12 @@ namespace til
 
         IOHIDManagerRegisterInputValueCallback(m_hidManager, Console::unifiedInputCallback, this);
 
-        IOHIDManagerScheduleWithRunLoop(m_hidManager, m_runLoop, kCFRunLoopDefaultMode);
-        IOHIDManagerOpen(m_hidManager, kIOHIDOptionsTypeNone);
-
         m_inputThread = std::thread(&Console::inputThreadFunction, this);
+        
+        // Release Core Foundation objects
+        CFRelease(mouseDictionary);
+        CFRelease(keyboardDictionary);
+        CFRelease(matchingArray);
     }
 
     void Console::stopInputThread() {
